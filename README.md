@@ -84,8 +84,8 @@ Garantizar un suministro constante y competitivo en el tiempo gracias a nuestra 
 ***
 ## Daniel Barrera
 
-- Nombre: ?
-- Edad: ?
-- Ciudad: ?
-- Hobby: ?
-- Trabajo: ?
+- Nombre: Daniel Barrera
+- Edad: 32 años
+- Ciudad: Cutral - co
+- Hobby: jugar al Futbol
+- Trabajo: BackEnd Developer in Boun Aseo 
