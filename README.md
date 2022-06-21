@@ -53,3 +53,39 @@ Garantizar un suministro constante y competitivo en el tiempo gracias a nuestra 
 
 5- **Maxus** https://maxusargentina.com/
 	Por ultimo, al igual que la de pop, nos gusto de forma general y fue una de las principales bases de nuestra inspiracion.
+
+***
+# Integrantes del Proyecto
+
+## Richard Cuevas
+
+- Nombre: Richard Cuevas
+- Edad: 24 años
+- Ciudad: Plaza Huincul
+- Hobby: Calistenia
+- Trabajo: BackEnd Developer in Buon Aseo
+***
+
+## Matias Sabbadini
+
+- Nombre: Matias Sabbadini
+- Edad: 30 años
+- Ciudad: Cutral-Co
+- Hobby: Ver Peliculas de Terror
+- Trabajo: Frontend Developer in Buon Aseo
+***
+## Sirley
+
+- Nombre: ?
+- Edad: ?
+- Ciudad: ?
+- Hobby: ?
+- Trabajo: ?
+***
+## Daniel Barrera
+
+- Nombre: ?
+- Edad: ?
+- Ciudad: ?
+- Hobby: ?
+- Trabajo: ?
