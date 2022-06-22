@@ -59,7 +59,7 @@ Garantizar un suministro constante y competitivo en el tiempo gracias a nuestra 
 
 ## Richard Cuevas
 
-- Nombre: Richard Cuevas
+- Nombre: Richard Adrian Cuevas
 - Edad: 24 años
 - Ciudad: Plaza Huincul
 - Hobby: Calistenia
