@@ -74,13 +74,13 @@ Garantizar un suministro constante y competitivo en el tiempo gracias a nuestra 
 - Hobby: Ver Peliculas de Terror
 - Trabajo: Frontend Developer in Buon Aseo
 ***
-## Sirley
+## Sirley Chavanne
 
-- Nombre: ?
-- Edad: ?
-- Ciudad: ?
-- Hobby: ?
-- Trabajo: ?
+- Nombre: Sirley Chavanne
+- Edad: 25
+- Ciudad: Neuquen Capital
+- Hobby: Mirar peliculas
+- Trabajo: Frontend Developer in Buon Aseo
 ***
 ## Daniel Barrera
 
