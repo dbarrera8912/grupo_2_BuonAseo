@@ -88,4 +88,4 @@ Garantizar un suministro constante y competitivo en el tiempo gracias a nuestra 
 - Edad: 32 años
 - Ciudad: Cutral - co
 - Hobby: jugar al Futbol
-- Trabajo: BackEnd Developer in Boun Aseo 
+- Trabajo: BackEnd Developer in Boun Aseo
