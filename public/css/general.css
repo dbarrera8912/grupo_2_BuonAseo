@@ -1,12 +1,3 @@
-@import "./general.css";
-@import "./header.css";
-@import "./footer.css";
-@import "./home.css";
-@import "./detalle.css";
-@import "./carrito.css";
-@import "./form-login.css";
-@import "./normalize.css";
-
 * {
   box-sizing: border-box;
   margin: 0;
