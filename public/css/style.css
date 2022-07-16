@@ -1,3 +1,4 @@
+@import "./normalize.css";
 @import "./general.css";
 @import "./header.css";
 @import "./footer.css";
@@ -5,4 +6,3 @@
 @import "./detalle.css";
 @import "./carrito.css";
 @import "./form-login.css";
-@import "./normalize.css";
