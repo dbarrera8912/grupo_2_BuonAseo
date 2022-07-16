@@ -1,7 +1,7 @@
 # Retrospectiva Sprint N°1
 
 ## Starfish:
-
+![image text](https://github.com/dbarrera8912/grupo_2_BuonAseo/blob/develop/public/img/imageRetroMd/Starfish.PNG)
 ***
 ## En general:
 Mas alla de lo detallado en la imagen, concordamos que el equipo esta bien en todos los aspectos, debemos seguir de esta forma a lo largo de todo el proyecto, manteniendo el funcionamiento y compromiso del anterior sprint.
