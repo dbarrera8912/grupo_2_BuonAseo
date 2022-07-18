@@ -1,18 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/img/Logo.png">
-    <link rel="stylesheet" href="/css/style.css">
-  <script
-      src="https://kit.fontawesome.com/7ad2cc9ddb.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>Formulario | Buon Aseo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/img/Logo.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://kit.fontawesome.com/7ad2cc9ddb.js" crossorigin="anonymous"></script>
+  <title>Formulario | Buon Aseo</title>
 </head>
-<body>
-    
+
+<body class="registro">
+  <main class="registro_main">
+    <!-- LOGO, TITULO Y SALIDA -->
+    <section class="registro__logo-y-titulo">
+      <div class="registro__logo-y-titulo__logo">
+        <a href="/"><img class="registro__logo-y-titulo__logo2" src="/img/logo.png"
+            alt="logo pagina"></a>
+      </div>
+      <a class="registro__logo-y-titulo__salida" href="/">x</a>
+      <h2 class="registro__logo-y-titulo__titulo">Registrarse</h2>
+    </section>
+    <!-- REGISTRO REDES -->
+    <section class="registro__redes">
+      <h4 class="registro__redes__titulo">Con su red favorita</h4>
+      <article class="registro__redes__containerFB">
+        <button class="registro__redes__botonFB">Continuar con <b>Facebook</b></button>
+        <img src="/img/login-register/imgFacebook.png" alt="facebook">
+      </article>
+      <article class="registro__redes__containerGoogle">
+        <button class="registro__redes__botonGoogle">Continuar con <b>Google</b></button>
+        <img src="/img/login-register/imgGoogle.png" alt="Google">
+      </article>
+    </section>
+    <!-- LINEA -->
+    <section class="registro__lineaVertical">
+      <div class="registro__lineaVertical__vertical-one-line"></div>
+      <p class="registro__lineaVertical__letraO">o</p>
+      <div class="registro__lineaVertical__vertical-two-line"></div>
+    </section>
+    <!-- REGISTRO EMAIL -->
+    <section class="registro__email">
+      <h4 class="registro__email__titulo">Con su Email</h4>
+      <form action="">
+        <article class="registro__email__container">
+          <input class="registro__email__texto" value="" type="text" id="" name="name" placeholder="Name*" />
+          <img src="/img/login-register/imgName.png" alt="">
+        </article>
+        <article class="registro__email__container">
+          <input class="registro__email__texto" value="" type="email" id="email" name="email" placeholder="Email*" />
+          <img src="/img/login-register/imgEmail.png" alt="">
+        </article>
+        <article class="registro__email__container">
+          <input class="registro__email__texto" value="" type="password" id="" name="" placeholder="Contraseña*" />
+          <img src="/img/login-register/imgContraseña.png" alt="">
+        </article>
+        <!-- BOTON REGISTRARSE -->
+        <button class="registro__email__botonRegistro" type="submit">REGISTRARSE</button>
+      </form>
+      <!-- INGRESAR -->
+      <article class="registro__cuenta">
+        <p class="registro__cuenta__texto-cuenta">¿Ya tiene una cuenta en Heroes?</p>
+        <a class="registro__cuenta__ingresar" href="login.html">Ingresar</a>
+      </article>
+    </section>
+  </main>
 </body>
+
 </html>
