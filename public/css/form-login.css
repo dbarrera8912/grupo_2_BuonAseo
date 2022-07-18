@@ -30,8 +30,6 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     flex-flow: wrap column;
     justify-content: center;
     align-items: center;
-
-    background-color: azure;
 }
 
 /* LOGO, TITULO Y SALIDA */
