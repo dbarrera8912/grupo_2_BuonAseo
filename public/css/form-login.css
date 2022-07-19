@@ -8,6 +8,7 @@ Un ordenador portátil: 1366 x 768
 Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
 
 /* CABECERA */
+
 .registro{
     width: 100%;
 
@@ -23,7 +24,7 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
 
     max-width: 1024px;
 
-    border: 1px solid black;
+    border: 1px solid var(--grisClaro);
     border-radius: 10px;
 
     display: flex;
@@ -58,7 +59,7 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     padding-right: 20px;
     align-self: end;
 
-    color: black;
+    color: var(--colorLetras);
     font-weight: 700;
     font-size: 1.5rem;
  }
@@ -135,7 +136,7 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
 .registro__lineaVertical__vertical-one-line, .registro__lineaVertical__vertical-two-line{
     height: 1px;
     width: 46%;
-    background-color: black;
+    background-color: var(--colorLetras);
 }
 
 /* REGISTRO EMAIL */
@@ -167,11 +168,11 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     position: relative;
 }
 .registro__email__texto{
-    border: 1px rgb(9, 67, 142) solid;
+    border: 1px var(--azulFuerte) solid;
     border-radius: 10px;
 
     color: white;
-    background-color: rgb(9, 67, 142);
+    background-color: var(--azulFuerte);
     width: 100%;
     height: 28px;
 
@@ -181,6 +182,12 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     color: white;
     font-size: 0.8rem;
 }
+
+.registro__email__texto:-webkit-autofill, 
+.registro__email__texto:-webkit-autofill:hover, 
+.registro__email__texto:-webkit-autofill:focus, 
+.registro__email__texto:-webkit-autofill:active { -webkit-box-shadow: 0 0 0 30px var(--azulClaro) inset !important;}/* Para poner un color especifico cuando el usuario ingresa un dato. */
+
 .registro__email__container img{
     width: 20px;
 
@@ -197,7 +204,7 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     position: relative;
     margin-top: 10px;
 
-    background-color: rgb(66, 141, 239);
+    background-color: var(--azulClaro);
     width: 120px;
     height: 34px;
 
