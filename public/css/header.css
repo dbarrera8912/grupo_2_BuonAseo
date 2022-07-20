@@ -1,0 +1,145 @@
+.header_section_uno{
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.header_section_logo{
+    margin-top: 5px;
+    width: 40%;
+    height: 50%;
+    padding: 0 10px;
+    justify-content: flex-start;
+}
+.header_section_logo img {
+    border-radius: 50%;
+    width: 100%;
+}
+
+.header_section_input {
+    width: 100%;
+    display:flex;
+    position: relative;
+    padding-right: 12px;
+    justify-content: center;
+}
+
+.header_section_input input{
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+}
+
+.header_section_input_span {
+    background-color: #fff;
+    width: 25px;
+    height: 20px;
+    position: absolute;
+    right: 8%;
+    top: 18%;
+}
+
+.fa-magnifying-glass {
+    font-size: 18px;
+    color: var(--azulFuerte)
+}
+
+.home_header_ingresar {
+display: none;
+}
+
+.header_section_user_car{
+    width: 40%;
+    display: flex;
+    gap: 5px;
+    padding-right: 5px;
+    justify-content: flex-end;
+}
+
+
+.header_section_user_car i {
+    font-size: 1.2rem;
+    color: var(--azulFuerte)
+}
+
+
+.header_section_dos {
+background-color: blue;
+width: 100%;
+height: 45px;
+display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_section_dos_lista--1 {
+    display: none;
+}
+
+.header_section_hamburguesa {
+    width: 35px;
+    height: 35px;
+background-color: var(--azulClaro);
+border-radius: 5px;
+border: none;
+display: flex;
+justify-content: center;
+    align-items: center;
+}
+
+
+.header_section_hamburguesa i {
+    color: #fff;
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 8px 8px;
+}
+
+
+@media (min-width: 768px) {
+    .header_section_hamburguesa{
+        display: none;
+    }
+    .header_section_dos {
+        height: 40px;
+    }
+        
+        .header_section_dos_lista{
+            width: 100%;
+            display: flex;
+        }
+
+    .header_section_dos_lista--1 {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 60px;
+        gap: 10px;
+    }
+
+    .home_header_ingresar {
+        display: flex;
+        }
+
+    a{
+       font-size: 1.3rem;
+        color: #fff;
+      }
+
+      .escondida {
+        display: none;
+      }
+}
+
+@media (min-width: 1024px) {
+    .escondida {
+        display: flex;
+    }
+}
