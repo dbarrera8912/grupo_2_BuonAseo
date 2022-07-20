@@ -172,6 +172,7 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     border-radius: 10px;
 
     color: white;
+    font-size: 0.8rem;
     background-color: var(--azulFuerte);
     width: 100%;
     height: 28px;
@@ -186,7 +187,7 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
 .registro__email__texto:-webkit-autofill, 
 .registro__email__texto:-webkit-autofill:hover, 
 .registro__email__texto:-webkit-autofill:focus, 
-.registro__email__texto:-webkit-autofill:active { -webkit-box-shadow: 0 0 0 30px var(--azulClaro) inset !important;}/* Para poner un color especifico cuando el usuario ingresa un dato. */
+.registro__email__texto:-webkit-autofill:active { -webkit-box-shadow: 0 0 0 30px var(--azulFuerte) inset !important; -webkit-text-fill-color: white !important;}/* Para poner un color especifico cuando el usuario ingresa un dato. */
 
 .registro__email__container img{
     width: 20px;
