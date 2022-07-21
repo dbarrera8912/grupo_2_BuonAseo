@@ -3,8 +3,10 @@
     --azulFuerte: #0240B1;
     --azulClaro: #1A79ED;
     --grisClaro: #F7F8F7;
+    --blanco: #fff;
     --colorGrisOscuro :  #92908b;
     --tipografiaLetra: 'Inter', sans-serif;
+
 }
 
 * {
@@ -41,4 +43,17 @@ ul,ol{
 a{
   text-decoration: none;
   color: #000; 
+}
+
+button {
+  background-color: var(--azulFuerte);
+  color: #fff;
+  transition: all 5s;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover{
+  background-color: var(--azulClaro);
+  cursor: pointer;
 }

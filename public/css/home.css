@@ -24,8 +24,8 @@ border-radius: 10px;
 
 
 .home_main_slider--icono{
-	width: 15%;
-	height: 15%;
+	width: 40px;
+	height: 40px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -37,7 +37,7 @@ border-radius: 10px;
 	padding: 10%;
 	padding-left: 35px;
 	border: solid 1px grey;
-	border-radius: 50%;
+	border-radius: 15px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -109,18 +109,18 @@ border-radius: 10px;
 	padding: 5px;
 }
 
+.home_main_section_article_boton a {
+    color: white;
+}
+
+
 .home_main_button {
 	margin-top: 10px;
 	width: 30%;
-	height: 15%;
-background-color: var(--azulFuerte);
-border: none;
-border-radius: 5px;
-}
-
-.home_main_button:hover {
-	cursor: pointer;
-	background-color: orangered;
+	height: 30px;
+    
+    padding: 5px;
+    
 }
 
 
