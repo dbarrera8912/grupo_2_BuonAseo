@@ -1,0 +1,395 @@
+/* Móvil: 360 x 640
+Móvil: 375 x 667
+Móvil: 360 x 720
+iPhone X: 375 x 812
+Pixel 2: 411 x 731
+Tableta: 768 x 1024
+Un ordenador portátil: 1366 x 768
+Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
+
+/* CABECERA */
+
+.registro{
+    width: 100%;
+
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: center;
+    align-content: center;
+
+    margin-top: 40px;
+}
+.registro_main{
+    width: 90%;
+
+    max-width: 1024px;
+
+    border: 1px solid var(--grisClaro);
+    border-radius: 10px;
+
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* LOGO, TITULO Y SALIDA */
+.registro__logo-y-titulo{
+    width: 100%;
+    display: flex;
+    flex-flow: wrap column;
+    justify-content:flex-end;
+    align-items: center;
+}
+
+.registro__logo-y-titulo__logo2{
+    position: relative;
+    margin-top: 20px;
+
+    width: 70px;
+    height: 70px;
+
+    border: none;
+    border-radius: 50%;
+}
+
+.registro__logo-y-titulo__salida{
+    position: absolute;
+    top: 52px;
+    padding-right: 20px;
+    align-self: end;
+
+    color: var(--colorLetras);
+    font-weight: 700;
+    font-size: 1.5rem;
+ }
+
+.registro__logo-y-titulo__titulo{
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    padding-top: 10px;
+}
+
+
+/* REGISTRO REDES */
+.registro__redes{
+    width: 100%;
+
+    display: flex;
+    flex-flow: wrap column;
+    justify-content:flex-end;
+    align-items: center;
+}
+.registro__redes__titulo{
+    padding-top: 20px;
+    text-align: center;
+
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+.registro__redes__containerFB, .registro__redes__containerGoogle{
+    margin-top: 10px;
+    width: 90%;
+
+    position: relative;
+}
+.registro__redes__botonFB, .registro__redes__botonGoogle{
+    border: 1px rgb(80, 151, 245) solid;
+    border-radius: 10px;
+
+    font-size: 0.9rem;
+    color: white;
+
+    background-color: rgb(80, 151, 245);
+    width: 100%;
+    height: 28px;
+}
+.registro__redes__botonGoogle{
+    border: 1px red solid;
+    background-color: red;
+}
+.registro__redes__containerFB img, .registro__redes__containerGoogle img{
+    position: absolute;
+    width: 20px;
+
+    left:  5px;
+    top: 4px;
+}
+
+
+/* LINEA */
+.registro__lineaVertical{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 96%;
+
+    padding-top: 20px;
+}
+.registro__lineaVertical__letraO{
+    padding-bottom: 4px;
+}
+.registro__lineaVertical__vertical-one-line, .registro__lineaVertical__vertical-two-line{
+    height: 1px;
+    width: 46%;
+    background-color: var(--colorLetras);
+}
+
+/* REGISTRO EMAIL */
+.registro__email{
+    width: 100%;
+
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: center;
+    align-items: center;
+}
+.registro__email__titulo{
+    padding-top: 20px;
+
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+.registro__email form{
+    width: 100%;
+
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: center;
+    align-items: center;
+}
+.registro__email__container{
+    width: 90%;
+    margin-top: 10px;
+    position: relative;
+}
+.registro__email__texto{
+    border: 1px var(--azulFuerte) solid;
+    border-radius: 10px;
+
+    color: white;
+    font-size: 0.8rem;
+    background-color: var(--azulFuerte);
+    width: 100%;
+    height: 28px;
+
+    padding-left: 10px;
+}
+.registro__email__texto::placeholder{
+    color: white;
+    font-size: 0.8rem;
+}
+
+.registro__email__texto:-webkit-autofill, 
+.registro__email__texto:-webkit-autofill:hover, 
+.registro__email__texto:-webkit-autofill:focus, 
+.registro__email__texto:-webkit-autofill:active { -webkit-box-shadow: 0 0 0 30px var(--azulFuerte) inset !important; -webkit-text-fill-color: white !important;}/* Para poner un color especifico cuando el usuario ingresa un dato. */
+
+.registro__email__container img{
+    width: 20px;
+
+    position: absolute;
+    right:  5px;
+    top: 4px;
+}
+
+/* BOTON REGISTRARSE */
+.registro__email__botonRegistro{
+    border: 1px solid;
+    border-radius: 10px;
+
+    position: relative;
+    margin-top: 10px;
+
+    background-color: var(--azulClaro);
+    width: 120px;
+    height: 34px;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+    color:white;
+}
+
+/* INGRESAR */
+.registro__cuenta{
+    margin: 10px 0 20px;
+    text-align: center;
+}
+.registro__cuenta__texto-cuenta{
+    font-size: 0.9rem;
+}
+.registro__cuenta__ingresar{
+    color: black;
+    font-size: 0.9rem;
+    text-decoration:underline;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* MEDIA || TABLET 768px */
+/*~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media (min-width: 768px){
+    /* CABECERA */
+    .registro{
+        margin-top: 100px;
+    }
+    /* LOGO, TITULO Y SALIDA */
+    .registro__logo-y-titulo__salida{
+        top: 113px;
+     }
+    
+    /* REGISTRO REDES */
+    .registro__redes__botonFB, .registro__redes__botonGoogle{
+        height: 32px;
+    }
+    .registro__redes__containerFB img, .registro__redes__containerGoogle img{
+        width: 24px;
+    }
+
+    /* REGISTRO EMAIL */
+    .registro__email__texto{
+        height: 32px;
+    }
+    .registro__email__container img{
+        width: 24px;
+    }
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~*/
+/* MEDIA | DESKTOP 1024px */
+/*~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media (min-width: 1024px){
+    /* CABECERA */
+    .registro{
+        margin-top: 200px;
+    }
+    .registro_main{
+        flex-flow: wrap row;
+        align-items: flex-start;
+    }
+    
+    /* LOGO, TITULO Y SALIDA */
+    .registro__logo-y-titulo__salida{
+        top: 214px;
+     }
+
+    /* REGISTRO REDES */
+    .registro__redes{
+        width: 45%;
+    
+        flex-flow: wrap row;
+        justify-content: center;
+    }
+    .registro__redes__titulo{
+        padding-top: 10px;
+    
+        font-weight: 700;
+    }
+    .registro__redes__botonFB, .registro__redes__botonGoogle{
+        height: 36px;
+    }
+    .registro__redes__containerFB img, .registro__redes__containerGoogle img{
+        width: 28px;
+    }
+
+    /* LINEA */
+    .registro__lineaVertical{
+        flex-flow: wrap column;
+    
+        width: 10%;
+        height: 40%;
+
+        padding-top: 10px;
+    }
+    .registro__lineaVertical__vertical-one-line{
+        height: 56px;
+        width: 1px;
+    }
+    .registro__lineaVertical__vertical-two-line{
+        height: 140px;
+        width: 1px;
+    }
+
+    /* REGISTRO EMAIL */
+    .registro__email{
+        width: 45%;
+    
+        flex-flow: wrap row;
+        justify-content: center;
+    }
+    .registro__email__titulo{
+        padding-top: 10px;
+
+        font-weight: 700;
+    } 
+    .registro__email__texto{
+        height: 36px;
+    }
+    .registro__email__container img{
+        width: 28px;
+    }
+
+    /* BOTON REGISTRARSE */
+    .registro__email__botonRegistro{
+        align-self:flex-start;
+        margin-left: 5%;
+
+        height: 34px;
+    }
+
+    /* INGRESAR */
+    .registro__cuenta{
+       display: flex;
+       flex-flow: row wrap;
+       justify-content: flex-start;
+       align-items: flex-start;
+        width: 90%;
+    }
+}
+
+
+/* !!!!!!!!!!!!!!!!! */
+/* LOGIN DETALLES */
+/* !!!!!!!!!!!!!!!!! */
+
+/* BOTON INGRESAR */
+.login-detail__article__containerBotonIngreso{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 90%;
+
+    margin-top: 10px;
+}
+.login-detail__article__containerBotonIngreso div{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    font-size: 0.9rem;
+}
+
+.login-detail__article__containerBotonIngreso button{
+    width: 90px;
+    margin: 0;
+}
+
+/* REGISTRARSE */
+.login-detail__cuenta{
+    width: 90%;
+
+    margin: 10px 0 20px;
+}
+.login-detail__cuenta div{
+    display: flex;
+    flex-flow: wrap row;
+
+    margin-top: 10px;
+}
