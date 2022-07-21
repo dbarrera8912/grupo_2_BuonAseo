@@ -1,80 +1,44 @@
-# **Buon Aseo**
 
-## ¿Qué productos o servicios brindará nuestro sitio? 
-~~~
-Desde la Quimica Buon Aseo nos dedicamos a la fabricacion y venta mayorista de productos de limpieza, abastecemos con productos de excelente calidad a 
-distintos sectores, desde productos de limpieza para hoteleria, desinfectantes o productos antibacteriales para consorcios, 
-productos de limpieza por mayor para revender en locales de todo suelto, detergente industrial u otros productos con caracteristicas 
-especificas para industrias y empresas, jabon, suavizante y perfume para ropa para servicios de lavanderia, 
-entre otros sectores como pueden ser municipios, escuelas, hospitales, etc.
-Además, todos nuestros productos son ideales para el cuidado del planeta, ya que son desarrollados a base de materia prima biodegradable de excelente calidad. 
-Por eso somos considerada una de las empresas eco-friendly en Argentina.
-~~~
+# Buon Aseo (eCommerce)
+
+El proyecto Boun Aseo es un sistema web con una arquitectura que nos permite realizar la compra de productos, asi como registrar usuarios y gestionarlos. Los roles en este proyecto tambien están incluidos, la diferencia de opciones entre un cliente y un administrador.
+
+El código fuente del sistema ha sido desarrollado con el lenguaje de programación Javascript. En Visual Studio. Y en una base de datos con el lenguaje de SQL.
+
+## Comenzando 🚀
+
+En este proyecto se construye el sitio web oficial del eCommerce Boun Aseo, pronto se podra comprar, registrase, loguiarse, informarte de nuevos productos, de nuevas ofertas, etc. **[Puedes revisar el prototipo del sitio en Figma](https://www.figma.com/file/lLTlqBGqzSZRe80TMWpLVj/Proyecto-integrador!?node-id=0%3A1)** tambien puedes ver como trabajamos en conjunto **[AQUI](https://trello.com/b/TPYwC9QH/c15-grupo-2-buon-aseo)**
+
+## Pre-requisitos 📋
+Para poder trabajar con el siguiente proyecto debe de tener conocimientos de desarrollo web con NODEJS, Javascript, CSS3, HTML5 y SQL.
+Y instalar NODEJS, SQL, VSCODE Y GIT.
+
+## Construido con 🛠️
+Usamos **Express** que es un framework de **NodeJS**, Usamos **Javascript**,**CSS3** y **HTML5**
+
+## Autores ✒️
  
-## ¿Quién será nuestra audiencia objetivo? 
-~~~
-Persona de entre 20 y 40 años; vive en cercanias del la empresa; nivel de educación, curso técnico; quiere cambiar de vida y trabajar por cuenta propia; 
-le gustaría viajar y conocer nuevos lugares; busca el mejor costo-beneficio, ya que no tiene dinero para invertir.
-~~~
-## ¿Cómo ajustaremos nuestra oferta a ese público?
-~~~
-1. Ofertas por Tiempo Limitado
-2. Descuentos por Tiempo Limitado
-3. Envío Gratuito por Tiempo Limitado
-4. Regalos por Tiempo Limitado
-5. Ofertas Diarias
-6. Ofertas Misteriosas
-7. Campañas de Venta Cruzada
-8. Ofertas Especiales para Suscriptores
-9. Rebajas por Liquidación
-10. Ofertas de Temporada
-
-~~~
-
-## ¿Cual es nuestro objetivo?
-~~~
-Suministrar a nuestros clientes productos y materias primas estratégicas de forma eficiente y adaptándolas a sus necesidades.
-Garantizar un suministro constante y competitivo en el tiempo gracias a nuestra cartera de proveedores tanto regionales, como nacionales e internacionales.
-~~~
-
-## Paginas de referencia
-
-1- **Distribuidora Pop** https://www.distribuidorapop.com.ar/
-	Elegida por su diseño espectacular y sencillo, utilizando en mayor parte en nuestro proyecto.
-
-2- **Sina** https://www.sina.com.ar/
-	De esta pagina nos gusto su color azul, e intentamos asimilarlo en nuestro trabajo.
-
-3- **Registro encontrado en Google**  https://www.google.com/search?q=registros+de+paginas+web&sxsrf=ALiCzsbG--o_UnkH1MeRbmA4myyCj0mp8w:1655387112123&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiupaLGjbL4AhUcupUCHU8SC8IQ_AUoAnoECAEQBA&biw=1366&bih=625&dpr=1#imgrc=gVvGsxsurLzxeM
-	Nuestra idea en el registro, fue adaptar el mismo de pop, con algunas modificaciones provenientes del ejemplo de este inciso.
-
-4- **Quimica Dalton** https://www.quimicadalton.com/
-	Por este lado adaptamos el footer de la misma a nuestro diseño.
-
-5- **Maxus** https://maxusargentina.com/
-	Por ultimo, al igual que la de pop, nos gusto de forma general y fue una de las principales bases de nuestra inspiracion.
-
-***
-# Integrantes del Proyecto
-
-## Richard Cuevas
+**Richard Cuevas**
 
 - Nombre: Richard Adrian Cuevas
 - Edad: 24 años
 - Ciudad: Plaza Huincul
 - Hobby: Calistenia
 - Trabajo: BackEnd Developer in Buon Aseo
+
 ***
 
-## Matias Sabbadini
+**Matias Sabbadini**
 
 - Nombre: Matias Sabbadini
 - Edad: 30 años
 - Ciudad: Cutral-Co
 - Hobby: Ver Peliculas de Terror
 - Trabajo: Frontend Developer in Buon Aseo
+
 ***
-## Sirley Chavanne
+
+**Sirley Chavanne**
 
 - Nombre: Sirley Chavanne
 - Edad: 25
@@ -82,10 +46,21 @@ Garantizar un suministro constante y competitivo en el tiempo gracias a nuestra 
 - Hobby: Mirar peliculas
 - Trabajo: Frontend Developer in Buon Aseo
 ***
-## Daniel Barrera
+
+**Daniel Barrera**
 
 - Nombre: Daniel Barrera
 - Edad: 32 años
 - Ciudad: Cutral - co
 - Hobby: jugar al Futbol
 - Trabajo: BackEnd Developer in Boun Aseo
+
+***
+
+## Expresiones de Gratitud 🎁
+- Comenta a otros sobre este proyecto 📢
+- Invita una cerveza 🍺 o un café ☕.
+- Da las gracias a todos los que aportaron en este proyecto 🤓.
+- Dona con cripto a esta dirección: 0xf253fc233333078436d111175e5a76a64989000 si te gusto dona para que sigamos creciendo.
+
+
