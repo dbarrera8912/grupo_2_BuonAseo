@@ -46,7 +46,8 @@ border-radius: 10px;
 
 .home_main_button--icono:hover{
 	cursor: pointer;
-	background: orangered;
+	background:var(--azulFuerte);
+	transition: all 2s;
 }
 
 .home_main_slider--icono i {
@@ -55,6 +56,14 @@ border-radius: 10px;
 	font-size: 25px;
 	padding-right: 30px;
 	}
+
+	.home_main_slider--icono i:hover{
+		color: var(--azulClaro);
+		transition: all 2s;
+	}
+	
+	
+
 
 .home_main_titulo{
 	text-align: center;

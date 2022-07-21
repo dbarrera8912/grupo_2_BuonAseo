@@ -1,5 +1,5 @@
 .header_section_uno{
-    background-color: aqua;
+    background-color: var(--azulClaro);
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -59,6 +59,7 @@ display: none;
     gap: 5px;
     padding-right: 5px;
     justify-content: flex-end;
+    margin-right: 10px;
 }
 
 
@@ -103,27 +104,7 @@ justify-content: center;
 
 
 @media (min-width: 768px) {
-    .header_section_hamburguesa{
-        display: none;
-    }
-    .header_section_dos {
-        height: 40px;
-    }
-        
-        .header_section_dos_lista{
-            width: 100%;
-            display: flex;
-        }
-
-    .header_section_dos_lista--1 {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding-left: 60px;
-        gap: 10px;
-    }
-
+   
     .home_header_ingresar {
         display: flex;
         }
@@ -133,13 +114,9 @@ justify-content: center;
         color: #fff;
       }
 
-      .escondida {
-        display: none;
-      }
+      
 }
 
 @media (min-width: 1024px) {
-    .escondida {
-        display: flex;
-    }
+    
 }
