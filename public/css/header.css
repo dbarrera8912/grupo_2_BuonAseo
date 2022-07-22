@@ -10,13 +10,12 @@
 
 .header_section_logo{
     margin-top: 5px;
-    width: 40%;
+    width: 70%;
     height: 50%;
     padding: 0 10px;
     justify-content: flex-start;
 }
 .header_section_logo img {
-    border-radius: 50%;
     width: 100%;
 }
 
@@ -33,10 +32,11 @@
     height: 30px;
     border-radius: 5px;
     border: none;
+    padding-left: 10px; 
 }
 
 .header_section_input_span {
-    background-color: #fff;
+    background-color: var(--blanco);
     width: 25px;
     height: 20px;
     position: absolute;
@@ -65,12 +65,12 @@ display: none;
 
 .header_section_user_car i {
     font-size: 1.2rem;
-    color: var(--azulFuerte)
+    color: var(--blanco);
 }
 
 
 .header_section_dos {
-background-color: blue;
+background-color: var(--azulFuerte);
 width: 100%;
 height: 45px;
 display: flex;
@@ -96,7 +96,7 @@ justify-content: center;
 
 
 .header_section_hamburguesa i {
-    color: #fff;
+    color: var(--blanco);
     width: 100%;
     font-size: 1.5rem;
     padding: 8px 8px;
@@ -111,7 +111,7 @@ justify-content: center;
 
     a{
        font-size: 1.3rem;
-        color: #fff;
+        color: var(--blanco);
       }
 
       
