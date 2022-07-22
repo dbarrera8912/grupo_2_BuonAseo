@@ -26,6 +26,10 @@ app.listen(port, () => {
         res.sendFile(path.resolve('./view/formulario.html'));
     });
 
+    /* LOGIN ALL */
     app.get('/login.html', (req, res) => {
-        res.sendFile(path.resolve('./view/login.html'));
+        res.sendFile(path.resolve('./view/login-all/login.html'));
+    });
+    app.get('/password-lost.html', (req, res) => {
+        res.sendFile(path.resolve('./view/login-all/password-lost.html'));
     });

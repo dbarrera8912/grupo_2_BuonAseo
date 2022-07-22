@@ -11,13 +11,27 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
 
 .registro{
     width: 100%;
+    height: 100vh;
 
     display: flex;
     flex-flow: wrap column;
-    justify-content: center;
-    align-content: center;
+    align-items: center;
+    
+    /* opcion 1 */
+    /* background: rgb(2,64,177);
+    background: linear-gradient(311deg, rgba(2,64,177,1) 0%, rgba(26,121,237,1) 100%); */
 
-    margin-top: 40px;
+    /* opcion 2 */
+    /* background: rgb(2,64,177);
+    background: linear-gradient(153deg, rgba(2,64,177,1) 0%, rgba(26,121,237,1) 72%, rgba(26,121,237,1) 100%); */
+
+    /* opcion 3 */
+    background: rgb(2,64,177);
+    background: linear-gradient(0deg, rgba(2,64,177,1) 0%, rgba(26,121,237,1) 54%, rgba(26,121,237,1) 100%);
+
+    /* opcion 4 */
+   /*  background: rgb(2,64,177);
+    background: linear-gradient(90deg, rgba(2,64,177,1) 0%, rgba(26,121,237,1) 64%); */
 }
 .registro_main{
     width: 90%;
@@ -31,6 +45,10 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     flex-flow: wrap column;
     justify-content: center;
     align-items: center;
+
+    position: absolute;
+    top: 50%;
+    margin-top: -257.5px;
 }
 
 /* LOGO, TITULO Y SALIDA */
@@ -40,10 +58,10 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     flex-flow: wrap column;
     justify-content:flex-end;
     align-items: center;
-}
 
-.registro__logo-y-titulo__logo2{
     position: relative;
+}
+.registro__logo-y-titulo__logo2{
     margin-top: 20px;
 
     width: 70px;
@@ -52,12 +70,10 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     border: none;
     border-radius: 50%;
 }
-
 .registro__logo-y-titulo__salida{
     position: absolute;
-    top: 52px;
-    padding-right: 20px;
-    align-self: end;
+    top: 12px;
+    right: 18px;
 
     color: var(--colorLetras);
     font-weight: 700;
@@ -231,16 +247,7 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
 /*~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* MEDIA || TABLET 768px */
 /*~~~~~~~~~~~~~~~~~~~~~~~~*/
-@media (min-width: 768px){
-    /* CABECERA */
-    .registro{
-        margin-top: 100px;
-    }
-    /* LOGO, TITULO Y SALIDA */
-    .registro__logo-y-titulo__salida{
-        top: 113px;
-     }
-    
+@media (min-width: 768px){   
     /* REGISTRO REDES */
     .registro__redes__botonFB, .registro__redes__botonGoogle{
         height: 32px;
@@ -263,18 +270,12 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
 /*~~~~~~~~~~~~~~~~~~~~~~~~*/
 @media (min-width: 1024px){
     /* CABECERA */
-    .registro{
-        margin-top: 200px;
-    }
     .registro_main{
         flex-flow: wrap row;
         align-items: flex-start;
+
+        margin-top: -182.5px;
     }
-    
-    /* LOGO, TITULO Y SALIDA */
-    .registro__logo-y-titulo__salida{
-        top: 214px;
-     }
 
     /* REGISTRO REDES */
     .registro__redes{
