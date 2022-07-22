@@ -6,4 +6,7 @@
 @import "./home.css";
 @import "./detalle.css";
 @import "./carrito.css";
-@import "./form-login.css";
+
+/* LOGIN|REGISTER ALL */
+@import "./log-reg-all/form-login.css";
+@import "./log-reg-all/password-lost.css";
