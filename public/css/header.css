@@ -1,16 +1,3 @@
-@keyframes lineHeader {
-    0%{
-        width: 0;
-        opacity: 0;
-    }
-
-    100% {
-        width: 100%;
-        opacity: 1;
-    }
-}
-
-
 .header_section_uno{
     background-color: var(--azulClaro);
     display: flex;
@@ -87,7 +74,6 @@ display: none;
 .header_section_dos {
     background-color: var(--azulFuerte);
     width: 100%;
-    width: 100%;
     display: flex;
     gap: 5px;
     flex-direction: column;
@@ -97,6 +83,7 @@ display: none;
 
 .header_section_dos_lista {
     display: none;
+    width: 90%;
     padding: 10px;
     margin-top: 10px;
 }
@@ -115,7 +102,7 @@ display: none;
     display: flex;
     flex-direction: column;
     padding: 10px;
-    width: 100%;
+    width: 90%;
 }
 
 
@@ -126,8 +113,10 @@ display: none;
 
 .header_section_dos_lista ul li hr {
     background-color: var(--blanco);
+    align-self: center;
     border: none;
-    height: 2px;
+    width: 90%;
+    height: 5px;
 }
 
 .header_section_hamburguesa {
