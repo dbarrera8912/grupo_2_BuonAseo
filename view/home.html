@@ -16,7 +16,7 @@
     <header class="header">
       <section class="header_section_uno">
         <article class="header_section_logo">
-          <img src="/img/Logo 3.png" alt="logo" />
+          <img src="/img/logoFinal.png" alt="logo" />
         </article>
         <article class="header_section_input">
           <input type="text" placeholder="Que producto busca?" />
@@ -26,33 +26,45 @@
         </article>
         <article class="header_section_user_car">
           <h4 class="home_header_ingresar">Ingresar</h4>
-          <i class="fa-solid fa-circle-user"></i>
-          <i class="fa-solid fa-cart-shopping"></i>
+          <a href="formulario.html"><i class="fa-solid fa-circle-user"></i></a>
+          <a href="carrito.html"><i class="fa-solid fa-cart-shopping"></i></a>
         </article>
       </section>
       <section class="header_section_dos">
+          <button class="header_section_hamburguesa" onclick="document.querySelector('.header_section_dos_lista').classList.toggle('show')"><i class="fa fa-bars"></i></button>  
         <nav class="header_section_dos_lista">
+          <img width="50px" height="50px" src="/img/logoFinal.png" alt="logo" />
           <ul class="header_section_dos_lista--1">
-            <li>
-              <a href="#">Ofertas</a>
-            </li>
             <li>
               <a href="#">Categorias</a>
             </li>
-            <li>
-              <a href="#">Contactos</a>
-            </li>
+            <hr>
             <li>
               <a href="#">Nosotros</a>
             </li>
+            <hr>
+            <li>
+              <a href="#">Informacion</a>
+            </li>
+            <hr>
             <li>
               <a href="#">Ayuda</a>
             </li>
+            <hr>
+            <li>
+              <a href="#">Defensa del consumidor</a>
+            </li>
+            <hr>
+            <li>
+              <a href="#">Contacto</a>
+            </li>
+            <hr>
+            <li>
+              <button><a href="#">Boton de arrepentimiento</a></button>
+            </li>
+            <hr>
           </ul>
         </nav>
-        <article class="header_section_hamburguesa">
-          <i class="fa-solid fa-bars"></i>
-        </article>
       </section>
     </header>
     <main class="home_main">

@@ -1,3 +1,16 @@
+@keyframes lineHeader {
+    0%{
+        width: 0;
+        opacity: 0;
+    }
+
+    100% {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+
 .header_section_uno{
     background-color: var(--azulClaro);
     display: flex;
@@ -6,24 +19,25 @@
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    gap: 30px;
 }
 
 .header_section_logo{
+    width: 10%;
     margin-top: 5px;
-    width: 70%;
-    height: 50%;
-    padding: 0 10px;
+    padding: 0 15px;
     justify-content: flex-start;
 }
 .header_section_logo img {
-    width: 100%;
+    width: 100px;
+    height: 60px;
 }
 
 .header_section_input {
-    width: 100%;
+    width: 50%;
+    margin-left: 65px;
     display:flex;
     position: relative;
-    padding-right: 12px;
     justify-content: center;
 }
 
@@ -40,7 +54,7 @@
     width: 25px;
     height: 20px;
     position: absolute;
-    right: 8%;
+    right: 0%;
     top: 18%;
 }
 
@@ -54,53 +68,87 @@ display: none;
 }
 
 .header_section_user_car{
-    width: 40%;
+    width: 10%;
+    height: auto;
     display: flex;
+    justify-content: flex-end;
     gap: 5px;
     padding-right: 5px;
-    justify-content: flex-end;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 
 .header_section_user_car i {
-    font-size: 1.2rem;
+    font-size: 15px;
     color: var(--blanco);
 }
 
 
 .header_section_dos {
-background-color: var(--azulFuerte);
-width: 100%;
-height: 45px;
-display: flex;
-    flex-direction: row;
-    justify-content: center;
+    background-color: var(--azulFuerte);
+    width: 100%;
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
     align-items: center;
+}
+
+
+.header_section_dos_lista {
+    display: none;
+    padding: 10px;
+    margin-top: 10px;
 }
 
 .header_section_dos_lista--1 {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 15px;
+}
+
+
+
+
+.show {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+}
+
+
+.show a {
+    color: var(--blanco);
+    font-weight: 500;
+}
+
+.header_section_dos_lista ul li hr {
+    background-color: var(--blanco);
+    border: none;
+    height: 2px;
 }
 
 .header_section_hamburguesa {
-    width: 35px;
-    height: 35px;
-background-color: var(--azulClaro);
+    width: 33px;
+    height: 30px;
+    margin: 3px 1px;
 border-radius: 5px;
 border: none;
 display: flex;
-justify-content: center;
-    align-items: center;
 }
 
 
 .header_section_hamburguesa i {
-    color: var(--blanco);
     width: 100%;
-    font-size: 1.5rem;
-    padding: 8px 8px;
+    align-self: center;
+    justify-self: center;
+    font-size: 1.3rem;
+    padding: 7px;
 }
+
+
 
 
 @media (min-width: 768px) {
