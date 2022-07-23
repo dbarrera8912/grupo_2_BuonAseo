@@ -17,21 +17,8 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     flex-flow: wrap column;
     align-items: center;
     
-    /* opcion 1 */
-    /* background: rgb(2,64,177);
-    background: linear-gradient(311deg, rgba(2,64,177,1) 0%, rgba(26,121,237,1) 100%); */
-
-    /* opcion 2 */
-    /* background: rgb(2,64,177);
-    background: linear-gradient(153deg, rgba(2,64,177,1) 0%, rgba(26,121,237,1) 72%, rgba(26,121,237,1) 100%); */
-
-    /* opcion 3 */
     background: rgb(2,64,177);
     background: linear-gradient(0deg, rgba(2,64,177,1) 0%, rgba(26,121,237,1) 54%, rgba(26,121,237,1) 100%);
-
-    /* opcion 4 */
-   /*  background: rgb(2,64,177);
-    background: linear-gradient(90deg, rgba(2,64,177,1) 0%, rgba(26,121,237,1) 64%); */
 }
 .registro_main{
     width: 90%;
@@ -103,7 +90,6 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     text-align: center;
 
     font-size: 0.9rem;
-    font-weight: 400;
 }
 .registro__redes__containerFB, .registro__redes__containerGoogle{
     margin-top: 10px;
@@ -168,7 +154,6 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     padding-top: 20px;
 
     font-size: 0.9rem;
-    font-weight: 400;
 }
 .registro__email form{
     width: 100%;
@@ -215,13 +200,9 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
 
 /* BOTON REGISTRARSE */
 .registro__email__botonRegistro{
-    border: 1px solid;
-    border-radius: 10px;
-
     position: relative;
     margin-top: 10px;
 
-    background-color: var(--azulClaro);
     width: 120px;
     height: 34px;
 
@@ -239,7 +220,7 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     font-size: 0.9rem;
 }
 .registro__cuenta__ingresar{
-    color: black;
+    color: var(--colorLetras);
     font-size: 0.9rem;
     text-decoration:underline;
 }
