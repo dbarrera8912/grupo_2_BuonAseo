@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import "./normalize.css";
 @import "./general.css";
 @import "./header.css";
 @import "./footer.css";
 @import "./home.css";
 @import "./detalle.css";
 @import "./carrito.css";
-@import "./form-login.css";
-@import "./normalize.css";
+
+/* LOGIN|REGISTER ALL */
+@import "./log-reg-all/form-login.css";
+@import "./log-reg-all/password-lost.css";

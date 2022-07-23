@@ -1,17 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/style.css">
-  <script
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/img/Logo.png" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script
       src="https://kit.fontawesome.com/7ad2cc9ddb.js"
       crossorigin="anonymous"
     ></script>
-  <title>Home | Buon Aseo</title>
-</head>
-<body>
-  
-</body>
+    <title>Home | Buon Aseo</title>
+  </head>
+  <body>
+    <header class="header">
+      <section class="header_section_uno">
+        <article class="header_section_logo">
+          <img src="/img/logoFinal.png" alt="logo" />
+        </article>
+        <article class="header_section_input">
+          <input type="text" placeholder="Que producto busca?" />
+          <span class="header_section_input_span"
+            ><i class="fa-solid fa-magnifying-glass"></i
+          ></span>
+        </article>
+        <article class="header_section_user_car">
+          <h4 class="home_header_ingresar">Ingresar</h4>
+          <a href="formulario.html"><i class="fa-solid fa-circle-user"></i></a>
+          <a href="carrito.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        </article>
+      </section>
+      <section class="header_section_dos">
+          <button class="header_section_hamburguesa" onclick="document.querySelector('.header_section_dos_lista').classList.toggle('show')"><i class="fa fa-bars"></i></button>  
+        <nav class="header_section_dos_lista">
+          <img width="50px" height="50px" src="/img/logoFinal.png" alt="logo" />
+          <ul class="header_section_dos_lista--1">
+            <li>
+              <a href="#">Categorias</a>
+            </li>
+            <hr>
+            <li>
+              <a href="#">Nosotros</a>
+            </li>
+            <hr>
+            <li>
+              <a href="#">Informacion</a>
+            </li>
+            <hr>
+            <li>
+              <a href="#">Ayuda</a>
+            </li>
+            <hr>
+            <li>
+              <a href="#">Defensa del consumidor</a>
+            </li>
+            <hr>
+            <li>
+              <a href="#">Contacto</a>
+            </li>
+            <hr>
+            <li>
+              <button><a href="#">Boton de arrepentimiento</a></button>
+            </li>
+            <hr>
+          </ul>
+        </nav>
+      </section>
+    </header>
+    <main class="home_main">
+      <section class="home_main_slider--fijo">
+        <article class="home_main_slider--icono">
+          <button class="home_main_button--icono">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+        </article>
+        <article class="home_main_slider--img">
+          <img
+            src="https://dummyimage.com/600x400/d411d4/1f29bf"
+            alt="slider fijo"
+          />
+        </article>
+        <article class="home_main_slider--icono">
+          <button class="home_main_button--icono">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
+        </article>
+      </section>
+      <section class="home_main_section_productos_destacados">
+        <article class="home_main_section_article_titulo">
+          <h1 class="home_main_titulo">Productos Destacados</h1>
+        </article>
+        <article class="home_main_section_article_imagenes">
+          <img
+            class="home_main_section_productos_destacados_img--mobile"
+            src="https://dummyimage.com/200x200/e34c14/fff"
+            alt="imagen producto"
+          />
+          <img
+            class="home_main_section_productos_destacados_img--tablet"
+            src="https://dummyimage.com/200x200/e34c14/fff"
+            alt="imagen producto"
+          />
+          <img
+            class="home_main_section_productos_destacados_img--deskop"
+            src="https://dummyimage.com/200x200/e34c14/fff"
+            alt="imagen producto"
+          />
+        </article>
+        <article class="home_main_section_article_parrafo">
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+          Consequuntur hic blanditiis nam modi ex fugit quod.
+        </p>
+      </article>
+      <article class="home_main_section_article_boton">
+        <button class="home_main_button"><a href="#">Ver mas ></a></button>
+      </article>
+      </section>
+      <section class="home_main_section_productos_destacados">
+          <article class="home_main_section_article_titulo">
+          <h1 class="home_main_titulo">Ofertas</h1>
+        </article>
+        <article class="home_main_section_article_imagenes">
+          <img
+            class="home_main_section_productos_destacados_img--mobile"
+            src="https://dummyimage.com/200x200/e34c14/fff"
+            alt="imagen producto"
+          />
+          <img
+            class="home_main_section_productos_destacados_img--tablet"
+            src="https://dummyimage.com/200x200/e34c14/fff"
+            alt="imagen producto"
+          />
+          <img
+            class="home_main_section_productos_destacados_img--deskop"
+            src="https://dummyimage.com/200x200/e34c14/fff"
+            alt="imagen producto"
+          />
+        </article>
+        <article class="home_main_section_article_parrafo">
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+          Consequuntur hic blanditiis nam modi ex fugit quod.
+        </p>
+      </article>
+      <article class="home_main_section_article_boton">
+        <button class="home_main_button"><a href="#">Ver mas ></a></button>
+      </article>
+      </section>
+      <section>
+        <h1 class="home_main_titulo"></h1>
+      </section>
+      <div class="home_main_slider--movimiento">
+        <ul>
+          <li>
+            <img
+              src="https://dummyimage.com/100x50/940894/111cba"
+              alt="slider1"
+            />
+          </li>
+          <li>
+            <img
+              src="https://dummyimage.com/100x50/a0cf1d/111cba"
+              alt="slider2"
+            />
+          </li>
+          <li>
+            <img
+              src="https://dummyimage.com/100x50/cf2b1f/111cba"
+              alt="slider3"
+            />
+          </li>
+          <li>
+            <img
+              src="https://dummyimage.com/100x50/2cd113/111cba"
+              alt="slider4"
+            />
+          </li>
+        </ul>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
 </html>
