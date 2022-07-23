@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter&family', sans-serif;
+}
+
+/******FOOTER******/
+img {
+    width: 100%;
+    margin-bottom: -13px;
+}
+
+.pie__pagina {
+    width: 100%;
+    padding: 0px 1px 0px 1px;
+    background-color: #1A79ED;
+    color:white;
+    font-size: 80%;
+    line-height: 170%;
+}
+
+.contenedor__1 {
+
+}
+
+.pie__pagina .contenedor__1 .box h3 {
+    color: white;
+    margin-bottom: 25px;
+}
+
+.pie__pagina .contenedor__1 .box h3::after{
+    content: "";
+    display: block;
+    width: 42px;
+    height: 3px;
+    background-color: #0240B1;
+}
+
+.pie__pagina .contenedor__1 .box .redes__iconos i{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    width: 38px;
+    height: 38px;
+    line-height: 30px;
+    color: #1A79ED;
+    margin-right: 10px;
+    background-color: white;
+    text-align: center;
+    transition: all 300ms ease;
+    border: 1px solid white;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.contenedor__2 {
+    display: none;
+}
+
+.contenedor__3 {
+    background-color: #1A79ED;
+    padding: 15px 10px;
+    text-align: left;
+    color: white;
+    font-size: 12.8px;
+}
