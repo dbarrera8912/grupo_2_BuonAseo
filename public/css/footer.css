@@ -10,7 +10,7 @@
 /******FOOTER******/
 img {
     width: 100%;
-    margin-bottom: -13px;
+    margin-bottom: -5px;
 }
 
 .pie__pagina {
@@ -22,16 +22,17 @@ img {
     line-height: 170%;
 }
 
-.contenedor__1 {
-
-}
-
 .pie__pagina .contenedor__1 .box h3 {
     color: white;
     margin-bottom: 25px;
 }
 
-.pie__pagina .contenedor__1 .box h3::after{
+.box1 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pie__pagina .contenedor__1 .box1 h3::after{
     content: "";
     display: block;
     width: 42px;
@@ -39,8 +40,8 @@ img {
     background-color: #0240B1;
 }
 
-.pie__pagina .contenedor__1 .box .redes__iconos i{
-    display: inline-flex;
+.pie__pagina .contenedor__1 .box1 .redes__iconos i{
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     text-decoration: none;
@@ -48,7 +49,7 @@ img {
     height: 38px;
     line-height: 30px;
     color: #1A79ED;
-    margin-right: 10px;
+    margin: 20px;
     background-color: white;
     text-align: center;
     transition: all 300ms ease;
@@ -57,14 +58,8 @@ img {
     font-size: 18px;
 }
 
-.contenedor__2 {
+.box {
     display: none;
 }
 
-.contenedor__3 {
-    background-color: #1A79ED;
-    padding: 15px 10px;
-    text-align: left;
-    color: white;
-    font-size: 12.8px;
-}
+
