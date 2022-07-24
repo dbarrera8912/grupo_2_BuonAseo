@@ -22,7 +22,7 @@ img {
     line-height: 170%;
 }
 
-.pie__pagina .contenedor__1 .box h3 {
+h3 {
     color: white;
     margin-bottom: 25px;
 }
@@ -40,7 +40,7 @@ img {
     background-color: #0240B1;
 }
 
-.pie__pagina .contenedor__1 .box1 .redes__iconos i{
+.pie__pagina .contenedor__1 .box1 .redes__iconos1 i{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -60,6 +60,94 @@ img {
 
 .box {
     display: none;
+}
+
+@media (min-width: 1024px) {
+    .box {
+        display: inline-grid;
+    }
+
+    .pie__pagina .contenedor__1 {
+        display: none;
+    }
+
+    .pie__pagina {
+        width: 100%;
+        padding: 0px 1px 0px 1px;
+        background-color: #1A79ED;
+        color:white;
+        font-size: 80%;
+        line-height: 170%;
+    }
+
+    .pie__pagina .contenedor__2 {
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 4fr 5fr 4fr 7fr 4fr 4fr;
+        grid-gap: 1px;
+        padding: 5px 0px;
+    }
+    
+    .pie__pagina .contenedor__2 .box h3::after{
+        content: "";
+        display: block;
+        width: 42px;
+        height: 3px;
+        background-color: #0240B1;
+    }
+
+    .pie__pagina .contenedor__2 .box p{
+        color: white;
+        margin-bottom: 25px;
+    }
+    
+    .pie__pagina .contenedor__2 .box1 p{
+        color: white;
+        margin-bottom: 5px;
+    }
+
+    .pie__pagina .contenedor__2 .box button {
+        display: flex;
+        color: white;
+        background: #1A79ED;
+        border-radius: 10px;
+        border: white solid 1px;
+        width: 150px;
+        padding: 5px;
+    
+    }
+    
+    .pie__pagina .contenedor__2 .box .redes__iconos div{
+        width: 47%;
+        display: inline-flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    
+    }
+    
+    .pie__pagina .contenedor__2 .box .redes__iconos {
+        padding: 0px 15px;
+    }
+    
+    .pie__pagina .contenedor__2 .box .redes__iconos i{
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        width: 38px;
+        height: 38px;
+        line-height: 30px;
+        color: #1A79ED;
+        margin-right: 10px;
+        background-color: white;
+        text-align: center;
+        transition: all 300ms ease;
+        border: 1px solid white;
+        border-radius: 50%;
+        font-size: 18px;
+    }
 }
 
 
