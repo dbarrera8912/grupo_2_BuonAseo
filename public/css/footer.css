@@ -41,11 +41,20 @@ h3::after{
 }
 
 .box6 {
-    display: flex;
+    display: inline;
     flex-wrap: wrap;
 }
 
-.box6 .redes__iconos i{
+.redes__iconos div{
+    width: 47%;
+    display: inline;
+    justify-content: center;
+    margin-bottom: 10px;
+
+}
+
+.redes__iconos i{
+    display: inline-grid;
     justify-content: center;
     align-items: center;
     text-decoration: none;
@@ -75,7 +84,6 @@ h3::after{
         width: 100%;
         max-width: 1200px;
         margin: auto;
-        display: grid;
         grid-template-columns: 4fr 5fr 4fr 7fr 4fr 4fr;
         grid-gap: 1px;
         padding: 5px 0px;
@@ -91,36 +99,14 @@ h3::after{
         padding: 5px;
     
     }
-    
-    .redes__iconos div{
-        width: 47%;
-        display: inline-flex;
-        justify-content: center;
-        margin-bottom: 10px;
-    
-    }
-    
+
     .redes__iconos {
         padding: 0px 15px;
     }
-    
-    .redes__iconos i{
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-        width: 38px;
-        height: 38px;
-        line-height: 30px;
-        color: #1A79ED;
-        margin-right: 10px;
-        background-color: white;
-        text-align: center;
-        transition: all 300ms ease;
-        border: 1px solid white;
-        border-radius: 50%;
-        font-size: 18px;
-    }
-}
 
+    .redes__iconos div {
+        display: inline-flex;
+    }
+
+}
 
