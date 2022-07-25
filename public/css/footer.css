@@ -1,19 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Roboto&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter&family', sans-serif;
-}
-
 /* CABECERA */
 .pie-de-pagina {
-    width: 100%;
-    padding: 0px 1px 0px 1px;
-    background-color: #1A79ED;
-    color:white;
-    font-size: 80%;
+    
 }
 
 /* IMAGEN DE FONDO */
@@ -22,7 +9,16 @@
     margin-bottom: -5px;
 }
 
+/* CONTENEDORES */
+.pie-de-pagina__contenedores{
+    width: 100%;
+    padding: 0px 1px 0px 1px;
+    background-color: #1A79ED;
+    color:white;
+    font-size: 80%;
+}
 
+/* CONTENEDORES */
 h3::after{
     content: "";
     display: block;
