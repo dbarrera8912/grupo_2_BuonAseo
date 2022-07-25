@@ -84,6 +84,7 @@ border-radius: 10px;
 
 .home_main_section_productos_destacados_img--mobile{
 	border-radius: 50%;
+	width: 60%;
 }
 
 .home_main_section_productos_destacados_img--tablet, .home_main_section_productos_destacados_img--deskop {
