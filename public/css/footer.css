@@ -22,16 +22,6 @@ img {
     line-height: 170%;
 }
 
-h3 {
-    color: white;
-    margin-bottom: 5px;
-}
-
-p{
-    color: white;
-    margin-bottom: 5px;
-}
-
 h3::after{
     content: "";
     display: block;
@@ -62,7 +52,7 @@ h3::after{
     height: 38px;
     line-height: 30px;
     color: #1A79ED;
-    margin: 20px;
+    margin: 10px;
     background-color: white;
     text-align: center;
     transition: all 300ms ease;
@@ -75,6 +65,14 @@ h3::after{
     display: none;
 }
 
+.contenedor__2 {
+    background-color: #1A79ED;
+    margin: 20px;
+    text-align: left;
+    color: white;
+    font-size: 12.8px;
+}
+
 @media (min-width: 1024px) {
     .box1, .box2, .box3, .box4, .box5 {
         display: inline-grid;
@@ -84,6 +82,7 @@ h3::after{
         width: 100%;
         max-width: 1200px;
         margin: auto;
+        display: grid;
         grid-template-columns: 4fr 5fr 4fr 7fr 4fr 4fr;
         grid-gap: 1px;
         padding: 5px 0px;
@@ -105,6 +104,10 @@ h3::after{
     }
 
     .redes__iconos div {
+        display: inline-flex;
+    }
+
+    .redes__iconos i {
         display: inline-flex;
     }
 
