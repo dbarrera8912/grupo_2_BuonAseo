@@ -87,7 +87,7 @@ h3::after{
         padding: 5px 0px;
     }
 
-    button {
+    .boton {
         display: flex;
         color: white;
         background: #1A79ED;
