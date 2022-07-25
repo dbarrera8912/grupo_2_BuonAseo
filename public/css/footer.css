@@ -7,19 +7,21 @@
     font-family: 'Inter&family', sans-serif;
 }
 
-/******FOOTER******/
-img {
-    width: 100%;
-    margin-bottom: -5px;
-}
-
-.pie__pagina {
+/* CABECERA */
+.pie-de-pagina {
     width: 100%;
     padding: 0px 1px 0px 1px;
     background-color: #1A79ED;
     color:white;
     font-size: 80%;
 }
+
+/* IMAGEN DE FONDO */
+.pie-de-pagina__imagenFondo {
+    width: 100%;
+    margin-bottom: -5px;
+}
+
 
 h3::after{
     content: "";
