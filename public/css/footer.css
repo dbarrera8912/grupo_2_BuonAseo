@@ -49,6 +49,10 @@
 .pie-de-pagina__contenedor__1__box4__boton:hover{
     background-color: var(--azulFuerte);
 }
+/* CONTACTO */
+.pie-de-pagina__contenedor__1__box5 a{
+    font-size: 12.8px;
+}
 
 /* REDES */
 .pie-de-pagina__contenedor__1__box6 {
