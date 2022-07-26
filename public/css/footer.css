@@ -35,6 +35,26 @@
     display: none;
 }
 
+.pie-de-pagina__contenedor__1__box1 a,
+.pie-de-pagina__contenedor__1__box2 a,
+.pie-de-pagina__contenedor__1__box3 a,
+.pie-de-pagina__contenedor__1__box4 .pie-de-pagina__esquivarAumento,
+.pie-de-pagina__contenedor__1__box5 a{
+    font-size: 12.8px;
+
+    transition: all 1s;
+}
+
+.pie-de-pagina__contenedor__1__box1 a:hover,
+.pie-de-pagina__contenedor__1__box2 a:hover,
+.pie-de-pagina__contenedor__1__box3 a:hover,
+.pie-de-pagina__contenedor__1__box4 .pie-de-pagina__esquivarAumento:hover,
+.pie-de-pagina__contenedor__1__box5 a:hover{
+    color: var(--azulFuerte); 
+    font-size: 14px;
+    font-weight: 700;
+}
+
 /* BOTON BOX 4 */
 .pie-de-pagina__contenedor__1__box4__boton {
     border-radius: 10px;
@@ -42,24 +62,13 @@
 
     width: 150px;
 
-    padding: 2px;
+    padding: 10px;
 
     background-color: var(--azulClaro);
+    font-size: 12.8px;
 }
 .pie-de-pagina__contenedor__1__box4__boton:hover{
     background-color: var(--azulFuerte);
-}
-/* CONTACTO */
-.pie-de-pagina__contenedor__1__box5 a{
-    font-size: 12.8px;
-
-    transition: all 1s;
-}
-.pie-de-pagina__contenedor__1__box5 a:hover{
-    color: var(--azulFuerte);
-    
-    font-size: 14px;
-    font-weight: 700;
 }
 
 /* REDES */
