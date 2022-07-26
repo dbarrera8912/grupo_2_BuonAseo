@@ -1,5 +1,5 @@
 /* CABECERA */
-.pie-de-pagina {}
+
 
 /* IMAGEN DE FONDO */
 .pie-de-pagina__imagenFondo {
@@ -10,7 +10,7 @@
 /* CONTENEDORES */
 .pie-de-pagina__contenedores {
     width: 100%;
-    padding: 0px 1px 0px 1px;
+    padding: 0px 1px 0px 20px;
     background-color: #1A79ED;
     color: white;
     font-size: 80%;
@@ -33,6 +33,21 @@
 .pie-de-pagina__contenedor__1__box4,
 .pie-de-pagina__contenedor__1__box5 {
     display: none;
+}
+
+/* BOTON BOX 4 */
+.pie-de-pagina__contenedor__1__box4__boton {
+    border-radius: 10px;
+    border: white solid 1px;
+
+    width: 150px;
+
+    padding: 2px;
+
+    background-color: var(--azulClaro);
+}
+.pie-de-pagina__contenedor__1__box4__boton:hover{
+    background-color: var(--azulFuerte);
 }
 
 /* REDES */
@@ -72,6 +87,8 @@
     text-align: left;
     color: white;
     font-size: 12.8px;
+
+    padding-bottom: 20px;
 }
 
 
@@ -97,16 +114,6 @@
         grid-template-columns: 4fr 5fr 4fr 7fr 4fr 4fr;
         grid-gap: 1px;
         padding: 5px 0px;
-    }
-
-    /* BOTON BOX 4 */
-    .pie-de-pagina__contenedor__1__box4__boton {
-        border-radius: 10px;
-        border: white solid 1px;
-
-        width: 150px;
-
-        padding: 2px;
     }
 
     /* REDES */
