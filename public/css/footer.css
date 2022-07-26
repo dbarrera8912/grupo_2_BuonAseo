@@ -52,6 +52,14 @@
 /* CONTACTO */
 .pie-de-pagina__contenedor__1__box5 a{
     font-size: 12.8px;
+
+    transition: all 1s;
+}
+.pie-de-pagina__contenedor__1__box5 a:hover{
+    color: var(--azulFuerte);
+    
+    font-size: 14px;
+    font-weight: 700;
 }
 
 /* REDES */
@@ -82,6 +90,12 @@
     border: 1px solid white;
     border-radius: 50%;
     font-size: 18px;
+
+    transition: all 800ms;
+}
+.pie-de-pagina__contenedor__1__box6__redes__iconos i:hover{
+    background-color: var(--azulFuerte);
+    color: white;
 }
 
 /* CONTENEDOR 2 */
