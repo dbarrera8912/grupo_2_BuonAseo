@@ -43,10 +43,10 @@ app.get('/footer/informacion/politicasPrivacidad', (req, res) => {
     res.sendFile(path.resolve('./view/footer-all/informacion/politicas-privacidad.html'));
 });
 app.get('/footer/informacion/terminosCondiciones', (req, res) => {
-    res.sendFile(path.resolve('./view/footer-all/informacion/politicas-privacidad.html'));
+    res.sendFile(path.resolve('./view/footer-all/informacion/terminos-condiciones.html'));
 });
 app.get('/footer/informacion/puntosEntrega', (req, res) => {
-    res.sendFile(path.resolve('./view/footer-all/informacion/terminos-condiciones.html'));
+    res.sendFile(path.resolve('./view/footer-all/informacion/puntos-entrega.html'));
 });
 
 app.get('/footer/ayuda/comoComprar', (req, res) => {
