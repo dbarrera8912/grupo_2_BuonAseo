@@ -1,0 +1,7 @@
+.puntosEntrega__section{
+    width: 70%;
+    max-width: 768px;
+
+    display: flex;
+    align-items: flex-start;
+}
