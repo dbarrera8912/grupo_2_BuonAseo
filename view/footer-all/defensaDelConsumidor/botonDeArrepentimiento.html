@@ -67,9 +67,95 @@
             </nav>
         </section>
     </header>
-    <main>
+    <main class="arrepentimiento_main">
+      <section class="arrepentimiento_main_conteiner--titulo">
+          <article class="arrepentimiento_main_titulo_icono2">
+              <div class="arrepentimiento_main_titulo">
+                  <p class="arrepentimiento_main_conteiner--parrafo">
+                    Para poder completar este formulario
+                    en su totalidad deberas tener a tu <br>
+                    dispocicion tu Nº de pedido y email con el que registraste la compra.
+                </p>
+              </div>
+          </article>
+          
+          <form action="" class="arrepentimiento_main_conteiner--form">
+            <section class="arrepentimiento_main_conteiner--form--section1">
+                <div class="arrepentimiento_main_form--caja_nombre">
+                    <label class="arrepentimiento_main_form--label" for="nombre"><i class="fa-solid fa-user"></i></label>
+                    <input class="arrepentimiento_main_form--input_nombre" type="text" id="nombre" name="nombre" placeholder="Nombre y apellido"/>
+                    <small class="arrepentimiento_main_form--error">El nombre y el apellido es obligatorio</small>
+                </div>
+                <div class="arrepentimiento_main_form--caja_email">
+                    <label class="arrepentimiento_main_form--label" for="email"><i class="fa-solid fa-envelope"></i></label>
+                    <input class="arrepentimiento_main_form--input_email" type="email" id="email" name="email" placeholder="Email"/>
+                    <small class="arrepentimiento_main_form--error">El Correo es obligatorio</small>
+                </div>
+            </section>
+            <section class="arrepentimiento_main_conteiner--form--section1">
+                <div class="arrepentimiento_main_form--caja_telefono">
+                <label class="arrepentimiento_main_form--label" for="telefono"><i class="fa-solid fa-phone"></i></label>
+                <input class="arrepentimiento_main_form--input_telefono" type="number" id="telefono" name="telefono" placeholder="Telefono"/>
+                <small class="arrepentimiento_main_form--error">El telefono es obligatorio</small>
+            </div>
+            <div class="arrepentimiento_main_form--caja_arrepenti">
+              <label class="arrepentimiento_main_form--label" for="telefono"><i class="fa-solid fa-arrow-rotate-left"></i></label>
+                <select class="arrepentimiento_main_form--input_select" name="arrepenti" id="arrepenti">
+                    <option>Me arrepenti</option>
+                    <option>Quiero devolver la compra</option>
+                    <option>No me mandaron el producto que pedi</option>
+                    <option>DANI HACETE DE BOCA</option>
+                  </select>
+                <small class="arrepentimiento_main_form--error">La ciudad es obligatoria</small>
+            </div>
+            </section>
+              <section class="arrepentimiento_main_conteiner--form--section2"> 
+                <div class="arrepentimiento_main_form--caja">
+                <label class="arrepentimiento_main_form--label" for="dni"><i class="fa-solid fa-user"></i></label>
+                <input class="arrepentimiento_main_form--input_dni" type="number" id="dni" name="dni" placeholder="DNI"/>
+                <small class="arrepentimiento_main_form--error">El DNI es obligatorio</small>
+            </div>
+            <div class="arrepentimiento_main_form--caja">
+                <label class="arrepentimiento_main_form--label" for="numero">Numero de pedido sin guion</label>
+                <input class="arrepentimiento_main_form--input_pedido" type="text" id="numeroPedido" name="numeroPedido" placeholder="Numero de pedido sin guion"/>
+                <small class="arrepentimiento_main_form--error">El campo es obligatorio</small>
+            </div>
+            <div class="arrepentimiento_main_form--caja">
+                <label class="arrepentimiento_main_form--label" for="devolves">El o los productos que devolves</label>
+                <input class="arrepentimiento_main_form--input_devolves" type="text" id="devolves" name="devolves" placeholder="El o los productos que devolves"/>
+                <small class="arrepentimiento_main_form--error">El campo es obligatorio</small>
+            </div>
+            <div class="arrepentimiento_main_form--caja">
+                <label class="arrepentimiento_main_form--label" for="domicilio">Domicilio</label>
+                <input class="arrepentimiento_main_form--input_domicilio" type="text" id="domicilio" name="domicilio" placeholder="Domicilio"/>
+                <small class="arrepentimiento_main_form--error">El campo es obligatorio</small>
+            </div>
+            <div class="arrepentimiento_main_form--caja">
+                <label class="arrepentimiento_main_form--label" for="adjuntar">Adjuntar archivo</label>
+                <input class="arrepentimiento_main_form--input_adjuntar" type="file" id="adjuntar" name="adjuntar" placeholder="adjuntar"/>
+                <small class="arrepentimiento_main_form--error">El campo es obligatorio</small>
+            </div>
+              </section>
+              <section class="arrepentimiento_main_conteiner--form--section3">
+                <textarea placeholder="Comentario" name="comentario" id="comentario" cols="30" rows="10">
 
-    </main>
+                </textarea>
+              </section>
+             
+<section class="arrepentimiento_main_conteiner--form--section4">
+    <div class="arrepentimiento_main_form--button">
+        <button  class="arrepentimiento_main_form--borrar" type="reset">Borrar</button>
+        <button  class="arrepentimiento_main_form--enviar" type="submit">Enviar</button>
+    </div>
+</section>
+
+                  
+          </form>
+      </section>
+      
+
+      </form>
+  </main>
     <footer class="pie-de-pagina">
         <!-- IMAGEN DE FONDO -->
         <section class="pie-de-pagina__cajaImg">

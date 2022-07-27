@@ -7,17 +7,19 @@
     align-items: center;
     width: 100%;
     gap: 30px;
+    height: 60px;
 }
 
 .header_section_logo{
     width: 10%;
+    height: auto;
     margin-top: 5px;
     padding: 0 15px;
     justify-content: flex-start;
 }
 .header_section_logo img {
     width: 100px;
-    height: 60px;
+    height: 50px;
 }
 
 .header_section_input {
@@ -52,6 +54,7 @@
 
 .home_header_ingresar {
 display: none;
+color: var(--blanco);
 }
 
 .header_section_user_car{
@@ -166,10 +169,14 @@ display: flex;
         color: var(--blanco);
       }
 
-      
 }
 
 @media (min-width: 1024px) {
+    .header_section_uno{
+        height: 90px;
+    }
+
+
     .header_section_logo{
         width: 20%;
         margin-top: 5px;
