@@ -1,0 +1,241 @@
+.header_section_uno{
+    background-color: var(--azulClaro);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+    height: 60px;
+}
+
+.header_section_logo{
+    width: 10%;
+    height: auto;
+    margin-top: 5px;
+    padding: 0 15px;
+    justify-content: flex-start;
+}
+.header_section_logo img {
+    width: 100px;
+    height: 50px;
+}
+
+.header_section_input {
+    width: 50%;
+    margin-left: 65px;
+    display:flex;
+    position: relative;
+    justify-content: center;
+}
+
+.header_section_input input{
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px; 
+}
+
+.header_section_input_span {
+    background-color: var(--blanco);
+    width: 25px;
+    height: 20px;
+    position: absolute;
+    right: 0%;
+    top: 18%;
+}
+
+.fa-magnifying-glass {
+    font-size: 18px;
+    color: var(--azulFuerte)
+}
+
+.home_header_ingresar {
+display: none;
+color: var(--blanco);
+}
+
+.header_section_user_car{
+    width: 10%;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+    padding-right: 5px;
+    margin-right: 5px;
+}
+
+
+.header_section_user_car i {
+    font-size: 15px;
+    color: var(--blanco);
+}
+
+
+.header_section_dos {
+    background-color: var(--azulFuerte);
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header_section_dos img {
+    width: 150px;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.header_section_dos_lista button {
+    width: 100%;
+    height: 40px;
+    background-color: var(--azulClaro);
+    color: var(--blanco);
+}
+
+
+.header_section_dos_lista {
+    display: none;
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.header_section_dos_lista--1 {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 15px;
+}
+
+
+
+
+.show {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 90%;
+    height: auto;
+}
+
+
+.show a {
+    color: var(--blanco);
+    font-weight: 500;
+}
+
+.header_section_dos_lista ul li hr {
+    background-color: var(--blanco);
+    align-self: center;
+    border: none;
+    width: 90%;
+    height: 5px;
+}
+
+.header_section_hamburguesa {
+    width: 33px;
+    height: 30px;
+    margin: 3px 1px;
+border-radius: 5px;
+border: none;
+display: flex;
+}
+
+
+.header_section_hamburguesa i {
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+    font-size: 1.3rem;
+    padding: 7px;
+}
+
+
+
+
+@media (min-width: 768px) {
+   
+    .home_header_ingresar {
+        display: flex;
+        }
+
+    a{
+       font-size: 1.3rem;
+        color: var(--blanco);
+      }
+
+}
+
+@media (min-width: 1024px) {
+    .header_section_uno{
+        height: 90px;
+    }
+
+
+    .header_section_logo{
+        width: 20%;
+        margin-top: 5px;
+        padding: 0 15px;
+        justify-content: flex-start;
+    }
+    .header_section_logo img {
+        width: 150px;
+        height: 80px;
+    }
+
+    .header_section_user_car{
+        width: 20%;
+        margin-right: 2rem;
+    }
+    .header_section_user_car i {
+        font-size: 20px;
+    }
+
+    .header_section_hamburguesa {
+    display: none;
+    }
+
+    
+.header_section_dos_lista {
+    display: flex;
+    margin-left: 5rem;
+}
+.header_section_dos_lista--1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px 0;
+    gap: 15px;
+}
+
+.header_section_dos_lista--1--defensa{
+    display: none;
+}
+
+.header_section_dos img {
+   display: none;
+}
+
+.header_section_dos_lista button {
+   display: none;
+}
+
+hr {
+    display: none;
+}
+
+.home_header_ingresar {
+    font-size: 20px;
+    }
+    
+
+
+
+}
+

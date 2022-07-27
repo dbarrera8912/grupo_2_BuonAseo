@@ -1,0 +1,181 @@
+.arrepentimiento_main{
+    width: 100%;
+    }
+    
+  
+    .arrepentimiento_main_conteiner--icono {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      height: 100px;
+      padding: 5px;
+    }
+
+    .arrepentimiento_header_logo_img{
+      width: 80px;
+      height: 80px;
+    }
+
+    .arrepentimiento_main_conteiner--parrafo{
+      color: var(--negro);
+      padding: 5px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+
+    .arrepentimiento_main_conteiner--form {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .arrepentimiento_main_form--caja_nombre{
+      width: 40%;
+    }
+
+    .arrepentimiento_main_form--caja_email{
+      width: 40%;
+    }
+
+    .arrepentimiento_main_conteiner--form--section1{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
+      padding: 5px 10px;
+    }
+
+    .arrepentimiento_main_form--input_nombre{
+      width: 100%;
+      height: 30px;
+    }
+
+    .arrepentimiento_main_form--input_email{
+      width: 100%;
+      height: 30px;
+    }
+
+    .arrepentimiento_main_form--caja_telefono{
+      width: 40%;
+    }
+
+    .arrepentimiento_main_form--caja_arrepenti{
+      width: 40%;
+    }
+
+    .arrepentimiento_main_form--input_telefono{
+      width: 100%;
+      height: 30px;
+    }
+
+    .arrepentimiento_main_form--input_select{
+      width: 100%;
+      height: 30px;
+    }
+
+    .arrepentimiento_main_conteiner--form--section2{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 10px;
+      padding: 5px 10px;
+    }
+
+    .arrepentimiento_main_form--input_dni{
+      width: 100%;
+    }
+
+    .arrepentimiento_main_form--input_pedido{
+      width: 100%;
+    }
+
+    .arrepentimiento_main_form--input_devolves{
+      width: 100%;
+    }
+
+    .arrepentimiento_main_form--input_domicilio{
+      width: 100%;
+    }
+
+    .arrepentimiento_main_form--input_adjuntar{
+      width: 100%;
+    }
+
+    .arrepentimiento_main_conteiner--form--section3{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+    }
+
+
+
+    .arrepentimiento_main_conteiner--form--section3 textarea {
+      width: 100%;
+      color: var(--negronegro);
+      resize: none;
+    }
+
+
+.arrepentimiento_main_conteiner--form--section4 {
+display: flex;
+width: 100%;
+justify-content: center;
+}
+
+
+    
+    
+      .arrepentimiento_main_form--label{
+        width: 100%;
+        background-color: lightslategray;
+        margin-bottom: 10px;
+        font-weight: 900;
+        padding: 5px;
+        border-left: 1px solid;
+        border-radius: 5px;
+      }
+    
+      .arrepentimiento_main_form--error{
+        width: 40%;
+        height: 20px;
+        color: red;
+      }
+    
+    
+    
+      .arrepentimiento_main_form--button {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+        gap: 20px;
+        margin-bottom: 10px;
+      }
+    
+    
+      .arrepentimiento_main_form--borrar {
+        width: 80px;
+        height: 35px;
+        background-color: red;
+        border: none;
+    border-radius: 5px;
+    color: white;
+      }
+                          
+      .arrepentimiento_main_form--enviar{
+    width: 80px;
+    height: 35px;
+    background-color: blue;
+    border: none;
+    border-radius: 5px;
+    color: white;
+      }     
