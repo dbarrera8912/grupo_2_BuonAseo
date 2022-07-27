@@ -1,0 +1,61 @@
+/* CABECERA */
+.preguntasFrecuentes{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+.preguntasFrecuentes__section{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    gap: 40px;
+
+    width: 80%;
+}
+
+/* TITULO */
+.preguntasFrecuentes__section__cajaTitulo{
+    width: 100%;
+
+    border-bottom: var(--azulFuerte) 10px solid;
+}
+.preguntasFrecuentes__section__cajaTitulo h1{
+    margin-bottom: 2px;
+}
+
+
+/* ARTICULOS */
+.preguntasFrecuentes__section__article{
+    border: var(--azulFuerte) 1px solid;
+    border-radius: 10px;
+
+    width: 100%;
+    max-height: 200px;
+
+    padding: 10px;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: 750ms;
+}
+.preguntasFrecuentes__section__article:hover{
+    background-color: var(--azulClaro);
+}
+
+.preguntasFrecuentes__section__respuesta1{
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+    transition: 750ms;
+}
+.preguntasFrecuentes__section__article:hover .preguntasFrecuentes__section__respuesta1{
+    height: 4%;
+    margin-top: 20px;
+}
+.preguntasFrecuentes__section__respuesta1 a{
+    color: white;
+    font-size: 16px;
+}
