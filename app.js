@@ -33,3 +33,36 @@ app.get('/login', (req, res) => {
 app.get('/password-lost', (req, res) => {
     res.sendFile(path.resolve('./view/login-all/password-lost.html'));
 });
+
+/* FOOTER ALL */
+app.get('/footer/nosotros', (req, res) => {
+    res.sendFile(path.resolve('./view/footer-all/nosotros-QuienesSomos.html'));
+});
+
+app.get('/footer/informacion/politicasPrivacidad', (req, res) => {
+    res.sendFile(path.resolve('./view/footer-all/informacion/politicas-privacidad.html'));
+});
+app.get('/footer/informacion/terminosCondiciones', (req, res) => {
+    res.sendFile(path.resolve('./view/footer-all/informacion/terminos-condiciones.html'));
+});
+app.get('/footer/informacion/puntosEntrega', (req, res) => {
+    res.sendFile(path.resolve('./view/footer-all/informacion/puntos-entrega.html'));
+});
+
+app.get('/footer/ayuda/comoComprar', (req, res) => {
+    res.sendFile(path.resolve('./view/footer-all/ayuda/comoComprar.html'));
+});
+app.get('/footer/ayuda/preguntasFrecuentes', (req, res) => {
+    res.sendFile(path.resolve('./view/footer-all/ayuda/preguntasFrecuentes.html'));
+});
+app.get('/footer/ayuda/metodosDePago', (req, res) => {
+    res.sendFile(path.resolve('./view/footer-all/ayuda/metodosDePago.html'));
+});
+
+app.get('/footer/defensaDelConsumidor/reclamosIngresarAqui', (req, res) => {
+    res.sendFile(path.resolve('./view/footer-all/defensaDelConsumidor/reclamosIngresarAqui.html'));
+});
+app.get('/footer/defensaDelConsumidor/botonDeArrepentimiento', (req, res) => {
+    res.sendFile(path.resolve('./view/footer-all/defensaDelConsumidor/botonDeArrepentimiento.html'));
+});
+
