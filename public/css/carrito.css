@@ -1,11 +1,11 @@
 
+
 .carrito {
     display:flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
-    align-items:center;
-    width: 100%;
+    align-items:center; 
 }
 .carrito__section{
     display:flex;
@@ -13,9 +13,11 @@
     flex-direction: column;
     justify-content: center;
     align-items:center; 
-    width: 70%;
+    width: 90%;
 }
-
+.carrito__caja__titulo{
+    width: 100%;
+}
 .carrito__primer__producto {
     background-color: var(--grisClaro);
     position: relative;
@@ -23,7 +25,6 @@
 }
 
 .carrito__titulo {
-    display: flex;
     margin: 15px;
     font-size: 1rem;
     font-family: var(primer__producto);
@@ -32,20 +33,23 @@
 
 .carrito__primer__linia__espacio {
     background-color: black;
-    width: 80%;
-    margin-left: 10px;
+    width: 100%;
     margin-bottom: 5px;
     margin-top: -10px;
 
 }
 
 .carrito__boton__imagen {
-    width: 15px;
-   color:var (--azulFuerte);
+    width: 25px;
+    height: 25px;
+   color: var(--azulFuerte);
    position: absolute;
-   top: 0;
-   right: 0;
-    margin: 2px;
+   padding-left: 7px;
+   top: 5px;
+   right: 5px;
+    
+    border: 1px var(--azulFuerte) solid;
+    border-radius: 50%;
 
 
 }
@@ -55,7 +59,7 @@
     background-color: var(--blanco) #fff;
     display: flex;
     justify-content: center;
-    margin: 5px;
+   
 }
 
 
@@ -63,11 +67,12 @@
 
 .carrito__producto__general {
  display: flex;
- width: 72%;
- font-family: --tipografiaLetra'Inter', sans-serif;
+ width: 100%;
 justify-content: space-between;
-border:ridge 2px ;
-margin: 5px;
+align-items:center;
+border-bottom: ridge 2px var(--grisClaro);
+padding: 10px;
+
 
 }
 .carrito__producto {
@@ -82,34 +87,35 @@ margin: 5px;
 }
 .carrito__precio__general {
     display: flex;
- width: 72%;
- font-family: --tipografiaLetra'Inter', sans-serif;
-justify-content: space-between;
-border:ridge 2px ;
-margin: 5px;
+    width: 100%;
+   justify-content: space-between;
+   align-items:center;
+   border-bottom: ridge 2px var(--grisClaro);
+   padding: 10px;
+
 }
 .carrito__precio {
     font-size: 12px
 }
 .carrito__precio__numero {
     font-size: 12px;
-    margin-right: 5px;
+   
 } 
 .carrito__cantidad__general {
     display: flex;
-    width: 72%;
-    font-family: --tipografiaLetra'Inter', sans-serif;
+    width: 100%;
    justify-content: space-between;
-   border:ridge 2px ;
-   margin: 5px;
+   align-items:center;
+   border-bottom: ridge 2px var(--grisClaro);
+   padding: 10px;
+  
 }
 .carrito__cantidad {
     font-size: 12px;
-    margin-right: 5px;
+   
 }
 .carrito__cantidad__boton {
-     width: 80px;
-     margin-right: 5px;
+     width: 90px;
      background-color: var(--azulClaro);
      border: solid 1px var(--azulFuerte);
      border-radius: 10px;
@@ -122,53 +128,22 @@ margin: 5px;
 }
 .carrito__subtotal__general {
     display: flex;
-    width: 72%;
-    font-family: --tipografiaLetra'Inter', sans-serif;
-   justify-content: space-between;
-   border:ridge 2px ;
-   margin: 5px;
+ width: 100%;
+justify-content: space-between;
+align-items:center;
+border-bottom: ridge 3px var(--azulClaro);
+padding: 10px;
+ 
 }
 .carrito__subtotal {
     font-size: 12px;
-    margin-right: 5px;
+    
 }
 .carrito__subtotal__numero {
     font-size: 12px;
-    margin-right: 5px;
+  
 }
 
-.carrito__segundo__producto {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: var(--grisClaro);
-    position: relative;
-}
-
-.carrito__carrito__segundo_segunda__linea__espacio {
-width: 80%;
-height: 3px;
-background-color: var(--azulClaro);
-}
-
-.carrito__segundo__boton {
-    width: 15px;
-   color:var (--azulFuerte)#0240B1;
-   position: absolute;
-   top: 0;
-   right: 0;
-    margin: 2px;
-}
-
-
-.carrito__segunda__imagen {
-    width: 100%;
-    background-color: var(--blanco) #fff;
-    display: flex;
-    justify-content: center;
-    margin: 5px;
-
-}
 .carrito__pie__pagina {
     display: flex;
     flex-flow: column wrap;
