@@ -3,8 +3,9 @@
 @import "./general.css";
 @import "./header.css";
 @import "./home.css";
-@import "./detalle.css";
+
 @import "./carrito.css";
+
 
 /* LOGIN|REGISTER ALL */
 @import "./log-reg-all/form-login.css";
@@ -25,3 +26,5 @@
 
 @import "./footer-all/defensaDelConsumidor/botonDeArrepentimiento.css";
 @import "./footer-all/defensaDelConsumidor/reclamos.css";
+
+@import "./detalle.css";

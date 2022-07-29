@@ -13,7 +13,8 @@
     ></script>
     <title>Detalle | Buon Aseo</title>
 </head>
-<header class="header">
+<body>
+  <header class="header">
     <section class="header_section_uno">
       <article class="header_section_logo">
         <a href="/"><img src="/img/logoFinal.png" alt="logo" /></a>
@@ -74,11 +75,10 @@
       </nav>
     </section>
   </header>
-<body>
     <main class="detalle_main">
         <section class="detalle_main_section1">
             <article class="detalle_main_article_img_principal">
-                <img src="/img/detalle/fondox.png" alt="fondo" >
+                <img class="detalle_main_article_img_principal_grande" src="/img/detalle/fondox.png" alt="fondo" >
                 <div class="detalle_main_article_img_secundaria_mobile">
                     <img src="/img/detalle/fondox.png" alt="fondo">
                     <img src="/img/detalle/fondox.png" alt="fondo">
@@ -86,12 +86,17 @@
                 </div>
             </article>
             <article class="detalle_main_article_nombre">
+              <div>
                 <h1>NOMBRE</h1>
                 <p>$ 100<p>
                 <p>Cantidad</p>
-                <p>Envio</p>
+                <div>
+                  <i class="fa-solid fa-truck"></i><span>Envio</span>
+                </div>
                 <p>Subtotal</p>
                 <p>TOTAL</p>
+                </div>
+            
                 <button class="detalle_main_article_boton_principal">
                     COMPRA AHORA
                 </button>
@@ -125,6 +130,7 @@
                     <p>COLOR</p>
                 </div>
                 <div>
+                    <h2>.</h2>
                     <p>XX</p>
                     <p>XXX</p>
                     <p>XXX</p>
@@ -162,67 +168,64 @@
             </article>
         </section>
     </main>
-<!-- FOOTER-->
-<footer class="pie-de-pagina">
-    <!-- IMAGEN DE FONDO -->
-    <section class="pie-de-pagina__cajaImg">
-      <img src="/img/olasFooter.png" alt="" class="pie-de-pagina__imagenFondo">
-    </section>
-    <!-- CONTENEDORES -->
-    <section class="pie-de-pagina__contenedores">
-      <!-- CONTENEDOR 1 -->
-      <article class="pie-de-pagina__contenedor__1">
-        <!-- NOSOTROS -->
-        <div class="pie-de-pagina__contenedor__1__box1">
-          <h3>NOSOTROS</h3>
-          <p>¿Quiénes somos?</p>
-        </div>
-        <!-- INFO -->
-        <div class="pie-de-pagina__contenedor__1__box2">
-          <h3>INFORMACION</h3>
-          <p>Políticas de privacidad</p>
-          <p>Términos y condiciones</p>
-          <p>Puntos de entrega</p>
-        </div>
-        <!-- AYUDA -->
-        <div class="pie-de-pagina__contenedor__1__box3">
-          <h3>AYUDA</h3>
-          <p>¿Cómo comprar?</p>
-          <p>Preguntas frecuentes</p>
-          <p>Métodos de pago</p>
-        </div>
-        <!-- DEFENSA -->
-        <div class="pie-de-pagina__contenedor__1__box4">
-          <h3>DEFENSA DEL CONSUMIDOR</h3>
-          <p>Para reclamos ingrese aquí</p>
-          <p>Ley N 24.240</p>
-          <button class="pie-de-pagina__contenedor__1__box4__boton">BOTON DE ARREPENTIMIENTO</button>
-        </div>
-        <!-- CONTACTO -->
-        <div class="pie-de-pagina__contenedor__1__box5">
-          <h3>CONTACTO</h3>
-          <a href="tel:1142309399">(11) 42309399</a>
-          <a href="mailto:info@BuonAseo.com">info@BuonAseo.com</a>
-          <a href="https://maps.app.goo.gl/JZfumo4UQM1vkVWb7" target="_blank">Coronel Mendez 1908 Wilde - Buenos
-            Aires</a>
-        </div>
-        <!-- REDES -->
-        <div class="pie-de-pagina__contenedor__1__box6">
-          <h3>REDES SOCIALES</h3>
-          <nav class="pie-de-pagina__contenedor__1__box6__redes__iconos">
-            <a href="https://www.facebook.com/buonaseoo" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://web.whatsapp.com/" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="https://www.instagram.com/buon_aseo/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://twitter.com/Richard79654371?t=M0OnTrTgoNQdmnZ4Q_TxFQ&s=09" target="_blank"><i
-                class="fa-brands fa-twitter"></i></a>
-          </nav>
-        </div>
-      </article>
-      <!-- CONTENEDOR 2 -->
-      <article class="pie-de-pagina__contenedor__2">
-        <p>Quimica Buon Aseo (1978 - 2022) Fábrica de Productos Químicos. Buon Aseo ® es marca registrada.</p>
-      </article>
-    </section>
-  </footer>
+    <footer class="pie-de-pagina">
+      <!-- IMAGEN DE FONDO -->
+      <section class="pie-de-pagina__cajaImg">
+        <img src="/img/olasFooter.png" alt="" class="pie-de-pagina__imagenFondo">
+      </section>
+      <!-- CONTENEDORES -->
+      <section class="pie-de-pagina__contenedores">
+        <!-- CONTENEDOR 1 -->
+        <article class="pie-de-pagina__contenedor__1">
+          <!-- NOSOTROS -->
+          <div class="pie-de-pagina__contenedor__1__box1">
+            <h3>NOSOTROS</h3>
+            <a href="/footer/nosotros">¿Quiénes somos?</a>
+          </div>
+          <!-- INFO -->
+          <div class="pie-de-pagina__contenedor__1__box2">
+            <h3>INFORMACION</h3>
+            <a href="/footer/informacion/politicasPrivacidad">Políticas de privacidad</a>
+            <a href="/footer/informacion/terminosCondiciones">Términos y condiciones</a>
+            <a href="/footer/informacion/puntosEntrega">Puntos de entrega</a>
+          </div>
+          <!-- AYUDA -->
+          <div class="pie-de-pagina__contenedor__1__box3">
+            <h3>AYUDA</h3>
+            <a href="/footer/ayuda/comoComprar">¿Cómo comprar?</a>
+            <a href="/footer/ayuda/preguntasFrecuentes">Preguntas frecuentes</a>
+            <a href="/footer/ayuda/metodosDePago">Métodos de pago</a>
+          </div>
+          <!-- DEFENSA -->
+          <div class="pie-de-pagina__contenedor__1__box4">
+            <h3>DEFENSA DEL CONSUMIDOR</h3>
+            <a href="/footer/defensaDelConsumidor/reclamosIngresarAqui" class="pie-de-pagina__esquivarAumento">Para reclamos ingrese aquí</a>
+            <a href="https://www.argentina.gob.ar/normativa/nacional/ley-24240-638" target="_blank" class="pie-de-pagina__esquivarAumento">Ley N 24.240</a>
+            <a href="/footer/defensaDelConsumidor/botonDeArrepentimiento" class="pie-de-pagina__contenedor__1__box4__aBoton"><button class="pie-de-pagina__contenedor__1__box4__boton">BOTON DE ARREPENTIMIENTO</button></a>
+          </div>
+          <!-- CONTACTO -->
+          <div class="pie-de-pagina__contenedor__1__box5">
+            <h3>CONTACTO</h3>
+            <a href="tel:1142309399">(11) 42309399</a>
+            <a href="mailto:info@BuonAseo.com">info@BuonAseo.com</a>
+            <a href="https://maps.app.goo.gl/JZfumo4UQM1vkVWb7" target="_blank">Coronel Mendez 1908 Wilde - Buenos Aires</a>
+          </div>
+          <!-- REDES -->
+          <div class="pie-de-pagina__contenedor__1__box6">
+            <h3>REDES SOCIALES</h3>
+            <nav class="pie-de-pagina__contenedor__1__box6__redes__iconos">
+              <a href="https://www.facebook.com/buonaseoo" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://web.whatsapp.com/" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="https://www.instagram.com/buon_aseo/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://twitter.com/Richard79654371?t=M0OnTrTgoNQdmnZ4Q_TxFQ&s=09" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            </nav>
+          </div>
+        </article>
+        <!-- CONTENEDOR 2 -->
+        <article class="pie-de-pagina__contenedor__2">
+          <p>Quimica Buon Aseo (1978 - 2022) Fábrica de Productos Químicos. Buon Aseo ® es marca registrada.</p>
+        </article>
+      </section>
+    </footer>
 </body>
 </html>
