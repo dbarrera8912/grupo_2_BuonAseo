@@ -7,17 +7,19 @@
     align-items: center;
     width: 100%;
     gap: 30px;
+    height: 60px;
 }
 
 .header_section_logo{
     width: 10%;
+    height: auto;
     margin-top: 5px;
     padding: 0 15px;
     justify-content: flex-start;
 }
 .header_section_logo img {
     width: 100px;
-    height: 60px;
+    height: 50px;
 }
 
 .header_section_input {
@@ -52,6 +54,7 @@
 
 .home_header_ingresar {
 display: none;
+color: var(--blanco);
 }
 
 .header_section_user_car{
@@ -80,6 +83,20 @@ display: none;
     align-items: center;
 }
 
+.header_section_dos img {
+    width: 150px;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.header_section_dos_lista button {
+    width: 100%;
+    height: 40px;
+    background-color: var(--azulClaro);
+    color: var(--blanco);
+}
+
 
 .header_section_dos_lista {
     display: none;
@@ -103,6 +120,7 @@ display: none;
     flex-direction: column;
     padding: 10px;
     width: 90%;
+    height: auto;
 }
 
 
@@ -151,9 +169,73 @@ display: flex;
         color: var(--blanco);
       }
 
-      
 }
 
 @media (min-width: 1024px) {
+    .header_section_uno{
+        height: 90px;
+    }
+
+
+    .header_section_logo{
+        width: 20%;
+        margin-top: 5px;
+        padding: 0 15px;
+        justify-content: flex-start;
+    }
+    .header_section_logo img {
+        width: 150px;
+        height: 80px;
+    }
+
+    .header_section_user_car{
+        width: 20%;
+        margin-right: 2rem;
+    }
+    .header_section_user_car i {
+        font-size: 20px;
+    }
+
+    .header_section_hamburguesa {
+    display: none;
+    }
+
     
+.header_section_dos_lista {
+    display: flex;
+    margin-left: 5rem;
 }
+.header_section_dos_lista--1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px 0;
+    gap: 15px;
+}
+
+.header_section_dos_lista--1--defensa{
+    display: none;
+}
+
+.header_section_dos img {
+   display: none;
+}
+
+.header_section_dos_lista button {
+   display: none;
+}
+
+hr {
+    display: none;
+}
+
+.home_header_ingresar {
+    font-size: 20px;
+    }
+    
+
+
+
+}
+

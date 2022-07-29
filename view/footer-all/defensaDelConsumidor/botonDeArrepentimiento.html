@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/Logo.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/7ad2cc9ddb.js" crossorigin="anonymous"></script>
+    <title>Boton de arrepentimiento | Buon Aseo</title>
+</head>
+
+<body>
+    <header class="header">
+        <section class="header_section_uno">
+            <article class="header_section_logo">
+                <a href="/"><img src="/img/logoFinal.png" alt="logo" /></a>
+            </article>
+            <article class="header_section_input">
+                <input type="text" placeholder="Que producto busca?" />
+                <span class="header_section_input_span"><i class="fa-solid fa-magnifying-glass"></i></span>
+            </article>
+            <article class="header_section_user_car">
+                <h4 class="home_header_ingresar">Ingresar</h4>
+                <a href="formulario"><i class="fa-solid fa-circle-user"></i></a>
+                <a href="carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+            </article>
+        </section>
+        <section class="header_section_dos">
+            <button class="header_section_hamburguesa"
+                onclick="document.querySelector('.header_section_dos_lista').classList.toggle('show')"><i
+                    class="fa fa-bars"></i></button>
+            <nav class="header_section_dos_lista">
+                <img src="/img/LogoInvertidoBlanco.png" alt="logo" />
+                <ul class="header_section_dos_lista--1">
+                    <li>
+                        <a href="#">Categorias</a>
+                    </li>
+                    <hr>
+                    <li>
+                        <a href="#">Nosotros</a>
+                    </li>
+                    <hr>
+                    <li>
+                        <a href="#">Informacion</a>
+                    </li>
+                    <hr>
+                    <li>
+                        <a href="#">Ayuda</a>
+                    </li>
+                    <hr>
+                    <li>
+                        <a href="#">Contacto</a>
+
+                    </li>
+                    <hr>
+                    <li>
+                        <a class="header_section_dos_lista--1--defensa" href="#">Defensa del consumidor</a>
+                    </li>
+                    <hr>
+                    <li>
+                        <button><a href="#">Boton de arrepentimiento</a></button>
+                    </li>
+                    <hr>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <main class="arrepentimiento_main">
+      <section class="arrepentimiento_main_conteiner--titulo">
+          <article class="arrepentimiento_main_titulo_icono2">
+              <div class="arrepentimiento_main_titulo">
+                  <p class="arrepentimiento_main_conteiner--parrafo">
+                    Para poder completar este formulario
+                    en su totalidad deberas tener a tu <br>
+                    dispocicion tu Nº de pedido y email con el que registraste la compra.
+                </p>
+              </div>
+          </article>
+          
+          <form action="" class="arrepentimiento_main_conteiner--form">
+            <section class="arrepentimiento_main_conteiner--form--section1">
+                <div class="arrepentimiento_main_form--caja_nombre">
+                    <label class="arrepentimiento_main_form--label" for="nombre"><i class="fa-solid fa-user"></i></label>
+                    <input class="arrepentimiento_main_form--input_nombre" type="text" id="nombre" name="nombre" placeholder="Nombre y apellido"/>
+                    <small class="arrepentimiento_main_form--error">El nombre y el apellido es obligatorio</small>
+                </div>
+                <div class="arrepentimiento_main_form--caja_email">
+                    <label class="arrepentimiento_main_form--label" for="email"><i class="fa-solid fa-envelope"></i></label>
+                    <input class="arrepentimiento_main_form--input_email" type="email" id="email" name="email" placeholder="Email"/>
+                    <small class="arrepentimiento_main_form--error">El Correo es obligatorio</small>
+                </div>
+            </section>
+            <section class="arrepentimiento_main_conteiner--form--section1">
+                <div class="arrepentimiento_main_form--caja_telefono">
+                <label class="arrepentimiento_main_form--label" for="telefono"><i class="fa-solid fa-phone"></i></label>
+                <input class="arrepentimiento_main_form--input_telefono" type="number" id="telefono" name="telefono" placeholder="Telefono"/>
+                <small class="arrepentimiento_main_form--error">El telefono es obligatorio</small>
+            </div>
+            <div class="arrepentimiento_main_form--caja_arrepenti">
+              <label class="arrepentimiento_main_form--label" for="telefono"><i class="fa-solid fa-arrow-rotate-left"></i></label>
+                <select class="arrepentimiento_main_form--input_select" name="arrepenti" id="arrepenti">
+                    <option>Me arrepenti</option>
+                    <option>Quiero devolver la compra</option>
+                    <option>No me mandaron el producto que pedi</option>
+                    <option>DANI HACETE DE BOCA</option>
+                  </select>
+                <small class="arrepentimiento_main_form--error">La ciudad es obligatoria</small>
+            </div>
+            </section>
+              <section class="arrepentimiento_main_conteiner--form--section2"> 
+                <div class="arrepentimiento_main_form--caja">
+                <label class="arrepentimiento_main_form--label" for="dni"><i class="fa-solid fa-user"></i></label>
+                <input class="arrepentimiento_main_form--input_dni" type="number" id="dni" name="dni" placeholder="DNI"/>
+                <small class="arrepentimiento_main_form--error">El DNI es obligatorio</small>
+            </div>
+            <div class="arrepentimiento_main_form--caja">
+                <label class="arrepentimiento_main_form--label" for="numero">Numero de pedido sin guion</label>
+                <input class="arrepentimiento_main_form--input_pedido" type="text" id="numeroPedido" name="numeroPedido" placeholder="Numero de pedido sin guion"/>
+                <small class="arrepentimiento_main_form--error">El campo es obligatorio</small>
+            </div>
+            <div class="arrepentimiento_main_form--caja">
+                <label class="arrepentimiento_main_form--label" for="devolves">El o los productos que devolves</label>
+                <input class="arrepentimiento_main_form--input_devolves" type="text" id="devolves" name="devolves" placeholder="El o los productos que devolves"/>
+                <small class="arrepentimiento_main_form--error">El campo es obligatorio</small>
+            </div>
+            <div class="arrepentimiento_main_form--caja">
+                <label class="arrepentimiento_main_form--label" for="domicilio">Domicilio</label>
+                <input class="arrepentimiento_main_form--input_domicilio" type="text" id="domicilio" name="domicilio" placeholder="Domicilio"/>
+                <small class="arrepentimiento_main_form--error">El campo es obligatorio</small>
+            </div>
+            <div class="arrepentimiento_main_form--caja">
+                <label class="arrepentimiento_main_form--label" for="adjuntar">Adjuntar archivo</label>
+                <input class="arrepentimiento_main_form--input_adjuntar" type="file" id="adjuntar" name="adjuntar" placeholder="adjuntar"/>
+                <small class="arrepentimiento_main_form--error">El campo es obligatorio</small>
+            </div>
+              </section>
+              <section class="arrepentimiento_main_conteiner--form--section3">
+                <label class="arrepentimiento_main_form--label" for="mensaje">Deja tu mensaje</label>
+                <textarea placeholder="Comentario" name="comentario" id="comentario" cols="30" rows="10">
+
+                </textarea>
+              </section>
+             
+<section class="arrepentimiento_main_conteiner--form--section4">
+    <div class="arrepentimiento_main_form--button">
+        <button  class="arrepentimiento_main_form--borrar" type="reset">Borrar</button>
+        <button  class="arrepentimiento_main_form--enviar" type="submit">Enviar</button>
+    </div>
+</section>
+
+                  
+          </form>
+      </section>
+      
+
+      </form>
+  </main>
+    <footer class="pie-de-pagina">
+        <!-- IMAGEN DE FONDO -->
+        <section class="pie-de-pagina__cajaImg">
+          <img src="/img/olasFooter.png" alt="" class="pie-de-pagina__imagenFondo">
+        </section>
+        <!-- CONTENEDORES -->
+        <section class="pie-de-pagina__contenedores">
+          <!-- CONTENEDOR 1 -->
+          <article class="pie-de-pagina__contenedor__1">
+            <!-- NOSOTROS -->
+            <div class="pie-de-pagina__contenedor__1__box1">
+              <h3>NOSOTROS</h3>
+              <a href="/footer/nosotros">¿Quiénes somos?</a>
+            </div>
+            <!-- INFO -->
+            <div class="pie-de-pagina__contenedor__1__box2">
+              <h3>INFORMACION</h3>
+              <a href="/footer/informacion/politicasPrivacidad">Políticas de privacidad</a>
+              <a href="/footer/informacion/terminosCondiciones">Términos y condiciones</a>
+              <a href="/footer/informacion/puntosEntrega">Puntos de entrega</a>
+            </div>
+            <!-- AYUDA -->
+            <div class="pie-de-pagina__contenedor__1__box3">
+              <h3>AYUDA</h3>
+              <a href="/footer/ayuda/comoComprar">¿Cómo comprar?</a>
+              <a href="/footer/ayuda/preguntasFrecuentes">Preguntas frecuentes</a>
+              <a href="/footer/ayuda/metodosDePago">Métodos de pago</a>
+            </div>
+            <!-- DEFENSA -->
+            <div class="pie-de-pagina__contenedor__1__box4">
+              <h3>DEFENSA DEL CONSUMIDOR</h3>
+              <a href="/footer/defensaDelConsumidor/reclamosIngresarAqui" class="pie-de-pagina__esquivarAumento">Para reclamos ingrese aquí</a>
+              <a href="https://www.argentina.gob.ar/normativa/nacional/ley-24240-638" target="_blank" class="pie-de-pagina__esquivarAumento">Ley N 24.240</a>
+              <a href="/footer/defensaDelConsumidor/botonDeArrepentimiento" class="pie-de-pagina__contenedor__1__box4__aBoton"><button class="pie-de-pagina__contenedor__1__box4__boton">BOTON DE ARREPENTIMIENTO</button></a>
+            </div>
+            <!-- CONTACTO -->
+            <div class="pie-de-pagina__contenedor__1__box5">
+              <h3>CONTACTO</h3>
+              <a href="tel:1142309399">(11) 42309399</a>
+              <a href="mailto:info@BuonAseo.com">info@BuonAseo.com</a>
+              <a href="https://maps.app.goo.gl/JZfumo4UQM1vkVWb7" target="_blank">Coronel Mendez 1908 Wilde - Buenos Aires</a>
+            </div>
+            <!-- REDES -->
+            <div class="pie-de-pagina__contenedor__1__box6">
+              <h3>REDES SOCIALES</h3>
+              <nav class="pie-de-pagina__contenedor__1__box6__redes__iconos">
+                <a href="https://www.facebook.com/buonaseoo" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://web.whatsapp.com/" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/buon_aseo/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://twitter.com/Richard79654371?t=M0OnTrTgoNQdmnZ4Q_TxFQ&s=09" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+              </nav>
+            </div>
+          </article>
+          <!-- CONTENEDOR 2 -->
+          <article class="pie-de-pagina__contenedor__2">
+            <p>Quimica Buon Aseo (1978 - 2022) Fábrica de Productos Químicos. Buon Aseo ® es marca registrada.</p>
+          </article>
+        </section>
+      </footer>
+</body>
+
+</html>

@@ -16,7 +16,7 @@
     <header class="header">
       <section class="header_section_uno">
         <article class="header_section_logo">
-          <img src="/img/logoFinal.png" alt="logo" />
+          <a href="/"><img src="/img/logoFinal.png" alt="logo" /></a>
         </article>
         <article class="header_section_input">
           <input type="text" placeholder="Que producto busca?" />
@@ -26,43 +26,50 @@
         </article>
         <article class="header_section_user_car">
           <h4 class="home_header_ingresar">Ingresar</h4>
-          <a href="formulario.html"><i class="fa-solid fa-circle-user"></i></a>
-          <a href="carrito.html"><i class="fa-solid fa-cart-shopping"></i></a>
+          <a href="formulario"><i class="fa-solid fa-circle-user"></i></a>
+          <a href="carrito"><i class="fa-solid fa-cart-shopping"></i></a>
         </article>
       </section>
       <section class="header_section_dos">
-          <button class="header_section_hamburguesa" onclick="document.querySelector('.header_section_dos_lista').classList.toggle('show')"><i class="fa fa-bars"></i></button>  
+        <button
+          class="header_section_hamburguesa"
+          onclick="document.querySelector('.header_section_dos_lista').classList.toggle('show')"
+        >
+          <i class="fa fa-bars"></i>
+        </button>
         <nav class="header_section_dos_lista">
-          <img width="50px" height="50px" src="/img/logoFinal.png" alt="logo" />
+          <img src="/img/LogoInvertidoBlanco.png" alt="logo" />
           <ul class="header_section_dos_lista--1">
             <li>
               <a href="#">Categorias</a>
             </li>
-            <hr>
+            <hr />
             <li>
               <a href="#">Nosotros</a>
             </li>
-            <hr>
+            <hr />
             <li>
               <a href="#">Informacion</a>
             </li>
-            <hr>
+            <hr />
             <li>
               <a href="#">Ayuda</a>
             </li>
-            <hr>
-            <li>
-              <a href="#">Defensa del consumidor</a>
-            </li>
-            <hr>
+            <hr />
             <li>
               <a href="#">Contacto</a>
             </li>
-            <hr>
+            <hr />
+            <li>
+              <a class="header_section_dos_lista--1--defensa" href="#"
+                >Defensa del consumidor</a
+              >
+            </li>
+            <hr />
             <li>
               <button><a href="#">Boton de arrepentimiento</a></button>
             </li>
-            <hr>
+            <hr />
           </ul>
         </nav>
       </section>
@@ -91,62 +98,82 @@
           <h1 class="home_main_titulo">Productos Destacados</h1>
         </article>
         <article class="home_main_section_article_imagenes">
-          <img
-            class="home_main_section_productos_destacados_img--mobile"
-            src="https://dummyimage.com/200x200/e34c14/fff"
-            alt="imagen producto"
-          />
-          <img
-            class="home_main_section_productos_destacados_img--tablet"
-            src="https://dummyimage.com/200x200/e34c14/fff"
-            alt="imagen producto"
-          />
-          <img
-            class="home_main_section_productos_destacados_img--deskop"
-            src="https://dummyimage.com/200x200/e34c14/fff"
-            alt="imagen producto"
-          />
+          <div class="home_main_section_productos_destacados_caja">
+            <a href="detalle"></a>
+            <img class="home_main_section_productos_destacados_img--mobile"
+                src="https://dummyimage.com/200x200/e34c14/fff"
+                alt="imagen producto"
+            />
+            <p class="home_main_section_productos_destacados_parrafo--mobile">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </p>
+          </div>
+          <div class="home_main_section_productos_destacados_caja">
+            <a href="detalle"></a>
+              <img class="home_main_section_productos_destacados_img--tablet"
+                src="https://dummyimage.com/200x200/e34c14/fff"
+                alt="imagen producto"
+            />
+            <p class="home_main_section_productos_destacados_parrafo--tablet">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </p>
+          </div>
+          <div class="home_main_section_productos_destacados_caja">
+            <a href="detalle"></a>
+            <img class="home_main_section_productos_destacados_img--deskop"
+                src="https://dummyimage.com/200x200/e34c14/fff"
+                alt="imagen producto"
+            />
+            <p class="home_main_section_productos_destacados_parrafo--deskop">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </p>
+          </div>
         </article>
-        <article class="home_main_section_article_parrafo">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-          Consequuntur hic blanditiis nam modi ex fugit quod.
-        </p>
-      </article>
-      <article class="home_main_section_article_boton">
-        <button class="home_main_button"><a href="#">Ver mas ></a></button>
-      </article>
+        <article class="home_main_section_article_boton">
+          <button class="home_main_button"><a href="#">Ver mas ></a></button>
+        </article>
       </section>
       <section class="home_main_section_productos_destacados">
-          <article class="home_main_section_article_titulo">
+        <article class="home_main_section_article_titulo">
           <h1 class="home_main_titulo">Ofertas</h1>
         </article>
         <article class="home_main_section_article_imagenes">
-          <img
-            class="home_main_section_productos_destacados_img--mobile"
-            src="https://dummyimage.com/200x200/e34c14/fff"
-            alt="imagen producto"
-          />
-          <img
-            class="home_main_section_productos_destacados_img--tablet"
-            src="https://dummyimage.com/200x200/e34c14/fff"
-            alt="imagen producto"
-          />
-          <img
-            class="home_main_section_productos_destacados_img--deskop"
-            src="https://dummyimage.com/200x200/e34c14/fff"
-            alt="imagen producto"
-          />
+          <div class="home_main_section_productos_destacados_caja">
+            <a href="detalle"></a>
+              <img class="home_main_section_productos_destacados_img--mobile"
+                src="https://dummyimage.com/200x200/e34c14/fff"
+                alt="imagen producto"
+            />
+            <p class="home_main_section_productos_destacados_parrafo--mobile">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </p>
+          </div>
+
+          <div class="home_main_section_productos_destacados_caja">
+            <a href="detalle"></a>
+              <img class="home_main_section_productos_destacados_img--tablet"
+                src="https://dummyimage.com/200x200/e34c14/fff"
+                alt="imagen producto"
+            />
+            <p class="home_main_section_productos_destacados_parrafo--tablet">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </p>
+          </div>
+
+          <div class="home_main_section_productos_destacados_caja">
+            <a href="detalle"></a>
+            <img class="home_main_section_productos_destacados_img--deskop"
+                src="https://dummyimage.com/200x200/e34c14/fff"
+                alt="imagen producto"
+            />
+            <p class="home_main_section_productos_destacados_parrafo--deskop">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </p>
+          </div>
         </article>
-        <article class="home_main_section_article_parrafo">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-          Consequuntur hic blanditiis nam modi ex fugit quod.
-        </p>
-      </article>
-      <article class="home_main_section_article_boton">
-        <button class="home_main_button"><a href="#">Ver mas ></a></button>
-      </article>
+        <article class="home_main_section_article_boton">
+          <button class="home_main_button"><a href="#">Ver mas ></a></button>
+        </article>
       </section>
       <section>
         <h1 class="home_main_titulo"></h1>
@@ -180,6 +207,53 @@
         </ul>
       </div>
     </main>
-    <footer></footer>
+    <img src="/img/olasFooter1.png" alt="" />
+    <footer class="pie__pagina">
+      <div class="contenedor__1">
+        <div class="box1">
+          <h3>NOSOTROS</h3>
+          <p>¿Quiénes somos?</p>
+        </div>
+        <div class="box2">
+          <h3>INFORMACION</h3>
+          <p>Políticas de privacidad</p>
+          <p>Términos y condiciones</p>
+          <p>Puntos de entrega</p>
+        </div>
+        <div class="box3">
+          <h3>AYUDA</h3>
+          <p>¿Cómo comprar?</p>
+          <p>Preguntas frecuentes</p>
+          <p>Métodos de pago</p>
+        </div>
+        <div class="box4">
+          <h3>DEFENSA DEL CONSUMIDOR</h3>
+          <p>Para reclamos ingrese aquí</p>
+          <p>Ley N 24.240</p>
+          <button>BOTON DE ARREPENTIMIENTO</button>
+        </div>
+        <div class="box5">
+          <h3>CONTACTO</h3>
+          <p>(11) 42309399</p>
+          <p>info@BuonAseo.com</p>
+          <p>Coronel Mendez 1908 Wilde - Buenos Aires</p>
+        </div>
+        <div class="box6">
+          <h3>REDES SOCIALES</h3>
+          <div class="redes__iconos">
+            <div><i class="fa-brands fa-facebook-f"></i></div>
+            <div><i class="fa-brands fa-whatsapp"></i></div>
+            <div><i class="fa-brands fa-instagram"></i></div>
+            <div><i class="fa-brands fa-twitter"></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="contenendor__2">
+        <p>
+          Quimica Buon Aseo (1978 - 2022) Fábrica de Productos Químicos. Buon
+          Aseo ® es marca registrada.
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

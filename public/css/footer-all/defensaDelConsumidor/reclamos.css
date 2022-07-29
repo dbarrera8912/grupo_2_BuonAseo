@@ -1,0 +1,30 @@
+.reclamos_main{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+
+}
+
+.reclamos_main--section1--titulo{
+margin-bottom: 20px;
+font-weight: 800;
+}
+        
+.reclamos_main--section1--subtitulo{
+margin-bottom: 10px;
+}
+
+
+
+.reclamos_main--section3 ul{
+display: flex;
+flex-direction: column;
+gap: 5px;
+margin-top: 5px;
+}
+
+.reclamos_main--section3 ul li {
+    list-style: circle;
+    margin-left: 20px;
+}

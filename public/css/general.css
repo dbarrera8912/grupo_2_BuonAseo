@@ -48,7 +48,7 @@ a{
 button {
   background-color: var(--azulFuerte);
   color: #fff;
-  transition: all 5s;
+  transition: all 450ms;
   border: none;
   border-radius: 5px;
 }
