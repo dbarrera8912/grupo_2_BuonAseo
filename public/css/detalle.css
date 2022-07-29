@@ -141,9 +141,34 @@ h3::after {
         width: 280px;
     }
 
+    .detalle_main_article_nombre h1{
+        font-size: 24px;
+    }
+    
+    .detalle_main_article_nombre p{
+        font-size: 22px;
+        font-weight: normal;
+    }
+
     .detalle_main_section3 .grid{
         grid-template-columns: 1fr 1fr;
         padding: 0px 20px;
+    }
+
+    .detalle_main_section2 h2 {
+        font-size: 24px;
+    }
+    
+    .detalle_main_section2 p{
+        font-size: 24px;
+    }
+
+    .detalle_main_section3 h3 {
+        font-size: 28px;
+    }
+    
+    .detalle_main_section3 button {
+        font-size: 22px;
     }
 
     .detalle_main_article_img_secundaria_tablet {
@@ -155,6 +180,11 @@ h3::after {
 
     .detalle_main_article_img_secundaria_tablet img:last-child{
         display: none;
+    }
+
+    .detalle_main_section3 img{
+        width: 160px;
+        height: 160px;
     }
     
 
