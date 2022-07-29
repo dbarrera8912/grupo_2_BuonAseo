@@ -2,6 +2,11 @@
   margin-top: 1em;
   width: 100%;
 }
+
+.home_main_carousel{
+	display: none;
+}
+
 .carousel {
 	max-width: 800px;
 	margin: 10px auto;
@@ -31,6 +36,7 @@
 	font-size: 60px;
 	font-weight: 800;
 }
+
 .home_main_titulo {
   text-align: center;
   font-size: 25px;
@@ -164,6 +170,11 @@
   .home_main_section_productos_destacados_caja {
     margin-left: 10rem;
   }
+
+
+  .home_main_carousel{
+	display: block;
+}
 
   .home_main_section_productos_destacados_img--mobile {
     width: 200px;
