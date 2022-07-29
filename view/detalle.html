@@ -13,6 +13,67 @@
     ></script>
     <title>Detalle | Buon Aseo</title>
 </head>
+<header class="header">
+    <section class="header_section_uno">
+      <article class="header_section_logo">
+        <a href="/"><img src="/img/logoFinal.png" alt="logo" /></a>
+      </article>
+      <article class="header_section_input">
+        <input type="text" placeholder="Que producto busca?" />
+        <span class="header_section_input_span"
+          ><i class="fa-solid fa-magnifying-glass"></i
+        ></span>
+      </article>
+      <article class="header_section_user_car">
+        <h4 class="home_header_ingresar">Ingresar</h4>
+        <a href="formulario"><i class="fa-solid fa-circle-user"></i></a>
+        <a href="carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+      </article>
+    </section>
+    <section class="header_section_dos">
+      <button
+        class="header_section_hamburguesa"
+        onclick="document.querySelector('.header_section_dos_lista').classList.toggle('show')"
+      >
+        <i class="fa fa-bars"></i>
+      </button>
+      <nav class="header_section_dos_lista">
+        <img src="/img/LogoInvertidoBlanco.png" alt="logo" />
+        <ul class="header_section_dos_lista--1">
+          <li>
+            <a href="#">Categorias</a>
+          </li>
+          <hr />
+          <li>
+            <a href="#">Nosotros</a>
+          </li>
+          <hr />
+          <li>
+            <a href="#">Informacion</a>
+          </li>
+          <hr />
+          <li>
+            <a href="#">Ayuda</a>
+          </li>
+          <hr />
+          <li>
+            <a href="#">Contacto</a>
+          </li>
+          <hr />
+          <li>
+            <a class="header_section_dos_lista--1--defensa" href="#"
+              >Defensa del consumidor</a
+            >
+          </li>
+          <hr />
+          <li>
+            <button><a href="#">Boton de arrepentimiento</a></button>
+          </li>
+          <hr />
+        </ul>
+      </nav>
+    </section>
+  </header>
 <body>
     <main class="detalle_main">
         <section class="detalle_main_section1">
@@ -25,8 +86,8 @@
                 </div>
             </article>
             <article class="detalle_main_article_nombre">
-                <h2>Nombre</h2>
-                <h3>$100</h3>
+                <h1>NOMBRE</h1>
+                <p>$ 100<p>
                 <p>Cantidad</p>
                 <p>Envio</p>
                 <p>Subtotal</p>
@@ -54,7 +115,7 @@
         <section class="detalle_main_section2">
             <article class="detalle_main_article_caracteristica">
                 <div>
-                    <h3>CARACTERISTICAS</h3>
+                    <h2>CARACTERISTICAS</h2>
                     <p>MARCA</p>
                     <p>MODELO</p>
                     <p>TIPO</p>
@@ -74,19 +135,15 @@
                 </div>
             </article>
             <article class="detalle_main_article_descripcion">
-                <table>
-                    <tr>
-                        <th>DESCRIPCION</th>
-                    </tr>
-                    <tr>
-                        <td>XXX</td>
-                    </tr>
-                </table>
+                <div>
+                  <h2>DESCRIPCION</h2>
+                  <p>XXX</p>
+                </div>       
             </article>
         </section>
         <section class="detalle_main_section3">
             <article class="detalle_main_article_ofertas">
-                <h4>OFERTAS</h4>
+                <h3>OFERTAS</h3>
             <div class="grid">
                 <div class="col"><img src="/img/detalle/fondox.png" alt="fondo"></div>
                 <div class="col"><img src="/img/detalle/fondox.png" alt="fondo"></div>
@@ -95,7 +152,7 @@
                 <button>ver mas</button>
             </article>
             <article class="detalle_main_article_destacados">
-                <h4>DESTACADOS</h4>
+                <h3>DESTACADOS</h3>
                 <div class="grid">
                     <div class="col"><img src="/img/detalle/fondox.png" alt="fondo"></div>
                     <div class="col"><img src="/img/detalle/fondox.png" alt="fondo"></div>

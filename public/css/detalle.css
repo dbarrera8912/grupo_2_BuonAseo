@@ -15,10 +15,25 @@
   padding: 0;
 }
 
+.detalle_main_article_nombre h1{
+    color: var(--azulFuerte);
+    font-size: 14px;
+}
+
+.detalle_main_article_nombre p{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.detalle_main_article_img_principal {
+    padding: 10px 0px 5px 20px;
+}
+
 .detalle_main_article_img_secundaria_mobile {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 10px;
+    padding-top: 15px;
 
 }
 
@@ -30,6 +45,29 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 15px;
+}
+
+.detalle_main_article_boton_principal{
+    padding: 2px 10px;
+    border-radius: 20px;
+    display: block;
+    margin: 5px;
+    font-size: 10px;
+    width: 133px;
+}
+
+.detalle_main_section2 {
+    margin: 20px;
+}
+
+.detalle_main_section2 h2 {
+    color: var(--azulFuerte);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.detalle_main_section2 p{
+    font-size: 14px;
 }
 
 .detalle_main_article_caracteristica {
@@ -60,14 +98,16 @@
 
 .detalle_main_section3 img{
     border-radius: 100%;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     display: block;
     margin: auto;
 }
 
-.detalle_main_section3 h4 {
+.detalle_main_section3 h3 {
     text-align: center;
+    color: var(--azulFuerte);
+    font-size: 18px;
 }
 
 .detalle_main_section3 button {
@@ -75,9 +115,15 @@
     border-radius: 20px;
     display: block;
     margin: auto;
+    font-size: 12px;
+    background-color: var(--azulFuerte);
 }
 
 .detalle_main_article_img_secundaria_tablet {
+    display: none;
+}
+
+h3::after {
     display: none;
 }
 
@@ -90,6 +136,11 @@
         display: none;
     }
 
+    .detalle_main_article_boton_principal {
+        font-size: 20px;
+        width: 280px;
+    }
+
     .detalle_main_section3 .grid{
         grid-template-columns: 1fr 1fr;
         padding: 0px 20px;
@@ -98,7 +149,8 @@
     .detalle_main_article_img_secundaria_tablet {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
-        grid-column-gap: 10px;
+        grid-column-gap: 25px;
+        padding: 10px 25px;
     }
 
     .detalle_main_article_img_secundaria_tablet img:last-child{
