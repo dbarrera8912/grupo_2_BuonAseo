@@ -112,6 +112,37 @@ color: var(--blanco);
     gap: 15px;
 }
 
+.header_section_dos_lista--submenu {
+    display: none;
+    width: 100%;
+    gap: 15px;
+    padding: 5px;
+}
+
+.header_section_dos_lista--submenu ul li hr {
+    background-color: var(--blanco);
+    align-self: center;
+    border: none;
+    width: 90%;
+    height: 5px;
+}
+
+
+
+.subMenu {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+    margin-top: 5px;
+    height: auto;
+}
+
+.subMenu a {
+    color: var(--blanco);
+    font-weight: 500;
+    
+}
 
 
 
@@ -211,7 +242,6 @@ display: flex;
     justify-content: space-between;
     width: 100%;
     padding: 5px 0;
-    gap: 15px;
 }
 
 .header_section_dos_lista--1--defensa{
@@ -228,6 +258,30 @@ display: flex;
 
 hr {
     display: none;
+}
+
+.header_section_dos_lista--submenu ul li hr {
+    background-color: var(--blanco);
+    align-self: center;
+    border: none;
+    width: 90%;
+    height: 5px;
+}
+
+
+
+.subMenu {
+   padding-top: 30px;
+   width: 100%;
+}
+
+.subMenu a {
+    margin-top: 5px;
+    width: 100%;
+}
+
+.categorias {
+    margin-right: -5rem;
 }
 
 .home_header_ingresar {

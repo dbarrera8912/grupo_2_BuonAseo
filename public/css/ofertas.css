@@ -1,0 +1,190 @@
+.ofertas_main {
+    margin-top: 1em;
+    width: 100%;
+  }
+
+  .ofertas_main_titulo {
+    text-align: center;
+    font-size: 30px;
+    font-family: var(--tipografiaLetra);
+    color: var(--colorLetras);
+  }
+  
+  .ofertas_main_section_article_imagenes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    gap: 10px;
+  }
+
+  .ofertas_main_section_productos_destacados_caja {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .ofertas_main_section_productos_destacados_caja:hover{
+    box-shadow:  5px 5px 5px 5px #888888;
+    transition: 2s;
+    padding: 5px;
+    border-radius: 10px;
+  }
+  
+  
+  .ofertas_main_section_productos_destacados_img--mobile {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .ofertas_main_section_productos_destacados_img--tablet,
+  .ofertas_main_section_productos_destacados_img--deskop {
+    display: none;
+    border-radius: 50%;
+  }
+  
+  .ofertas_main_section_productos_destacados_parrafo--mobile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 15px;
+    font-family: var(--tipografiaLetra);
+    color: var(--colorLetras);
+  }
+
+  .ofertas_main_parrafo_mobile_precio{
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    }
+    
+    .ofertas_main_parrafo_mobile_titulo{
+    font-weight: 800;
+    width: 100%;
+    text-align: center;
+    }
+
+  
+  .ofertas_main_section_productos_destacados_parrafo--tablet,
+  .ofertas_main_section_productos_destacados_parrafo--deskop {
+    display: none;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 15px;
+    font-family: var(--tipografiaLetra);
+    color: var(--colorLetras);
+  }
+  
+  .ofertas_main_section_article_boton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    margin-bottom: 2rem;
+  }
+  
+  .ofertas_main_section_article_boton a {
+    color: white;
+  }
+  
+  .ofertas_main_button {
+    margin-top: 10px;
+    width: 30%;
+    height: 30px;
+  
+    padding: 5px;
+  }
+  
+  
+  
+  
+  
+  @media (min-width: 768px) {
+    .ofertas_main_section_productos_destacados_caja {
+      margin-left: 10rem;
+    }
+  
+  
+    .ofertas_main_carousel{
+      display: block;
+  }
+  
+  .ofertas_main_parrafo_mobile_precio{
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+  
+    }
+    
+    .ofertas_main_parrafo_mobile_titulo{
+    font-weight: 800;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    }
+
+    .ofertas_main_section_productos_destacados_parrafo--tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;;
+    }
+
+
+    .ofertas_main_section_productos_destacados_img--mobile {
+      width: 200px;
+      height: 200px;
+    }
+    .ofertas_main_section_productos_destacados_img--tablet {
+      display: flex;
+      width: 200px;
+      height: 200px;
+    }
+  
+    .ofertas_main_section_productos_destacados_parrafo--tablet {
+      display: flex;
+    }
+  
+    .ofertas_main_section_article_imagenes {
+      flex-direction: row;
+    }
+  
+    .ofertas_main_titulo {
+      font-size: 45px;
+    }
+  
+    .ofertas_main_section_article_boton {
+      margin-top: 0.5rem;
+      margin-bottom: 4rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .ofertas_main_section_productos_destacados_caja {
+      margin-left: 0;
+    }
+  
+    .ofertas_main_section_productos_destacados_img--deskop {
+      display: flex;
+      width: 200px;
+      height: 200px;
+    }
+
+    .ofertas_main_section_productos_destacados_parrafo--deskop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;;
+    }
+  }
+  

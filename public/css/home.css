@@ -62,11 +62,31 @@
   align-items: center;
 }
 
+.home_main_section_productos_destacados_caja:hover{
+  box-shadow:  5px 5px 5px 5px #888888;
+  transition: 2s;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+
 .home_main_section_productos_destacados_img--mobile {
   border-radius: 50%;
   width: 200px;
   height: 200px;
 }
+
+.home_main_section_productos_destacados_parrafo--mobile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 15px;
+  font-family: var(--tipografiaLetra);
+  color: var(--colorLetras);
+}
+
+
 
 .home_main_section_productos_destacados_img--tablet,
 .home_main_section_productos_destacados_img--deskop {
@@ -74,22 +94,27 @@
   border-radius: 50%;
 }
 
-.home_main_section_productos_destacados_parrafo--mobile {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 15px;
-  font-family: var(--tipografiaLetra);
-  color: var(--colorLetras);
-}
 
 .home_main_section_productos_destacados_parrafo--tablet,
 .home_main_section_productos_destacados_parrafo--deskop {
   display: none;
   margin-top: 1rem;
-  text-align: center;
-  font-size: 15px;
+  width: 100%;
+  font-size: 25px;
   font-family: var(--tipografiaLetra);
   color: var(--colorLetras);
+}
+
+.home_main_parrafo_mobile_precio{
+font-weight: 500;
+text-align: center;
+width: 100%;
+}
+
+.home_main_parrafo_mobile_titulo{
+font-weight: 800;
+width: 100%;
+text-align: center;
 }
 
 .home_main_section_article_boton {
@@ -176,6 +201,22 @@
 	display: block;
 }
 
+
+.home_main_parrafo_mobile_precio{
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+  font-size: 20px;
+
+  }
+  
+  .home_main_parrafo_mobile_titulo{
+  font-weight: 800;
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  }
+
   .home_main_section_productos_destacados_img--mobile {
     width: 200px;
     height: 200px;
@@ -188,6 +229,10 @@
 
   .home_main_section_productos_destacados_parrafo--tablet {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;;
   }
 
   .home_main_section_article_imagenes {
@@ -195,7 +240,7 @@
   }
 
   .home_main_titulo {
-    font-size: 30px;
+    font-size: 45px;
   }
 
   .home_main_section_article_boton {
@@ -216,5 +261,9 @@
   }
   .home_main_section_productos_destacados_parrafo--deskop {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;;
   }
 }
