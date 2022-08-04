@@ -34,6 +34,15 @@ app.get('/password-lost', (req, res) => {
     res.sendFile(path.resolve('./view/login-all/password-lost.html'));
 });
 
+app.get('/ofertas', (req, res) => {
+    res.sendFile(path.resolve('./view/oferta.html'));
+});
+
+app.get('/productosdestacados', (req, res) => {
+    res.sendFile(path.resolve('./view/productosdescados.html'));
+});
+
+
 /* FOOTER ALL */
 app.get('/footer/nosotros', (req, res) => {
     res.sendFile(path.resolve('./view/footer-all/nosotros-QuienesSomos.html'));
