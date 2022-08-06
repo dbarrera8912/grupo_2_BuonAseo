@@ -113,7 +113,10 @@ color: var(--blanco);
 }
 
 .header_section_dos_lista--submenu,
-.header_section_dos_lista--submenu1 {
+.header_section_dos_lista--submenu1,
+.header_section_dos_lista--submenu2,
+.header_section_dos_lista--submenu3,
+.header_section_dos_lista--submenu4 {
     display: none;
     width: 100%;
     gap: 15px;
@@ -121,7 +124,10 @@ color: var(--blanco);
 }
 
 .header_section_dos_lista--submenu ul li hr,
-.header_section_dos_lista--submenu1 ul li hr{
+.header_section_dos_lista--submenu1 ul li hr,
+.header_section_dos_lista--submenu2 ul li hr,
+.header_section_dos_lista--submenu3 ul li hr,
+.header_section_dos_lista--submenu4 ul li hr{
     background-color: var(--blanco);
     align-self: center;
     border: none;
@@ -132,20 +138,26 @@ color: var(--blanco);
 
 
 .subMenu,
-.subMenu1 {
+.subMenu1,
+.subMenu2,
+.subMenu3,
+.subMenu4 {
     display: flex;
     flex-direction: column;
     padding: 10px;
     width: 100%;
-    margin-top: 5px;
+    margin-top: 5px; 
     height: auto;
 }
 
-.subMenu a,
-.subMenu1 a{
+.subMenu li,
+.subMenu1 li,
+.subMenu2 li,
+.subMenu3 li,
+.subMenu4 li{
     color: var(--blanco);
     font-weight: 500;
-    
+    padding-left: 5%;
 }
 
 
@@ -169,7 +181,7 @@ color: var(--blanco);
     align-self: center;
     border: none;
     width: 90%;
-    height: 5px;
+    height:2px;
 }
 
 .header_section_hamburguesa {
@@ -281,30 +293,28 @@ hr {
 
 
 .subMenu,
-.subMenu1 {
+.subMenu1,
+.subMenu2,
+.subMenu3 {
     display: flex;
     flex-direction: column;
-    padding-top: 40px;
-    width: 200px;
-    margin-left: -125px;
+    padding-top: 20px;
+    width: 130px;
     height: auto;
 }
 
-.subMenu a {
+.subMenu li,
+.subMenu1 li,
+.subMenu2 li,
+.subMenu3 li{
     margin-top: 5px;
     width: 100%;
-}
-
-.categorias {
-    margin-right: -5rem;
+    padding-left: 0px;
+    font-size: 14px;
 }
 
 .home_header_ingresar {
     font-size: 20px;
     }
-    
-
-
-
 }
 
