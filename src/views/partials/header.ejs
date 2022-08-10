@@ -1,0 +1,117 @@
+<header class="header">
+    <section class="header_section_uno">
+      <article class="header_section_logo">
+        <a href="/"><img src="/img/logoFinal.png" alt="logo" /></a>
+      </article>
+      <article class="header_section_input">
+        <input type="text" placeholder="Que producto busca?" />
+        <span class="header_section_input_span"><i class="fa-solid fa-magnifying-glass"></i></span>
+      </article>
+      <article class="header_section_user_car">
+        <h4 class="home_header_ingresar">Ingresar</h4>
+        <a href="/users/login"><i class="fa-solid fa-circle-user"></i></a>
+        <a href="/products/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+      </article>
+    </section>
+    <section class="header_section_dos">
+      <button class="header_section_hamburguesa"
+        onclick="document.querySelector('.header_section_dos_lista').classList.toggle('show')">
+        <i class="fa fa-bars"></i>
+      </button>
+      <nav class="header_section_dos_lista">
+        <img src="/img/LogoInvertidoBlanco.png" alt="logo" />
+        <ul class="header_section_dos_lista--1">
+          <!-- CATEGORIAS -->
+          <li onclick="document.querySelector('.header_section_dos_lista--submenu').classList.toggle('subMenu')">
+            <a href="#">Categorias <i class="fa-solid fa-angle-down"></i></a>
+            <ul class="header_section_dos_lista--submenu">
+              <li><a href="#">Jabones</a></li>
+              <hr>
+              <li><a href="#">Suavizantes</a></li>
+              <hr>
+              <li><a href="#">Detergentes</a></li>
+              <hr>
+              <li><a href="#">Lavandina</a></li>
+              <hr>
+              <li><a href="#">Liquido para pisos</a></li>
+              <hr>
+            </ul>
+
+          </li>
+          <hr />
+          <!-- NOSOTROS -->
+          <li>
+            <a href="/footer/nosotros">Nosotros</a>
+          </li>
+          <hr />
+          <!-- INFO -->
+          <li onclick="document.querySelector('.header_section_dos_lista--submenu1').classList.toggle('subMenu1')">
+            <a href="#">Informacion <i class="fa-solid fa-angle-down"></i></a>
+            <nav>
+              <ul class="header_section_dos_lista--submenu1">
+                <li><a href="/footer/politicas">Políticas de privacidad</a></li>
+                <hr>
+                <li><a href="/footer/terminos">Términos y condiciones</a></li>
+                <hr>
+                <li><a href="/footer/puntos">Puntos de entrega</a></li>
+                <hr>
+              </ul>
+            </nav>
+          </li>
+          <hr />
+          <!-- AYUDA -->
+          <li onclick="document.querySelector('.header_section_dos_lista--submenu2').classList.toggle('subMenu2')">
+            <a href="#">Ayuda <i class="fa-solid fa-angle-down"></i></a>
+            <nav>
+              <ul class="header_section_dos_lista--submenu2">
+                <li><a href="/footer/comprar">¿Cómo comprar?</a></li>
+                <hr>
+                <li><a href="/footer/preguntas">Preguntas frecuentes</a></li>
+                <hr>
+                <li><a href="/footer/pagos">Métodos de pago</a></li>
+                <hr>
+              </ul>
+            </nav>
+          </li>
+          <hr />
+          <!-- CONTACTO -->
+          <li onclick="document.querySelector('.header_section_dos_lista--submenu3').classList.toggle('subMenu3')">
+            <a href="#">Contacto <i class="fa-solid fa-angle-down"></i></a>
+            <nav>
+              <ul class="header_section_dos_lista--submenu3">
+                <li><a href="tel:1142309399">(11) 42309399</a></li>
+                <hr>
+                <li><a href="mailto:info@BuonAseo.com">info@BuonAseo.com</a></li>
+                <hr>
+                <li><a href="https://maps.app.goo.gl/JZfumo4UQM1vkVWb7" target="_blank">Coronel Mendez 1908 Wilde -
+                    Buenos Aires</a></li>
+                <hr>
+              </ul>
+            </nav>
+          </li>
+          <hr />
+          <!-- DEFENSA -->
+          <li onclick="document.querySelector('.header_section_dos_lista--submenu4').classList.toggle('subMenu4')">
+            <a class="header_section_dos_lista--1--defensa" href="#">Defensa del consumidor <i
+                class="fa-solid fa-angle-down"></i></a>
+            <nav>
+              <ul class="header_section_dos_lista--submenu4">
+                <li><a href="/footer/reclamos">
+                  Para reclamos ingrese aquí</a></li>
+                <hr>
+                <li><a href="https://www.argentina.gob.ar/normativa/nacional/ley-24240-638" target="_blank">
+                  Ley N 24.240</a></li>
+                <hr>
+              </ul>
+            </nav>
+          </li>
+          <hr />
+          <!-- BOTON -->
+          <li>
+            <button><a href="/footer/boton">Boton de arrepentimiento</a></button>
+          </li>
+          <hr />
+        </ul>
+      </nav>
+    </section>
+  </header>

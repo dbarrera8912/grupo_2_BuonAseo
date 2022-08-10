@@ -1,25 +1,16 @@
 {
-  "name": "grupo_2_buonaseo",
-  "version": "1.0.0",
-  "description": "El proyecto Boun Aseo es un sistema web con una arquitectura que nos permite realizar la compra de productos, asi como registrar usuarios y gestionarlos. Los roles en este proyecto tambien están incluidos, la diferencia de opciones entre un cliente y un administrador.",
-  "main": "app.js",
+  "name": "grupo-2-buonaseo",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js"
+    "start": "node ./src/bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dbarrera8912/grupo_2_BuonAseo.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dbarrera8912/grupo_2_BuonAseo/issues"
-  },
-  "homepage": "https://github.com/dbarrera8912/grupo_2_BuonAseo#readme",
   "dependencies": {
-    "express": "^4.18.1",
-    "nodemon": "^2.0.19"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1"
   }
 }

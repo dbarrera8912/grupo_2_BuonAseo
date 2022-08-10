@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <%- include('../partials/head', {title: 'Carrito'}) %>
+
+<body>
+  <%- include('../partials/header') %>
+  <!-- CARRITO -->
+  <main class="carrito">
+    <div class="carrito__section">
+      <section class="carrito__caja__titulo">
+        <h1 class="carrito__titulo">Carro</h1>
+        <hr class="carrito__primer__linia__espacio">
+      </section>
+      <div class="carrito__section__paraescritorio">
+        <section class="carrito__titulo__paraescritorio"> 
+          <p class="carrito__producto__desktop">Producto</p>
+          <p class="carrito__precio__desktop">Precio</p>
+          <p class="carrito__cantidad__desktop">Cantidad</p>
+          <p class="carrito__subtotal__desktop">Subtota</p>
+        </section>
+      <section class="carrito__primer__producto">
+        <figure class="carrito__boton__imagen">x</figure>
+        <article class="carrito__primer__imagen">
+          <img class="carrito__imagen__producto" src="https://dummyimage.com/600x400/d411d4/1f29bf" alt="slider fijo" />
+        </article>
+        <!-- CARRITO DESCRIPCION-->
+        <article class=" carrito__producto__general">
+          <p class="carrito__producto">Producto</p>
+          <p class="carrito__producto__articulo">jabon <br> BUON ASEO</p>
+        </article>
+        <article class="carrito__precio__general">
+          <p class="carrito__precio">Precio</p>
+          <p class="carrito__precio__numero">12</p>
+        </article>
+        <article class="carrito__cantidad__general">
+          <p class="carrito__cantidad">Cantidad</p>
+          <input class="carrito__cantidad__boton" type="number" min="0" placeholder="123.34">
+        </article>
+        <article class="carrito__subtotal__general">
+          <p class="carrito__subtotal">Subtota</p>
+          <p class="carrito__subtotal__numero">12</p>
+        </article>
+      </section>
+      <!-- CARRITO SEGUNDA IMAGEN-->
+      <section class="carrito__primer__producto">
+        <figure class="carrito__boton__imagen">x</figure>
+        <article class="carrito__primer__imagen">
+          <img class="carrito__imagen__producto" src="https://dummyimage.com/600x400/d411d4/1f29bf" alt="slider fijo" />
+        </article>
+        <!-- CARRITO DESCRIPCION-->
+        <article class=" carrito__producto__general">
+          <p class="carrito__producto">Producto</p>
+          <p class="carrito__producto__articulo">jabon <br> BUON ASEO</p>
+        </article>
+        <article class="carrito__precio__general">
+          <p class="carrito__precio">Precio</p>
+          <p class="carrito__precio__numero">12</p>
+        </article>
+        <article class="carrito__cantidad__general">
+          <p class="carrito__cantidad">Cantidad</p>
+          <input class="carrito__cantidad__boton" type="number" min="0" placeholder="123.34">
+        </article>
+        <article class="carrito__subtotal__general">
+          <p class="carrito__subtotal">Subtota</p>
+          <p class="carrito__subtotal__numero">12</p>
+        </article>
+      </section>
+
+      <section class="carrito__pie__pagina">
+        <article class="carrito__caja__escribe">
+          <input class="carrito__escribe__aqui" value="" type="texto" id="texto" name="texto"
+            placeholder="Escibe aqui">
+          <button class="carrito__boton__cupon">APLICAR CUPON</button>
+        </article>
+        <button class="carrito__boton__actualizar__carrito">ACTUALIZAR CARRITO</button>
+      </section> 
+    </div>
+      <section class="carrito__caja__total__productos">
+        <h2 class="carrito__total__carrito">Total del carrito</h2>
+        <article class="carrito__caja__subtotal">
+        <p class="carrito__subtotal__envio">subtotal</p>
+        <p class="carrito__corresponde__subtotal">32</p>
+      </article>
+      <article class="carrito__caja__envio">
+        <p class="carrito__envio">Envío</p>
+        <p class="carrito__corresponde__envio">Retiro por el local<br> Las opciones de vío se actualizaran <br> durante
+          el pago.<br><br><a class="carrito__calcular__envio">Calcular envío</a></p>
+      </article>
+        <article class="carrito__caja__total">
+        <p class="carrito__total">Total</p>
+        <p class="carrito__numero__total">100</p>
+      </article>
+        <button class="carrito__finalizar">FINALIZAR COMPRA</button>
+      </section>
+    </div>
+  </main>
+  <!-- FOOTER-->
+  <%- include('../partials/footer') %>
+</body>
+
+</html>

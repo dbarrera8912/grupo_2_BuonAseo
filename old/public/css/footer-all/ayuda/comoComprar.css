@@ -1,0 +1,9 @@
+.comoComprar__section{
+    display: flex;
+    align-items: flex-start;
+
+    max-width: 768px;
+}
+.comoComprar__section i{
+    color: var(--azulFuerte);
+}

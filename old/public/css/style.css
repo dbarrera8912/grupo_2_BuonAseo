@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import "./normalize.css";
+@import "./general.css";
+@import "./header.css";
+@import "./home.css";
+@import "./ofertas.css";
+
+@import "./carrito.css";
+
+
+/* LOGIN|REGISTER ALL */
+@import "./log-reg-all/form-login.css";
+@import "./log-reg-all/password-lost.css";
+
+/* FOOTER ALL */
+@import "./footer-all/footer.css";
+
+@import "./footer-all/nosotros-QuienesSomos.css";
+
+@import "./footer-all/informacion/politicas-privacidad.css";
+@import "./footer-all/informacion/puntos-entrega.css";
+@import "./footer-all/informacion/terminos-condiciones.css";
+
+@import "./footer-all/ayuda/comoComprar.css";
+@import "./footer-all/ayuda/metodosDePago.css";
+@import "./footer-all/ayuda/preguntasFrecuentes.css";
+
+@import "./footer-all/defensaDelConsumidor/botonDeArrepentimiento.css";
+@import "./footer-all/defensaDelConsumidor/reclamos.css";
+
+@import "./detalle.css";
