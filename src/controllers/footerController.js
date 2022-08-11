@@ -16,7 +16,7 @@ module.exports={
     },
 
     boton : (req,res) => {
-        return res.render('./footer-all/defensaDelconsumidor/botonDeArrepentimiento')
+        return res.render('./footer-all/defensaDelConsumidor/botonDeArrepentimiento')
     },
 
     reclamos : (req,res) => {
