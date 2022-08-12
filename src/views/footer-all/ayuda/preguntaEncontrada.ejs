@@ -15,7 +15,8 @@
                             <span class="header_section_input_span"><i class="fa-solid fa-magnifying-glass"></i></span>
                         </form>
                     </div>
-                    <% if (resultado.length > 0) { %>
+                    <% if (resultado.length> 0) { %>
+                        <!-- Si hay uno o mas resultados entra -->
                         <% for( let x=0; x < resultado.length; x++ ) { %>
                             <% if (resultado[x].response.length===1) { %>
                                 <!-- preguntamos si hay solo 1 respuesta en el json -->
@@ -35,10 +36,8 @@
                                             <a href="<%= resultado[x].href %>" target="_blank">
                                                 <%= resultado[x].a %>
                                             </a>
-                                            <% } %>
-                                                <!--  -->
+                                            <% } %>              
                                 </p>
-                                <!--  -->
                                 <% } else if (resultado[x].response.length> 1) { %>
                                     <!-- preguntamos si hay mas de 1 respuesta en el json -->
                                     <article class="preguntasFrecuentes__section__article"
@@ -60,11 +59,73 @@
                                     <% } %>
                                         <% } %>
 
-                                            <% }else{ %>
+                                            <% }else{ %><!-- Si no encuentra nada muestra esto -->
                                                 <p>Lo sentimos, su busqueda <%= keywords %> no fue encontrada con exito.
                                                 </p>
                                                 <% } %>
-                   
+
+                                                    <% if (resultado.length> 0) { %>
+                                                        <!-- Si hay resultados entra -->
+                                                        <% if (resto.length> 0) { %>
+                                                            <!-- Si hay otras preguntas entra y muestra el titulo -->
+                                                            <div class="preguntasFrecuentes__section__cajaTitulo">
+                                                                <h1>Otras preguntas</h1>
+                                                            </div>
+                                                            <% } %>
+
+                                                                <% for( let x=0; x < resto.length; x++ ) { %>
+                                                                    <!-- Ciclo de otras preguntas -->
+                                                                    <% if (resto[x].response.length===1) { %>
+                                                                        <!-- preguntamos si hay solo 1 respuesta en el json -->
+                                                                        <article
+                                                                            class="preguntasFrecuentes__section__article"
+                                                                            onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= x %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
+                                                                            <h2>
+                                                                                <%= resto[x].title %>
+                                                                            </h2>
+                                                                            <div
+                                                                                class="preguntasFrecuentes__section__article__cajaIcono">
+                                                                                v
+                                                                            </div>
+                                                                        </article>
+                                                                        <p
+                                                                            class="preguntasFrecuentes__section__respuesta<%= x %>">
+                                                                            <%= resto[x].response %>
+                                                                                <% if (resto[x].href.length> 0) { %>
+                                                                                    <!-- Preguntamos si tiene href el json -->
+                                                                                    <a href="<%= resto[x].href %>"
+                                                                                        target="_blank">
+                                                                                        <%= resto[x].a %>
+                                                                                    </a>
+                                                                                    <% } %>
+                                                                        </p>
+                                                                        <% } else if (resto[x].response.length> 1) { %>
+                                                                            <!-- preguntamos si hay mas de 1 respuesta en el json -->
+                                                                            <article
+                                                                                class="preguntasFrecuentes__section__article"
+                                                                                onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= x %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
+                                                                                <h2>
+                                                                                    <%= resto[x].title %>
+                                                                                </h2>
+                                                                                <div
+                                                                                    class="preguntasFrecuentes__section__article__cajaIcono">
+                                                                                    v
+                                                                                </div>
+                                                                            </article>
+                                                                            <ul
+                                                                                class="preguntasFrecuentes__section__respuesta<%= x %>">
+                                                                                <% resto[x].response.forEach(element=> {
+                                                                                   /*  Ciclo de preguntas con 2 o mas respuestas */
+                                                                                    %>
+                                                                                    <li>
+                                                                                        <%= element %>
+                                                                                    </li>
+                                                                                    <% }) %>
+                                                                            </ul>
+                                                                            <% } %>
+                                                                                <% } %>
+                                                                                    <% } %>
+
                 </section>
             </main>
             <%- include('../../partials/footer') %>

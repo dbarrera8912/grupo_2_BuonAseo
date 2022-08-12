@@ -40,20 +40,18 @@ module.exports={
         })
     },
     searchPregunta : (req,res) => {
-        let buscado = req.query.keywords;
-        
         let resultado = [];
+        let resto = [];
         for (let x = 0; x < preguntas.length; x++) {
-            if (preguntas[x].title.toLowerCase().includes(buscado.toLowerCase())) {
-                resultado.push(preguntas[x]);
-            }    
+            preguntas[x].title.toLowerCase().includes(req.query.keywords.toLowerCase()) ? resultado.push(preguntas[x]) :  resto.push(preguntas[x]);
+            /* If ternario, si el valor buscado es true pushea en resultado, si es falso pushea en resto */
         }
         
-        /* Renderizamos vista, mandamos el resultado, y si no encuentra, mostramos su busqueda no fue encontrado con su pedido keywords */
+        /* Renderizamos vista, mandamos el resultado, y si no encuentra, mostramos su busqueda no fue encontrado con su pedido keywords. Tambien mostramos las preguntas ajenas a su busqueda */
         return res.render('./footer-all/ayuda/preguntaEncontrada', {
             resultado,
             keywords : req.query.keywords,
-            preguntas,
+            resto,
         })
     }
 
