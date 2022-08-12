@@ -1,0 +1,63 @@
+[
+    {
+        "id":1,
+        "title":"¿Cómo comprar en Buon Aseo?",
+        "response": ["Es simple y rápido, solo tenés que ingresar al siguiente link y segui los pasos!"],
+        "href": "/footer/comprar",
+        "a": "Cómo comprar"
+    },
+    {   
+        "id":2,
+        "title":"¿Cómo accedo a los precios?",
+        "response": ["Para ver los precios es fundamental registrarte como cliente, si ya lo hiciste y aun no los podes ver, aguarda la llamada de un representante BuonAseo, o comunicate con nosotros."],
+        "href": "",
+        "a": ""
+    },
+    {
+        "id":3,
+        "title":"¿Hacen envios?¿Cúales son los dias de entrega?",
+        "response": ["Si! Hacemos envíos a todos el país, ingresa y entérate de todo"],
+        "href": "/footer/puntos",
+        "a": "acá."
+    },
+    {
+        "id":4,
+        "title":"¿Cúal es el monto mínimo de compra?",
+        "response": ["El monto mínimo para retiro en tienda es de $10000, y el monto mínimo de compra para envíos es de $40000."],
+        "href": "",
+        "a": ""
+    },
+    {
+        "id":5,
+        "title":"¿Cúales son los medios de pagos?",
+        "response": [
+            "Envíos al interior del país: Pago anticipado por depósito en efectivo o transferencia bancaria previo al envío de la mercadería", 
+            "Entregas directas: Contado contra entrega de la mercadería o anticipado vía deposito | transferencia bancaria.", 
+            "Compra o retiro en mostrador: Contado en efectivo por caja. Tarjeta debito: Cabal, Visa y Mastercard. Anticipado vía deposito | transferencia bancaria."],
+        "href": "",
+        "a": ""
+    },
+    {
+        "id": 6,
+        "title":"¿Dónde puedo visitarlos?",
+        "response": ["Vení a conocer nuestro showroom! Encontrarás todos los productos que comercializamos en exhibición! Los pedidos deben realizarse por la página web donde encontrarás publicados todos nuestros productos; Una vez que hayas completado tu compra nos comunicaremos con vos para coordinar día y horario de retiro en tienda ubicada en "],
+        "href": "https://maps.app.goo.gl/JZfumo4UQM1vkVWb7",
+        "a": "Coronel Mendez 1908 Wilde - Buenos Aires"
+    },
+    {
+        "id": 7,
+        "title":"¿Se puede fraccionar la mercadería?",
+        "response": ["Si, dependiendo del artículo que quieras comprar. En la web, debajo de la foto del artículo podes encontrar predeterminada la cantidad que viene en el pack o bulto cerrado. Hay ciertos productos, como por ejemplo: esponjas de cocina, trapos de piso y papel higiénico entre otros; que obligatoriamente se deben comprar por un mínimo determinado de unidades."],
+        "href": "",
+        "a": ""
+    },
+    {
+        "id": 8,
+        "title":"¿Cúanto demora la entrega una vez efectuada la compra?",
+        "response": [
+            "Envios: Una vez realizado el pedido, deberás tener en cuenta que será preparado y controlado por orden de llegada; Luego nos comunicaremos contigo para informarte los detalles del mismo y avanzar sobre la facturación y te enviaremos nuestros datos bancarios para que puedas realizar el pago. Al momento de recibir el comprobante de pago y su acreditación bancaria el pedido será despachado.",
+            "Retiro en tienda: Para venir a retirar tu compra a BuonAseo el procedimiento es similar a los envíos. Cuando tu pedido este preparado y controlado nos pondremos en contacto contigo para comunicarte detalles del mismo, así como también coordinar día y horario de retiro en tienda. Luego se realizará la facturación y posteriormente el pago y retiro de mercadería."],
+        "href": "",
+        "a": ""
+    }
+]        

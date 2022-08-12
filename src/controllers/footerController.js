@@ -1,3 +1,5 @@
+const preguntas =require ("../data/db_module").preguntasFrecuentes()
+
 module.exports={
     nosotros : (req,res) => {
         return res.render('./footer-all/nosotros-QuienesSomos')
@@ -32,8 +34,28 @@ module.exports={
     },
 
     preguntas : (req,res) => {
-        return res.render('./footer-all/ayuda/preguntasFrecuentes')
+        return res.render('./footer-all/ayuda/preguntasFrecuentes',{
+            preguntas,
+            respuestas : preguntas.response
+        })
+    },
+    searchPregunta : (req,res) => {
+        let buscado = req.query.keywords;
+        
+        let resultado = [];
+        for (let x = 0; x < preguntas.length; x++) {
+            if (preguntas[x].title.toLowerCase().includes(buscado.toLowerCase())) {
+                resultado.push(preguntas[x]);
+            }    
+        }
+        
+        /* Renderizamos vista, mandamos el resultado, y si no encuentra, mostramos su busqueda no fue encontrado con su pedido keywords */
+        return res.render('./footer-all/ayuda/preguntaEncontrada', {
+            resultado,
+            keywords : req.query.keywords,
+            preguntas,
+        })
     }
 
     
-}
+}    

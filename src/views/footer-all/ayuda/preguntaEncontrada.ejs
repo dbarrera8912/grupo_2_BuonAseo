@@ -1,0 +1,73 @@
+<%- include("../../partials/head", {title: "Preguntas" }) %>
+
+    <body>
+        <!-- HEADER -->
+        <%- include("../../partials/header") %>
+            <!-- MAIN -->
+            <main class="preguntasFrecuentes">
+                <section class="preguntasFrecuentes__section">
+                    <!-- TITULO -->
+                    <div class="preguntasFrecuentes__section__cajaTitulo">
+                        <h1>Preguntas Encontradas</h1>
+                        <form action="/footer/preguntas/search"
+                            class="header_section_input preguntasFrecuentes_barraBuscador" method="get">
+                            <input type="text" name="keywords" placeholder="Buscar otra pregunta...">
+                            <span class="header_section_input_span"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        </form>
+                    </div>
+                    <% if (resultado.length > 0) { %>
+                        <% for( let x=0; x < resultado.length; x++ ) { %>
+                            <% if (resultado[x].response.length===1) { %>
+                                <!-- preguntamos si hay solo 1 respuesta en el json -->
+                                <article class="preguntasFrecuentes__section__article"
+                                    onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= x %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
+                                    <h2>
+                                        <%= resultado[x].title %>
+                                    </h2>
+                                    <div class="preguntasFrecuentes__section__article__cajaIcono">
+                                        v
+                                    </div>
+                                </article>
+                                <p class="preguntasFrecuentes__section__respuesta<%= x %>">
+                                    <%= resultado[x].response %>
+                                        <% if (resultado[x].href.length> 0) { %>
+                                            <!-- Preguntamos si tiene href el json -->
+                                            <a href="<%= resultado[x].href %>" target="_blank">
+                                                <%= resultado[x].a %>
+                                            </a>
+                                            <% } %>
+                                                <!--  -->
+                                </p>
+                                <!--  -->
+                                <% } else if (resultado[x].response.length> 1) { %>
+                                    <!-- preguntamos si hay mas de 1 respuesta en el json -->
+                                    <article class="preguntasFrecuentes__section__article"
+                                        onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= x %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
+                                        <h2>
+                                            <%= resultado[x].title %>
+                                        </h2>
+                                        <div class="preguntasFrecuentes__section__article__cajaIcono">
+                                            v
+                                        </div>
+                                    </article>
+                                    <ul class="preguntasFrecuentes__section__respuesta<%= x %>">
+                                        <% resultado[x].response.forEach(element=> { %>
+                                            <li>
+                                                <%= element %>
+                                            </li>
+                                            <% }) %>
+                                    </ul>
+                                    <% } %>
+                                        <% } %>
+
+                                            <% }else{ %>
+                                                <p>Lo sentimos, su busqueda <%= keywords %> no fue encontrada con exito.
+                                                </p>
+                                                <% } %>
+                   
+                </section>
+            </main>
+            <%- include('../../partials/footer') %>
+    </body>
+
+    </html>

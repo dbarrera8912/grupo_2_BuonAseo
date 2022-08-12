@@ -1,93 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <%- include('../../partials/head', {title: 'Preguntas Frecuentes'}) %>
+<%- include('../../partials/head', {title: 'Preguntas Frecuentes' }) %>
 
-<body>
-  <%- include('../../partials/header') %>
-    <main class="preguntasFrecuentes">
-      <section class="preguntasFrecuentes__section">
-        <!-- TITULO -->
-        <div class="preguntasFrecuentes__section__cajaTitulo">
-          <h1>Preguntas frecuentes</h1>
-        </div>
-        <!-- ARTICULOS -->
-        <article class="preguntasFrecuentes__section__article" onclick="document.querySelector('.preguntasFrecuentes__section__respuesta1').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
-          <h2>¿Cómo comprar en Buon Aseo?</h2>
-          <div class="preguntasFrecuentes__section__article__cajaIcono">
-            v
+  <body class="preguntasFrecuentes-body">
+    <%- include('../../partials/header') %>
+      <main class="preguntasFrecuentes">
+        <section class="preguntasFrecuentes__section">
+          <!-- TITULO -->
+          <div class="preguntasFrecuentes__section__cajaTitulo">
+            <h1>Preguntas frecuentes</h1>
+            <form action="/footer/preguntas/search" class="header_section_input preguntasFrecuentes_barraBuscador" method="get">
+              <input type="text" name="keywords" placeholder="Buscar una pregunta...">
+              <span class="header_section_input_span"><i class="fa-solid fa-magnifying-glass"></i></span>
+            </form>
           </div>
-        </article>
-        <p class="preguntasFrecuentes__section__respuesta1">Es simple y rápido, solo tenés que ingresar al siguiente link y seguir los pasos! <a href="/footer/comprar">Cómo comprar</a></p>
-        <article class="preguntasFrecuentes__section__article" onclick="document.querySelector('.preguntasFrecuentes__section__respuesta2').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
-          <h2>¿Cómo accedo a los precios?</h2>
-          <div class="preguntasFrecuentes__section__article__cajaIcono">
-            v
-          </div>
-        </article>
-        <p class="preguntasFrecuentes__section__respuesta2">Para ver los precios es fundamental registrarte como cliente, si ya lo hiciste y aun no los podes ver, aguarda la llamada de un representante BuonAseo, o comunicate con nosotros.</p>
-        <article class="preguntasFrecuentes__section__article"  onclick="document.querySelector('.preguntasFrecuentes__section__respuesta3').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
-          <h2>¿Hacen envios?¿Cúales son los dias de entrega?</h2>
-          <div class="preguntasFrecuentes__section__article__cajaIcono">
-            v
-          </div>
-        </article>
-        <p class="preguntasFrecuentes__section__respuesta3">Si! Hacemos envíos a todos el país, ingresa <a href="/footer/puntos">acá</a> y entérate de todo.</p>
-        <article class="preguntasFrecuentes__section__article"  onclick="document.querySelector('.preguntasFrecuentes__section__respuesta4').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
-          <h2>¿Cúal es el monto mínimo de compra?</h2>
-          <div class="preguntasFrecuentes__section__article__cajaIcono">
-            v
-          </div>
-        </article>
-        <p class="preguntasFrecuentes__section__respuesta4">El monto mínimo para retiro en tienda es de $10000, y el monto mínimo de compra para envíos es de $40000.</p>
-        <article class="preguntasFrecuentes__section__article"  onclick="document.querySelector('.preguntasFrecuentes__section__respuesta5').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
-          <h2>¿Cúales son los medios de pagos?</h2>
-          <div class="preguntasFrecuentes__section__article__cajaIcono">
-            v
-          </div>
-        </article>
-        <ul class="preguntasFrecuentes__section__respuesta5">
-          <li>Envíos al interior del país: Pago anticipado por depósito en efectivo o transferencia bancaria previo al envío de la mercadería.</li>
-          <li>Entregas directas: Contado contra entrega de la mercadería o anticipado vía deposito | transferencia bancaria.</li>
-          <li>Compra o retiro en mostrador: Contado en efectivo por caja. Tarjeta debito: Cabal, Visa y Mastercard. Anticipado vía deposito | transferencia bancaria.</li> 
-        </ul>
-        <article class="preguntasFrecuentes__section__article"  onclick="document.querySelector('.preguntasFrecuentes__section__respuesta6').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
-          <h2>¿Dónde puedo visitarlos?</h2>
-          <div class="preguntasFrecuentes__section__article__cajaIcono">
-            v
-          </div>
-        </article>
-        <p class="preguntasFrecuentes__section__respuesta6">Vení a conocer nuestro showroom! Encontrarás todos los productos que comercializamos en exhibición! Acercate a <a href="https://maps.app.goo.gl/JZfumo4UQM1vkVWb7" target="_blank">Coronel Mendez 1908 Wilde - Buenos Aires</a>. Los pedidos deben realizarse por la página web donde encontrarás publicados todos nuestros productos; Una vez que hayas completado tu compra nos comunicaremos con vos para coordinar día y horario de retiro en tienda.</p>
-        <article class="preguntasFrecuentes__section__article"  onclick="document.querySelector('.preguntasFrecuentes__section__respuesta7').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
-          <h2>¿Se puede fraccionar la mercadería?</h2>
-          <div class="preguntasFrecuentes__section__article__cajaIcono">
-            v
-          </div>
-        </article>
-        <p class="preguntasFrecuentes__section__respuesta7">Si, dependiendo del artículo que quieras comprar. En la web, debajo de la foto del artículo podes encontrar predeterminada la cantidad que viene en el pack o bulto cerrado. Hay ciertos productos, como por ejemplo: esponjas de cocina, trapos de piso y papel higiénico entre otros; que obligatoriamente se deben comprar por un mínimo determinado de unidades.</p>
-        <article class="preguntasFrecuentes__section__article"  onclick="document.querySelector('.preguntasFrecuentes__section__respuesta8').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
-          <h2>¿Cúanto demora la entrega una vez efectuada la compra?</h2>
-          <div class="preguntasFrecuentes__section__article__cajaIcono">
-            v
-          </div>
-        </article>
-        <ul class="preguntasFrecuentes__section__respuesta8">
-          <li>
-            <ul>
-              <li><span>Envios:</span></li>
-              <li>Una vez realizado el pedido, deberás tener en cuenta que será preparado y controlado por orden de llegada; Luego nos comunicaremos contigo para informarte los detalles del mismo y avanzar sobre la facturación y te enviaremos nuestros datos bancarios para que puedas realizar el pago. Al momento de recibir el comprobante de pago y su acreditación bancaria el pedido será despachado.</li>
-            </ul>
-          </li>
-          <li>
-            <ul>
-              <li><span>Retiro en tienda:</span></li>
-              <li>Para venir a retirar tu compra a BuonAseo el procedimiento es similar a los envíos. Cuando tu pedido este preparado y controlado nos pondremos en contacto contigo para comunicarte detalles del mismo, así como también coordinar día y horario de retiro en tienda. Luego se realizará la facturación y posteriormente el pago y retiro de mercadería.</li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-    </main>
-    <%- include('../../partials/footer') %>
-</body>
+          <!-- ARTICULOS -->
+          <% for( let x=0; x < preguntas.length; x++ ) { %>
+            <% if (preguntas[x].response.length===1) { %>
+              <!-- preguntamos si hay solo 1 respuesta en el json -->
+              <article class="preguntasFrecuentes__section__article"
+                onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= x %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
+                <h2>
+                  <%= preguntas[x].title %>
+                </h2>
+                <div class="preguntasFrecuentes__section__article__cajaIcono">
+                  v
+                </div>
+              </article>
+              <p class="preguntasFrecuentes__section__respuesta<%= x %>">
+                <%= preguntas[x].response %>
+                  <% if (preguntas[x].href.length> 0) { %>
+                    <!-- Preguntamos si tiene href el json -->
+                    <a href="<%= preguntas[x].href %>" target="_blank">
+                      <%= preguntas[x].a %>
+                    </a>
+                    <% } %>
+                    <!--  -->
+              </p>
+              <!--  -->
+                <% } else if (preguntas[x].response.length> 1) { %>
+                  <!-- preguntamos si hay mas de 1 respuesta en el json -->
+                  <article class="preguntasFrecuentes__section__article"
+                    onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= x %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
+                    <h2>
+                      <%= preguntas[x].title %>
+                    </h2>
+                    <div class="preguntasFrecuentes__section__article__cajaIcono">
+                      v
+                    </div>
+                  </article>
+                  <ul class="preguntasFrecuentes__section__respuesta<%= x %>">
+                    <% preguntas[x].response.forEach(element=> { %>
+                      <li>
+                        <%= element %>
+                      </li>
+                      <% }) %>
+                  </ul>
+                  <% } %>
+                    <% } %>
+        </section>
+      </main>
+      <%- include('../../partials/footer') %>
+  </body>
 
 </html>

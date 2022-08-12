@@ -1,4 +1,5 @@
 /* CABECERA */
+
 .preguntasFrecuentes{
     display: flex;
     flex-flow: column wrap;
@@ -18,13 +19,24 @@
 /* TITULO */
 .preguntasFrecuentes__section__cajaTitulo{
     width: 100%;
+    
 
     border-bottom: var(--azulFuerte) 10px solid;
 }
 .preguntasFrecuentes__section__cajaTitulo h1{
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 
+/* Barra */
+.preguntasFrecuentes_barraBuscador{
+    width: 100%;
+    height: 2%;
+    margin-left: 0;
+    margin-bottom: 4px;
+
+    border: 1px solid var(--azulFuerte);
+    border-radius: 5px;
+}
 
 /* ARTICULOS */
 .preguntasFrecuentes__section__article{
@@ -56,14 +68,14 @@
     width: 10px;
 }
 
+.preguntasFrecuentes__section__respuesta0,
 .preguntasFrecuentes__section__respuesta1,
 .preguntasFrecuentes__section__respuesta2,
 .preguntasFrecuentes__section__respuesta3,
 .preguntasFrecuentes__section__respuesta4,
 .preguntasFrecuentes__section__respuesta5,
 .preguntasFrecuentes__section__respuesta6,
-.preguntasFrecuentes__section__respuesta7,
-.preguntasFrecuentes__section__respuesta8{
+.preguntasFrecuentes__section__respuesta7{
     display: none;
 }
 .preguntasFrecuentes__section__respuesta1-Responder{
