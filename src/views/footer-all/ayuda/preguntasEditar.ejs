@@ -10,7 +10,7 @@
                     <div class="preguntasFrecuentes__section__cajaTitulo">
                         <h1>Editar pregunta</h1>
                     </div>
-                    <form action="" method="POST" class="preguntasAgregar__Caja">
+                    <form action="/footer/preguntas/modificar/<%= pregunta.id %>?_method=PUT" method="POST" class="preguntasAgregar__Caja">
                         <div class="registro__email__container"> 
                             <label for="title" class="registro__email__titulo">Titulo</label >
                             <input type="text" name="title" id="name" class="preguntasFrecuentes__section__article" value="<%= pregunta.title %>">

@@ -40,7 +40,7 @@ module.exports = {
             respuestas: preguntas.response
         })
     },
-    searchPregunta: (req, res) => {
+    searchPregunta: (req, res) => {/* METODO GET DE BUSCAR PREGUNTA*/
         preguntas = preguntasFrecuentes();/* leemos las preguntas */
         let resultado = [];
         let resto = [];
@@ -60,7 +60,7 @@ module.exports = {
         const newPregunta = {
             id: id + 1,
             title: title.trim(),/* con trim sacamos espacios al inicio y final */
-            response: [response],
+            response: response.split("\r\n"),/* Dividimos la respuesta en elementos dentro de un array */
             href: link,
             a: frase
         }
@@ -68,13 +68,40 @@ module.exports = {
 
         preguntasEscribir(preguntasNew); /* Escribimos las preguntas en el JSON */
 
-        return res.redirect("/");/* Redirigimos al home */
+        return res.redirect("/footer/preguntas");/* Redirigimos a las preguntas */
     },
-    editarPregunta: (req, res) => {/* METODO GET DE AGREGAR*/
+    editarPregunta: (req, res) => {/* METODO GET DE EDITAR*/
         preguntas = preguntasFrecuentes();/* leemos las preguntas */
         const pregunta = preguntas.find(pregunta => pregunta.id === +req.params.id); /* Buscamos un id de pregunta igual al id pasado por parametro */
         return res.render("./footer-all/ayuda/preguntasEditar", {
             pregunta
         })
+    },
+    modificarPregunta: (req, res) => {/* METODO PUT DE EDITAR*/
+        preguntas = preguntasFrecuentes();/* leemos las preguntas */
+        const { id } = req.params; /* Sacamos el id del parametro */
+        const { title, response, link, frase } = req.body;/* Destructuring de la nueva edicion de pregunta del usuario */
+        const preguntasModificas = preguntas.map(pregunta => { /* recorremos el array para modificarlo */
+            if (pregunta.id === +id) {
+                return {
+                    ...pregunta, /* ingresamos todos los datos de la pregunta con spread */
+                    title: title.trim(), /* Con trim sacamos espacios antes y final */
+                    response: response.split("\r\n"),/* Dividimos la respuesta en elementos dentro de un array */
+                    href: link,
+                    a: frase,
+                }
+            }
+            return pregunta
+        })
+        preguntasEscribir(preguntasModificas);/* Escribimos las preguntas en el json */
+        return res.redirect("/footer/preguntas/editar/" + req.params.id)
+    },
+    eliminarPregunta: (req, res) => {/* METODO GET DE EDITAR*/
+        preguntas = preguntasFrecuentes();/* leemos las preguntas */
+        
+        const preguntasModificadas = preguntas.filter(pregunta => pregunta.id !== +req.params.id); /* Eliminamos la pregunta, dejando el id de producto igual al id pasado por parametro por fuera */
+        preguntasEscribir(preguntasModificadas);/* Escribimos las preguntas en el json */
+
+        return res.redirect("/footer/preguntas");/* Redirigimos a las preguntas */
     },
 }    

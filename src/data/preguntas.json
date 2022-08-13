@@ -3,7 +3,7 @@
       "id": 1,
       "title": "¿Cómo comprar en Buon Aseo?",
       "response": [
-         "Es simple y rápido, solo tenés que ingresar al siguiente link y segui los pasos!"
+         "Es simple y rápido, solo tenés que ingresar al siguiente link y segui los pasos!  "
       ],
       "href": "/footer/comprar",
       "a": "Cómo comprar"
@@ -76,27 +76,49 @@
    },
    {
       "id": 9,
-      "title": "gola",
+      "title": "hola",
       "response": [
-         "Soy nuevo"
+         "aasdsadsdasad",
+         "asdsadasddas",
+         " "
       ],
       "href": "",
       "a": ""
    },
    {
       "id": 10,
-      "title": "SOY BUENA",
+      "title": "prueba",
       "response": [
-         "HOLA"
+         "hola pa",
+         " que onda "
       ],
-      "href": "/",
-      "a": "Volver al home"
+      "href": "",
+      "a": ""
    },
    {
       "id": 11,
-      "title": "",
+      "title": "PRUEBA X2",
       "response": [
-         ""
+         "Que onda pa",
+         " todo bien"
+      ],
+      "href": "",
+      "a": ""
+   },
+   {
+      "id": 12,
+      "title": "prueba x3",
+      "response": [
+         "dfasddas"
+      ],
+      "href": "",
+      "a": ""
+   },
+   {
+      "id": 13,
+      "title": "hola",
+      "response": [
+         "hola pa.\r\nasldkas.\r\nasdasd"
       ],
       "href": "",
       "a": ""
