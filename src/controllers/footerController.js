@@ -1,4 +1,4 @@
-const { preguntasFrecuentes, preguntasEscribir } = require("../data/db_module")
+const { preguntasFrecuentes, preguntasEscribir, preguntasActualizarId } = require("../data/db_module")
 
 module.exports = {
     nosotros: (req, res) => {
@@ -96,10 +96,11 @@ module.exports = {
         preguntasEscribir(preguntasModificas);/* Escribimos las preguntas en el json */
         return res.redirect("/footer/preguntas/editar/" + req.params.id)
     },
-    eliminarPregunta: (req, res) => {/* METODO GET DE EDITAR*/
+    eliminarPregunta: (req, res) => {/* METODO DELETE DE PREGUNTAS*/
         preguntas = preguntasFrecuentes();/* leemos las preguntas */
         
         const preguntasModificadas = preguntas.filter(pregunta => pregunta.id !== +req.params.id); /* Eliminamos la pregunta, dejando el id de producto igual al id pasado por parametro por fuera */
+        preguntasActualizarId(preguntasModificadas)
         preguntasEscribir(preguntasModificadas);/* Escribimos las preguntas en el json */
 
         return res.redirect("/footer/preguntas");/* Redirigimos a las preguntas */
