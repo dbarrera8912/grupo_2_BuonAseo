@@ -21,7 +21,7 @@
                             <% if (resultado[x].response.length===1) { %>
                                 <!-- preguntamos si hay solo 1 respuesta en el json -->
                                 <article class="preguntasFrecuentes__section__article"
-                                    onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= x %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
+                                    onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= resultado[x].id %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
                                     <h2>
                                         <%= resultado[x].title %>
                                     </h2>
@@ -29,7 +29,7 @@
                                         v
                                     </div>
                                 </article>
-                                <p class="preguntasFrecuentes__section__respuesta<%= x %>">
+                                <p class="preguntasFrecuentes__section__respuesta<%= resultado[x].id %>">
                                     <%= resultado[x].response %>
                                         <% if (resultado[x].href.length> 0) { %>
                                             <!-- Preguntamos si tiene href el json -->
@@ -38,10 +38,16 @@
                                             </a>
                                             <% } %>              
                                 </p>
+                                <div class="preguntasAgregar__Caja__boton">
+                                    <a href="/footer/preguntas/editar/<%= resultado[x].id %>"><button type="button" class="registro__email__botonRegistro">Editar</button></a>
+                                    <form action="/footer/preguntas/eliminar/<%= resultado[x].id %>?_method=DELETE" method="post">
+                                      <button type="submit" class="registro__email__botonRegistro">Eliminar</button>
+                                    </form>
+                                  </div>
                                 <% } else if (resultado[x].response.length> 1) { %>
                                     <!-- preguntamos si hay mas de 1 respuesta en el json -->
                                     <article class="preguntasFrecuentes__section__article"
-                                        onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= x %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
+                                        onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= resultado[x].id %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
                                         <h2>
                                             <%= resultado[x].title %>
                                         </h2>
@@ -49,22 +55,27 @@
                                             v
                                         </div>
                                     </article>
-                                    <ul class="preguntasFrecuentes__section__respuesta<%= x %>">
+                                    <ul class="preguntasFrecuentes__section__respuesta<%= resultado[x].id %>">
                                         <% resultado[x].response.forEach(element=> { %>
                                             <li>
                                                 <%= element %>
                                             </li>
                                             <% }) %>
                                     </ul>
+                                    <div class="preguntasAgregar__Caja__boton">
+                                        <a href="/footer/preguntas/editar/<%= resultado[x].id %>"><button type="button" class="registro__email__botonRegistro">Editar</button></a>
+                                        <form action="/footer/preguntas/eliminar/<%= resultado[x].id %>?_method=DELETE" method="post">
+                                          <button type="submit" class="registro__email__botonRegistro">Eliminar</button>
+                                        </form>
+                                      </div>
                                     <% } %>
                                         <% } %>
-
                                             <% }else{ %><!-- Si no encuentra nada muestra esto -->
                                                 <p>Lo sentimos, su busqueda <%= keywords %> no fue encontrada con exito.
                                                 </p>
                                                 <% } %>
 
-                                                    <% if (resultado.length> 0) { %>
+                                                    <% if (resultado.length>= 0) { %>
                                                         <!-- Si hay resultados entra -->
                                                         <% if (resto.length> 0) { %>
                                                             <!-- Si hay otras preguntas entra y muestra el titulo -->
@@ -79,7 +90,7 @@
                                                                         <!-- preguntamos si hay solo 1 respuesta en el json -->
                                                                         <article
                                                                             class="preguntasFrecuentes__section__article"
-                                                                            onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= x %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
+                                                                            onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= resto[x].id %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
                                                                             <h2>
                                                                                 <%= resto[x].title %>
                                                                             </h2>
@@ -89,7 +100,7 @@
                                                                             </div>
                                                                         </article>
                                                                         <p
-                                                                            class="preguntasFrecuentes__section__respuesta<%= x %>">
+                                                                            class="preguntasFrecuentes__section__respuesta<%= resto[x].id %>">
                                                                             <%= resto[x].response %>
                                                                                 <% if (resto[x].href.length> 0) { %>
                                                                                     <!-- Preguntamos si tiene href el json -->
@@ -99,11 +110,17 @@
                                                                                     </a>
                                                                                     <% } %>
                                                                         </p>
-                                                                        <% } else if (resto[x].response.length> 1) { %>
+                                                                        <div class="preguntasAgregar__Caja__boton">
+                                                                            <a href="/footer/preguntas/editar/<%= resto[x].id %>"><button type="button" class="registro__email__botonRegistro">Editar</button></a>
+                                                                            <form action="/footer/preguntas/eliminar/<%= resto[x].id %>?_method=DELETE" method="post">
+                                                                              <button type="submit" class="registro__email__botonRegistro">Eliminar</button>
+                                                                            </form>
+                                                                          </div>
+                                                                        <% } else if (resto[x].response.length > 1) { %>
                                                                             <!-- preguntamos si hay mas de 1 respuesta en el json -->
                                                                             <article
                                                                                 class="preguntasFrecuentes__section__article"
-                                                                                onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= x %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
+                                                                                onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= resto[x].id %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
                                                                                 <h2>
                                                                                     <%= resto[x].title %>
                                                                                 </h2>
@@ -113,7 +130,7 @@
                                                                                 </div>
                                                                             </article>
                                                                             <ul
-                                                                                class="preguntasFrecuentes__section__respuesta<%= x %>">
+                                                                                class="preguntasFrecuentes__section__respuesta<%= resto[x].id %>">
                                                                                 <% resto[x].response.forEach(element=> {
                                                                                    /*  Ciclo de preguntas con 2 o mas respuestas */
                                                                                     %>
@@ -122,6 +139,12 @@
                                                                                     </li>
                                                                                     <% }) %>
                                                                             </ul>
+                                                                            <div class="preguntasAgregar__Caja__boton">
+                                                                            <a href="/footer/preguntas/editar/<%= resto[x].id %>"><button type="button" class="registro__email__botonRegistro">Editar</button></a>
+                                                                            <form action="/footer/preguntas/eliminar/<%= resto[x].id %>?_method=DELETE" method="post">
+                                                                              <button type="submit" class="registro__email__botonRegistro">Eliminar</button>
+                                                                            </form>
+                                                                          </div>
                                                                             <% } %>
                                                                                 <% } %>
                                                                                     <% } %>

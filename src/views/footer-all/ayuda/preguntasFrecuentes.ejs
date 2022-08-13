@@ -9,7 +9,8 @@
         <section class="preguntasFrecuentes__section">
           <!-- TITULO -->
           <div class="preguntasFrecuentes__section__cajaTitulo">
-            <h1>Preguntas frecuentes</h1>
+            <h1>Preguntas frecuentes <a href="/footer/preguntas/agregar"><i class="fa-solid fa-plus"></i></a></h1>
+            
             <form action="/footer/preguntas/search" class="header_section_input preguntasFrecuentes_barraBuscador" method="get">
               <input type="text" name="keywords" placeholder="Buscar una pregunta...">
               <span class="header_section_input_span"><i class="fa-solid fa-magnifying-glass"></i></span>
@@ -20,7 +21,7 @@
             <% if (preguntas[x].response.length===1) { %>
               <!-- preguntamos si hay solo 1 respuesta en el json -->
               <article class="preguntasFrecuentes__section__article"
-                onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= x %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
+                onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= preguntas[x].id %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
                 <h2>
                   <%= preguntas[x].title %>
                 </h2>
@@ -28,7 +29,7 @@
                   v
                 </div>
               </article>
-              <p class="preguntasFrecuentes__section__respuesta<%= x %>">
+              <p class="preguntasFrecuentes__section__respuesta<%= preguntas[x].id %>">
                 <%= preguntas[x].response %>
                   <% if (preguntas[x].href.length> 0) { %>
                     <!-- Preguntamos si tiene href el json -->
@@ -38,11 +39,17 @@
                     <% } %>
                     <!--  -->
               </p>
+              <div class="preguntasAgregar__Caja__boton">
+                <a href="/footer/preguntas/editar/<%= preguntas[x].id %>"><button type="button" class="registro__email__botonRegistro">Editar</button></a>
+                <form action="/footer/preguntas/eliminar/<%= preguntas[x].id %>?_method=DELETE" method="post">
+                  <button type="submit" class="registro__email__botonRegistro">Eliminar</button>
+                </form>
+              </div>
               <!--  -->
                 <% } else if (preguntas[x].response.length> 1) { %>
                   <!-- preguntamos si hay mas de 1 respuesta en el json -->
                   <article class="preguntasFrecuentes__section__article"
-                    onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= x %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
+                    onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= preguntas[x].id %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
                     <h2>
                       <%= preguntas[x].title %>
                     </h2>
@@ -50,13 +57,19 @@
                       v
                     </div>
                   </article>
-                  <ul class="preguntasFrecuentes__section__respuesta<%= x %>">
+                  <ul class="preguntasFrecuentes__section__respuesta<%= preguntas[x].id %>">
                     <% preguntas[x].response.forEach(element=> { %>
                       <li>
                         <%= element %>
                       </li>
                       <% }) %>
                   </ul>
+                  <div class="preguntasAgregar__Caja__boton">
+                    <a href="/footer/preguntas/editar/<%= preguntas[x].id %>"><button type="button" class="registro__email__botonRegistro">Editar</button></a>
+                    <form action="/footer/preguntas/eliminar/<%= preguntas[x].id %>?_method=DELETE" method="post">
+                      <button type="submit" class="registro__email__botonRegistro">Eliminar</button>
+                    </form>
+                  </div>
                   <% } %>
                     <% } %>
         </section>

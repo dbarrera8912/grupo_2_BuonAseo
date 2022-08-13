@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../partials/head', {title: 'Agregar pregunta' }) %>
+
+    <body class="preguntasFrecuentes-body">
+        <%- include('../../partials/header') %>
+            <main class="preguntasFrecuentes">
+                <section class="preguntasFrecuentes__section">
+                    <div class="preguntasFrecuentes__section__cajaTitulo">
+                        <h1>Agregar pregunta</h1>
+                    </div>
+                    <form action="" method="POST" class="preguntasAgregar__Caja">
+                        <div class="registro__email__container"> 
+                            <label for="title" class="registro__email__titulo">Titulo</label >
+                            <input type="text" name="title" id="name" class="preguntasFrecuentes__section__article">
+                        </div>
+                        <div class="registro__email__container">
+                            <label for="response">Respuesta</label>
+                            <textarea name="response" id="response" cols="40" rows="5" wrap="VIRTUAL" class="preguntasFrecuentes__section__article"></textarea>
+                        </div>
+                        <div class="registro__email__container">
+                            <label for="href">Link</label>
+                            <input type="text" name="link" id="href" class="preguntasFrecuentes__section__article">
+                        </div>
+                        <div class="registro__email__container">
+                            <label for="a">Agregar frase a link</label>
+                            <input type="text" name="frase" id="a" class="preguntasFrecuentes__section__article">
+                        </div>
+                        <div class="preguntasAgregar__Caja__boton">
+                            <a href="/"><button type="button" class="registro__email__botonRegistro">Cancelar</button></a>
+                            <div>
+                                <button type="submit" class="registro__email__botonRegistro">Guardar</button>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </section>
+            </main>
+        <%- include('../../partials/footer') %>
+    </body>
