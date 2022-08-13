@@ -1,6 +1,7 @@
 /* requerimos fs y path */
 const fs = require('fs');
 const path = require('path');
+const fecha = new Date();
 
 module.exports={
     preguntasFrecuentes: () => {
@@ -12,5 +13,9 @@ module.exports={
     preguntasActualizarId: (preguntas)=>{ //modifica las id empezando desde 1, y las siguienes ++.
         for(x = 0; x < preguntas.length; x++){
                 x === 0? preguntas[x].id = 1 : preguntas[x].id = x + 1;}
+    },
+    preguntasFechaDeCreacion: () => {
+        return fecha.toLocaleString();//asigna la fecha y hora del momento.
+        //`${fecha.getDate()}/${fecha.getMonth() +1}/${fecha.getFullYear()} [${fecha.getHours()}:${fecha.getMinutes()}]`
     }
 }

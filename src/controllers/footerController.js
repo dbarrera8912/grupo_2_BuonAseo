@@ -1,4 +1,4 @@
-const { preguntasFrecuentes, preguntasEscribir, preguntasActualizarId } = require("../data/db_module")
+const { preguntasFrecuentes, preguntasEscribir, preguntasActualizarId, preguntasFechaDeCreacion } = require("../data/db_FooterModule")
 
 module.exports = {
     nosotros: (req, res) => {
@@ -56,13 +56,13 @@ module.exports = {
         preguntas = preguntasFrecuentes();/* leemos las preguntas */
         const { title, response, link, frase } = req.body;/* Destructuring de la nueva pregunta del usuario */
         const id = preguntas[preguntas.length - 1].id; /* Sacamos el ultimo id */
-
         const newPregunta = {
             id: id + 1,
             title: title.trim(),/* con trim sacamos espacios al inicio y final */
             response: response.split("\r\n"),/* Dividimos la respuesta en elementos dentro de un array */
             href: link,
-            a: frase
+            a: frase,
+            fecha: preguntasFechaDeCreacion()
         }
         const preguntasNew = [...preguntas, newPregunta]; /* Creamos nueva pregunta y la agregamos junto con las demass */
 
@@ -89,6 +89,7 @@ module.exports = {
                     response: response.split("\r\n"),/* Dividimos la respuesta en elementos dentro de un array */
                     href: link,
                     a: frase,
+                    fecha: preguntasFechaDeCreacion()
                 }
             }
             return pregunta

@@ -45,6 +45,7 @@
                   <button type="submit" class="registro__email__botonRegistro">Eliminar</button>
                 </form>
               </div>
+              <small class="preguntasAgregar__Caja__boton"><%= preguntas[x].fecha %> </small>
               <!--  -->
                 <% } else if (preguntas[x].response.length> 1) { %>
                   <!-- preguntamos si hay mas de 1 respuesta en el json -->
@@ -70,6 +71,7 @@
                       <button type="submit" class="registro__email__botonRegistro">Eliminar</button>
                     </form>
                   </div>
+                  <small class="preguntasAgregar__Caja__boton"><%= preguntas[x].fecha %> </small>
                   <% } %>
                     <% } %>
         </section>

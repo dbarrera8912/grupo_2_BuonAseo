@@ -3,10 +3,11 @@
       "id": 1,
       "title": "¿Cómo comprar en Buon Aseo?",
       "response": [
-         "Es simple y rápido, solo tenés que ingresar al siguiente link y segui los pasos!  "
+         "Es simple y rápido, solo tenés que ingresar al siguiente link y segui los pasos!    "
       ],
       "href": "/footer/comprar",
-      "a": "Cómo comprar"
+      "a": "Cómo comprar",
+      "fecha": "13/8/2022 19:01:51"
    },
    {
       "id": 2,
@@ -15,7 +16,8 @@
          "Para ver los precios es fundamental registrarte como cliente, si ya lo hiciste y aun no los podes ver, aguarda la llamada de un representante BuonAseo, o comunicate con nosotros."
       ],
       "href": "",
-      "a": ""
+      "a": "",
+      "fecha": "13/8/2022 18:52:27"
    },
    {
       "id": 3,
@@ -24,7 +26,8 @@
          "Si! Hacemos envíos a todos el país, ingresa y entérate de todo"
       ],
       "href": "/footer/puntos",
-      "a": "acá."
+      "a": "acá.",
+      "fecha": "13/8/2022 18:52:27"
    },
    {
       "id": 4,
@@ -33,7 +36,8 @@
          "El monto mínimo para retiro en tienda es de $10000, y el monto mínimo de compra para envíos es de $40000."
       ],
       "href": "",
-      "a": ""
+      "a": "",
+      "fecha": "13/8/2022 18:52:27"
    },
    {
       "id": 5,
@@ -44,7 +48,8 @@
          "Compra o retiro en mostrador: Contado en efectivo por caja. Tarjeta debito: Cabal, Visa y Mastercard. Anticipado vía deposito | transferencia bancaria."
       ],
       "href": "",
-      "a": ""
+      "a": "",
+      "fecha": "13/8/2022 18:52:27"
    },
    {
       "id": 6,
@@ -53,7 +58,8 @@
          "Vení a conocer nuestro showroom! Encontrarás todos los productos que comercializamos en exhibición! Los pedidos deben realizarse por la página web donde encontrarás publicados todos nuestros productos; Una vez que hayas completado tu compra nos comunicaremos con vos para coordinar día y horario de retiro en tienda ubicada en "
       ],
       "href": "https://maps.app.goo.gl/JZfumo4UQM1vkVWb7",
-      "a": "Coronel Mendez 1908 Wilde - Buenos Aires"
+      "a": "Coronel Mendez 1908 Wilde - Buenos Aires",
+      "fecha": "13/8/2022 18:52:27"
    },
    {
       "id": 7,
@@ -62,7 +68,8 @@
          "Si, dependiendo del artículo que quieras comprar. En la web, debajo de la foto del artículo podes encontrar predeterminada la cantidad que viene en el pack o bulto cerrado. Hay ciertos productos, como por ejemplo: esponjas de cocina, trapos de piso y papel higiénico entre otros; que obligatoriamente se deben comprar por un mínimo determinado de unidades."
       ],
       "href": "",
-      "a": ""
+      "a": "",
+      "fecha": "13/8/2022 18:52:27"
    },
    {
       "id": 8,
@@ -72,7 +79,8 @@
          "Retiro en tienda: Para venir a retirar tu compra a BuonAseo el procedimiento es similar a los envíos. Cuando tu pedido este preparado y controlado nos pondremos en contacto contigo para comunicarte detalles del mismo, así como también coordinar día y horario de retiro en tienda. Luego se realizará la facturación y posteriormente el pago y retiro de mercadería."
       ],
       "href": "",
-      "a": ""
+      "a": "",
+      "fecha": "13/8/2022 18:52:27"
    },
    {
       "id": 9,
@@ -83,6 +91,37 @@
          "asdasd "
       ],
       "href": "",
-      "a": ""
+      "a": "",
+      "fecha": "13/8/2022 18:52:27"
+   },
+   {
+      "id": 10,
+      "title": "fecha",
+      "response": [
+         "fadsddf"
+      ],
+      "href": "",
+      "a": "",
+      "fecha": "13/8/2022 18:52:27"
+   },
+   {
+      "id": 11,
+      "title": "fecha x2",
+      "response": [
+         "asddsaasd "
+      ],
+      "href": "",
+      "a": "",
+      "fecha": "13/8/2022 18:54:32"
+   },
+   {
+      "id": 12,
+      "title": "fecha x4",
+      "response": [
+         "sadsaddsa"
+      ],
+      "href": "",
+      "a": "",
+      "fecha": "13/8/2022 18:52:27"
    }
 ]
