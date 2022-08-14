@@ -33,14 +33,14 @@ module.exports = {
         return res.render('./footer-all/ayuda/metodosDePago')
     },
 
-    preguntas: (req, res) => {
+    preguntas: (req, res) => { /* METODO DE GET DE PREGUNTAS */
         preguntas = preguntasFrecuentes();/* leemos las preguntas */
         return res.render('./footer-all/ayuda/preguntasFrecuentes', {/* Renderizamos y mandamos preguntas y respuestas */
             preguntas,
             respuestas: preguntas.response
         })
     },
-    searchPregunta: (req, res) => {/* METODO GET DE BUSCAR PREGUNTA*/
+    searchPregunta: (req, res) => {/* METODO GET DE BUSCAR PREGUNTA, vista preguntas y preguntas/search*/
         preguntas = preguntasFrecuentes();/* leemos las preguntas */
         let resultado = [];
         let resto = [];

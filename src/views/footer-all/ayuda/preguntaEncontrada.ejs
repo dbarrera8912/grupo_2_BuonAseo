@@ -1,4 +1,4 @@
-<%- include("../../partials/head", {title: "Preguntas" }) %>
+<%- include("../../partials/head", {title: "Buscar preguntas" }) %>
 
     <body>
         <!-- HEADER -->
@@ -6,20 +6,23 @@
             <!-- MAIN -->
             <main class="preguntasFrecuentes">
                 <section class="preguntasFrecuentes__section">
-                    <!-- TITULO -->
+                    <!-- TITULO Y BUSCADOR-->
+                    <!-- tiene un + al lado para agregar una pregunta, si hace click manda la peticion al metodo agregarPregunta -->
                     <div class="preguntasFrecuentes__section__cajaTitulo">
-                        <h1>Preguntas Encontradas</h1>
+                        <h1>Preguntas Encontradas<a href="/footer/preguntas/agregar"><i class="fa-solid fa-plus"></i></a></h1>
+                        <!-- metodo search de footerController, mandamos el keywords -->
                         <form action="/footer/preguntas/search"
                             class="header_section_input preguntasFrecuentes_barraBuscador" method="get">
                             <input type="text" name="keywords" placeholder="Buscar otra pregunta...">
                             <span class="header_section_input_span"><i class="fa-solid fa-magnifying-glass"></i></span>
                         </form>
                     </div>
+                    <!-- ARTICULOS -->
                     <% if (resultado.length> 0) { %>
                         <!-- Si hay uno o mas resultados entra -->
                         <% for( let x=0; x < resultado.length; x++ ) { %>
                             <% if (resultado[x].response.length===1) { %>
-                                <!-- preguntamos si hay solo 1 respuesta en el json -->
+                                 <!-- si hay solo 1 respuesta en el json, entra y carga los preguntas del JSON utilizando el id para las clases. y sus respectivos datos en su lugar  -->
                                 <article class="preguntasFrecuentes__section__article"
                                     onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= resultado[x].id %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
                                     <h2>
@@ -29,6 +32,8 @@
                                         v
                                     </div>
                                 </article>
+                                <!-- parte a mostrar si hace click -->
+                                <!-- RESPUESTA -->
                                 <p class="preguntasFrecuentes__section__respuesta<%= resultado[x].id %>">
                                     <%= resultado[x].response %>
                                         <% if (resultado[x].href.length> 0) { %>
@@ -36,17 +41,24 @@
                                             <a href="<%= resultado[x].href %>" target="_blank">
                                                 <%= resultado[x].a %>
                                             </a>
-                                            <% } %>              
+                                            <% } %>
                                 </p>
+                                <!-- BOTONES Y FECHA -->
                                 <div class="preguntasAgregar__Caja__boton">
-                                    <a href="/footer/preguntas/editar/<%= resultado[x].id %>"><button type="button" class="registro__email__botonRegistro">Editar</button></a>
-                                    <form action="/footer/preguntas/eliminar/<%= resultado[x].id %>?_method=DELETE" method="post">
-                                      <button type="submit" class="registro__email__botonRegistro">Eliminar</button>
+                                    <!-- boton para editar, si hace click aca lo mandamos a una ruta dinamica con su id para editar la elegida, con los metodos editarPregunta y modificarPregunta -->
+                                    <a href="/footer/preguntas/editar/<%= resultado[x].id %>"><button type="button"
+                                            class="registro__email__botonRegistro">Editar</button></a>
+                                     <!-- boton para eliminar, si haces click se elimina completamente, con el metodo eliminarPregunta -->
+                                    <form action="/footer/preguntas/eliminar/<%= resultado[x].id %>?_method=DELETE"
+                                        method="post">
+                                        <button type="submit" class="registro__email__botonRegistro">Eliminar</button>
                                     </form>
-                                  </div>
-                                  <small class="preguntasAgregar__Caja__boton"><%= resultado[x].fecha %> </small>
+                                </div>
+                                <!-- fecha que contiene el json, dada gracias a new Date(), que al agregar o modificar le agrega la fecha exacta. Metodo ubicado en data/db_FooterModule -->
+                                <small class="preguntasAgregar__Caja__boton"><%= resultado[x].fecha %></small>
                                 <% } else if (resultado[x].response.length> 1) { %>
-                                    <!-- preguntamos si hay mas de 1 respuesta en el json -->
+                                    <!--  si hay mas de 1 respuesta en el json, entra y carga los preguntas del JSON utilizando el id para las clases. y sus respectivos datos en su lugar -->
+                                    <!-- TITULO -->
                                     <article class="preguntasFrecuentes__section__article"
                                         onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= resultado[x].id %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
                                         <h2>
@@ -56,6 +68,8 @@
                                             v
                                         </div>
                                     </article>
+                                    <!-- parte a mostrar si hace click -->
+                                    <!-- RESPUESTA -->
                                     <ul class="preguntasFrecuentes__section__respuesta<%= resultado[x].id %>">
                                         <% resultado[x].response.forEach(element=> { %>
                                             <li>
@@ -63,33 +77,43 @@
                                             </li>
                                             <% }) %>
                                     </ul>
+                                    <!-- BOTONES Y FECHA -->
                                     <div class="preguntasAgregar__Caja__boton">
-                                        <a href="/footer/preguntas/editar/<%= resultado[x].id %>"><button type="button" class="registro__email__botonRegistro">Editar</button></a>
-                                        <form action="/footer/preguntas/eliminar/<%= resultado[x].id %>?_method=DELETE" method="post">
-                                          <button type="submit" class="registro__email__botonRegistro">Eliminar</button>
+                                        <!-- boton para editar, si hace click aca lo mandamos a una ruta dinamica con su id para editar la elegida, con los metodos editarPregunta y modificarPregunta -->
+                                        <a href="/footer/preguntas/editar/<%= resultado[x].id %>"><button type="button"
+                                                class="registro__email__botonRegistro">Editar</button></a>
+                                        <!-- boton para eliminar, si haces click se elimina completamente, con el metodo eliminarPregunta -->
+                                        <form action="/footer/preguntas/eliminar/<%= resultado[x].id %>?_method=DELETE"
+                                            method="post">
+                                            <button type="submit"
+                                                class="registro__email__botonRegistro">Eliminar</button>
                                         </form>
-                                      </div>
-                                      <small class="preguntasAgregar__Caja__boton"><%= resultado[x].fecha %> </small>
+                                    </div>
+                                    <!-- fecha que contiene el json, dada gracias a new Date(), que al agregar o modificar le agrega la fecha exacta. Metodo ubicado en data/db_FooterModule -->
+                                    <small class="preguntasAgregar__Caja__boton"><%= resultado[x].fecha %></small>
                                     <% } %>
                                         <% } %>
-                                            <% }else{ %><!-- Si no encuentra nada muestra esto -->
+                                            <% }else{ %>
+                                                <!-- Si no encuentra nada muestra esto -->
                                                 <p>Lo sentimos, su busqueda <%= keywords %> no fue encontrada con exito.
                                                 </p>
                                                 <% } %>
-
+                                                <!-- OTRAS PREGUNTAS -->
                                                     <% if (resultado.length>= 0) { %>
-                                                        <!-- Si hay resultados entra -->
+                                                        <!-- Si hay mas 0 resultados entra -->
                                                         <% if (resto.length> 0) { %>
-                                                            <!-- Si hay otras preguntas entra y muestra el titulo -->
+                                                            <!-- TITULO -->
+                                                            <!-- Si sobraron preguntas entra y muestra el titulo -->
                                                             <div class="preguntasFrecuentes__section__cajaTitulo">
                                                                 <h1>Otras preguntas</h1>
                                                             </div>
                                                             <% } %>
-
+                                                                <!-- ARTICULOS -->
                                                                 <% for( let x=0; x < resto.length; x++ ) { %>
                                                                     <!-- Ciclo de otras preguntas -->
                                                                     <% if (resto[x].response.length===1) { %>
-                                                                        <!-- preguntamos si hay solo 1 respuesta en el json -->
+                                                                        <!-- si hay solo 1 respuesta en el json, entra y carga los preguntas del JSON utilizando el id para las clases. y sus respectivos datos en su lugar  -->
+                                                                        <!-- TITULO -->
                                                                         <article
                                                                             class="preguntasFrecuentes__section__article"
                                                                             onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= resto[x].id %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
@@ -101,6 +125,8 @@
                                                                                 v
                                                                             </div>
                                                                         </article>
+                                                                        <!-- parte a mostrar si hace click -->
+                                                                        <!-- RESPUESTA -->
                                                                         <p
                                                                             class="preguntasFrecuentes__section__respuesta<%= resto[x].id %>">
                                                                             <%= resto[x].response %>
@@ -112,15 +138,28 @@
                                                                                     </a>
                                                                                     <% } %>
                                                                         </p>
+                                                                        <!-- BOTONES Y FECHA -->
                                                                         <div class="preguntasAgregar__Caja__boton">
-                                                                            <a href="/footer/preguntas/editar/<%= resto[x].id %>"><button type="button" class="registro__email__botonRegistro">Editar</button></a>
-                                                                            <form action="/footer/preguntas/eliminar/<%= resto[x].id %>?_method=DELETE" method="post">
-                                                                              <button type="submit" class="registro__email__botonRegistro">Eliminar</button>
+                                                                            <!-- boton para editar, si hace click aca lo mandamos a una ruta dinamica con su id para editar la elegida, con los metodos editarPregunta y modificarPregunta -->
+                                                                            <a
+                                                                                href="/footer/preguntas/editar/<%= resto[x].id %>"><button
+                                                                                    type="button"
+                                                                                    class="registro__email__botonRegistro">Editar</button></a>
+                                                                            <!-- boton para eliminar, si haces click se elimina completamente, con el metodo eliminarPregunta -->
+                                                                            <form
+                                                                                action="/footer/preguntas/eliminar/<%= resto[x].id %>?_method=DELETE"
+                                                                                method="post">
+                                                                                <button type="submit"
+                                                                                    class="registro__email__botonRegistro">Eliminar</button>
                                                                             </form>
-                                                                          </div>
-                                                                          <small class="preguntasAgregar__Caja__boton"><%= resto[x].fecha %> </small>
-                                                                        <% } else if (resto[x].response.length > 1) { %>
-                                                                            <!-- preguntamos si hay mas de 1 respuesta en el json -->
+                                                                        </div>
+                                                                        <!-- fecha que contiene el json, dada gracias a new Date(), que al agregar o modificar le agrega la fecha exacta. Metodo ubicado en data/db_FooterModule -->
+                                                                        <small class="preguntasAgregar__Caja__boton">
+                                                                            <%= resto[x].fecha %>
+                                                                        </small>
+                                                                        <% } else if (resto[x].response.length> 1) { %>
+                                                                            <!--  si hay mas de 1 respuesta en el json, entra y carga los preguntas del JSON utilizando el id para las clases. y sus respectivos datos en su lugar -->
+                                                                            <!-- TITULO -->
                                                                             <article
                                                                                 class="preguntasFrecuentes__section__article"
                                                                                 onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= resto[x].id %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
@@ -132,27 +171,40 @@
                                                                                     v
                                                                                 </div>
                                                                             </article>
+                                                                            <!-- parte a mostrar si hace click -->
+                                                                            <!-- RESPUESTA -->
                                                                             <ul
                                                                                 class="preguntasFrecuentes__section__respuesta<%= resto[x].id %>">
-                                                                                <% resto[x].response.forEach(element=> {
-                                                                                   /*  Ciclo de preguntas con 2 o mas respuestas */
-                                                                                    %>
+                                                                                <!-- /* Ciclo de preguntas con 2 o mas respuestas */ -->
+                                                                                <% resto[x].response.forEach(element=> {%>
                                                                                     <li>
                                                                                         <%= element %>
                                                                                     </li>
                                                                                     <% }) %>
                                                                             </ul>
+                                                                            <!-- BOTONES Y FECHA -->
                                                                             <div class="preguntasAgregar__Caja__boton">
-                                                                            <a href="/footer/preguntas/editar/<%= resto[x].id %>"><button type="button" class="registro__email__botonRegistro">Editar</button></a>
-                                                                            <form action="/footer/preguntas/eliminar/<%= resto[x].id %>?_method=DELETE" method="post">
-                                                                              <button type="submit" class="registro__email__botonRegistro">Eliminar</button>
-                                                                            </form>
-                                                                          </div>
-                                                                          <small class="preguntasAgregar__Caja__boton"><%= resto[x].fecha %> </small>
+                                                                                <!-- boton para editar, si hace click aca lo mandamos a una ruta dinamica con su id para editar la elegida, con los metodos editarPregunta y modificarPregunta -->
+                                                                                <a
+                                                                                    href="/footer/preguntas/editar/<%= resto[x].id %>"><button
+                                                                                        type="button"
+                                                                                        class="registro__email__botonRegistro">Editar</button></a>
+                                                                                <!-- boton para eliminar, si haces click se elimina completamente, con el metodo eliminarPregunta -->
+                                                                                <form
+                                                                                    action="/footer/preguntas/eliminar/<%= resto[x].id %>?_method=DELETE"
+                                                                                    method="post">
+                                                                                    <button type="submit"
+                                                                                        class="registro__email__botonRegistro">Eliminar</button>
+                                                                                </form>
+                                                                            </div>
+                                                                            <!-- fecha que contiene el json, dada gracias a new Date(), que al agregar o modificar le agrega la fecha exacta. Metodo ubicado en data/db_FooterModule -->
+                                                                            <small
+                                                                                class="preguntasAgregar__Caja__boton">
+                                                                                <%= resto[x].fecha %>
+                                                                            </small>
                                                                             <% } %>
                                                                                 <% } %>
                                                                                     <% } %>
-
                 </section>
             </main>
             <%- include('../../partials/footer') %>

@@ -13,13 +13,13 @@ router
       .get('/reclamos', reclamos)
       .get('/comprar', comprar)
       .get('/pagos', pagos)
-      .get('/preguntas', preguntas)
-      .get('/preguntas/search', searchPregunta)
-      .get('/preguntas/agregar', agregarPregunta)
-            .post('/preguntas/agregar', escribirPregunta)
-      .get('/preguntas/editar/:id', editarPregunta)
-            .put('/preguntas/modificar/:id', modificarPregunta)
-            .delete('/preguntas/eliminar/:id', eliminarPregunta)
+      .get('/preguntas', preguntas) 
+      .get('/preguntas/search', searchPregunta) /* pagina de preguntas encontradas */
+      .get('/preguntas/agregar', agregarPregunta) /* pagina agregar pregunta */
+      .post('/preguntas/agregar', escribirPregunta)/* RUTA POST agregar pregunta */
+      .get('/preguntas/editar/:id', editarPregunta)/* pagina editar pregunta */
+      .put('/preguntas/modificar/:id', modificarPregunta)/* RUTA PUT editar pregunta */
+      .delete('/preguntas/eliminar/:id', eliminarPregunta)/* RUTA DELETE eliminar pregunta desde preguntasFrecuentes*/
 
 
 module.exports = router;
