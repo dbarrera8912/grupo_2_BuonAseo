@@ -13,6 +13,8 @@ router
       .get('/reclamos', reclamos)
       .get('/comprar', comprar)
       .get('/pagos', pagos)
+      
+      /* PREGUNTAS */
       .get('/preguntas', preguntas) 
       .get('/preguntas/search', searchPregunta) /* pagina de preguntas encontradas */
       .get('/preguntas/agregar', agregarPregunta) /* pagina agregar pregunta */

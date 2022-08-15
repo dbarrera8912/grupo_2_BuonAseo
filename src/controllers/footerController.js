@@ -1,4 +1,4 @@
-const { preguntasFrecuentes, preguntasEscribir, preguntasActualizarId, preguntasFechaDeCreacion } = require("../data/db_FooterModule")
+const { preguntasFrecuentes, preguntasEscribir, preguntasActualizarId, preguntasFechaDeCreacion } = require("../data/db_footer/db_FooterModule")
 
 module.exports = {
     nosotros: (req, res) => {
