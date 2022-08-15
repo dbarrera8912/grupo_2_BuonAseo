@@ -1,0 +1,75 @@
+<% for( let x=0; x < array.length ; x++ ) { %>
+    <% if (array[x].response.length===1) { %>
+        <!-- si hay solo 1 respuesta en el json, entra y carga los preguntas del JSON utilizando el id para las clases. y sus respectivos datos en su lugar  -->
+        <!-- TITULO -->
+        <article class="preguntasFrecuentes__section__article"
+            onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= array[x].id %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
+            <h2>
+                <%= array[x].title %>
+            </h2>
+            <div class="preguntasFrecuentes__section__article__cajaIcono">
+                v
+            </div>
+        </article>
+        <!-- parte a mostrar si hace click -->
+        <!-- RESPUESTA -->
+        <p class="preguntasFrecuentes__section__respuesta<%= array[x].id %>">
+            <%= array[x].response %>
+                <% if (array[x].href.length> 0) { %>
+                    <!-- Preguntamos si tiene href el json -->
+                    <a href="<%= array[x].href %>" target="_blank">
+                        <%= array[x].a %>
+                    </a>
+                    <% } %>
+        </p>
+        <!-- BOTONES Y FECHA -->
+        <div class="preguntasAgregar__Caja__boton">
+            <!-- boton para editar, si hace click aca lo mandamos a una ruta dinamica con su id para editar la elegida, con los metodos editarPregunta y modificarPregunta -->
+            <a href="/footer/preguntas/editar/<%= array[x].id %>"><button type="button"
+                    class="registro__email__botonRegistro">Editar</button></a>
+            <!-- boton para eliminar, si haces click se elimina completamente, con el metodo eliminarPregunta -->
+            <form action="/footer/preguntas/eliminar/<%= array[x].id %>?_method=DELETE" method="post">
+                <button type="submit" class="registro__email__botonRegistro">Eliminar</button>
+            </form>
+        </div>
+        <!-- fecha que contiene el json, dada gracias a new Date(), que al agregar o modificar le agrega la fecha exacta. Metodo ubicado en data/db_FooterModule -->
+        <small class="preguntasAgregar__Caja__boton">
+            <%= array[x].fecha %>
+        </small>
+        <% } else if (array[x].response.length> 1) { %>
+            <!--  si hay mas de 1 respuesta en el json, entra y carga los preguntas del JSON utilizando el id para las clases. y sus respectivos datos en su lugar -->
+            <!-- TITULO -->
+            <article class="preguntasFrecuentes__section__article"
+                onclick="document.querySelector('.preguntasFrecuentes__section__respuesta<%= array[x].id %>').classList.toggle('preguntasFrecuentes__section__respuesta1-Responder')">
+                <h2>
+                    <%= array[x].title %>
+                </h2>
+                <div class="preguntasFrecuentes__section__article__cajaIcono">
+                    v
+                </div>
+            </article>
+            <!-- parte a mostrar si hace click -->
+            <!-- RESPUESTA -->
+            <ul class="preguntasFrecuentes__section__respuesta<%= array[x].id %>">
+                <% array[x].response.forEach(element=> { %>
+                    <li>
+                        <%= element %>
+                    </li>
+                    <% }) %>
+            </ul>
+            <!-- BOTONES Y FECHA -->
+            <div class="preguntasAgregar__Caja__boton">
+                <!-- boton para editar, si hace click aca lo mandamos a una ruta dinamica con su id para editar la elegida, con los metodos editarPregunta y modificarPregunta -->
+                <a href="/footer/preguntas/editar/<%= array[x].id %>"><button type="button"
+                        class="registro__email__botonRegistro">Editar</button></a>
+                <!-- boton para eliminar, si haces click se elimina completamente, con el metodo eliminarPregunta -->
+                <form action="/footer/preguntas/eliminar/<%= array[x].id %>?_method=DELETE" method="post">
+                    <button type="submit" class="registro__email__botonRegistro">Eliminar</button>
+                </form>
+            </div>
+            <!-- fecha que contiene el json, dada gracias a new Date(), que al agregar o modificar le agrega la fecha exacta. Metodo ubicado en data/db_FooterModule -->
+            <small class="preguntasAgregar__Caja__boton">
+                <%= array[x].fecha %>
+            </small>
+            <% } %>
+                <% } %>
