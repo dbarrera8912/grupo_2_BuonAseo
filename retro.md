@@ -18,3 +18,9 @@ Le ofrecio a Daniel hacer un canje por el login, entregando el carrito y recibie
 ### Sirley y Matias
 Plantearon que el mayor reto del sprint N° 2, es que lo que trabajemos funcione de forma correcta sin incovenientes, deseando un buen puerto a nuestro camino.
 ***
+
+# Retrospectiva Sprint N°2
+
+## Starfish:
+![image text](https://github.com/dbarrera8912/grupo_2_BuonAseo/blob/develop/public/img/imageRetroMd/StarfishSprint2.jpg)
+***
