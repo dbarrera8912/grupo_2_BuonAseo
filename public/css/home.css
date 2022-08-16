@@ -3,6 +3,17 @@
   width: 100%;
 }
 
+.home_main_banner{
+width: 100%;
+}
+
+.home_main_banner_img{
+  width: 100%;
+  height: 200px;
+  }
+
+
+
 .home_main_carousel{
 	display: none;
 }
@@ -12,24 +23,27 @@
 	margin: 10px auto;
 	display: flex;
 }
-#imagen-carusel{
+
+#home_imagen_carusel{
 	width: 100%;
 	height: 400px;
-	background-size: cover;
-	background-color: red;
+	background-size: contain;
+  background-repeat: no-repeat;
+  background-position:top;
+	background-image: url('../../img/fotos-productos/liquido para pisos/liquidoP-imagen-2.png');
 	padding: 5px;
 	border-radius: 15px;
 }
 
 
-#retroceder{
+#home_retroceder{
 	background-color: var(--blanco);
 	color: var(--negro);
 	margin-right: 40px;
 	font-size: 60px;
 	font-weight: 800;
 }
-#avanzar {
+#home_avanzar {
 	color: var(--negro);
 	background-color: var(--blanco);
 	margin-left: 40px;
@@ -58,7 +72,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -71,7 +85,7 @@
 
 
 .home_main_section_productos_destacados_img--mobile {
-  border-radius: 50%;
+  border-radius: 15px;
   width: 200px;
   height: 200px;
 }
@@ -91,7 +105,7 @@
 .home_main_section_productos_destacados_img--tablet,
 .home_main_section_productos_destacados_img--deskop {
   display: none;
-  border-radius: 50%;
+  border-radius: 15px;
 }
 
 
@@ -131,9 +145,8 @@ text-align: center;
 
 .home_main_button {
   margin-top: 10px;
-  width: 30%;
-  height: 30px;
-
+  width: 100px;
+  height: 50x;
   padding: 5px;
 }
 
@@ -153,11 +166,12 @@ text-align: center;
 
 .home_main_slider--movimiento li {
   width: 100%;
+
 }
 
 .home_main_slider--movimiento img {
   width: 100%;
-  height: 400px;
+  height: 300px;
   border-radius: 25px;
 }
 
@@ -196,6 +210,9 @@ text-align: center;
     margin-left: 10rem;
   }
 
+  .home_main_banner_img{
+    height: 250px;
+  }
 
   .home_main_carousel{
 	display: block;
@@ -242,16 +259,25 @@ text-align: center;
   .home_main_titulo {
     font-size: 45px;
   }
+  .home_main_button {
+    width: 120px;
+  }
 
   .home_main_section_article_boton {
     margin-top: 0.5rem;
     margin-bottom: 4rem;
   }
+
+
 }
 
 @media (min-width: 1024px) {
   .home_main_section_productos_destacados_caja {
     margin-left: 0;
+  }
+
+  .home_main_banner_img{
+    height: 350px;
   }
 
   .home_main_section_productos_destacados_img--deskop {
@@ -266,4 +292,13 @@ text-align: center;
     justify-content: center;
     width: 100%;;
   }
+
+  .home_main_button {
+    width: 150px;
+  }
+
+  .home_main_button  a{
+    font-size: 1.6rem;
+  }
+
 }
