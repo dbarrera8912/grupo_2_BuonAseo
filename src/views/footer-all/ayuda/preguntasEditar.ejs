@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../partials/head', {title: 'Editar pregunta' }) %>
+
+    <body class="preguntasFrecuentes-body">
+        <%- include('../../partials/header') %>
+            <main class="preguntasFrecuentes">
+                <section class="preguntasFrecuentes__section">
+                    <!-- TITULO -->
+                    <!-- metodo editarPregunta, nos trae la pregunta buscada con su id para editarla -->
+                    <div class="preguntasFrecuentes__section__cajaTitulo">
+                        <h1>Editar pregunta</h1>
+                    </div>
+                    <!-- FORMULARIO -->
+                    <form action="/footer/preguntas/modificar/<%= pregunta.id %>?_method=PUT" method="POST" class="preguntasAgregar__Caja">
+                        <!-- Si modifica la pregunta y hace click en Guardar, con este formulario mandamos la peticion al metodo modificarPregunta que actualiza data ingresada -->
+                        <div class="registro__email__container"> 
+                            <label for="title" class="registro__email__titulo">Titulo</label >
+                            <!-- ponemos el value con el title que tiene el JSON, asi lo puede ver y editar.  -->
+                            <input type="text" name="title" id="name" class="preguntasFrecuentes__section__article" value="<%= pregunta.title %>">
+                        </div>
+                        <div class="registro__email__container">
+                            <label for="response">Respuesta</label>
+                            <!-- ponemos el value con el response que tiene el JSON, asi lo puede ver y editar.  -->
+                            <textarea name="response" id="response" cols="40" rows="5" wrap="VIRTUAL" class="preguntasFrecuentes__section__article" ><%= pregunta.response %> </textarea>
+                        </div>
+                        <div class="registro__email__container">
+                            <label for="href">Link</label>
+                            <!-- ponemos el value con el href que tiene el JSON, asi lo puede ver y editar.  -->
+                            <input type="text" name="link" id="href" class="preguntasFrecuentes__section__article" value="<%= pregunta.href %>">
+                        </div>
+                        <div class="registro__email__container">
+                            <label for="a">Agregar frase a link</label>
+                            <!-- ponemos el value con el a que tiene el JSON, asi lo puede ver y editar.  -->
+                            <input type="text" name="frase" id="a" class="preguntasFrecuentes__section__article" value="<%= pregunta.a %>">
+                        </div>
+                        <!-- BOTONES -->
+                        <div class="preguntasAgregar__Caja__boton">
+                            <!-- boton de cancelar, si hace click vuelve a las preguntas sin modificar nada -->
+                            <a href="/footer/preguntas"><button type="button" class="registro__email__botonRegistro">Cancelar</button></a>
+                            <!-- boton para guardar, si hace click dirige la peticion al metodo modificarPreguntar, y hace su magia. -->
+                            <button type="submit" class="registro__email__botonRegistro">Guardar</button>
+                        </div>
+                    </form>
+                </section>
+            </main>
+        <%- include('../../partials/footer') %>
+    </body>

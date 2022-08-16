@@ -1,0 +1,48 @@
+<%- include("../../partials/head", {title: "Buscar preguntas" }) %>
+
+    <body>
+        <!-- HEADER -->
+        <%- include("../../partials/header") %>
+            <!-- MAIN -->
+            <main class="preguntasFrecuentes">
+                <section class="preguntasFrecuentes__section">
+                    <!-- TITULO Y BUSCADOR-->
+                    <!-- tiene un + al lado para agregar una pregunta, si hace click manda la peticion al metodo agregarPregunta -->
+                    <div class="preguntasFrecuentes__section__cajaTitulo">
+                        <h1>Preguntas Encontradas <a href="/footer/preguntas/agregar"><i
+                                    class="fa-solid fa-plus"></i></a></h1>
+                        <!-- metodo search de footerController, mandamos el keywords -->
+                        <form action="/footer/preguntas/search"
+                            class="header_section_input preguntasFrecuentes_barraBuscador" method="get">
+                            <input type="text" name="keywords" placeholder="Buscar otra pregunta...">
+                            <span class="header_section_input_span"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        </form>
+                    </div>
+                    <!-- ARTICULOS -->
+                    <% if (resultado.length> 0) { %>
+                        <!-- Si hay uno o mas resultados entra -->
+                        <%- include('../../partials/preguntas', {array: resultado}) %>
+                            <% }else{ %>
+                                <!-- Si no encuentra nada muestra esto -->
+                                <p>Lo sentimos, su busqueda <%= keywords %> no fue encontrada con exito.
+                                </p>
+                                <% } %>
+                                    <!-- OTRAS PREGUNTAS -->
+                                    <% if (resultado.length>= 0) { %>
+                                        <!-- Si hay mas 0 resultados entra -->
+                                        <% if (resto.length> 0) { %>
+                                            <!-- TITULO -->
+                                            <!-- Si sobraron preguntas entra y muestra el titulo -->
+                                            <div class="preguntasFrecuentes__section__cajaTitulo">
+                                                <h1>Otras preguntas</h1>
+                                            </div>
+                                            <% } %>
+                                                <!-- ARTICULOS -->
+                                                <%- include('../../partials/preguntas', {array: resto}) %>
+                                                    <% } %>
+                </section>
+            </main>
+            <%- include('../../partials/footer') %>
+    </body>
+
+    </html>
