@@ -1,11 +1,14 @@
 <%- include('../partials/head', {title: 'Home'}) %> 
   <body>
     <%- include('../partials/header') %>
+    <section class="home_main_banner">
+      <img class="home_main_banner_img" src="../../../img/fotos-productos/imagen-Banner.jpg">
+    </section>
     <section class="home_main_carousel">
       <div class="carousel">
-          <button id="retroceder"><i class="fa-solid fa-angle-left"></i></button>
-          <div id="imagen-carusel"></div>
-          <button id="avanzar"><i class="fa-solid fa-angle-right"></i></button>
+          <button id="home_retroceder"><i class="fa-solid fa-angle-left"></i></button>
+          <div id="home_imagen_carusel"></div>
+          <button id="home_avanzar"><i class="fa-solid fa-angle-right"></i></button>
       </div>
   </section>
     <main class="home_main">
@@ -16,7 +19,7 @@
         <article class="home_main_section_article_imagenes">
           <div class="home_main_section_productos_destacados_caja">
             <a href="/products/detalle"><img class="home_main_section_productos_destacados_img--mobile"
-              src="https://dummyimage.com/200x200/e34c14/fff"
+              src="../../../img/fotos-productos/jabones/jabon-imagen-1.png"
               alt="imagen producto"
           /></a>
             <div class="home_main_section_productos_destacados_parrafo--mobile">
@@ -27,7 +30,7 @@
           </div>
           <div class="home_main_section_productos_destacados_caja">
             <a href="/products/detalle"><img class="home_main_section_productos_destacados_img--tablet"
-              src="https://dummyimage.com/200x200/e34c14/fff"
+              src="../../../img/fotos-productos/suavisantes/suavisante-imagen-1.png"
               alt="imagen producto"
           /></a>
             <div class="home_main_section_productos_destacados_parrafo--tablet">
@@ -38,7 +41,7 @@
         </div>
           <div class="home_main_section_productos_destacados_caja">
             <a href="/products/detalle"> <img class="home_main_section_productos_destacados_img--deskop"
-              src="https://dummyimage.com/200x200/e34c14/fff"
+              src="../../../img/fotos-productos/liquido para pisos/liquidoP-imagen-1.png"
               alt="imagen producto"
           /></a>
            
@@ -51,7 +54,7 @@
 
         </article>
         <article class="home_main_section_article_boton">
-          <button class="home_main_button"><a href="ofertas">Ver mas ></a></button>
+          <button class="home_main_button"><a href="productosdestacados">Ver mas ></a></button>
         </article>
       </section>
       <section class="home_main_section_productos_destacados">
@@ -61,7 +64,7 @@
         <article class="home_main_section_article_imagenes">
           <div class="home_main_section_productos_destacados_caja">
             <a href="/products/detalle"><img class="home_main_section_productos_destacados_img--mobile"
-              src="https://dummyimage.com/200x200/e34c14/fff"
+              src="../../../img/fotos-productos/detergentes/detergente-imagen-1.png"
               alt="imagen producto"
           /></a>
               
@@ -74,7 +77,7 @@
 
           <div class="home_main_section_productos_destacados_caja">
             <a href="/products/detalle"><img class="home_main_section_productos_destacados_img--tablet"
-              src="https://dummyimage.com/200x200/e34c14/fff"
+              src="../../../img/fotos-productos/jabones/jabon-imagen-2.png"
               alt="imagen producto"
           /></a>
               
@@ -87,7 +90,7 @@
 
           <div class="home_main_section_productos_destacados_caja">
             <a href="/products/detalle"><img class="home_main_section_productos_destacados_img--deskop"
-              src="https://dummyimage.com/200x200/e34c14/fff"
+              src="../../../img/fotos-productos/suavisantes/suavisante-imagen-2.png"
               alt="imagen producto"
           /></a>
             
@@ -100,7 +103,7 @@
 
         </article>
         <article class="home_main_section_article_boton">
-          <button class="home_main_button"><a href="productosdestacados">Ver mas ></a></button>
+          <button class="home_main_button"><a href="ofertas">Ver mas ></a></button>
         </article>
       </section>
       <section>
@@ -110,25 +113,25 @@
         <ul>
           <li>
             <img
-              src="https://dummyimage.com/100x50/940894/111cba"
+              src="../../../img/fotos-productos/marcas/marca-ayudin.png"
               alt="slider1"
             />
           </li>
           <li>
             <img
-              src="https://dummyimage.com/100x50/a0cf1d/111cba"
+              src="../../../img/fotos-productos/marcas/marca-downy.png"
               alt="slider2"
             />
           </li>
           <li>
             <img
-              src="https://dummyimage.com/100x50/cf2b1f/111cba"
+              src="../../../img/fotos-productos/marcas/marca-misteMusculo.png"
               alt="slider3"
             />
           </li>
           <li>
             <img
-              src="https://dummyimage.com/100x50/2cd113/111cba"
+              src="../../../img/fotos-productos/marcas/marca-suavitel.png"
               alt="slider4"
             />
           </li>
@@ -140,16 +143,18 @@
       window.onload = function () {
           // Variables
           const IMAGENES = [
-              'https://dummyimage.com/100x50/940894/111cba',
-              'https://dummyimage.com/600x400/de521f/fff',
-              'https://dummyimage.com/600x400/0509ed/fff',
-              'https://dummyimage.com/600x400/eb0707/fff'
+         
+              '../../../img/fotos-productos/liquido para pisos/liquidoP-imagen-10.png',
+              '../../../img/fotos-productos/jabones/jabon-imagen-10.png',
+              '../../../img/fotos-productos/lavandinas/lavandina-imagen-10.png',
+              '../../../img/fotos-productos/suavisantes/suavisante-imagen-10.png',
+              '../../../img/fotos-productos/detergentes/detergente-imagen-10.png'
           ];
           const TIEMPO_INTERVALO_MILESIMAS_SEG = 1000;
           let posicionActual = 1;
-          let $botonRetroceder = document.querySelector('#retroceder');
-          let $botonAvanzar = document.querySelector('#avanzar');
-          let $imagen = document.querySelector('#imagen');
+          let $botonRetroceder = document.querySelector('#home_retroceder');
+          let $botonAvanzar = document.querySelector('#home_avanzar');
+          let $imagen = document.querySelector('#home_imagen_carusel');
           let $botonPlay = document.querySelector('#play');
           let $botonStop = document.querySelector('#stop');
           let intervalo;
@@ -206,10 +211,10 @@
           function stopIntervalo() {
               clearInterval(intervalo);
               // Activamos los botones de control
-              $botonAvanzar.removeAttribute('disabled');
-              $botonRetroceder.removeAttribute('disabled');
-              $botonPlay.removeAttribute('disabled');
-              $botonStop.setAttribute('disabled', true);
+              $botonAvanzar.removeAttribute('enable');
+              $botonRetroceder.removeAttribute('enable');
+              $botonPlay.removeAttribute('enable');
+              $botonStop.setAttribute('enable');
           }
 
           // Eventos
