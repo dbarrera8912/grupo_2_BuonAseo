@@ -1,4 +1,4 @@
-const { preguntasFrecuentes, preguntasEscribir, metodosDePago, metodosEscribir, 
+const { preguntasFrecuentes, preguntasEscribir, metodosDePago, metodosEscribir,
     preguntasActualizarId, preguntasFechaDeCreacion } = require("../data/db_footer/db_FooterModule")
 
 module.exports = {
@@ -30,13 +30,42 @@ module.exports = {
         return res.render('./footer-all/ayuda/comoComprar')
     },
 
-    pagos: (req, res) => {
-        return res.render('./footer-all/ayuda/metodosDePago')
+    /* METODOS DE PAGO */
+    pagos: (req, res) => {/* METODO GET DE METODOS DE PAGO */
+        metodos = metodosDePago(); /* leemos los metodos de pago */
+        return res.render('./footer-all/ayuda/metodosDePago', {/* Renderizamos y mandamos metodos de pago */
+            metodos
+        })
+    },
+    agregarPagos: (req, res) => {/* METODO GET DE AGREGAR PAGO */
+        metodos = metodosDePago(); /* leemos los metodos de pago */
+        return res.render('./footer-all/ayuda/metodosAgregar')/* renderizamos */
+    },
+    escribirPagos: (req, res) => {/* METODO POST DE AGREGAR PAGO */
+        metodos = metodosDePago(); /* leemos los metodos de pago */
+        const {icono, title, letraAbajoS, img, letraAbajoI, letraAbajoT } = req.body;/* Destructuring de la nueva pregunta del usuario */
+        const id = metodos[metodos.length - 1].id; /* Sacamos el ultimo id */
+        const newMetodo = {
+            id: id + 1,
+            icono,
+            titulo: title.trim(),/* con trim sacamos espacios al inicio y final */
+            letraAbajoTitulo: letraAbajoS.trim(),
+            img: img.split("\r\n"),/* Dividimos la respuesta en elementos dentro de un array */
+            letraFullAbajo: letraAbajoI.trim(),
+            letraAbajoDeImagen: letraAbajoT.split("\r\n"),
+            fecha: preguntasFechaDeCreacion()
+        }
+        const metodosNew = [...metodos, newMetodo]; /* Creamos nueva pregunta y la agregamos junto con las demass */
+
+        metodosEscribir(metodosNew); /* Escribimos las preguntas en el JSON */
+
+        return res.redirect("/footer/pagos");/* Redirigimos a las preguntas */
     },
 
+    /* PREGUNTAS */
     preguntas: (req, res) => { /* METODO DE GET DE PREGUNTAS */
         preguntas = preguntasFrecuentes();/* leemos las preguntas */
-        return res.render('./footer-all/ayuda/preguntasFrecuentes', {/* Renderizamos y mandamos preguntas y respuestas */
+        return res.render('./footer-all/ayuda/preguntasFrecuentes', {/* Renderizamos y mandamos preguntas */
             preguntas
         })
     },
@@ -48,11 +77,11 @@ module.exports = {
 
         return res.render('./footer-all/ayuda/preguntaEncontrada', { resultado, keywords: req.query.keywords, resto, })/* Renderizamos vista, mandamos el resultado, y si no encuentra, mostramos su busqueda no fue encontrado con su pedido keywords. Tambien mostramos las preguntas ajenas a su busqueda */
     },
-    agregarPregunta: (req, res) => {/* METODO GET DE AGREGAR*/
+    agregarPregunta: (req, res) => {/* METODO GET DE AGREGAR PREGUNTA*/
         preguntas = preguntasFrecuentes();/* leemos las preguntas */
         return res.render('./footer-all/ayuda/preguntasAgregar')/* renderizamos */
     },
-    escribirPregunta: (req, res) => {/* METODO POST DE AGREGAR */
+    escribirPregunta: (req, res) => {/* METODO POST DE AGREGAR PREGUNTA*/
         preguntas = preguntasFrecuentes();/* leemos las preguntas */
         const { title, response, link, frase } = req.body;/* Destructuring de la nueva pregunta del usuario */
         const id = preguntas[preguntas.length - 1].id; /* Sacamos el ultimo id */
@@ -99,7 +128,7 @@ module.exports = {
     },
     eliminarPregunta: (req, res) => {/* METODO DELETE DE PREGUNTAS*/
         preguntas = preguntasFrecuentes();/* leemos las preguntas */
-        
+
         const preguntasModificadas = preguntas.filter(pregunta => pregunta.id !== +req.params.id); /* Eliminamos la pregunta, dejando el id de producto igual al id pasado por parametro por fuera */
         preguntasActualizarId(preguntasModificadas)
         preguntasEscribir(preguntasModificadas);/* Escribimos las preguntas en el json */

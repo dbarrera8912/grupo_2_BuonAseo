@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const { nosotros, puntos, terminos, boton, reclamos, comprar, pagos, preguntas, politicas, searchPregunta, agregarPregunta, escribirPregunta, editarPregunta, modificarPregunta, eliminarPregunta }=require('../controllers/footerController')
+const { nosotros, puntos, terminos, boton, reclamos, comprar, pagos, preguntas, politicas, searchPregunta, agregarPregunta, escribirPregunta, editarPregunta, modificarPregunta, eliminarPregunta, agregarPagos, escribirPagos }=require('../controllers/footerController')
 
 /* GET home page. */
 router
@@ -13,6 +13,8 @@ router
       .get('/reclamos', reclamos)
       .get('/comprar', comprar)
       .get('/pagos', pagos)
+      .get("/pagos/agregar", agregarPagos)
+      .post("/pagos/agregar", escribirPagos)
       
       /* PREGUNTAS */
       .get('/preguntas', preguntas) 

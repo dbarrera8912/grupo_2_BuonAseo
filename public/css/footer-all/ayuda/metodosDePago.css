@@ -19,6 +19,9 @@
     color: var(--azulFuerte);
     margin-bottom: 10px;
 }
+.metodosDePago__section__article h1 a i{
+    color: var(--azulFuerte);
+}
 
 /* ARTICULOS */
 .metodosDePago__section__article__icono{
