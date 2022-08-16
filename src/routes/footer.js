@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-const { nosotros, puntos, terminos, boton, reclamos, comprar, pagos, preguntas, politicas, searchPregunta, agregarPregunta, escribirPregunta, editarPregunta, modificarPregunta, eliminarPregunta, agregarPagos, escribirPagos }=require('../controllers/footerController')
+const { nosotros, puntos, terminos, boton, reclamos, comprar, pagos, preguntas, politicas, searchPregunta, agregarPregunta, escribirPregunta, editarPregunta, modificarPregunta, 
+      eliminarPregunta, agregarPagos, escribirPagos, editarPagos }=require('../controllers/footerController')
 
 /* GET home page. */
 router
@@ -12,9 +13,14 @@ router
       .get('/boton', boton)
       .get('/reclamos', reclamos)
       .get('/comprar', comprar)
+
+      /* PAGOS */
       .get('/pagos', pagos)
-      .get("/pagos/agregar", agregarPagos)
+      .get("/pagos/agregar", agregarPagos)/* pagina agregar metodo de pago */
       .post("/pagos/agregar", escribirPagos)
+      .get('/pagos/editar/:id', editarPagos)/* pagina editar metodo */
+      .put('/pagos/modificar/:id', modificarPregunta)/* RUTA PUT editar metodo */
+      .delete('/pagos/eliminar/:id', eliminarPregunta)/* RUTA DELETE eliminar metodo desde pagos*/
       
       /* PREGUNTAS */
       .get('/preguntas', preguntas) 

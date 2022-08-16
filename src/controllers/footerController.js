@@ -43,7 +43,7 @@ module.exports = {
     },
     escribirPagos: (req, res) => {/* METODO POST DE AGREGAR PAGO */
         metodos = metodosDePago(); /* leemos los metodos de pago */
-        const {icono, title, letraAbajoS, img, letraAbajoI, letraAbajoT } = req.body;/* Destructuring de la nueva pregunta del usuario */
+        const { icono, title, letraAbajoS, img, letraAbajoI, letraAbajoT } = req.body;/* Destructuring de la nueva pregunta del usuario */
         const id = metodos[metodos.length - 1].id; /* Sacamos el ultimo id */
         const newMetodo = {
             id: id + 1,
@@ -60,6 +60,13 @@ module.exports = {
         metodosEscribir(metodosNew); /* Escribimos las preguntas en el JSON */
 
         return res.redirect("/footer/pagos");/* Redirigimos a las preguntas */
+    },
+    editarPagos: (req, res) => {/* METODO GET DE EDITAR PAGO*/
+        metodos = metodosDePago(); /* leemos los metodos de pago */
+        const metodo = metodos.find(metodo => metodo.id === +req.params.id); /* Buscamos un id de metodo igual al id pasado por parametro */
+        return res.render("./footer-all/ayuda/metodosEditar", {
+            metodo
+        })
     },
 
     /* PREGUNTAS */
@@ -99,14 +106,14 @@ module.exports = {
 
         return res.redirect("/footer/preguntas");/* Redirigimos a las preguntas */
     },
-    editarPregunta: (req, res) => {/* METODO GET DE EDITAR*/
+    editarPregunta: (req, res) => {/* METODO GET DE EDITAR PREGUNTA*/
         preguntas = preguntasFrecuentes();/* leemos las preguntas */
         const pregunta = preguntas.find(pregunta => pregunta.id === +req.params.id); /* Buscamos un id de pregunta igual al id pasado por parametro */
         return res.render("./footer-all/ayuda/preguntasEditar", {
             pregunta
         })
     },
-    modificarPregunta: (req, res) => {/* METODO PUT DE EDITAR*/
+    modificarPregunta: (req, res) => {/* METODO PUT DE EDITAR PREGUNTA*/
         preguntas = preguntasFrecuentes();/* leemos las preguntas */
         const { id } = req.params; /* Sacamos el id del parametro */
         const { title, response, link, frase } = req.body;/* Destructuring de la nueva edicion de pregunta del usuario */
