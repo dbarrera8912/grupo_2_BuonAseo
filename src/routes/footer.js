@@ -1,11 +1,23 @@
 var express = require('express');
 var router = express.Router();
+const multer = require("multer");
+const path = require("path")
 
-const { nosotros, puntos, terminos, boton, reclamos, comprar, politicas, 
+const storage = multer.diskStorage({/* sirve para trabajar con imagenes */
+      destination: (req, file, cb) => {/* Permite especificar el destino de la imagen */
+            cb(null, path.join(__dirname, "../../public/img/footerImgs/metodosDePago"));
+      },
+      filename: (req, file, cb) => {/* Permite especificar el nombre de la imagen */
+            cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`);/* Date.now da un numero unico, contando en milisegundos a partir del 1970 // path.extname te da la extension del archivo */
+      }
+})
+const uploadFile = multer ({storage});/* esta variable va a cargar con la funcion definida arriba */
+
+const { nosotros, puntos, terminos, boton, reclamos, comprar, politicas,
       preguntas, searchPregunta, agregarPregunta, escribirPregunta, editarPregunta, modificarPregunta, eliminarPregunta,
-      pagos, agregarPagos, escribirPagos, editarPagos, modificarPagos, eliminarPagos }=require('../controllers/footerController')
+      pagos, agregarPagos, escribirPagos, editarPagos, modificarPagos, eliminarPagos } = require('../controllers/footerController')
 
-/* GET home page. */
+/* /footer/... */
 router
       .get('/nosotros', nosotros)
       .get('/politicas', politicas)
@@ -18,13 +30,13 @@ router
       /* PAGOS */
       .get('/pagos', pagos)
       .get("/pagos/agregar", agregarPagos)/* pagina agregar metodo de pago */
-      .post("/pagos/agregar", escribirPagos)
+      .post("/pagos/agregar", uploadFile.array("img"), escribirPagos)
       .get('/pagos/editar/:id', editarPagos)/* pagina editar metodo */
-      .put('/pagos/modificar/:id', modificarPagos)/* RUTA PUT editar metodo */
+      .put('/pagos/modificar/:id', uploadFile.array("img"), modificarPagos)/* RUTA PUT editar metodo */
       .delete('/pagos/eliminar/:id', eliminarPagos)/* RUTA DELETE eliminar metodo desde pagos*/
-      
+
       /* PREGUNTAS */
-      .get('/preguntas', preguntas) 
+      .get('/preguntas', preguntas)
       .get('/preguntas/search', searchPregunta) /* pagina de preguntas encontradas */
       .get('/preguntas/agregar', agregarPregunta) /* pagina agregar pregunta */
       .post('/preguntas/agregar', escribirPregunta)/* RUTA POST agregar pregunta */

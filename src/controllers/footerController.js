@@ -42,24 +42,32 @@ module.exports = {
         return res.render('./footer-all/ayuda/metodosAgregar')/* renderizamos */
     },
     escribirPagos: (req, res) => {/* METODO POST DE AGREGAR PAGO */
-        metodos = metodosDePago(); /* leemos los metodos de pago */
-        const { icono, title, letraAbajoS, img, letraAbajoI, letraAbajoT } = req.body;/* Destructuring de la nueva pregunta del usuario */
-        const id = metodos[metodos.length - 1].id; /* Sacamos el ultimo id */
-        const newMetodo = {
-            id: id + 1,
-            icono,
-            titulo: title.trim(),/* con trim sacamos espacios al inicio y final */
-            letraAbajoTitulo: letraAbajoS.trim(),
-            img: img.split("\r\n"),/* Dividimos la respuesta en elementos dentro de un array */
-            letraFullAbajo: letraAbajoI.trim(),
-            letraAbajoDeImagen: letraAbajoT.split("\r\n"),
-            fecha: preguntasFechaDeCreacion()
+        if (req.files) {/* si cargo las imagenes entra. */
+            metodos = metodosDePago(); /* leemos los metodos de pago */
+            const { icono, title, letraAbajoS, letraAbajoI, letraAbajoT } = req.body;/* Destructuring de la nueva pregunta del usuario */
+            const imagenes = []
+            for (let x = 0; x < req.files.length; x++) {/* recorremos todas las imagenes */
+                imagenes.push(req.files[x].filename)/* pusheamos el nombre de la imagen al array. */
+            }
+            const id = metodos[metodos.length - 1].id; /* Sacamos el ultimo id */
+            const newMetodo = {
+                id: id + 1,
+                icono,
+                titulo: title.trim(),/* con trim sacamos espacios al inicio y final */
+                letraAbajoTitulo: letraAbajoS.trim(),
+                img: imagenes,
+                letraFullAbajo: letraAbajoI.trim(),
+                letraAbajoDeImagen: letraAbajoT.split("\r\n"),/* Dividimos la respuesta en elementos dentro de un array */
+                fecha: preguntasFechaDeCreacion()
+            }
+            const metodosNew = [...metodos, newMetodo]; /* Creamos nueva pregunta y la agregamos junto con las demass */
+            metodosEscribir(metodosNew); /* Escribimos las preguntas en el JSON */
+
+            return res.redirect("/footer/pagos");/* Redirigimos a las preguntas */
+        } else {/* Si no cargo las imagenes lo manda aca */
+            return res.render("./footer-all/ayuda/metodosAgregar")
         }
-        const metodosNew = [...metodos, newMetodo]; /* Creamos nueva pregunta y la agregamos junto con las demass */
 
-        metodosEscribir(metodosNew); /* Escribimos las preguntas en el JSON */
-
-        return res.redirect("/footer/pagos");/* Redirigimos a las preguntas */
     },
     editarPagos: (req, res) => {/* METODO GET DE EDITAR PAGO*/
         metodos = metodosDePago(); /* leemos los metodos de pago */
@@ -69,26 +77,34 @@ module.exports = {
         })
     },
     modificarPagos: (req, res) => {/* METODO PUT DE EDITAR PREGUNTA*/
-        metodos = metodosDePago(); /* leemos los metodos de pago */
-        const { id } = req.params; /* Sacamos el id del parametro */
-        const { icono, title, letraAbajoS, img, letraAbajoI, letraAbajoT } = req.body;/* Destructuring de la nueva pregunta del usuario */
-        const pagosModificados = metodos.map(metodo => { /* recorremos el array para modificarlo */
-            if (metodo.id === +id) {
-                return {
-                    ...metodo, /* ingresamos todos los datos del metodo con spread */
-                    icono,
-                    titulo: title.trim(), /* Con trim sacamos espacios antes y final */
-                    letraAbajoTitulo: letraAbajoS.trim(),
-                    img: img.split("\r\n"),/* Dividimos la respuesta en elementos dentro de un array */
-                    letraFullAbajo: letraAbajoI.trim(),
-                    letraAbajoDeImagen: letraAbajoT.split("\r\n"),
-                    fecha: preguntasFechaDeCreacion()
-                }
+        if (req.files) {
+            metodos = metodosDePago(); /* leemos los metodos de pago */
+            const { id } = req.params; /* Sacamos el id del parametro */
+            const { icono, title, letraAbajoS, letraAbajoI, letraAbajoT } = req.body;/* Destructuring de la nueva pregunta del usuario */
+            const imagenes = []
+            for (let x = 0; x < req.files.length; x++) {
+                imagenes.push(req.files[x].filename)
             }
-            return metodo
-        })
-        metodosEscribir(pagosModificados); /* Escribimos los nuevos metodos en el JSON */
-        return res.redirect("/footer/pagos/editar/" + req.params.id)
+            const pagosModificados = metodos.map(metodo => { /* recorremos el array para modificarlo */
+                if (metodo.id === +id) {
+                    return {
+                        ...metodo, /* ingresamos todos los datos del metodo con spread */
+                        icono,
+                        titulo: title.trim(), /* Con trim sacamos espacios antes y final */
+                        letraAbajoTitulo: letraAbajoS.trim(),
+                        img: imagenes,
+                        letraFullAbajo: letraAbajoI.trim(),
+                        letraAbajoDeImagen: letraAbajoT.split("\r\n"),
+                        fecha: preguntasFechaDeCreacion()
+                    }
+                }
+                return metodo
+            })
+            metodosEscribir(pagosModificados); /* Escribimos los nuevos metodos en el JSON */
+            return res.redirect("/footer/pagos")
+        } else {
+            return res.redirect("/footer/pagos/editar/" + req.params.id)
+        }
     },
     eliminarPagos: (req, res) => {/* METODO DELETE DE PREGUNTAS*/
         metodos = metodosDePago(); /* leemos los metodos de pago */

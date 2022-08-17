@@ -11,10 +11,10 @@
                     </div>
                     <!-- FORMULARIO -->
                     <!-- Si completa el formulario, se guardaran los datos en el JSON gracias al metodo escribirPregunta -->
-                    <form action="" method="POST" class="preguntasAgregar__Caja">
+                    <form action="" method="POST" class="preguntasAgregar__Caja" enctype="multipart/form-data">
                         <div class="registro__email__container">
-                            <label for="icono">Icono</label>
-                            <input type="file" name="icono" id="icono" class="preguntasFrecuentes__section__article">
+                            <label for="icono">Icono (solo lo que contiene class)</label>
+                            <input type="text" name="icono" id="icono" class="preguntasFrecuentes__section__article">
                         </div>
                         <div class="registro__email__container"> 
                             <label for="title">Subtitulo</label >

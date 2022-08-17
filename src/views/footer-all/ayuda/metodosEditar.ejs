@@ -11,12 +11,12 @@
                     </div>
                     <!-- FORMULARIO -->
                     <!-- Si completa el formulario, se guardaran los datos en el JSON gracias al metodo escribirPregunta -->
-                    <form action="/footer/pagos/modificar/<%= metodo.id %>?_method=PUT" method="POST" class="preguntasAgregar__Caja">
+                    <form action="/footer/pagos/modificar/<%= metodo.id %>?_method=PUT" method="POST" class="preguntasAgregar__Caja" enctype="multipart/form-data">
 
                         <div class="registro__email__container">
-                            <label for="icono">Icono <div class="metodosDePago__section__article__icono"><i
+                            <label for="icono">Icono (solo lo que contiene class)<div class="metodosDePago__section__article__icono"><i
                                         class="<%= metodo.icono %>"></i></div></label>
-                            <input type="file" name="icono" id="icono" value="<%= metodo.icono %>"
+                            <input type="text" name="icono" id="icono" value="<%= metodo.icono %>"
                                 class="preguntasFrecuentes__section__article">
                         </div>
                         <div class="registro__email__container">
