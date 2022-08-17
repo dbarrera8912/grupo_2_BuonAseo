@@ -68,6 +68,37 @@ module.exports = {
             metodo
         })
     },
+    modificarPagos: (req, res) => {/* METODO PUT DE EDITAR PREGUNTA*/
+        metodos = metodosDePago(); /* leemos los metodos de pago */
+        const { id } = req.params; /* Sacamos el id del parametro */
+        const { icono, title, letraAbajoS, img, letraAbajoI, letraAbajoT } = req.body;/* Destructuring de la nueva pregunta del usuario */
+        const pagosModificados = metodos.map(metodo => { /* recorremos el array para modificarlo */
+            if (metodo.id === +id) {
+                return {
+                    ...metodo, /* ingresamos todos los datos del metodo con spread */
+                    icono,
+                    titulo: title.trim(), /* Con trim sacamos espacios antes y final */
+                    letraAbajoTitulo: letraAbajoS.trim(),
+                    img: img.split("\r\n"),/* Dividimos la respuesta en elementos dentro de un array */
+                    letraFullAbajo: letraAbajoI.trim(),
+                    letraAbajoDeImagen: letraAbajoT.split("\r\n"),
+                    fecha: preguntasFechaDeCreacion()
+                }
+            }
+            return metodo
+        })
+        metodosEscribir(pagosModificados); /* Escribimos los nuevos metodos en el JSON */
+        return res.redirect("/footer/pagos/editar/" + req.params.id)
+    },
+    eliminarPagos: (req, res) => {/* METODO DELETE DE PREGUNTAS*/
+        metodos = metodosDePago(); /* leemos los metodos de pago */
+
+        const metodosModificados = metodos.filter(metodo => metodo.id !== +req.params.id); /* Eliminamos la pregunta, dejando el id de producto igual al id pasado por parametro por fuera */
+        preguntasActualizarId(metodosModificados)
+        metodosEscribir(metodosModificados);/* Escribimos las preguntas en el json */
+
+        return res.redirect("/footer/pagos");/* Redirigimos a las preguntas */
+    },
 
     /* PREGUNTAS */
     preguntas: (req, res) => { /* METODO DE GET DE PREGUNTAS */

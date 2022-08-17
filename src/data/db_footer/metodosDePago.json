@@ -15,7 +15,8 @@
          "https://http2.mlstatic.com/storage/logos-api-admin/aa2b8f70-5c85-11ec-ae75-df2bef173be2-m.svg"
       ],
       "letraFullAbajo": "*La cantidad de cuotas puede variar según la tarjeta.",
-      "letraAbajoDeImagen": []
+      "letraAbajoDeImagen": [],
+      "fecha": "16/8/2022 21:17:32"
    },
    {
       "id": 2,
@@ -30,7 +31,8 @@
          "https://http2.mlstatic.com/storage/logos-api-admin/b4534650-571b-11e8-95d8-631c1a9a92a9-m.svg"
       ],
       "letraFullAbajo": "",
-      "letraAbajoDeImagen": []
+      "letraAbajoDeImagen": [],
+      "fecha": "16/8/2022 21:17:32"
    },
    {
       "id": 3,
@@ -45,20 +47,21 @@
       "letraAbajoDeImagen": [
          "Acreditación en 1 día hábil.",
          "Acreditación instantánea."
-      ]
+      ],
+      "fecha": "16/8/2022 21:17:32"
    },
    {
-      "id": 5,
+      "id": 4,
       "icono": "",
-      "titulo": "sadsad",
-      "letraAbajoTitulo": "sadsdasad",
+      "titulo": "adsfadfsadsf",
+      "letraAbajoTitulo": "fgafsdadfs",
       "img": [
          ""
       ],
-      "letraFullAbajo": "",
+      "letraFullAbajo": "gfgfsdfds",
       "letraAbajoDeImagen": [
-         ""
+         "dsfaadfsasdffdsa"
       ],
-      "fecha": "16/8/2022 15:41:03"
+      "fecha": "16/8/2022 21:17:32"
    }
 ]
