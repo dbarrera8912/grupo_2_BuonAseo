@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "Matias",
+        "email": "matiascrack@gmail.com",
+        "password": 12345,
+        "category": "Vendedor",
+        "image": []
+    },
+    {
+        "id": 2,
+        "name": "Daniel",
+        "email": "daniHaceteDeBoca@yahoo.com",
+        "password": 11111,
+        "category": "Comprador",
+        "image": []
+    },
+    {
+        "id": 3,
+        "name": "Sirley",
+        "email": "sirleyConfio@outlook.com",
+        "password": 123423423,
+        "category": "Vendedor",
+        "image": []
+    },
+    {
+        "id": 4,
+        "name": "Richard",
+        "email": "richardCuevas@mail.com",
+        "password": 8724823,
+        "category": "Comprador",
+        "image": []
+    }
+]
