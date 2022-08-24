@@ -53,15 +53,41 @@
    {
       "id": 4,
       "icono": "fa-brands fa-amilia",
-      "titulo": "",
-      "letraAbajoTitulo": "",
+      "titulo": "sdfda",
+      "letraAbajoTitulo": "asdfsafd",
       "img": [
-         "1660766002210_img_.png"
+         "metodo-1661376262610.png"
+      ],
+      "letraFullAbajo": "adfdf",
+      "letraAbajoDeImagen": [
+         "adsffad"
+      ],
+      "fecha": "24/8/2022 18:24:24"
+   },
+   {
+      "id": 5,
+      "icono": "sadsdadsfa",
+      "titulo": "dfsdfss",
+      "letraAbajoTitulo": "fadfdsa",
+      "img": [
+         "metodo-1661373650052.jpg"
       ],
       "letraFullAbajo": "",
       "letraAbajoDeImagen": [
          ""
       ],
-      "fecha": "17/8/2022 16:51:20"
+      "fecha": "24/8/2022 18:22:21"
+   },
+   {
+      "id": 6,
+      "icono": "dfssgd",
+      "titulo": "",
+      "letraAbajoTitulo": "",
+      "img": [],
+      "letraFullAbajo": "",
+      "letraAbajoDeImagen": [
+         ""
+      ],
+      "fecha": "24/8/2022 17:40:52"
    }
 ]

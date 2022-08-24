@@ -92,7 +92,7 @@ module.exports = {
                         icono,
                         titulo: title.trim(), /* Con trim sacamos espacios antes y final */
                         letraAbajoTitulo: letraAbajoS.trim(),
-                        img: imagenes,
+                        img: imagenes.length > 0 ? imagenes : metodo.img,
                         letraFullAbajo: letraAbajoI.trim(),
                         letraAbajoDeImagen: letraAbajoT.split("\r\n"),
                         fecha: preguntasFechaDeCreacion()
