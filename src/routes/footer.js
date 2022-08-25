@@ -4,6 +4,7 @@ var router = express.Router();
 
 // ************ Middleware Require ************
 const {uploadMetodos} = require("../middlewares/mw_footer/uploadFiles")
+const validacionesAddMetodos = require("../validators/val_Footer/metodosAddValidator")
 
 // ************ Controller Require ************
 const { nosotros, puntos, terminos, boton, reclamos, comprar, politicas,
@@ -24,7 +25,7 @@ router
       /* PAGOS */
       .get('/pagos', pagos)
       .get("/pagos/agregar", agregarPagos)/* pagina agregar metodo de pago */
-      .post("/pagos/agregar", uploadMetodos.array("img"), escribirPagos)
+      .post("/pagos/agregar", uploadMetodos.array("img"), validacionesAddMetodos,escribirPagos)
       .get('/pagos/editar/:id', editarPagos)/* pagina editar metodo */
       .put('/pagos/modificar/:id', uploadMetodos.array("img"), modificarPagos)/* RUTA PUT editar metodo */
       .delete('/pagos/eliminar/:id', eliminarPagos)/* RUTA DELETE eliminar metodo desde pagos*/

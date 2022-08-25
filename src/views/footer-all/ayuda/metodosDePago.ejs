@@ -29,16 +29,16 @@
                 <% for( let y=0; y < metodos[x].img.length; y++ ) { %>
                   <% if (metodos[x].letraAbajoDeImagen.length===0) { %>
                     <% if (metodos[x].img[y].includes("https")) { %>
-                      <img src="<%= metodos[x].img[y] %>" alt="">
+                      <img src="<%= metodos[x].img[y] %>" alt="" id="img">
                       <% } else { %>
-                        <img src="/img/footerImgs/metodosDePago/<%= metodos[x].img[y] %>" alt="">
+                        <img src="/img/footerImgs/metodosDePago/<%= metodos[x].img[y] %>" alt="" id="img">
                         <% } %>
                     <% } else { %>
                       <figure>
                         <% if (metodos[x].img[y].includes("https")) { %>
-                          <img src="<%= metodos[x].img[y] %>" alt="">
+                          <img src="<%= metodos[x].img[y] %>" alt="" id="img">
                           <% } else { %>
-                            <img src="/img/footerImgs/metodosDePago/<%= metodos[x].img[y] %>" alt="">
+                            <img src="/img/footerImgs/metodosDePago/<%= metodos[x].img[y] %>" alt="" id="img">
                             <% } %>
                         <small>
                           <%= metodos[x].letraAbajoDeImagen[y] %>

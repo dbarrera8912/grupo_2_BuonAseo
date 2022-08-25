@@ -52,42 +52,28 @@
    },
    {
       "id": 4,
-      "icono": "fa-brands fa-amilia",
-      "titulo": "sdfda",
-      "letraAbajoTitulo": "asdfsafd",
+      "icono": "",
+      "titulo": "afddf",
+      "letraAbajoTitulo": "adadssd",
       "img": [
-         "metodo-1661376262610.png"
-      ],
-      "letraFullAbajo": "adfdf",
-      "letraAbajoDeImagen": [
-         "adsffad"
-      ],
-      "fecha": "24/8/2022 18:24:24"
-   },
-   {
-      "id": 5,
-      "icono": "sadsdadsfa",
-      "titulo": "dfsdfss",
-      "letraAbajoTitulo": "fadfdsa",
-      "img": [
-         "metodo-1661373650052.jpg"
+         "metodo-1661386571751.jpg"
       ],
       "letraFullAbajo": "",
       "letraAbajoDeImagen": [
          ""
       ],
-      "fecha": "24/8/2022 18:22:21"
+      "fecha": "24/8/2022 21:15:39"
    },
    {
-      "id": 6,
-      "icono": "dfssgd",
+      "id": 5,
+      "icono": "",
       "titulo": "",
-      "letraAbajoTitulo": "",
+      "letraAbajoTitulo": "sdasad",
       "img": [],
       "letraFullAbajo": "",
       "letraAbajoDeImagen": [
          ""
       ],
-      "fecha": "24/8/2022 17:40:52"
+      "fecha": "24/8/2022 21:29:46"
    }
 ]
