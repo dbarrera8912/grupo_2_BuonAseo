@@ -6,16 +6,16 @@
         "Categoria": "scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed",
         "Descuento": 42,
         "Stock": true,
-        "Aroma": "Cristy",
+        "Aroma": 300,
         "Volumen": "Brocky",
         "Cantidad": "Sioux",
         "Descripcion": "massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at",
-        "Image": "http://dummyimage.com/227x.png/cc0000/ffffff"
+        "Image": "http://dummyimage.com/227x.png"
     },
     {
         "Id": 2,
         "Nombre": "Laurene",
-        "Precio": "Odille",
+        "Precio": 200,
         "Categoria": "elementum in hac habitasse platea dictumst morbi vestibulum velit id",
         "Descuento": 18,
         "Stock": false,
@@ -23,12 +23,12 @@
         "Volumen": "Etty",
         "Cantidad": "Malynda",
         "Descripcion": "at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum",
-        "Image": "http://dummyimage.com/218x.png/5fa2dd/ffffff"
+        "Image": "http://dummyimage.com/218x.png"
     },
     {
         "Id": 3,
         "Nombre": "Lurleen",
-        "Precio": "Chaunce",
+        "Precio": 560,
         "Categoria": "volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus",
         "Descuento": 9,
         "Stock": true,
@@ -36,7 +36,7 @@
         "Volumen": "Rosene",
         "Cantidad": "Doloritas",
         "Descripcion": "nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id",
-        "Image": "http://dummyimage.com/225x.png/ff4444/ffffff"
+        "Image": "http://dummyimage.com/225x.png"
     },
     {
         "Id": 4,
@@ -49,7 +49,7 @@
         "Volumen": "Carly",
         "Cantidad": "Wade",
         "Descripcion": "duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus",
-        "Image": "http://dummyimage.com/202x.png/dddddd/000000"
+        "Image": "http://dummyimage.com/202x.png"
     },
     {
         "Id": 5,
@@ -62,7 +62,7 @@
         "Volumen": "Chet",
         "Cantidad": "Aubrette",
         "Descripcion": "vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus",
-        "Image": "http://dummyimage.com/221x.png/ff4444/ffffff"
+        "Image": "http://dummyimage.com/221x.png"
     },
     {
         "Id": 6,
@@ -75,7 +75,7 @@
         "Volumen": "Erinna",
         "Cantidad": "Leslie",
         "Descripcion": "tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo",
-        "Image": "http://dummyimage.com/204x.png/5fa2dd/ffffff"
+        "Image": "http://dummyimage.com/204x.png"
     },
     {
         "Id": 7,
@@ -193,5 +193,35 @@
         "Cantidad": "Martin",
         "Descripcion": "duis ac nibh fusce lacus purus aliquet at feugiat non pretium",
         "Image": "http://dummyimage.com/217x.png/ff4444/ffffff"
+    },
+    {
+        "Id": 16,
+        "Nombre": "Suavizante rosas",
+        "Codigoid": "51231",
+        "Precio": "900",
+        "Descuento": "15",
+        "Volumen": "12",
+        "Stock": "22",
+        "Tipo": "liquido",
+        "Aroma": "rosas",
+        "Dimenciones": "32",
+        "Cantidad": "42",
+        "Descripcion": "suavizante de rosas para ropa",
+        "Image": "Desktop - 3desktop-Detalle.png"
+    },
+    {
+        "Id": 17,
+        "Nombre": "pino",
+        "Codigoid": "464574745",
+        "Precio": "4000",
+        "Descuento": "20",
+        "Volumen": "60",
+        "Stock": "50",
+        "Tipo": "liquido",
+        "Aroma": "pino",
+        "Dimenciones": "40",
+        "Cantidad": "22",
+        "Descripcion": "jpino luz",
+        "Image": "Detalle tablet.png"
     }
 ]

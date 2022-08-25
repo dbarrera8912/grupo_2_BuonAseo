@@ -12,7 +12,7 @@
         </section>
         <!-- PRODUCTO CREAR EMAIL -->
         <section class="productCrear__email">
-          <form action="">
+          <form action="/products/store" method="POST">
             <section class="productCrear__email_section1">
               <article class="productCrear__email__container">
                 <label>Nombre del producto</label>
@@ -48,8 +48,12 @@
             </section>
            <section class="productCrear__email_section2">
             <article class="productCrear__email__container">
+              <label>Descuento</label>
+              <input class="productCrear__email__texto" value="" type="number" id="descuento" name="descuento" minlength="2" maxlength="20" placeholder="Descuento" />
+            </article>
+            <article class="productCrear__email__container">
               <label>Precio</label>
-              <input class="productCrear__email__texto" value="" type="number" id="precio" name="precio " minlength="2" maxlength="20" placeholder="Precio" />
+              <input class="productCrear__email__texto" value="" type="number" id="precio" name="precio" minlength="2" maxlength="20" placeholder="Precio" />
             </article>
             <article class="productCrear__email__container">
               <label>Volumen</label>
@@ -62,6 +66,10 @@
             <article class="productCrear__email__container">
               <label>Cantidad</label>
               <input class="productCrear__email__texto" value="" type="text" id="" name="cantidad" minlength="2" maxlength="20" placeholder="Cantidad" required/>
+            </article>
+            <article class="productCrear__email__container">
+              <label>Stock</label>
+              <input class="productCrear__email__texto" value="" type="number" id="" name="stock" minlength="2" maxlength="20" placeholder="Stock" required/>
             </article>
             <article class="productCrear__email__container">
               <label>Tipo</label>
