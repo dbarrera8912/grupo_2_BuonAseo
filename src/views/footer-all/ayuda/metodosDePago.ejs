@@ -28,10 +28,18 @@
               <div>
                 <% for( let y=0; y < metodos[x].img.length; y++ ) { %>
                   <% if (metodos[x].letraAbajoDeImagen.length===0) { %>
-                    <img src="<%= metodos[x].img[y] %>" alt="">
+                    <% if (metodos[x].img[y].includes("https")) { %>
+                      <img src="<%= metodos[x].img[y] %>" alt="" id="img">
+                      <% } else { %>
+                        <img src="/img/footerImgs/metodosDePago/<%= metodos[x].img[y] %>" alt="" id="img">
+                        <% } %>
                     <% } else { %>
                       <figure>
-                        <img src="<%= metodos[x].img[y] %>" alt="">
+                        <% if (metodos[x].img[y].includes("https")) { %>
+                          <img src="<%= metodos[x].img[y] %>" alt="" id="img">
+                          <% } else { %>
+                            <img src="/img/footerImgs/metodosDePago/<%= metodos[x].img[y] %>" alt="" id="img">
+                            <% } %>
                         <small>
                           <%= metodos[x].letraAbajoDeImagen[y] %>
                         </small>

@@ -52,16 +52,28 @@
    },
    {
       "id": 4,
-      "icono": "fa-brands fa-amilia",
-      "titulo": "",
-      "letraAbajoTitulo": "",
+      "icono": "",
+      "titulo": "afddf",
+      "letraAbajoTitulo": "adadssd",
       "img": [
-         "1660766002210_img_.png"
+         "metodo-1661386571751.jpg"
       ],
       "letraFullAbajo": "",
       "letraAbajoDeImagen": [
          ""
       ],
-      "fecha": "17/8/2022 16:51:20"
+      "fecha": "24/8/2022 21:15:39"
+   },
+   {
+      "id": 5,
+      "icono": "",
+      "titulo": "",
+      "letraAbajoTitulo": "sdasad",
+      "img": [],
+      "letraFullAbajo": "",
+      "letraAbajoDeImagen": [
+         ""
+      ],
+      "fecha": "24/8/2022 21:29:46"
    }
 ]

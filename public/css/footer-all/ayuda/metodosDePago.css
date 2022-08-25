@@ -46,3 +46,6 @@
 .metodosDePago__section__article div figure{
     width: 90px;
 }
+.metodosDePago__section__article div figure img{
+    max-width: 90px;
+}
