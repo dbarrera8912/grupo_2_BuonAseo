@@ -1,3 +1,5 @@
+const { validationResult } = require("express-validator") /* Requerimos check de express-validador, body es lo mismo que check */
+
 const { preguntasFrecuentes, preguntasEscribir, metodosDePago, metodosEscribir,
     preguntasActualizarId, preguntasFechaDeCreacion } = require("../data/db_footer/db_FooterModule")
 
@@ -42,14 +44,13 @@ module.exports = {
         return res.render('./footer-all/ayuda/metodosAgregar')/* renderizamos */
     },
     escribirPagos: (req, res) => {/* METODO POST DE AGREGAR PAGO */
-        if (req.files) {/* si cargo las imagenes entra. */
+        const errors = validationResult(req)
+        if (errors.isEmpty()) {
             metodos = metodosDePago(); /* leemos los metodos de pago */
             const { icono, title, letraAbajoS, letraAbajoI, letraAbajoT } = req.body;/* Destructuring de la nueva pregunta del usuario */
-            const imagenes = []
-            for (let x = 0; x < req.files.length; x++) {/* recorremos todas las imagenes */
-                imagenes.push(req.files[x].filename)/* pusheamos el nombre de la imagen al array. */
-            }
             const id = metodos[metodos.length - 1].id; /* Sacamos el ultimo id */
+            const imagenes = req.files.map(image => image.filename) /* recorremos todas las imagenes y guardamos su nombre */
+
             const newMetodo = {
                 id: id + 1,
                 icono,
@@ -64,9 +65,15 @@ module.exports = {
             metodosEscribir(metodosNew); /* Escribimos las preguntas en el JSON */
 
             return res.redirect("/footer/pagos");/* Redirigimos a las preguntas */
-        } else {/* Si no cargo las imagenes lo manda aca */
-            return res.render("./footer-all/ayuda/metodosAgregar")
+
+        } else {
+            metodos = metodosDePago(); /* leemos los metodos de pago */
+            return res.render("./footer-all/ayuda/metodosAgregar", {
+                errors: errors.mapped(),
+                old : req.body
+            })
         }
+
 
     },
     editarPagos: (req, res) => {/* METODO GET DE EDITAR PAGO*/
@@ -81,10 +88,8 @@ module.exports = {
             metodos = metodosDePago(); /* leemos los metodos de pago */
             const { id } = req.params; /* Sacamos el id del parametro */
             const { icono, title, letraAbajoS, letraAbajoI, letraAbajoT } = req.body;/* Destructuring de la nueva pregunta del usuario */
-            const imagenes = []
-            for (let x = 0; x < req.files.length; x++) {
-                imagenes.push(req.files[x].filename)
-            }
+            const imagenes = req.files.map(image => image.filename) /* recorremos todas las imagenes y guardamos su nombre */
+            
             const pagosModificados = metodos.map(metodo => { /* recorremos el array para modificarlo */
                 if (metodo.id === +id) {
                     return {
