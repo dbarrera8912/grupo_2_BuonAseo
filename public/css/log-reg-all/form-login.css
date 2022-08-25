@@ -197,6 +197,12 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     right:  5px;
     top: 4px;
 }
+.registro__email__container-inValid{
+    border: red 1px solid !important;
+}
+.registro__email__container small{
+    color: red;
+}
 
 /* BOTON REGISTRARSE */
 .registro__email__botonRegistro{

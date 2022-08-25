@@ -14,15 +14,24 @@
                     <form action="" method="POST" class="preguntasAgregar__Caja" enctype="multipart/form-data">
                         <div class="registro__email__container">
                             <label for="icono">Icono (solo lo que contiene class)</label>
-                            <input type="text" name="icono" id="icono" class="preguntasFrecuentes__section__article">
+                            <input type="text" name="icono" id="icono" class="preguntasFrecuentes__section__article <%= locals.errors && errors.icono ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.icono : null %>">
+                            <% if (locals.errors && errors.icono) { %><!-- si vino locals, y tengo un error en el icono, entra -->
+                                <small><%= errors.icono.msg %></small>
+                            <% } %>  
                         </div>
                         <div class="registro__email__container"> 
                             <label for="title">Subtitulo</label >
-                            <input type="text" name="title" id="name" class="preguntasFrecuentes__section__article">
+                            <input type="text" name="title" id="name" class="preguntasFrecuentes__section__article <%= locals.errors && errors.title ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.title : null %>">
+                            <% if (locals.errors && errors.title) { %><!-- si vino locals, y tengo un error en el icono, entra -->
+                                <small><%= errors.title.msg %></small>
+                            <% } %>  
                         </div>
                         <div class="registro__email__container">
                             <label for="letraAbajoS">Agregar frase abajo del subtitulo</label>
-                            <input type="text" name="letraAbajoS" id="letra" class="preguntasFrecuentes__section__article">
+                            <input type="text" name="letraAbajoS" id="letra" class="preguntasFrecuentes__section__article <%= locals.errors && errors.letraAbajoS ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.letraAbajoS : null %>">
+                            <% if (locals.errors && errors.letraAbajoS) { %><!-- si vino locals, y tengo un error en el icono, entra -->
+                                <small><%= errors.letraAbajoS.msg %></small>
+                            <% } %>
                         </div>
                         <div class="registro__email__container">
                             <label for="img">Imagenes</label>
@@ -30,11 +39,11 @@
                         </div>
                         <div class="registro__email__container">
                             <label for="letraAbajoI">Agregar frase abajo de cada imagen.</label>
-                            <input type="text" name="letraAbajoI" id="letraAbajoI" class="preguntasFrecuentes__section__article">
+                            <input type="text" name="letraAbajoI" id="letraAbajoI" class="preguntasFrecuentes__section__article" value="<%= locals.old ? old.letraAbajoI : null %>">
                         </div>
                         <div class="registro__email__container">
                             <label for="letraAbajoT">Agregar frase abajo del todo.</label>
-                            <input type="text" name="letraAbajoT" id="letraAbajoT" class="preguntasFrecuentes__section__article">
+                            <input type="text" name="letraAbajoT" id="letraAbajoT" class="preguntasFrecuentes__section__article" value="<%= locals.old ? old.letraAbajoT : null %>">
                         </div>
                         <!-- BOTONES -->
                         <div class="preguntasAgregar__Caja__boton">
