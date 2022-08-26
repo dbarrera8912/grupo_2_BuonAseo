@@ -6,7 +6,7 @@
     <main class="detalle_main">
         <section class="detalle_main_section1">
             <article class="detalle_main_article_img_principal">
-                <img class="detalle_main_article_img_principal_grande" src="../../../img/fotos-productos/jabones/jabon-imagen-4.png" alt="fondo" >
+                <img class="detalle_main_article_img_principal_grande" src="/../../img/fotos-productos/lavandinas/lavandina-imagen-1.png" alt="fondo" >
                 <div class="detalle_main_article_img_secundaria_mobile">
                     <img src="../../../img/fotos-productos/suavisantes/suavisante-imagen-3.png" alt="fondo">
                     <img src="../../../img/fotos-productos/liquido para pisos/liquidoP-imagen-3.png" alt="fondo">
@@ -17,11 +17,11 @@
               <div>
                 <h1><%= product.Nombre %></h1>
                 <p>$ <%= product.Precio %><p>
-                <p><%= product.Cantidad %></p>
+                <p>CANTIDAD <%= product.Cantidad %></p>
                 <div>
                   <i class="fa-solid fa-truck"></i><span>Envio</span>
                 </div>
-                <p>Subtotal</p>
+                <p>Descuento % <%= product.Descuento %></p>
                 <p>TOTAL</p>
                 </div>
             
@@ -49,9 +49,9 @@
             <article class="detalle_main_article_caracteristica">
                 <div>
                     <h2>CARACTERISTICAS</h2>
-                    <p>MARCA</p>
-                    <p>MODELO</p>
-                    <p>TIPO</p>
+                    <p>CATEGORIA</p>
+                    <p>AROMA</p>
+                    <p>VOLUMEN</p>
                     <p>MATERIAL</p>
                     <p>ALTO</p>
                     <p>ANCHO</p>
@@ -59,10 +59,10 @@
                 </div>
                 <div>
                     <h2>.</h2>
+                    <p><%= product.Categoria %></p>
+                    <p><%= product.Aroma %></p>
+                    <p><%= product.Volumen %></p>
                     <p>XX</p>
-                    <p>XXX</p>
-                    <p>XXX</p>
-                    <p>XXX</p>
                     <p>XXcm</p>
                     <p>XXcm</p>
                     <p>XXX</p>
@@ -71,7 +71,7 @@
             <article class="detalle_main_article_descripcion">
                 <div>
                   <h2>DESCRIPCION</h2>
-                  <p>XXX</p>
+                  <p><%= product.Descripcion %></p>
                 </div>       
             </article>
         </section>

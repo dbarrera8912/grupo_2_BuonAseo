@@ -16,6 +16,11 @@
     font-size: 80%;
 }
 
+.pie-de-pagina a {
+    font-size: 1.3rem;
+    color: var(--blanco);
+}
+
 /* CONTENEDOR 1 */
 /* TITULO */
 .pie-de-pagina__contenedor__1 h3::after {
