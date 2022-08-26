@@ -44,8 +44,14 @@ module.exports = {
         return res.render('./footer-all/ayuda/metodosAgregar')/* renderizamos */
     },
     escribirPagos: (req, res) => {/* METODO POST DE AGREGAR PAGO */
-        const errors = validationResult(req)
-        if (errors.isEmpty()) {
+        let errors = validationResult(req)
+        errors= errors.mapped()
+
+        if (req.fileValidationError) {
+            errors = {...errors, img :{msg: req.fileValidationError}}
+        }
+
+        if (Object.entries(errors).length === 0) {
             metodos = metodosDePago(); /* leemos los metodos de pago */
             const { icono, title, letraAbajoS, letraAbajoI, letraAbajoT } = req.body;/* Destructuring de la nueva pregunta del usuario */
             const id = metodos[metodos.length - 1].id; /* Sacamos el ultimo id */
@@ -69,7 +75,7 @@ module.exports = {
         } else {
             metodos = metodosDePago(); /* leemos los metodos de pago */
             return res.render("./footer-all/ayuda/metodosAgregar", {
-                errors: errors.mapped(),
+                errors,
                 old : req.body
             })
         }

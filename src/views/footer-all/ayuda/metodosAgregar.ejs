@@ -35,7 +35,10 @@
                         </div>
                         <div class="registro__email__container">
                             <label for="img">Imagenes</label>
-                            <input type="file" name="img" id="img" class="preguntasFrecuentes__section__article" multiple>
+                            <input type="file" name="img" id="img" class="preguntasFrecuentes__section__article" multiple >
+                            <% if (locals.errors && errors.img) { %><!-- si vino locals, y tengo un error en el icono, entra -->
+                                <small><%= errors.img.msg %></small>
+                            <% } %>
                         </div>
                         <div class="registro__email__container">
                             <label for="letraAbajoI">Agregar frase abajo de cada imagen.</label>
