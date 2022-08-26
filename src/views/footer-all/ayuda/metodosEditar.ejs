@@ -11,38 +11,52 @@
                     </div>
                     <!-- FORMULARIO -->
                     <!-- Si completa el formulario, se guardaran los datos en el JSON gracias al metodo escribirPregunta -->
-                    <form action="/footer/pagos/modificar/<%= metodo.id %>?_method=PUT" method="POST" class="preguntasAgregar__Caja" enctype="multipart/form-data">
+                    <form action="/footer/pagos/modificar/<%= metodo.id %>?_method=PUT" method="POST"
+                        class="preguntasAgregar__Caja" enctype="multipart/form-data">
 
                         <div class="registro__email__container">
-                            <label for="icono">Icono (solo lo que contiene class)<div class="metodosDePago__section__article__icono"><i
-                                        class="<%= metodo.icono %>"></i></div></label>
+                            <label for="icono">Icono (solo lo que contiene class)<div
+                                    class="metodosDePago__section__article__icono"><i class="<%= metodo.icono %>"></i>
+                                </div></label>
                             <input type="text" name="icono" id="icono" value="<%= metodo.icono %>"
-                                class="preguntasFrecuentes__section__article">
+                                class="preguntasFrecuentes__section__article <%= locals.errors && errors.icono ? "registro__email__container-inValid" : null %>">
+                                <% if (locals.errors && errors.icono) { %><!-- si vino locals, y tengo un error en el icono, entra -->
+                                    <small><%= errors.icono.msg %></small>
+                                <% } %>
                         </div>
                         <div class="registro__email__container">
                             <label for="title">Subtitulo</label>
                             <input type="text" name="title" id="name" value="<%= metodo.titulo %>"
-                                class="preguntasFrecuentes__section__article">
+                                class="preguntasFrecuentes__section__article <%= locals.errors && errors.title ? "registro__email__container-inValid" : null %>">
+                                <% if (locals.errors && errors.title) { %><!-- si vino locals, y tengo un error en el icono, entra -->
+                                    <small><%= errors.title.msg %></small>
+                                <% } %>
                         </div>
                         <div class="registro__email__container">
                             <label for="letraAbajoS">Agregar frase abajo del subtitulo</label>
                             <input type="text" name="letraAbajoS" id="letra" value="<%= metodo.letraAbajoTitulo %>"
-                                class="preguntasFrecuentes__section__article">
+                                class="preguntasFrecuentes__section__article <%= locals.errors && errors.letraAbajoS ? "registro__email__container-inValid" : null %>" >
+                                <% if (locals.errors && errors.letraAbajoS) { %><!-- si vino locals, y tengo un error en el icono, entra -->
+                                    <small><%= errors.letraAbajoS.msg %></small>
+                                <% } %>
                         </div>
                         <div class="registro__email__container">
                             <label for="img">Imagenes</label>
-                            <input type="file" name="img" id="img" class="preguntasFrecuentes__section__article"
+                            <input type="file" name="img" id="img" class="preguntasFrecuentes__section__article <%= locals.errors && errors.img ? "registro__email__container-inValid" : null %>"
                                 multiple>
+                                <% if (locals.errors && errors.img) { %><!-- si vino locals, y tengo un error en el icono, entra -->
+                                    <small><%= errors.img.msg %></small>
+                                <% } %>
                         </div>
                         <figure>
                             <% for( let x=0; x < metodo.img.length; x++ ) { %>
-                                <img src="<%= metodo.img[x] %>" alt="" class="metodosDePagos__imagenes--tarjetas"> 
+                                <img src="<%= metodo.img[x] %>" alt="" class="metodosDePagos__imagenes--tarjetas">
                                 <% } %>
                         </figure>
                         <div class="registro__email__container">
                             <label for="letraAbajoI">Agregar frase abajo de cada imagen.</label>
-                            <input type="text" name="letraAbajoI" id="letraAbajoI" value="<%= metodo.letraAbajoDeImagen %>"
-                                class="preguntasFrecuentes__section__article">
+                            <input type="text" name="letraAbajoI" id="letraAbajoI"
+                                value="<%= metodo.letraAbajoDeImagen %>" class="preguntasFrecuentes__section__article">
                         </div>
                         <div class="registro__email__container">
                             <label for="letraAbajoT">Agregar frase abajo del todo.</label>

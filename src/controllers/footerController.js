@@ -1,4 +1,6 @@
 const { validationResult } = require("express-validator") /* Requerimos check de express-validador, body es lo mismo que check */
+const fs = require("fs")
+const path = require("path");
 
 const { preguntasFrecuentes, preguntasEscribir, metodosDePago, metodosEscribir,
     preguntasActualizarId, preguntasFechaDeCreacion } = require("../data/db_footer/db_FooterModule")
@@ -45,10 +47,10 @@ module.exports = {
     },
     escribirPagos: (req, res) => {/* METODO POST DE AGREGAR PAGO */
         let errors = validationResult(req)
-        errors= errors.mapped()
+        errors = errors.mapped()
 
         if (req.fileValidationError) {
-            errors = {...errors, img :{msg: req.fileValidationError}}
+            errors = { ...errors, img: { msg: req.fileValidationError } }
         }
 
         if (Object.entries(errors).length === 0) {
@@ -73,10 +75,14 @@ module.exports = {
             return res.redirect("/footer/pagos");/* Redirigimos a las preguntas */
 
         } else {
-            metodos = metodosDePago(); /* leemos los metodos de pago */
+            if (req.files.length > 0) {
+                req.files.forEach(({ filename }) => {
+                    fs.existsSync(path.resolve(__dirname,'..', '..', 'public', 'img', 'footerImgs', 'metodosDePago', filename)) && fs.unlinkSync(path.resolve(__dirname,'..', '..', 'public', 'img', 'footerImgs', 'metodosDePago', filename))
+                })
+            }
             return res.render("./footer-all/ayuda/metodosAgregar", {
                 errors,
-                old : req.body
+                old: req.body
             })
         }
 
@@ -90,14 +96,26 @@ module.exports = {
         })
     },
     modificarPagos: (req, res) => {/* METODO PUT DE EDITAR PREGUNTA*/
-        if (req.files) {
+        let errors = validationResult(req)
+        errors = errors.mapped()
+
+        if (req.fileValidationError) {
+            errors = { ...errors, img: { msg: req.fileValidationError } }
+        }
+
+        if (Object.entries(errors).length === 0) {
             metodos = metodosDePago(); /* leemos los metodos de pago */
             const { id } = req.params; /* Sacamos el id del parametro */
             const { icono, title, letraAbajoS, letraAbajoI, letraAbajoT } = req.body;/* Destructuring de la nueva pregunta del usuario */
             const imagenes = req.files.map(image => image.filename) /* recorremos todas las imagenes y guardamos su nombre */
-            
+
             const pagosModificados = metodos.map(metodo => { /* recorremos el array para modificarlo */
                 if (metodo.id === +id) {
+                    if (imagenes.length > 0) {
+                        metodo.img.forEach((img) => {
+                            fs.existsSync(path.resolve(__dirname, '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', img)) && fs.unlinkSync(path.resolve(__dirname, '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', img))
+                        })
+                    }
                     return {
                         ...metodo, /* ingresamos todos los datos del metodo con spread */
                         icono,
@@ -114,7 +132,19 @@ module.exports = {
             metodosEscribir(pagosModificados); /* Escribimos los nuevos metodos en el JSON */
             return res.redirect("/footer/pagos")
         } else {
-            return res.redirect("/footer/pagos/editar/" + req.params.id)
+            metodos = metodosDePago(); /* leemos los metodos de pago */
+            const metodo = metodos.find(metodo => metodo.id === +req.params.id); /* Buscamos un id de metodo igual al id pasado por parametro */
+            
+            if (req.files.length > 0) {
+                req.files.forEach(({ filename }) => {
+                    fs.existsSync(path.resolve(__dirname, '..', 'public', 'img', 'footerImgs', 'metodosDePago', filename)) && fs.unlinkSync(path.resolve(__dirname, '..', 'public', 'img', 'footerImgs', 'metodosDePago', filename))
+                })
+            }
+
+            return res.render("./footer-all/ayuda/metodosEditar", {
+                metodo,
+                errors,
+            })
         }
     },
     eliminarPagos: (req, res) => {/* METODO DELETE DE PREGUNTAS*/

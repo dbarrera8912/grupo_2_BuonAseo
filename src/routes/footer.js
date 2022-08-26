@@ -25,9 +25,9 @@ router
       /* PAGOS */
       .get('/pagos', pagos)
       .get("/pagos/agregar", agregarPagos)/* pagina agregar metodo de pago */
-      .post("/pagos/agregar", uploadMetodos.array("img"), validacionesAddMetodos,escribirPagos)
+      .post("/pagos/agregar", uploadMetodos.array("img"), validacionesAddMetodos, escribirPagos)
       .get('/pagos/editar/:id', editarPagos)/* pagina editar metodo */
-      .put('/pagos/modificar/:id', uploadMetodos.array("img"), modificarPagos)/* RUTA PUT editar metodo */
+      .put('/pagos/modificar/:id', uploadMetodos.array("img"), validacionesAddMetodos, modificarPagos)/* RUTA PUT editar metodo */
       .delete('/pagos/eliminar/:id', eliminarPagos)/* RUTA DELETE eliminar metodo desde pagos*/
 
       /* PREGUNTAS */
