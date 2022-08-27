@@ -52,28 +52,16 @@
    },
    {
       "id": 4,
-      "icono": "",
-      "titulo": "afddf",
-      "letraAbajoTitulo": "adadssd",
+      "icono": "fa-brands fa-amilia",
+      "titulo": "prueba",
+      "letraAbajoTitulo": "pruebax2",
       "img": [
-         "metodo-1661386571751.jpg"
+         "metodo-1661566396090.png"
       ],
       "letraFullAbajo": "",
       "letraAbajoDeImagen": [
          ""
       ],
-      "fecha": "24/8/2022 21:15:39"
-   },
-   {
-      "id": 5,
-      "icono": "",
-      "titulo": "",
-      "letraAbajoTitulo": "sdasad",
-      "img": [],
-      "letraFullAbajo": "",
-      "letraAbajoDeImagen": [
-         ""
-      ],
-      "fecha": "24/8/2022 21:29:46"
+      "fecha": "26/8/2022 23:13:17"
    }
 ]

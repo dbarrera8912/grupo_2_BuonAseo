@@ -1,3 +1,7 @@
+const { validationResult } = require("express-validator") /* Requerimos check de express-validador, body es lo mismo que check */
+const fs = require("fs")
+const path = require("path");
+
 const { preguntasFrecuentes, preguntasEscribir, metodosDePago, metodosEscribir,
     preguntasActualizarId, preguntasFechaDeCreacion } = require("../data/db_footer/db_FooterModule")
 
@@ -42,14 +46,19 @@ module.exports = {
         return res.render('./footer-all/ayuda/metodosAgregar')/* renderizamos */
     },
     escribirPagos: (req, res) => {/* METODO POST DE AGREGAR PAGO */
-        if (req.files) {/* si cargo las imagenes entra. */
+        let errors = validationResult(req)
+        errors = errors.mapped()
+
+        if (req.fileValidationError) {
+            errors = { ...errors, img: { msg: req.fileValidationError } }
+        }
+
+        if (Object.entries(errors).length === 0) {
             metodos = metodosDePago(); /* leemos los metodos de pago */
             const { icono, title, letraAbajoS, letraAbajoI, letraAbajoT } = req.body;/* Destructuring de la nueva pregunta del usuario */
-            const imagenes = []
-            for (let x = 0; x < req.files.length; x++) {/* recorremos todas las imagenes */
-                imagenes.push(req.files[x].filename)/* pusheamos el nombre de la imagen al array. */
-            }
             const id = metodos[metodos.length - 1].id; /* Sacamos el ultimo id */
+            const imagenes = req.files.map(image => image.filename) /* recorremos todas las imagenes y guardamos su nombre */
+
             const newMetodo = {
                 id: id + 1,
                 icono,
@@ -64,9 +73,19 @@ module.exports = {
             metodosEscribir(metodosNew); /* Escribimos las preguntas en el JSON */
 
             return res.redirect("/footer/pagos");/* Redirigimos a las preguntas */
-        } else {/* Si no cargo las imagenes lo manda aca */
-            return res.render("./footer-all/ayuda/metodosAgregar")
+
+        } else {
+            if (req.files.length > 0) {
+                req.files.forEach(({ filename }) => {
+                    fs.existsSync(path.resolve(__dirname,'..', '..', 'public', 'img', 'footerImgs', 'metodosDePago', filename)) && fs.unlinkSync(path.resolve(__dirname,'..', '..', 'public', 'img', 'footerImgs', 'metodosDePago', filename))
+                })
+            }
+            return res.render("./footer-all/ayuda/metodosAgregar", {
+                errors,
+                old: req.body
+            })
         }
+
 
     },
     editarPagos: (req, res) => {/* METODO GET DE EDITAR PAGO*/
@@ -77,16 +96,26 @@ module.exports = {
         })
     },
     modificarPagos: (req, res) => {/* METODO PUT DE EDITAR PREGUNTA*/
-        if (req.files) {
+        let errors = validationResult(req)
+        errors = errors.mapped()
+
+        if (req.fileValidationError) {
+            errors = { ...errors, img: { msg: req.fileValidationError } }
+        }
+
+        if (Object.entries(errors).length === 0) {
             metodos = metodosDePago(); /* leemos los metodos de pago */
             const { id } = req.params; /* Sacamos el id del parametro */
             const { icono, title, letraAbajoS, letraAbajoI, letraAbajoT } = req.body;/* Destructuring de la nueva pregunta del usuario */
-            const imagenes = []
-            for (let x = 0; x < req.files.length; x++) {
-                imagenes.push(req.files[x].filename)
-            }
+            const imagenes = req.files.map(image => image.filename) /* recorremos todas las imagenes y guardamos su nombre */
+
             const pagosModificados = metodos.map(metodo => { /* recorremos el array para modificarlo */
                 if (metodo.id === +id) {
+                    if (imagenes.length > 0) {
+                        metodo.img.forEach((img) => {
+                            fs.existsSync(path.resolve(__dirname, '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', img)) && fs.unlinkSync(path.resolve(__dirname, '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', img))
+                        })
+                    }
                     return {
                         ...metodo, /* ingresamos todos los datos del metodo con spread */
                         icono,
@@ -103,12 +132,31 @@ module.exports = {
             metodosEscribir(pagosModificados); /* Escribimos los nuevos metodos en el JSON */
             return res.redirect("/footer/pagos")
         } else {
-            return res.redirect("/footer/pagos/editar/" + req.params.id)
+            metodos = metodosDePago(); /* leemos los metodos de pago */
+            const metodo = metodos.find(metodo => metodo.id === +req.params.id); /* Buscamos un id de metodo igual al id pasado por parametro */
+            
+            if (req.files.length > 0) {
+                req.files.forEach(({ filename }) => {
+                    fs.existsSync(path.resolve(__dirname,  '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', filename)) && fs.unlinkSync(path.resolve(__dirname,  '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', filename))
+                })
+            }
+
+            return res.render("./footer-all/ayuda/metodosEditar", {
+                metodo,
+                errors,
+            })
         }
     },
     eliminarPagos: (req, res) => {/* METODO DELETE DE PREGUNTAS*/
         metodos = metodosDePago(); /* leemos los metodos de pago */
 
+        for (let x = 0; x < metodos.length; x++) {
+            if (metodos[x].id === +req.params.id) {
+                for (let y = 0; y < metodos[x].img.length; y++) {
+                    fs.existsSync(path.resolve(__dirname, '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', metodos[x].img[y])) && fs.unlinkSync(path.resolve(__dirname, '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', metodos[x].img[y]))/* existsSync busca si existe el archivo y unlinkSync lo elimina */ 
+                }	
+			}
+        }
         const metodosModificados = metodos.filter(metodo => metodo.id !== +req.params.id); /* Eliminamos la pregunta, dejando el id de producto igual al id pasado por parametro por fuera */
         preguntasActualizarId(metodosModificados)
         metodosEscribir(metodosModificados);/* Escribimos las preguntas en el json */
