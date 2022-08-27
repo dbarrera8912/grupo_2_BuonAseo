@@ -137,7 +137,7 @@ module.exports = {
             
             if (req.files.length > 0) {
                 req.files.forEach(({ filename }) => {
-                    fs.existsSync(path.resolve(__dirname, '..', 'public', 'img', 'footerImgs', 'metodosDePago', filename)) && fs.unlinkSync(path.resolve(__dirname, '..', 'public', 'img', 'footerImgs', 'metodosDePago', filename))
+                    fs.existsSync(path.resolve(__dirname,  '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', filename)) && fs.unlinkSync(path.resolve(__dirname,  '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', filename))
                 })
             }
 
@@ -150,6 +150,13 @@ module.exports = {
     eliminarPagos: (req, res) => {/* METODO DELETE DE PREGUNTAS*/
         metodos = metodosDePago(); /* leemos los metodos de pago */
 
+        for (let x = 0; x < metodos.length; x++) {
+            if (metodos[x].id === +req.params.id) {
+                for (let y = 0; y < metodos[x].img.length; y++) {
+                    fs.existsSync(path.resolve(__dirname, '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', metodos[x].img[y])) && fs.unlinkSync(path.resolve(__dirname, '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', metodos[x].img[y]))/* existsSync busca si existe el archivo y unlinkSync lo elimina */ 
+                }	
+			}
+        }
         const metodosModificados = metodos.filter(metodo => metodo.id !== +req.params.id); /* Eliminamos la pregunta, dejando el id de producto igual al id pasado por parametro por fuera */
         preguntasActualizarId(metodosModificados)
         metodosEscribir(metodosModificados);/* Escribimos las preguntas en el json */
