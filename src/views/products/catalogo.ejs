@@ -14,13 +14,18 @@
 				<h2 class="products-title">Todos los productos</h2>
 			</div>
 			
-			<% products.forEach(({Id,Nombre,Precio,Image,Descuento}) => { %> 
+			<% products.forEach(({Id,Nombre,Precio,Image,Descuento,Aroma,Volumen,Dimenciones,Categoria,Stock}) => { %> 
 				<%- include('../partials/product',{
 					Id,
 					Nombre,
 					Precio,
 					Image,
 					Descuento,
+					Aroma,
+					Volumen,
+					Dimenciones,
+					Categoria,
+					Stock,
 					toThousand
 				}) %> 
 			<% }) %>
