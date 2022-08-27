@@ -6,7 +6,7 @@
             </figure>
             <article class="product-box_products">
                 <h1><%= Nombre %></h1>
-                <h2>Precio $<%= toThousand((parseInt(Precio) - (parseInt(Precio) * parseInt(Descuento) / 100)).toFixed(0)) %> </h2>
+                <h2>Precio $<%= toThousand((parseInt(Precio) - (parseInt(Precio) * parseInt(Descuento) / 100)).toFixed(0)) %></h2>
                 <% if (Descuento > 0) { %>
                     <h2><%= Descuento %>% OFF</h2>
                 <% } %>

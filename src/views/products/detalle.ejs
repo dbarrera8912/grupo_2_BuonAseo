@@ -6,23 +6,23 @@
     <main class="detalle_main">
         <section class="detalle_main_section1">
             <article class="detalle_main_article_img_principal">
-                <img class="detalle_main_article_img_principal_grande" src="/../../img/fotos-productos/lavandinas/lavandina-imagen-1.png" alt="fondo" >
+                <img class="detalle_main_article_img_principal_grande" src="<%= product.Image %>" alt="fondo" >
                 <div class="detalle_main_article_img_secundaria_mobile">
-                    <img src="../../../img/fotos-productos/suavisantes/suavisante-imagen-3.png" alt="fondo">
-                    <img src="../../../img/fotos-productos/liquido para pisos/liquidoP-imagen-3.png" alt="fondo">
-                    <img src="../../../img/fotos-productos/detergentes/detergente-imagen-3.png" alt="fondo">
+                    <img src="<%= product.Image %>" alt="fondo">
+                    <img src="<%= product.Image %>" alt="fondo">
+                    <img src="<%= product.Image %>" alt="fondo">
                 </div>
             </article>
             <article class="detalle_main_article_nombre">
               <div>
                 <h1><%= product.Nombre %></h1>
                 <p>$ <%= product.Precio %><p>
-                <p>CANTIDAD <%= product.Cantidad %></p>
+                <p>Cantidad: <%= product.Cantidad %></p>
                 <div>
-                  <i class="fa-solid fa-truck"></i><span>Envio</span>
+                  <i class="fa-solid fa-truck"></i><span>Envio: $1.500</span>
                 </div>
-                <p>Descuento % <%= product.Descuento %></p>
-                <p>TOTAL</p>
+                <p>Descuento: %<%= product.Descuento %></p>
+                <p>TOTAL: $</p>
                 </div>
             
                 <button class="detalle_main_article_boton_principal detalle_main_article_boton_principal_primero">
@@ -36,13 +36,13 @@
         </section>
         <section>
             <article class="detalle_main_article_img_secundaria_tablet">
-                <img src="../../../img/fotos-productos/jabones/jabon-imagen-4.png" alt="fondo">
-                <img src="../../../img/fotos-productos/lavandinas/lavandina-imagen-4.png" alt="fondo">
-                <img src="../../../img/fotos-productos/detergentes/detergente-imagen-4.png" alt="fondo">
-                <img src="../../../img/fotos-productos/suavisantes/suavisante-imagen-4.png" alt="fondo">
-                <img src="../../../img/fotos-productos/liquido para pisos/liquidoP-imagen-4.png" alt="fondo">
-                <img src="../../../img/fotos-productos/jabones/jabon-imagen-5.png" alt="fondo">
-                <img src="../../../img/fotos-productos/suavisantes/suavisante-imagen-5.png" alt="fondo">
+                <img src="<%= product.Image %>" alt="fondo">
+                <img src="<%= product.Image %>" alt="fondo">
+                <img src="<%= product.Image %>" alt="fondo">
+                <img src="<%= product.Image %>" alt="fondo">
+                <img src="<%= product.Image %>" alt="fondo">
+                <img src="<%= product.Image %>" alt="fondo">
+                <img src="<%= product.Image %>" alt="fondo">
             </article>
         </section>
         <section class="detalle_main_section2">
@@ -52,20 +52,20 @@
                     <p>CATEGORIA</p>
                     <p>AROMA</p>
                     <p>VOLUMEN</p>
-                    <p>MATERIAL</p>
-                    <p>ALTO</p>
-                    <p>ANCHO</p>
-                    <p>COLOR</p>
+                    <p>DIMENCIONES</p>
+                    <p>CODIGO</p>
+                    <p>TIPO</p>
+                    <p>STOCK</p>
                 </div>
                 <div>
                     <h2>.</h2>
                     <p><%= product.Categoria %></p>
                     <p><%= product.Aroma %></p>
                     <p><%= product.Volumen %></p>
-                    <p>XX</p>
-                    <p>XXcm</p>
-                    <p>XXcm</p>
-                    <p>XXX</p>
+                    <p><%= product.Dimenciones %></p>
+                    <p><%= product.Codigoid %></p>
+                    <p><%= product.Tipo %></p>
+                    <p><%= product.Stock %></p>
                 </div>
             </article>
             <article class="detalle_main_article_descripcion">
