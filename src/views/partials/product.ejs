@@ -1,15 +1,17 @@
 <div class="col-12 col-sm-6 col-lg-3">
     <section class="product-box">
         <a href="/products/detail/<%= Id %>">
-            <figure class="product-box_image">
+            <figure class="product-box_products">
                 <img src=<%= Image %> alt="imagen de producto">
             </figure>
-            <article class="product-box_data">
-                <h2>$<%= toThousand((parseInt(Precio) - (parseInt(Precio) * parseInt(Descuento) / 100)).toFixed(0)) %> </h2>
+            <article class="product-box_products">
+                <h1><%= Nombre %></h1>
+                <h2>Precio $<%= toThousand((parseInt(Precio) - (parseInt(Precio) * parseInt(Descuento) / 100)).toFixed(0)) %> </h2>
                 <% if (Descuento > 0) { %>
-                    <span><%= Descuento %>% OFF</span>
+                    <h2><%= Descuento %>% OFF</h2>
                 <% } %>
-                <p><%= Nombre %> </p>
+                <h2>Antes $<%= Precio %></h2>
+
             </article>
         </a>
     </section>
