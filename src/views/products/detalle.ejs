@@ -24,12 +24,11 @@
                 <p>Descuento: %<%= product.Descuento %></p>
                 <p>TOTAL: $</p>
                 </div>
-            
-                <button class="detalle_main_article_boton_principal detalle_main_article_boton_principal_primero">
-                    COMPRA AHORA
+                <button class="detalle_main_article_boton_principal">
+                    <a href="">COMPRA AHORA</a>
                 </button>
                 <button class="detalle_main_article_boton_principal">
-                    AGREGAR AL CARRITO
+                    <a href="/products/carrito">AGREGAR AL CARRITO</a>
                 </button>
             </article>
             
@@ -54,7 +53,7 @@
                     <p>VOLUMEN</p>
                     <p>DIMENCIONES</p>
                     <p>CODIGO</p>
-                    <p>TIPO</p>
+                    
                     <p>STOCK</p>
                 </div>
                 <div>
@@ -64,7 +63,7 @@
                     <p><%= product.Volumen %></p>
                     <p><%= product.Dimenciones %></p>
                     <p><%= product.Codigoid %></p>
-                    <p><%= product.Tipo %></p>
+                    
                     <p><%= product.Stock %></p>
                 </div>
             </article>
@@ -83,7 +82,9 @@
                 <div class="col"><img src="../../../img/fotos-productos/suavisantes/suavisante-imagen-6.png" alt="imagen del producto"></div>
                 <div class="col"><img src="../../../img/fotos-productos/detergentes/detergente-imagen-6.png" alt="imagen del producto"></div>
             </div>
-                <button>ver mas</button>
+                <button>
+                    <a href="ofertas">ver mas</a>
+                </button>
             </article>
             <article class="detalle_main_article_destacados">
                 <h3>DESTACADOS</h3>
@@ -92,7 +93,9 @@
                     <div class="col"><img src="../../../img/fotos-productos/liquido-para-pisos/liquidoP-imagen-6.png" alt="imagen del producto"></div>
                     <div class="col"><img src="../../../img/fotos-productos/lavandinas/lavandina-imagen-5.png" alt="imagen del producto"></div>
                 </div>
-                <button>ver mas</button>
+                <button>
+                    <a href="productosdestacados">ver mas</a>
+                </button>
             </article>
         </section>
     </main>

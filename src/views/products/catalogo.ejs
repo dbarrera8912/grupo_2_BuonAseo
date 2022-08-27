@@ -8,12 +8,21 @@
 	<!-- /Header -->
 
 	<!-- todos los productos -->
-	<div main="main_products_catalogo">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Todos los productos</h2>
-			</div>
-			
+	<main class="carrito">
+		<div class="carrito__section">
+		  <section class="carrito__caja__titulo">
+			<h1 class="carrito__titulo">CATALOGO DE PRODUCTOS</h1>
+			<hr class="carrito__primer__linia__espacio">
+		  </section>
+		  <div class="carrito__section__paraescritorio">
+			<section class="carrito__titulo__paraescritorio"> 
+			  <p class="carrito__producto__desktop">PRODUCTO</p>
+			  <p class="carrito__producto__desktop">CATEGORIA</p>
+			  <p class="carrito__producto__desktop">AROMA</p>
+			  <p class="carrito__producto__desktop">STOCK</p>
+			  <p class="carrito__producto__desktop">DESCUENTO</p>
+			  <p class="carrito__producto__desktop">PRECIO</p>
+			</section>
 			<% products.forEach(({Id,Nombre,Precio,Image,Descuento,Aroma,Volumen,Dimenciones,Categoria,Stock}) => { %> 
 				<%- include('../partials/product',{
 					Id,
@@ -29,8 +38,9 @@
 					toThousand
 				}) %> 
 			<% }) %>
+			</div>
 		</div>
-
+	</main>
 	<!-- /todos los productos -->
 
 	<!-- footer -->

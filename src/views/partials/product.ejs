@@ -1,22 +1,31 @@
-<div class="col-12 col-sm-6 col-lg-3">
-    <section class="product-box">
-        <a href="/products/detail/<%= Id %>">
-            <figure class="product-box_products">
-                <img src=<%= Image %> alt="imagen del producto">
-            </figure>
-            <article class="product-box_products">
-                <h1><%= Nombre %></h1>
-                <h2>Precio: $<%= toThousand((parseInt(Precio) - (parseInt(Precio) * parseInt(Descuento) / 100)).toFixed(0)) %></h2>
-                <% if (Descuento > 0) { %>
-                    <h2><%= Descuento %>% OFF</h2>
-                <% } %>
-                <h2>Antes: $<%= Precio %></h2>
-                <p>Aroma: <%= Aroma %> </p>
-                <p>Volumen: <%= Volumen %> </p>
-                <p>Dimenciones: <%= Dimenciones %> </p>
-                <p>Categoria: <%= Categoria %> </p>
-                <p>Stock: <%= Stock %> </p>
-            </article>
-        </a>
-    </section>
-</div>
+<!-- PRODUCTOS SEGUNDA IMAGEN-->
+<a href="/products/detail/<%= Id %>" target="_blank" class="carrito__primer__producto">
+    <article class="carrito__primer__imagen">
+      <img class="carrito__imagen__producto" src=<%= Image %> alt="" />
+    </article>
+    <!-- PRODUCTOS DESCRIPCION-->
+    <article class=" carrito__producto__general">
+      <p class="carrito__subtotal">PRODUCTO:</p>
+      <p class="carrito__producto__desktop"><%= Nombre %></p>
+    </article>
+    <article class="carrito__subtotal__general">
+        <p class="carrito__subtotal">CATEGORIA:</p>
+        <p class="carrito__producto__desktop"><%= Categoria %></p>
+      </article>
+    <article class="carrito__cantidad__general">
+      <p class="carrito__subtotal">AROMA:</p>
+      <p class="carrito__producto__desktop"><%= Aroma %></p>
+    </article>
+    <article class="carrito__subtotal__general">
+        <p class="carrito__subtotal">STOCK:</p>
+        <p class="carrito__producto__desktop"><%= Stock %></p>
+      </article>
+    <article class="carrito__subtotal__general">
+        <p class="carrito__subtotal">DESCUENTO:</p>
+        <p class="carrito__producto__desktop">%<%= Descuento %></p>
+    </article>
+    <article class="carrito__precio__general">
+        <p class="carrito__subtotal">PRECIO:</p>
+        <p class="carrito__producto__desktop">$<%= toThousand((parseInt(Precio) - (parseInt(Precio) * parseInt(Descuento) / 100)).toFixed(0)) %></p>
+    </article>
+</a>
