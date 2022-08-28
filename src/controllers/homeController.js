@@ -19,10 +19,17 @@ module.exports = {
     },
 
     ofertas: (req, res) => {
-        return res.render('./home/oferta')
+        let products = loadProducts();
+        let productosEnOferta = products.filter(product => product.Descuento > 0)
+        return res.render('./home/oferta',{
+            productosEnOferta
+        })
     },
 
     destacados: (req, res) => {
-        return res.render('./home/productosDestacados')
+        let products = loadProducts();
+        return res.render('./home/productosDestacados',{
+            products
+        })
     }
 }
