@@ -98,7 +98,14 @@ module.exports={
 		})
 		insertProduct(productsModify);
 		return res.redirect('/products/detail/' + req.params.id)
-    }
+    },
+
+    destroy: (req, res) => {
+		let productsModify =  loadProducts().filter(produc => produc.Id !== +req.params.id)
+            insertProduct(productsModify);
+			return res.redirect('/products/catalogo')
+
+	}
 
     
 }

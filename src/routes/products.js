@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const { carrito, crearProducto, detalle, editarProducto,products,store, modificarProducto} = require('../controllers/productsController');
+const { carrito, crearProducto, detalle, editarProducto,products,store, modificarProducto, destroy} = require('../controllers/productsController');
 
 /* GET home page. */
 router
@@ -12,5 +12,6 @@ router
       .post('/store',store)
       .get('/editarProducto/:id', editarProducto)
       .put('/modificarProducto/:id', modificarProducto)
+      .delete('/eliminarProducto/:id', destroy)
 
 module.exports = router;
