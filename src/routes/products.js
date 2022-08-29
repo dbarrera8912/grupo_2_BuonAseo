@@ -8,7 +8,7 @@ router
       .get('/carrito', carrito)
       .get('/crearProducto', crearProducto)
       .get('/detail/:id', detalle)
-      .get('/editarProducto', editarProducto)
+      .get('/editarProducto/:id', editarProducto)
       .get('/catalogo', products)
       .post('/store',store)
 

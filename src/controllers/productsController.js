@@ -65,6 +65,12 @@ module.exports={
     },
 
     editarProducto : (req,res) => {
-        return res.render('./products/editarProducto')
+        let productToEdit = loadProducts().find(produc => produc.id === +req.params.id)
+        return res.render('./products/editarProducto',{
+            productToEdit
+        })
     }
+
+
+    
 }

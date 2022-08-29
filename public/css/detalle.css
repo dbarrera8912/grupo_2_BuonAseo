@@ -161,6 +161,16 @@
 .detalle_main button:hover {
     /*display: none;*/
 }
+.detalle_main_article_boton_editar-eliminar{
+    
+}
+.detalle_mani_action-button-edit{
+    background-color:green ;
+}
+.detalle_mani_action-button-delete {
+    background-color: tomato;
+}
+
 
 @media (min-width: 768px) {
     .detalle_main_section3 .col:nth-child(2){
