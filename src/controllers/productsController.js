@@ -69,8 +69,36 @@ module.exports={
         return res.render('./products/editarProducto',{
             productToEdit
         })
-    }
+    },
+    modificarProducto : (req,res) => {
+        let products = loadProducts() 
+        const {name, imagen, categoria, codigoid, dimenciones,precio,volumen,aroma,cantidad,stock,tipo,descripcion,descuento} = req.body;
 
+		let productsModify = products.map(products => {
+             if (products.Id === +req.params.id) {
+				return {
+			           Id : products.Id,
+                       Nombre : name.trim(),
+                       Codigoid:codigoid,
+                       Precio : precio,
+                       Categoria : categoria,
+                       Descuento:descuento,
+                       Volumen:volumen,
+                       Stock : stock,
+                       Tipo:tipo.trim(),
+                       Aroma : aroma,
+                       Dimenciones:dimenciones,
+                       Cantidad:cantidad,
+                       Descripcion:descripcion.trim(),
+                       Image: imagen ? imagen:products.Image
+
+				}
+			 }
+			 return products
+		})
+		insertProduct(productsModify);
+		return res.redirect('/products/detail/' + req.params.id)
+    }
 
     
 }

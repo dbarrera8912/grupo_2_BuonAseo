@@ -15,7 +15,7 @@
         </section>
         <!-- PRODUCTO CREAR EMAIL -->
         <section class="productCrear__email">
-          <form action="/products/store" method="POST">
+          <form action="/products/modificarProducto/<%= productToEdit.Id %>?_method=PUT" method="POST">
             <section class="productCrear__email_section1">
               <article class="productCrear__email__container">
                 <label>Nombre del producto</label>
