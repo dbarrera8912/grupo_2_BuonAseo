@@ -18,7 +18,7 @@ module.exports={
     
     // Crear producto
 	store: (req, res) => {
-		const {name, imagen, categoria, codigoid, dimenciones,precio,volumen,aroma,cantidad,stock,tipo,descripcion,descuento} = req.body;
+		const {name, imagen, categoría, codigoid, dimenciones,precio,volumen,aroma,cantidad,stock,tipo,descripcion,descuento} = req.body;
 		let products = loadProducts();
 
 		const newProduct = {
@@ -26,14 +26,14 @@ module.exports={
 			Nombre : name.trim(),
             Codigoid:codigoid,
 			Precio : precio,
-			Categoria : categoria,
+			Categoria : categoría,
 			Descuento:descuento,
             Volumen:volumen,
 			Stock : stock,
-            Tipo:tipo.trim(),
 			Aroma : aroma,
             Dimenciones:dimenciones,
             Cantidad:cantidad,
+            tipo:tipo.trim(),
             Descripcion:descripcion.trim(),
             Image: imagen
 		}
@@ -41,7 +41,7 @@ module.exports={
 		products = [...products, newProduct];
         let respuesta = insertProduct(products);
         if(respuesta){
-            return res.render('./products/crearProducto')
+            return res.redirect("/products/catalogo")
         }
         else{
             return res.render('./products/crearProducto?error=si')
@@ -72,7 +72,7 @@ module.exports={
     },
     modificarProducto : (req,res) => {
         let products = loadProducts() 
-        const {name, imagen, categoria, codigoid, dimenciones,precio,volumen,aroma,cantidad,stock,tipo,descripcion,descuento} = req.body;
+        const {name, imagen, categoría, codigoid, dimenciones,precio,volumen,aroma,cantidad,stock,tipo,descripcion,descuento} = req.body;
 
 		let productsModify = products.map(products => {
              if (products.Id === +req.params.id) {
@@ -81,14 +81,14 @@ module.exports={
                        Nombre : name.trim(),
                        Codigoid:codigoid,
                        Precio : precio,
-                       Categoria : categoria,
+                       Categoria : categoría,
                        Descuento:descuento,
                        Volumen:volumen,
                        Stock : stock,
-                       Tipo:tipo.trim(),
                        Aroma : aroma,
                        Dimenciones:dimenciones,
                        Cantidad:cantidad,
+                       tipo:tipo.trim(),
                        Descripcion:descripcion.trim(),
                        Image: imagen ? imagen:products.Image
 

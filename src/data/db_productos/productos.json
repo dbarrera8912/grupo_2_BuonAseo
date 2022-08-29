@@ -5,12 +5,13 @@
         "Codigoid": "4902",
         "Precio": "500",
         "Categoria": "Lavandina",
-        "Descuento": 50,
+        "Descuento": "50",
         "Volumen": "1 Litro",
-        "Stock": true,
+        "Stock": "2",
         "Aroma": "---",
         "Dimenciones": "20cm",
         "Cantidad": "1",
+        "tipo": "sda",
         "Descripcion": "Agua Lavandina Servidor Básica 25 g CL/litro Limpia y desinfecta Elimina el 99,9 % de las bacterias",
         "Image": "/img/fotos-productos/lavandinas/lavandina-imagen-1.png"
     },
@@ -26,6 +27,7 @@
         "Aroma": "Limon",
         "Dimenciones": "40cm",
         "Cantidad": "1",
+        "tipo": "",
         "Descripcion": "Fast Detergente es excelente para el lavado manual de ollas,sartenes, loza, cristalería, plata, equipo de preparación de alimentos y toda clase de utensilios.",
         "Image": "/img/fotos-productos/detergentes/detergente-imagen-1.png"
     },
@@ -41,6 +43,7 @@
         "Aroma": "Bebe",
         "Dimenciones": "10cm",
         "Cantidad": "3",
+        "tipo": "",
         "Descripcion": "Desarrollado para una limpieza suave pero exhaustiva de la ropa de tu bebé",
         "Image": "/img/fotos-productos/jabones/jabon-imagen-1.png"
     },
@@ -56,6 +59,7 @@
         "Aroma": "Floral",
         "Dimenciones": "50cm",
         "Cantidad": "1",
+        "tipo": "",
         "Descripcion": "Recomendado para quienes buscan la suavidad y el aroma de siempre",
         "Image": "/img/fotos-productos/suavisantes/suavisante-imagen-1.png"
     },
@@ -71,6 +75,7 @@
         "Aroma": "Lavanda",
         "Dimenciones": "10cm",
         "Cantidad": "2",
+        "tipo": "",
         "Descripcion": "Limpiador líquido de pisos. Limpia y desodoriza.",
         "Image": "/img/fotos-productos/liquido-para-pisos/liquidoP-imagen-1.png"
     },
@@ -86,6 +91,7 @@
         "Aroma": "Don",
         "Dimenciones": "30cm",
         "Cantidad": "1",
+        "tipo": "",
         "Descripcion": "Jabón líquido baja espuma Master Clean. Aprobado por ANMAT",
         "Image": "/img/fotos-productos/jabones/jabon-imagen-2.png"
     },
@@ -101,6 +107,7 @@
         "Aroma": "---",
         "Dimenciones": "40cm",
         "Cantidad": "1",
+        "tipo": "",
         "Descripcion": "Agua Lavandina Servidor Básica 25 g CL/litro Limpia y desinfecta Elimina el 99,9 % de las bacterias",
         "Image": "/img/fotos-productos/lavandinas/lavandina-imagen-2.png"
     },
@@ -116,6 +123,7 @@
         "Aroma": "Original",
         "Dimenciones": "30cm",
         "Cantidad": "1",
+        "tipo": "",
         "Descripcion": "Nueva fórmula elimina restos de alimentos",
         "Image": "/img/fotos-productos/detergentes/detergente-imagen-6.png"
     },
@@ -131,6 +139,7 @@
         "Aroma": "Algodon",
         "Dimenciones": "20cm",
         "Cantidad": "5",
+        "tipo": "",
         "Descripcion": "Nueva fragancia con mayor duracion.",
         "Image": "/img/fotos-productos/liquido-para-pisos/liquidoP-imagen-4.png"
     },
@@ -146,6 +155,7 @@
         "Aroma": "---",
         "Dimenciones": "30cm",
         "Cantidad": "1",
+        "tipo": "",
         "Descripcion": "Agua lavandina",
         "Image": "/img/fotos-productos/lavandinas/lavandina-imagen-10.png"
     },
@@ -161,6 +171,7 @@
         "Aroma": "Lavanda",
         "Dimenciones": "20cm",
         "Cantidad": "5",
+        "tipo": "",
         "Descripcion": "Limpieza rápida y profunda, prolongado aromatizado de ambientes con frescas y persistentes fragancias.",
         "Image": "/img/fotos-productos/liquido-para-pisos/liquidoP-imagen-8.png"
     },
@@ -169,13 +180,14 @@
         "Nombre": "Suavisante Gigante y",
         "Codigoid": "7645",
         "Precio": "5000",
+        "Categoria": "Liquido para pisos",
         "Descuento": "5",
         "Volumen": "5 Litros",
         "Stock": "6",
-        "Tipo": "",
         "Aroma": "---",
         "Dimenciones": "50cm",
         "Cantidad": "2",
+        "tipo": "",
         "Descripcion": "Formula economica para tus prendas",
         "Image": "/img/fotos-productos/suavisantes/suavisante-imagen-7.png"
     },
@@ -191,6 +203,7 @@
         "Aroma": "Rosas",
         "Dimenciones": "20cm",
         "Cantidad": "4",
+        "tipo": "",
         "Descripcion": "Jabon para cuidar de tu ropa de seda.",
         "Image": "/img/fotos-productos/jabones/jabon-imagen-3.png"
     },
@@ -206,6 +219,7 @@
         "Aroma": "---",
         "Dimenciones": "30cm",
         "Cantidad": "3",
+        "tipo": "",
         "Descripcion": "No daña tus prendas, cuida tus colores.Elimina hasta las manchas mas difíciles.",
         "Image": "/img/fotos-productos/jabones/jabon-imagen-4.png"
     },
@@ -221,6 +235,7 @@
         "Aroma": "Original",
         "Dimenciones": "20cm",
         "Cantidad": "5",
+        "tipo": "",
         "Descripcion": "Desodorante de piso",
         "Image": "/img/fotos-productos/liquido-para-pisos/liquidoP-imagen-3.png"
     }
