@@ -12,17 +12,13 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
 .registro{
     width: 100%;
     height: 100vh;
-
     display: flex;
     flex-flow: wrap column;
     align-items: center;
-    
-    background: rgb(2,64,177);
     background: linear-gradient(0deg, rgba(2,64,177,1) 0%, rgba(26,121,237,1) 54%, rgba(26,121,237,1) 100%);
 }
 .registro_main{
     width: 90%;
-
     max-width: 1024px;
 
     border: 1px solid var(--grisClaro);
@@ -37,7 +33,9 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     top: 50%;
     margin-top: -257.5px;
 }
-
+.registro-text-danger{
+    color: red;
+}
 /* LOGO, TITULO Y SALIDA */
 .registro__logo-y-titulo{
     width: 100%;

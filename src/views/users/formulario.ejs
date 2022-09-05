@@ -33,18 +33,26 @@
     <!-- REGISTRO EMAIL -->
     <section class="registro__email">
       <h4 class="registro__email__titulo">Con su Email</h4>
-      <form action="">
+      <form action="" method="POST">
         <article class="registro__email__container">
-          <input class="registro__email__texto" value="" type="text" id="" name="name" placeholder="Name*" />
+          <input class="registro__email__texto <%= locals.errors && errors.name ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.name ? old.name : null %>" type="text" id="name" name="name" placeholder="Name*" />
           <img src="/img/login-register/imgName.png" alt="">
+          <span class="registro-text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %></span>
         </article>
         <article class="registro__email__container">
-          <input class="registro__email__texto" value="" type="email" id="email" name="email" placeholder="Email*" />
+          <input class="registro__email__texto <%= locals.errors && errors.email ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.email ? old.email : null %>" type="email" id="email" name="email" placeholder="Email*" />
           <img src="/img/login-register/imgEmail.png" alt="">
+          <span class="registro-text-danger"><%= locals.errors && errors.email ? errors.email.msg : null %></span>
         </article>
         <article class="registro__email__container">
-          <input class="registro__email__texto" value="" type="password" id="" name="" placeholder="Contraseña*" />
+          <input class="registro__email__texto <%= locals.errors && errors.password ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.password ? old.password : null %>" type="password" id="password" name="password" placeholder="Contraseña*" />
           <img src="/img/login-register/imgContraseña.png" alt="">
+          <span class="registro-text-danger"><%= locals.errors && errors.password ? errors.password.msg : null %></span>
+        </article>
+        <article class="registro__email__container">
+          <input class="registro__email__texto <%= locals.errors && errors.password2 ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.password2 ? old.password2 : null %>" type="password" id="password2" name="password2" placeholder="Confirmar Contraseña*" />
+          <img src="/img/login-register/imgContraseña.png" alt="">
+          <span class="registro-text-danger"><%= locals.errors && errors.password2 ? errors.password2.msg : null %></span>
         </article>
         <!-- BOTON REGISTRARSE -->
         <button class="registro__email__botonRegistro" type="submit">REGISTRARSE</button>

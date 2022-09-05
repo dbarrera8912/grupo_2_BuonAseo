@@ -1,34 +1,47 @@
 [
-    {
-        "id": 1,
-        "name": "Matias",
-        "email": "matiascrack@gmail.com",
-        "password": 12345,
-        "category": "Vendedor",
-        "image": []
-    },
-    {
-        "id": 2,
-        "name": "Daniel",
-        "email": "daniHaceteDeBoca@yahoo.com",
-        "password": 11111,
-        "category": "Comprador",
-        "image": []
-    },
-    {
-        "id": 3,
-        "name": "Sirley",
-        "email": "sirleyConfio@outlook.com",
-        "password": 123423423,
-        "category": "Vendedor",
-        "image": []
-    },
-    {
-        "id": 4,
-        "name": "Richard",
-        "email": "richardCuevas@mail.com",
-        "password": 8724823,
-        "category": "Comprador",
-        "image": []
-    }
+   {
+      "id": 1,
+      "name": "Matias",
+      "email": "matiascrack@gmail.com",
+      "password": 12345,
+      "password2": 12345,
+      "category": "Vendedor",
+      "avatar": null
+   },
+   {
+      "id": 2,
+      "name": "Daniel",
+      "email": "daniHaceteDeBoca@yahoo.com",
+      "password": 11111,
+      "password2": 11111,
+      "category": "Comprador",
+      "avatar": null
+   },
+   {
+      "id": 3,
+      "name": "Sirley",
+      "email": "sirleyConfio@outlook.com",
+      "password": 123423423,
+      "password2": 123423423,
+      "category": "Vendedor",
+      "avatar": null
+   },
+   {
+      "id": 4,
+      "name": "Richard",
+      "email": "richardCuevas@mail.com",
+      "password": 8724823,
+      "password2": 8724823,
+      "category": "Comprador",
+      "avatar": null
+   },
+   {
+      "id": 5,
+      "name": "asdasdsad",
+      "email": "matiassabbadini@gmail.com",
+      "password": "$2a$10$3V0eUYvZ95a7Z9q2bGPokuDWrZ88UWJqzHg/qfOb03IklsSQ6vgiu",
+      "password2": "$2a$10$T5VqYP2a2u2ttMPEY.FXoee4mdvTQMSjOwpe5v1O3FcZJtnmKLkVO",
+      "category": null,
+      "avatar": null
+   }
 ]
