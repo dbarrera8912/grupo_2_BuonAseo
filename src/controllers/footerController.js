@@ -203,7 +203,7 @@ module.exports = {
 
             return res.redirect("/footer/preguntas");/* Redirigimos a las preguntas */
         } else {
-            return res.render('./footer-all/ayuda/preguntasAgregar',{
+            return res.render('./footer-all/ayuda/preguntasAgregar', {
                 errors: errors.mapped(),
                 old: req.body
             })
@@ -218,24 +218,35 @@ module.exports = {
         })
     },
     modificarPregunta: (req, res) => {/* METODO PUT DE EDITAR PREGUNTA*/
-        preguntas = preguntasFrecuentes();/* leemos las preguntas */
-        const { id } = req.params; /* Sacamos el id del parametro */
-        const { title, response, link, frase } = req.body;/* Destructuring de la nueva edicion de pregunta del usuario */
-        const preguntasModificas = preguntas.map(pregunta => { /* recorremos el array para modificarlo */
-            if (pregunta.id === +id) {
-                return {
-                    ...pregunta, /* ingresamos todos los datos de la pregunta con spread */
-                    title: title.trim(), /* Con trim sacamos espacios antes y final */
-                    response: response.split("\r\n"),/* Dividimos la respuesta en elementos dentro de un array */
-                    href: link,
-                    a: frase,
-                    fecha: preguntasFechaDeCreacion()
+        let errors = validationResult(req)
+        if (errors.isEmpty()) {
+            preguntas = preguntasFrecuentes();/* leemos las preguntas */
+            const { id } = req.params; /* Sacamos el id del parametro */
+            const { title, response, link, frase } = req.body;/* Destructuring de la nueva edicion de pregunta del usuario */
+            const preguntasModificas = preguntas.map(pregunta => { /* recorremos el array para modificarlo */
+                if (pregunta.id === +id) {
+                    return {
+                        ...pregunta, /* ingresamos todos los datos de la pregunta con spread */
+                        title: title.trim(), /* Con trim sacamos espacios antes y final */
+                        response: response.split("\r\n"),/* Dividimos la respuesta en elementos dentro de un array */
+                        href: link,
+                        a: frase,
+                        fecha: preguntasFechaDeCreacion()
+                    }
                 }
-            }
-            return pregunta
-        })
-        preguntasEscribir(preguntasModificas);/* Escribimos las preguntas en el json */
-        return res.redirect("/footer/preguntas/editar/" + req.params.id)
+                return pregunta
+            })
+            preguntasEscribir(preguntasModificas);/* Escribimos las preguntas en el json */
+            return res.redirect("/footer/preguntas/editar/" + req.params.id)
+        } else {
+            preguntas = preguntasFrecuentes();/* leemos las preguntas */
+            const pregunta = preguntas.find(pregunta => pregunta.id === +req.params.id); /* Buscamos un id de pregunta igual al id pasado por parametro */
+            return res.render("./footer-all/ayuda/preguntasEditar", {
+                pregunta,
+                errors: errors.mapped()
+            })
+        }
+
     },
     eliminarPregunta: (req, res) => {/* METODO DELETE DE PREGUNTAS*/
         preguntas = preguntasFrecuentes();/* leemos las preguntas */
