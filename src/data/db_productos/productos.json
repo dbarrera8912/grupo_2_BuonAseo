@@ -241,18 +241,17 @@
    },
    {
       "Id": 16,
-      "Nombre": "",
-      "Codigoid": null,
-      "Precio": 0,
-      "Categoria": null,
-      "Descuento": null,
-      "Volumen": null,
+      "Nombre": "ererwsad",
+      "Codigoid": "qweewq",
+      "Precio": "0123",
+      "Descuento": "",
+      "Volumen": "",
       "Stock": "",
-      "Aroma": null,
-      "Dimenciones": null,
-      "Cantidad": 0,
-      "tipo": null,
-      "Descripcion": null,
-      "Image": null
+      "Aroma": "",
+      "Dimenciones": "",
+      "Cantidad": "0",
+      "tipo": "",
+      "Descripcion": "",
+      "Image": "/img/fotos-productos/productsAdd/product-1662473326758.jpg"
    }
 ]

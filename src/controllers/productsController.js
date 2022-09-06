@@ -1,6 +1,7 @@
-const { loadProducts, insertProduct } = require('../data/db_productos/dbModule');
+const { loadProducts, insertProduct, eliminarImg } = require('../data/db_productos/dbModule');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-module.exports = {
+
+module.exports = { 
     products: (req, res) => {
         let products = loadProducts();
         return res.render('./products/catalogo', {
@@ -24,7 +25,7 @@ module.exports = {
         }
 
         if (!req.fileValidationError) {
-            const { name, imagen, categoría, codigoid, dimenciones, precio, volumen, aroma, cantidad, stock, tipo, descripcion, descuento } = req.body;
+            const { name, categoría, codigoid, dimenciones, precio, volumen, aroma, cantidad, stock, tipo, descripcion, descuento } = req.body;
             let products = loadProducts();
 
             const newProduct = {
@@ -32,23 +33,24 @@ module.exports = {
                 Nombre: name.trim(),
                 Codigoid: codigoid ? codigoid : null,
                 Precio: +precio,
-                Categoria: categoría ? categoría: null,
+                Categoria: categoría ? categoría : null,
                 Descuento: descuento ? descuento : null,
                 Volumen: volumen ? volumen : null,
                 Stock: stock,
                 Aroma: aroma ? aroma.trim() : null,
                 Dimenciones: dimenciones ? dimenciones : null,
                 Cantidad: +cantidad,
-                tipo: tipo ? tipo.trim():null,
-                Descripcion: descripcion? descripcion.trim():null,
-                Image: imagen ? imagen : null
+                tipo: tipo ? tipo.trim() : null,
+                Descripcion: descripcion ? descripcion.trim() : null,
+                Image: req.file ? `/img/fotos-productos/productsAdd/${req.file.filename}` : null
             }
 
             const newProducts = [...products, newProduct];
             insertProduct(newProducts);
             return res.redirect("/products/catalogo")
-        }else {
-            return res.render('./products/crearProducto',{
+        } else {
+            
+            return res.render('./products/crearProducto', {
                 errors
             })
         }
@@ -77,33 +79,50 @@ module.exports = {
         })
     },
     modificarProducto: (req, res) => {
-        let products = loadProducts()
-        const { name, imagen, categoría, codigoid, dimenciones, precio, volumen, aroma, cantidad, stock, tipo, descripcion, descuento } = req.body;
+        let errors
+        if (req.fileValidationError) {
+            errors = { ...errors, img: { msg: req.fileValidationError } }
+        }
 
-        let productsModify = products.map(products => {
-            if (products.Id === +req.params.id) {
-                return {
-                    Id: products.Id,
-                    Nombre: name.trim(),
-                    Codigoid: codigoid,
-                    Precio: precio,
-                    Categoria: categoría,
-                    Descuento: descuento,
-                    Volumen: volumen,
-                    Stock: stock,
-                    Aroma: aroma,
-                    Dimenciones: dimenciones,
-                    Cantidad: cantidad,
-                    tipo: tipo.trim(),
-                    Descripcion: descripcion.trim(),
-                    Image: imagen ? imagen : products.Image
+        if (!req.fileValidationError) {
+            let products = loadProducts()
+            const { name, imagen, categoría, codigoid, dimenciones, precio, volumen, aroma, cantidad, stock, tipo, descripcion, descuento } = req.body;
 
+            let productsModify = products.map(products => {
+                if (products.Id === +req.params.id) {
+                    if (req.file) {
+                        eliminarImg(products.Image)
+                    }
+
+                    return {
+                        Id: products.Id,
+                        Nombre: name.trim(),
+                        Codigoid: codigoid,
+                        Precio: precio,
+                        Categoria: categoría,
+                        Descuento: descuento,
+                        Volumen: volumen,
+                        Stock: stock,
+                        Aroma: aroma,
+                        Dimenciones: dimenciones,
+                        Cantidad: cantidad,
+                        tipo: tipo.trim(),
+                        Descripcion: descripcion.trim(),
+                        Image: req.file ? `/img/fotos-productos/productsAdd/${req.file.filename}` : products.Image
+
+                    }
                 }
-            }
-            return products
-        })
-        insertProduct(productsModify);
-        return res.redirect('/products/detail/' + req.params.id)
+                return products
+            })
+            insertProduct(productsModify);
+            return res.redirect('/products/detail/' + req.params.id)
+        } else {
+            let productToEdit = loadProducts().find(produc => produc.Id === +req.params.id)
+            return res.render('./products/editarProducto', {
+                productToEdit,
+                errors
+            })
+        }
     },
 
     destroy: (req, res) => {

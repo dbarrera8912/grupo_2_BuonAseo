@@ -15,15 +15,16 @@
         </section>
         <!-- PRODUCTO CREAR EMAIL -->
         <section class="productCrear__email">
-          <form action="/products/modificarProducto/<%= productToEdit.Id %>?_method=PUT" method="POST">
+          <form action="/products/modificarProducto/<%= productToEdit.Id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <section class="productCrear__email_section1">
               <article class="productCrear__email__container">
                 <label>Nombre del producto</label>
-                <input class="productCrear__email__texto" value="<%= productToEdit.Nombre %>" type="text" id="" name="name" minlength="2" maxlength="20" placeholder="Nombre" required/>
+                <input class="productCrear__email__texto" value="<%= productToEdit.Nombre %>" type="text" id="" name="name" minlength="2" maxlength="20" placeholder="Nombre" >
               </article>
               <article class="productCrear__email__container">
                 <label>Imagen</label>
                 <input class="productCrear__email__texto" value="" type="file" id="imagen" name="imagen"/>
+                <small style="color: red;"><%= locals.errors && errors.img && errors.img.msg %> </small>
               </article>
               <article class="productCrear__email__container">
                 <label>Categoría</label>
@@ -42,11 +43,11 @@
               </article>
               <article class="productCrear__email__container">
                 <label>Codigo Id</label>
-                <input class="productCrear__email__texto" value="<%= productToEdit.Codigoid %>" type="text" id="" name="codigoid" minlength="2" maxlength="20" placeholder="ID" required/>
+                <input class="productCrear__email__texto" value="<%= productToEdit.Codigoid %>" type="text" id="" name="codigoid" minlength="2" maxlength="20" placeholder="ID" >
               </article>
               <article class="productCrear__email__container">
                 <label>Dimenciones</label>
-                <input class="productCrear__email__texto" value="<%= productToEdit.Dimenciones %>" type="text" id="" name="dimenciones" minlength="2" maxlength="20" placeholder="Dimenciones" required/>
+                <input class="productCrear__email__texto" value="<%= productToEdit.Dimenciones %>" type="text" id="" name="dimenciones" minlength="2" maxlength="20" placeholder="Dimenciones" >
               </article>
               <article class="productCrear__email__container">
                 <label>Descuento</label>
@@ -68,11 +69,11 @@
             </article>
             <article class="productCrear__email__container">
               <label>Cantidad</label>
-              <input class="productCrear__email__texto" value="<%= productToEdit.Cantidad %>" type="number" id="" name="cantidad" minlength="2" maxlength="20" placeholder="Cantidad" required/>
+              <input class="productCrear__email__texto" value="<%= productToEdit.Cantidad %>" type="number" id="" name="cantidad" minlength="2" maxlength="20" placeholder="Cantidad" >
             </article>
             <article class="productCrear__email__container">
               <label>Stock</label>
-              <input class="productCrear__email__texto" value="<%= productToEdit.Stock %>" type="number" id="" name="stock" minlength="2" maxlength="20" placeholder="Stock" required/>
+              <input class="productCrear__email__texto" value="<%= productToEdit.Stock %>" type="number" id="" name="stock" minlength="2" maxlength="20" placeholder="Stock" >
             </article>
             <article class="productCrear__email__container">
               <label>Tipo</label>
