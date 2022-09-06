@@ -7,7 +7,9 @@ const loadProducts = () => {
 const insertProduct = (products) =>{
     fs.writeFileSync(path.join(__dirname, "productos.json"), JSON.stringify(products, null, 3), "utf-8")
 }
-
+const loadCategorias = ()=>{
+    return JSON.parse(fs.readFileSync(path.join(__dirname, 'categorias.json'), 'utf-8'));
+}
 const eliminarImg = (ruta) =>{
     fs.existsSync(path.resolve(__dirname, "../../../public" + ruta)) && fs.unlinkSync(path.resolve(__dirname, "../../../public" + ruta))
 }
@@ -15,5 +17,6 @@ const eliminarImg = (ruta) =>{
 module.exports = {
     loadProducts,
     insertProduct,
+    loadCategorias,
     eliminarImg
 }

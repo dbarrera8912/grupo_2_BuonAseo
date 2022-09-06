@@ -1,5 +1,7 @@
-const { loadProducts, insertProduct, eliminarImg } = require('../data/db_productos/dbModule');
+const { loadProducts, insertProduct, eliminarImg, loadCategorias} = require('../data/db_productos/dbModule');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+const { validationResult } = require("express-validator") /* Requerimos check de express-validador, body es lo mismo que check */
 
 module.exports = { 
     products: (req, res) => {
@@ -14,30 +16,34 @@ module.exports = {
     },
 
     crearProducto: (req, res) => {
-        return res.render('./products/crearProducto')
+        return res.render('./products/crearProducto',{
+            categorias: loadCategorias().sort()
+        })
     },
 
     // Crear producto
     store: (req, res) => {
-        let errors
+        let errors = validationResult(req)
+        errors = errors.mapped()
+
         if (req.fileValidationError) {
             errors = { ...errors, img: { msg: req.fileValidationError } }
         }
 
-        if (!req.fileValidationError) {
-            const { name, categoría, codigoid, dimenciones, precio, volumen, aroma, cantidad, stock, tipo, descripcion, descuento } = req.body;
+        if (Object.entries(errors).length === 0) {
+            const { name, categoria, codigoid, dimenciones, precio, volumen, aroma, cantidad, stock, tipo, descripcion, descuento } = req.body;
             let products = loadProducts();
 
             const newProduct = {
                 Id: products[products.length - 1].Id + 1,
                 Nombre: name.trim(),
-                Codigoid: codigoid ? codigoid : null,
+                Codigoid: codigoid ? +codigoid : null,
                 Precio: +precio,
-                Categoria: categoría ? categoría : null,
-                Descuento: descuento ? descuento : null,
-                Volumen: volumen ? volumen : null,
-                Stock: stock,
-                Aroma: aroma ? aroma.trim() : null,
+                Categoria: categoria ? categoria : null,
+                Descuento: descuento ? +descuento : 0,
+                Volumen: volumen ? +volumen : null,
+                Stock: +stock,
+                Aroma: aroma ? aroma.trim() : "---",
                 Dimenciones: dimenciones ? dimenciones : null,
                 Cantidad: +cantidad,
                 tipo: tipo ? tipo.trim() : null,
@@ -49,9 +55,14 @@ module.exports = {
             insertProduct(newProducts);
             return res.redirect("/products/catalogo")
         } else {
-            
+            if (req.file) {
+                eliminarImg(`/img/fotos-productos/productsAdd/${req.file.filename}`)
+            }
+
             return res.render('./products/crearProducto', {
-                errors
+                errors,
+                old: req.body,
+                categorias: loadCategorias().sort()
             })
         }
 
@@ -86,7 +97,7 @@ module.exports = {
 
         if (!req.fileValidationError) {
             let products = loadProducts()
-            const { name, imagen, categoría, codigoid, dimenciones, precio, volumen, aroma, cantidad, stock, tipo, descripcion, descuento } = req.body;
+            const { name, imagen, categoria, codigoid, dimenciones, precio, volumen, aroma, cantidad, stock, tipo, descripcion, descuento } = req.body;
 
             let productsModify = products.map(products => {
                 if (products.Id === +req.params.id) {
@@ -99,7 +110,7 @@ module.exports = {
                         Nombre: name.trim(),
                         Codigoid: codigoid,
                         Precio: precio,
-                        Categoria: categoría,
+                        Categoria: categoria,
                         Descuento: descuento,
                         Volumen: volumen,
                         Stock: stock,

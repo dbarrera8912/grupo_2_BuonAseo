@@ -238,5 +238,21 @@
       "tipo": "",
       "Descripcion": "Desodorante de piso",
       "Image": "/img/fotos-productos/liquido-para-pisos/liquidoP-imagen-3.png"
+   },
+   {
+      "Id": 16,
+      "Nombre": "sadsad",
+      "Codigoid": 123,
+      "Precio": 123,
+      "Categoria": "Desinfectante",
+      "Descuento": 12213,
+      "Volumen": 213321,
+      "Stock": 12,
+      "Aroma": "12323",
+      "Dimenciones": "12231",
+      "Cantidad": 1212,
+      "tipo": "asdsa",
+      "Descripcion": "wqasdda",
+      "Image": "/img/fotos-productos/productsAdd/product-1662487391684.png"
    }
 ]
