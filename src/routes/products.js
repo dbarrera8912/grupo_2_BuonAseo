@@ -11,10 +11,10 @@ const { carrito, crearProducto, detalle, editarProducto,products,store, modifica
 /* /products */
 router
       .get('/carrito', carrito)
-      .get('/crearProducto', crearProducto)
       .get('/detail/:id', detalle)
       .get('/catalogo', products)
-      .post('/store', uploadProducts.single("imagen"), store)
+      .get('/crearProducto', crearProducto)
+      .post('/crearProducto', uploadProducts.single("imagen"), store)
       .get('/editarProducto/:id', editarProducto)
       .put('/modificarProducto/:id', uploadProducts.single("imagen"), modificarProducto)
       .delete('/eliminarProducto/:id', destroy)
