@@ -77,7 +77,7 @@ module.exports = {
         } else {
             if (req.files.length > 0) {
                 req.files.forEach(({ filename }) => {
-                    fs.existsSync(path.resolve(__dirname,'..', '..', 'public', 'img', 'footerImgs', 'metodosDePago', filename)) && fs.unlinkSync(path.resolve(__dirname,'..', '..', 'public', 'img', 'footerImgs', 'metodosDePago', filename))
+                    fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'footerImgs', 'metodosDePago', filename)) && fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'footerImgs', 'metodosDePago', filename))
                 })
             }
             return res.render("./footer-all/ayuda/metodosAgregar", {
@@ -113,7 +113,7 @@ module.exports = {
                 if (metodo.id === +id) {
                     if (imagenes.length > 0) {
                         metodo.img.forEach((img) => {
-                            fs.existsSync(path.resolve(__dirname, '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', img)) && fs.unlinkSync(path.resolve(__dirname, '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', img))
+                            fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'footerImgs', 'metodosDePago', img)) && fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'footerImgs', 'metodosDePago', img))
                         })
                     }
                     return {
@@ -134,10 +134,10 @@ module.exports = {
         } else {
             metodos = metodosDePago(); /* leemos los metodos de pago */
             const metodo = metodos.find(metodo => metodo.id === +req.params.id); /* Buscamos un id de metodo igual al id pasado por parametro */
-            
+
             if (req.files.length > 0) {
                 req.files.forEach(({ filename }) => {
-                    fs.existsSync(path.resolve(__dirname,  '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', filename)) && fs.unlinkSync(path.resolve(__dirname,  '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', filename))
+                    fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'footerImgs', 'metodosDePago', filename)) && fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'footerImgs', 'metodosDePago', filename))
                 })
             }
 
@@ -153,9 +153,9 @@ module.exports = {
         for (let x = 0; x < metodos.length; x++) {
             if (metodos[x].id === +req.params.id) {
                 for (let y = 0; y < metodos[x].img.length; y++) {
-                    fs.existsSync(path.resolve(__dirname, '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', metodos[x].img[y])) && fs.unlinkSync(path.resolve(__dirname, '..','..', 'public', 'img', 'footerImgs', 'metodosDePago', metodos[x].img[y]))/* existsSync busca si existe el archivo y unlinkSync lo elimina */ 
-                }	
-			}
+                    fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'footerImgs', 'metodosDePago', metodos[x].img[y])) && fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'footerImgs', 'metodosDePago', metodos[x].img[y]))/* existsSync busca si existe el archivo y unlinkSync lo elimina */
+                }
+            }
         }
         const metodosModificados = metodos.filter(metodo => metodo.id !== +req.params.id); /* Eliminamos la pregunta, dejando el id de producto igual al id pasado por parametro por fuera */
         preguntasActualizarId(metodosModificados)
@@ -184,22 +184,31 @@ module.exports = {
         return res.render('./footer-all/ayuda/preguntasAgregar')/* renderizamos */
     },
     escribirPregunta: (req, res) => {/* METODO POST DE AGREGAR PREGUNTA*/
-        preguntas = preguntasFrecuentes();/* leemos las preguntas */
-        const { title, response, link, frase } = req.body;/* Destructuring de la nueva pregunta del usuario */
-        const id = preguntas[preguntas.length - 1].id; /* Sacamos el ultimo id */
-        const newPregunta = {
-            id: id + 1,
-            title: title.trim(),/* con trim sacamos espacios al inicio y final */
-            response: response.split("\r\n"),/* Dividimos la respuesta en elementos dentro de un array */
-            href: link,
-            a: frase,
-            fecha: preguntasFechaDeCreacion()
+        let errors = validationResult(req)
+        if (errors.isEmpty()) {
+            preguntas = preguntasFrecuentes();/* leemos las preguntas */
+            const { title, response, link, frase } = req.body;/* Destructuring de la nueva pregunta del usuario */
+            const id = preguntas[preguntas.length - 1].id; /* Sacamos el ultimo id */
+            const newPregunta = {
+                id: id + 1,
+                title: title.trim(),/* con trim sacamos espacios al inicio y final */
+                response: response.split("\r\n"),/* Dividimos la respuesta en elementos dentro de un array */
+                href: link,
+                a: frase,
+                fecha: preguntasFechaDeCreacion()
+            }
+            const preguntasNew = [...preguntas, newPregunta]; /* Creamos nueva pregunta y la agregamos junto con las demass */
+
+            preguntasEscribir(preguntasNew); /* Escribimos las preguntas en el JSON */
+
+            return res.redirect("/footer/preguntas");/* Redirigimos a las preguntas */
+        } else {
+            return res.render('./footer-all/ayuda/preguntasAgregar',{
+                errors: errors.mapped(),
+                old: req.body
+            })
         }
-        const preguntasNew = [...preguntas, newPregunta]; /* Creamos nueva pregunta y la agregamos junto con las demass */
 
-        preguntasEscribir(preguntasNew); /* Escribimos las preguntas en el JSON */
-
-        return res.redirect("/footer/preguntas");/* Redirigimos a las preguntas */
     },
     editarPregunta: (req, res) => {/* METODO GET DE EDITAR PREGUNTA*/
         preguntas = preguntasFrecuentes();/* leemos las preguntas */
