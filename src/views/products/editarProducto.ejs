@@ -19,70 +19,75 @@
             <section class="productCrear__email_section1">
               <article class="productCrear__email__container">
                 <label>Nombre del producto</label>
-                <input class="productCrear__email__texto" value="<%= productToEdit.Nombre %>" type="text" id="" name="name" minlength="2" maxlength="20" placeholder="Nombre" >
+                <input class="productCrear__email__texto <%= locals.errors && errors.name ? "registro__email__container-inValid" : null %>" value="<%= productToEdit.Nombre %>" type="text" id="" name="name" minlength="2" maxlength="20" placeholder="Nombre" >
+                <small style="color: red;"><%= locals.errors && errors.name && errors.name.msg %> </small>
               </article>
               <article class="productCrear__email__container">
                 <label>Imagen</label>
-                <input class="productCrear__email__texto" value="" type="file" id="imagen" name="imagen"/>
+                <input class="productCrear__email__texto <%= locals.errors && errors.img ? "registro__email__container-inValid" : null %>" value="" type="file" id="imagen" name="imagen"/>
                 <small style="color: red;"><%= locals.errors && errors.img && errors.img.msg %> </small>
               </article>
               <article class="productCrear__email__container">
                 <label>Categoría</label>
                 <select class="productCrear__email__texto" value="" type="" id="categoria" name="categoria" placeholder="categoria">
-                  <option value="jabon">Jabon</option>
-                  <option value="suavisante">Suavizantes</option>
-                  <option value="detergente">Detergente</option>
-                  <option value="lavandina">Lavandina</option>
-                  <option value="liquido/p">Liquido para pisos</option>
-                  <option value="pastillaBanio">Pastilla para Banio</option>
-                  <option value="papelHigienico">Papel Higienico</option>
-                  <option value="jabonTocador">Jabon Tocador</option>
-                  <option value="desinfectante">Desinfectante</option>
-                  <option value="desengrasante">Desengrasante</option>          
+                  <option value="" selected hidden>Seleccione...</option>
+                  <% categorias.forEach(categoria => { %>
+                    <option value="<%= categoria %>" <%= categoria === productToEdit.Categoria ? 'selected' : null %>><%= categoria %></option>
+                  <% }) %>           
                 </select>
               </article>
               <article class="productCrear__email__container">
                 <label>Codigo Id</label>
-                <input class="productCrear__email__texto" value="<%= productToEdit.Codigoid %>" type="text" id="" name="codigoid" minlength="2" maxlength="20" placeholder="ID" >
+                <input class="productCrear__email__texto <%= locals.errors && errors.codigoid ? "registro__email__container-inValid" : null %>" value="<%= productToEdit.Codigoid %>" type="text" id="" name="codigoid" minlength="2" maxlength="20" placeholder="ID" >
+                <small style="color: red;"><%= locals.errors && errors.codigoid && errors.codigoid.msg %> </small>
               </article>
               <article class="productCrear__email__container">
                 <label>Dimenciones</label>
-                <input class="productCrear__email__texto" value="<%= productToEdit.Dimenciones %>" type="text" id="" name="dimenciones" minlength="2" maxlength="20" placeholder="Dimenciones" >
+                <input class="productCrear__email__texto <%= locals.errors && errors.dimenciones ? "registro__email__container-inValid" : null %>" value="<%= productToEdit.Dimenciones %>" type="text" id="" name="dimenciones" minlength="2" maxlength="20" placeholder="Dimenciones" >
+                <small style="color: red;"><%= locals.errors && errors.dimenciones && errors.dimenciones.msg %> </small>
               </article>
               <article class="productCrear__email__container">
                 <label>Descuento</label>
-                <input class="productCrear__email__texto" value="<%= productToEdit.Descuento %>" type="number" id="descuento" name="descuento" minlength="2" maxlength="20" placeholder="Descuento" />
+                <input class="productCrear__email__texto <%= locals.errors && errors.descuento ? "registro__email__container-inValid" : null %>" value="<%= productToEdit.Descuento %>" type="number" id="descuento" name="descuento" minlength="2" maxlength="20" placeholder="Descuento" />
+                <small style="color: red;"><%= locals.errors && errors.descuento && errors.descuento.msg %> </small>
               </article>
             </section>
            <section class="productCrear__email_section2">
             <article class="productCrear__email__container">
               <label>Precio</label>
-              <input class="productCrear__email__texto" value="<%= productToEdit.Precio %>" type="number" id="precio" name="precio" minlength="2" maxlength="20" placeholder="Precio" />
+              <input class="productCrear__email__texto <%= locals.errors && errors.precio ? "registro__email__container-inValid" : null %>" value="<%= productToEdit.Precio %>" type="number" id="precio" name="precio" minlength="2" maxlength="20" placeholder="Precio" />
+              <small style="color: red;"><%= locals.errors && errors.precio && errors.precio.msg %> </small>
             </article>
             <article class="productCrear__email__container">
               <label>Volumen</label>
-              <input class="productCrear__email__texto" value="<%= productToEdit.Volumen %>" type="text" id="volumen" name="volumen" minlength="2" maxlength="20" placeholder="Volumen" />
+              <input class="productCrear__email__texto <%= locals.errors && errors.volumen ? "registro__email__container-inValid" : null %>" value="<%= productToEdit.Volumen %>" type="text" id="volumen" name="volumen" minlength="2" maxlength="20" placeholder="Volumen" />
+              <small style="color: red;"><%= locals.errors && errors.volumen && errors.volumen.msg %> </small>
             </article>
             <article class="productCrear__email__container">
               <label>Aroma</label>
-              <input class="productCrear__email__texto" value="<%= productToEdit.Aroma %>" type="text" id="aroma" name="aroma" minlength="2" maxlength="20" placeholder="Aroma" />
+              <input class="productCrear__email__texto <%= locals.errors && errors.aroma ? "registro__email__container-inValid" : null %>" value="<%= productToEdit.Aroma %>" type="text" id="aroma" name="aroma" minlength="2" maxlength="20" placeholder="Aroma" />
+              <small style="color: red;"><%= locals.errors && errors.aroma && errors.aroma.msg %> </small>
             </article>
             <article class="productCrear__email__container">
               <label>Cantidad</label>
-              <input class="productCrear__email__texto" value="<%= productToEdit.Cantidad %>" type="number" id="" name="cantidad" minlength="2" maxlength="20" placeholder="Cantidad" >
+              <input class="productCrear__email__texto <%= locals.errors && errors.cantidad ? "registro__email__container-inValid" : null %>" value="<%= productToEdit.Cantidad %>" type="number" id="" name="cantidad" minlength="2" maxlength="20" placeholder="Cantidad" >
+              <small style="color: red;"><%= locals.errors && errors.cantidad && errors.cantidad.msg %> </small>
             </article>
             <article class="productCrear__email__container">
               <label>Stock</label>
-              <input class="productCrear__email__texto" value="<%= productToEdit.Stock %>" type="number" id="" name="stock" minlength="2" maxlength="20" placeholder="Stock" >
+              <input class="productCrear__email__texto <%= locals.errors && errors.stock ? "registro__email__container-inValid" : null %>" value="<%= productToEdit.Stock %>" type="number" id="" name="stock" minlength="2" maxlength="20" placeholder="Stock" >
+              <small style="color: red;"><%= locals.errors && errors.stock && errors.stock.msg %> </small>
             </article>
             <article class="productCrear__email__container">
               <label>Tipo</label>
-              <input class="productCrear__email__texto" value="<%= productToEdit.tipo %>" type="text" id="" name="tipo" minlength="2" maxlength="20" placeholder="Tipo"/>
+              <input class="productCrear__email__texto <%= locals.errors && errors.tipo ? "registro__email__container-inValid" : null %>" value="<%= productToEdit.tipo %>" type="text" id="" name="tipo" minlength="2" maxlength="20" placeholder="Tipo"/>
+              <small style="color: red;"><%= locals.errors && errors.tipo && errors.tipo.msg %> </small>
             </article>
            </section>
             <article class="productCrear__email__container">
               <label>Descripción</label>
-              <textarea class="productCrear__email_texto" rows="5" cols="24" value="" type="text" id="descripcion" name="descripcion"><%= productToEdit.Descripcion %></textarea>
+              <textarea class="productCrear__email_texto <%= locals.errors && errors.descripcion ? "registro__email__container-inValid" : null %>" rows="5" cols="24" value="" type="text" id="descripcion" name="descripcion"><%= productToEdit.Descripcion %></textarea>
+              <small style="color: red;"><%= locals.errors && errors.descripcion && errors.descripcion.msg %> </small>
             </article>
     
             <!-- BOTON REGISTRARSE -->

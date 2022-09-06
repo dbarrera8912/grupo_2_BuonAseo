@@ -86,18 +86,21 @@ module.exports = {
     editarProducto: (req, res) => {
         let productToEdit = loadProducts().find(produc => produc.Id === +req.params.id)
         return res.render('./products/editarProducto', {
-            productToEdit
+            productToEdit,
+            categorias: loadCategorias().sort()
         })
     },
     modificarProducto: (req, res) => {
-        let errors
+        let errors = validationResult(req)
+        errors = errors.mapped()
+        
         if (req.fileValidationError) {
             errors = { ...errors, img: { msg: req.fileValidationError } }
         }
 
-        if (!req.fileValidationError) {
+        if (Object.entries(errors).length === 0) {
             let products = loadProducts()
-            const { name, imagen, categoria, codigoid, dimenciones, precio, volumen, aroma, cantidad, stock, tipo, descripcion, descuento } = req.body;
+            const { name, categoria, codigoid, dimenciones, precio, volumen, aroma, cantidad, stock, tipo, descripcion, descuento } = req.body;
 
             let productsModify = products.map(products => {
                 if (products.Id === +req.params.id) {
@@ -108,19 +111,18 @@ module.exports = {
                     return {
                         Id: products.Id,
                         Nombre: name.trim(),
-                        Codigoid: codigoid,
-                        Precio: precio,
+                        Codigoid: +codigoid,
+                        Precio: +precio,
                         Categoria: categoria,
-                        Descuento: descuento,
-                        Volumen: volumen,
-                        Stock: stock,
-                        Aroma: aroma,
+                        Descuento: +descuento,
+                        Volumen: +volumen,
+                        Stock: +stock,
+                        Aroma: aroma.trim(),
                         Dimenciones: dimenciones,
-                        Cantidad: cantidad,
+                        Cantidad: +cantidad,
                         tipo: tipo.trim(),
                         Descripcion: descripcion.trim(),
                         Image: req.file ? `/img/fotos-productos/productsAdd/${req.file.filename}` : products.Image
-
                     }
                 }
                 return products
@@ -128,10 +130,15 @@ module.exports = {
             insertProduct(productsModify);
             return res.redirect('/products/detail/' + req.params.id)
         } else {
+            if (req.file) {
+                eliminarImg(`/img/fotos-productos/productsAdd/${req.file.filename}`)
+            }
+
             let productToEdit = loadProducts().find(produc => produc.Id === +req.params.id)
             return res.render('./products/editarProducto', {
                 productToEdit,
-                errors
+                errors,
+                categorias: loadCategorias().sort()
             })
         }
     },
