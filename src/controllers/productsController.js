@@ -1,4 +1,4 @@
-const { loadProducts, insertProduct } = require('../data/dbModule');
+const { loadProducts, insertProduct } = require('../data/db_productos/dbModule');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 module.exports = {
     products: (req, res) => {
@@ -30,18 +30,18 @@ module.exports = {
             const newProduct = {
                 Id: products[products.length - 1].Id + 1,
                 Nombre: name.trim(),
-                Codigoid: codigoid,
-                Precio: precio,
-                Categoria: categoría,
-                Descuento: descuento,
-                Volumen: volumen,
+                Codigoid: codigoid ? codigoid : null,
+                Precio: +precio,
+                Categoria: categoría ? categoría: null,
+                Descuento: descuento ? descuento : null,
+                Volumen: volumen ? volumen : null,
                 Stock: stock,
-                Aroma: aroma,
-                Dimenciones: dimenciones,
-                Cantidad: cantidad,
-                tipo: tipo.trim(),
-                Descripcion: descripcion.trim(),
-                Image: imagen
+                Aroma: aroma ? aroma.trim() : null,
+                Dimenciones: dimenciones ? dimenciones : null,
+                Cantidad: +cantidad,
+                tipo: tipo ? tipo.trim():null,
+                Descripcion: descripcion? descripcion.trim():null,
+                Image: imagen ? imagen : null
             }
 
             const newProducts = [...products, newProduct];
