@@ -126,6 +126,11 @@ module.exports = {
     },
 
     destroy: (req, res) => {
+        loadProducts().forEach(product => {
+            if (product.Id === +req.params.id) {
+                eliminarImg(product.Image)
+            }
+        });
         let productsModify = loadProducts().filter(produc => produc.Id !== +req.params.id)
         insertProduct(productsModify);
         return res.redirect('/products/catalogo')
