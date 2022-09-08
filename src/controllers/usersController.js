@@ -6,7 +6,7 @@ const { crearUsers, cargarUsers, loadCategoriasUser} = require("../data/db_users
 
 module.exports={
     login : (req,res) => {
-        return res.render('./users/login')
+        return res.render('./users/login', {req})
     },
 
     formulario : (req,res) => {
@@ -49,5 +49,41 @@ module.exports={
     
     password : (req,res) => {
         return res.render('./users/password-lost')
+    },
+
+    processLogin : (req,res) => {
+        let errors = validationResult(req);
+        console.log(errors)
+        if(errors.isEmpty()){
+
+            let user = cargarUsers().find(user => user.email === req.body.email && user.password == req.body.password);
+            if(typeof user == 'undefined'){
+                return res.render('./users/login',{
+                    errors : 'incorrecto'
+                })
+            }
+            let id = user.id;
+            let name = user.name;
+            let category = user.category;
+            let avatar = user.avatar;
+            req.session.userLogin = {
+                id,
+                name,
+                category,
+                avatar
+            }
+            //console.log(req.session.userLogin);
+            if(req.body.perdio){
+                res.cookie('buonaseo',req.session.userLogin,{
+                    maxAge : 1000 * 60
+                })
+            }
+
+            return res.redirect('/')
+        }else {
+            return res.render('./users/login',{
+                errors : errors.mapped()
+            })
+        }
     }
 }

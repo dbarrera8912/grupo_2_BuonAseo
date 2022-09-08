@@ -4,6 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const session = require('express-session');
+
+const cookieCheck = require('./middlewares/mw_cookie/mw_cookie');
+const localUser = require('./middlewares/mw_users/localUser');
+
 const methodOverride = require ("method-override");
 
 var indexRouter = require('./routes/home');
@@ -25,6 +30,14 @@ app.use(express.static(path.join(__dirname, "..",'public')));
 
 app.use (methodOverride ("_method"));
 
+app.use(session({
+  secret : 'BuonAseo',
+  resave : true,
+  saveUninitialized : true
+}));
+
+app.use(cookieCheck);
+app.use(localUser);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);

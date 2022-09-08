@@ -1,8 +1,9 @@
 const { loadProducts } = require('../data/db_productos/dbModule');
 module.exports = {
     home: (req, res) => {
+        let userLogin = req.session.userLogin;
         let products = loadProducts();
-
+        console.log(userLogin);
         let productosDescuento = products.filter(product => product.Descuento > 0)/* filtra productos con descuento */
         let productosEnOferta = productosDescuento.sort(() => {/* Desordena los productos para no mostrar siempre los mismos en home */
             return Math.random() - 0.5
@@ -14,7 +15,8 @@ module.exports = {
 
         return res.render('./home/home', {
             productosDestacados,
-            productosEnOferta
+            productosEnOferta,
+            userLogin
         })
     },
 

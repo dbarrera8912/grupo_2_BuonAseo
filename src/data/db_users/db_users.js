@@ -18,5 +18,5 @@ const loadCategoriasUser = () => {
 module.exports = { 
   cargarUsers, 
   crearUsers,
-  loadCategoriasUser 
+  loadCategoriasUser
 };
