@@ -5,6 +5,7 @@ var router = express.Router();
 // ************ Middleware Require ************
 const {uploadMetodos} = require("../middlewares/mw_footer/uploadFiles")
 const validacionesAddMetodos = require("../validators/val_Footer/metodosAddValidator")
+const validacionesPreguntas = require("../validators/val_Footer/preguntasValidator")
 
 // ************ Controller Require ************
 const { nosotros, puntos, terminos, boton, reclamos, comprar, politicas,
@@ -34,9 +35,9 @@ router
       .get('/preguntas', preguntas)
       .get('/preguntas/search', searchPregunta) /* pagina de preguntas encontradas */
       .get('/preguntas/agregar', agregarPregunta) /* pagina agregar pregunta */
-      .post('/preguntas/agregar', escribirPregunta)/* RUTA POST agregar pregunta */
+      .post('/preguntas/agregar', validacionesPreguntas, escribirPregunta)/* RUTA POST agregar pregunta */
       .get('/preguntas/editar/:id', editarPregunta)/* pagina editar pregunta */
-      .put('/preguntas/modificar/:id', modificarPregunta)/* RUTA PUT editar pregunta */
+      .put('/preguntas/modificar/:id', validacionesPreguntas, modificarPregunta)/* RUTA PUT editar pregunta */
       .delete('/preguntas/eliminar/:id', eliminarPregunta)/* RUTA DELETE eliminar pregunta desde preguntasFrecuentes*/
 
 
