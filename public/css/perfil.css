@@ -48,6 +48,45 @@
     padding-bottom: 5px;
 }
 
+.perfil-main-caja--input-label-radio{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.perfil-main-caja-radio{
+display: flex;
+width: 100%;
+flex-direction: row;
+}
+
+
+.perfil-main-radio{
+    width: 50px;
+    height: 15px;
+}
+
+.perfil-main-caja--input-label-checkbox {
+display: flex;
+flex-direction: column;
+gap: 10px;
+width: 100%;
+margin-bottom: 15px;
+}
+
+.perfil-main-caja-checkbox{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.perfil-main-label-checkbox{
+    margin-left: 15px;
+}
+
+
 .perfil-main-input{
     border: 1px var(--azulFuerte) solid;
     border-radius: 10px;

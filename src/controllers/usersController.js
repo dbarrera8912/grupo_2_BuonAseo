@@ -30,6 +30,15 @@ module.exports = {
                 email: email.trim(),
                 password: bcryptjs.hashSync(password.trim(), 10),
                 password2: bcryptjs.hashSync(password.trim(), 10),
+                gender: null,
+                interests: null,
+                phone: null,
+                dni: null,
+                birthday: null,
+                nationality : null,
+                postalCode: null,
+                domicile: null,
+                city: null,
                 category: null,
                 avatar: null
 
@@ -102,10 +111,8 @@ module.exports = {
 		});
     },
     update : (req, res) => {
-
-        const {name, email, password, category} = req.body;
-
-        let usersModify = loadUsers().map(user => {
+        const {name, email, password, category, gender, interests, phone, dni, birthday, nationality, postalCode, domicile, city, avatar} = req.body;                                              
+        let usersModify = cargarUsers().map(user => {
             if(user.id === +req.params.id){
                 return {
                     ...user,
@@ -115,21 +122,14 @@ module.exports = {
             }
             return user
         });
-
-        if(req.file && req.session.userLogin.avatar){
-            if(fs.existsSync(path.resolve(__dirname,'..','public','images','users',req.session.userLogin.avatar))){
-                console.log('>>>>>>>>>>',req.session.userLogin.avatar);
-                fs.unlinkSync(path.resolve(__dirname,'..','public','images','users',req.session.userLogin.avatar))
-            }
-        }
     
         req.session.userLogin = {
             ...req.session.userLogin,
-            firstName,
+            name,
             avatar : req.file ? req.file.filename : req.session.userLogin.avatar
         }
 
-        storeUsers(usersModify);
+        crearUsers(usersModify);
         return res.redirect('/users/profile')
     },
 }

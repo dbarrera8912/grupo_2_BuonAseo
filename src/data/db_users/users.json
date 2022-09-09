@@ -52,5 +52,23 @@
       "password2": "$2a$10$nu5wTAxCY9FWjKleMLpfHuqwWHeaO5pb/FTbM9PZqeKsIBZyJlRju",
       "category": null,
       "avatar": null
+   },
+   {
+      "id": 7,
+      "name": "sabbadini",
+      "email": "matiassabbadini24@gmail.com",
+      "password": "$2a$10$GNez/A0XqPS63h47qx/0a.73Gg0C2KRHgnYuc8h.W8CAz5zIdLVTy",
+      "password2": "$2a$10$SGptaZ0rIpqm1UcA71BDruOEvg6EZrfjxgez5Cnr2L7zXzn3UV4Di",
+      "gender": null,
+      "interests": null,
+      "phone": "",
+      "dni": "",
+      "birthday": "",
+      "nationality": "",
+      "postalCode": "",
+      "domicile": "",
+      "city": "",
+      "category": null,
+      "avatar": "avatar-1662760377351.png"
    }
 ]
