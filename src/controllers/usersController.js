@@ -68,7 +68,7 @@ module.exports = {
                     res.cookie("buonaseo", req.body.email, {maxAge: (24000 * 60) * 60})/* implementamos cookie para guardar la sesion del usuario */
                 }
 
-                return res.redirect("/")
+                return res.redirect("/users/profile")
             }
             return res.render('./users/login', {
                 errors: {

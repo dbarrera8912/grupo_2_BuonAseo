@@ -8,14 +8,20 @@
         <span class="header_section_input_span"><i class="fa-solid fa-magnifying-glass"></i></span>
       </article>
       <% if (locals.userLogged) { %>
-        <article class="header_section_user_car">
-          <a href="/users/profile" class="home_header_ingresar"><%= locals.userLogged.name %> </a>
-          <a href="/users/logout" class="home_header_ingresar">Salir</i></a>
-          <a href="/products/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
-        </article>
+        <ul class="header_section_user_car">
+          <li><img src="/img/fotos-users/<%= locals.userLogged.avatar ? locals.userLogged.avatar : "default.png" %> "></li>
+          <ul class="header_perfil" onclick="document.querySelector('.header_perfil_desplegable').classList.toggle('header_perfil_desplegable-show')">
+            <a class="home_header_ingresar"><%= locals.userLogged.name %> <i class="fa-sharp fa-solid fa-caret-down"></i></a>
+          </ul>
+          <ul class="header_perfil_desplegable">
+            <a href="/users/profile">Mi perfil</a>
+            <a href="/users/logout" class="home_header_ingresar">Salir</i></a>
+          </ul>
+          <li><a href="/products/carrito"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        </ul>
       <% }else{ %>
         <article class="header_section_user_car">
-          <h4 class="home_header_ingresar">Ingresar</h4>
+          <a href="/users/login" class="home_header_ingresar">Ingresar</a>
           <a href="/users/login"><i class="fa-solid fa-circle-user"></i></a>
           <a href="/products/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
         </article>
