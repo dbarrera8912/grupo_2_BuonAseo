@@ -10,5 +10,4 @@ module.exports = [
 
     body('password')
         .notEmpty().withMessage('La contraseña es obligatoria').bail()
-    
 ]

@@ -7,9 +7,10 @@
         <input type="text" placeholder="Que producto busca?" />
         <span class="header_section_input_span"><i class="fa-solid fa-magnifying-glass"></i></span>
       </article>
-      <% if (locals.userLogin) { %>
+      <% if (locals.userLogged) { %>
         <article class="header_section_user_car">
-          <h4 class="home_header_ingresar"><%= userLogin.name %> </h4>
+          <h4 class="home_header_ingresar"><%= locals.userLogged.name %> </h4>
+          <a href="/users/logout" class="home_header_ingresar">Salir</i></a>
           <a href="/products/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
         </article>
       <% }else{ %>
