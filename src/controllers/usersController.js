@@ -97,6 +97,8 @@ module.exports = {
         return res.redirect("/");
     },
     profile: (req, res) => {
-        return res.render("./users/profile");
+        return res.render("./users/profile", {
+			user: req.session.userLogged/* guardamos los datos del usuario de session */
+		});
     },
 }
