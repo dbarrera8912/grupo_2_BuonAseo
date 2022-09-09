@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { login, formulario, password, processFormulario, processLogin, logout}=require('../controllers/usersController');
+const { login, formulario, password, processFormulario, processLogin, logout, profile}=require('../controllers/usersController');
 const validacionRegistroUser = require('../validators/val_users/validacionRegistroUsers');
 const validacionLoginUser = require('../validators/val_users/validacionLoginUsers');
 
@@ -12,5 +12,6 @@ router
       .get('/password-lost', password)
       .post('/login', validacionLoginUser, processLogin)
       .get("/logout", logout)
+      .get("/profile", profile)
       
 module.exports = router;

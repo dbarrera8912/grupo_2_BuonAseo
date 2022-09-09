@@ -7,5 +7,50 @@
       "password2": "$2a$10$RmK64t.Df8JVeYF8tLFNmONDwHdH3eFCt61O3IvvBA9Q1MDixSH5q",
       "category": null,
       "avatar": null
+   },
+   {
+      "id": 2,
+      "name": "Sirley",
+      "email": "sirley@gmail.com",
+      "password": "$2a$10$uoKKFsMcXlf8kK3iMNDLO..Shva2q.Bp9zJpywdIJpi59tAB31UJS",
+      "password2": "$2a$10$Y3EPYxKlnAddms.m8jRu0OolHWJwmdx1vZDAGSQIzOysTyDLn34Ge",
+      "category": null,
+      "avatar": null
+   },
+   {
+      "id": 3,
+      "name": "Matias",
+      "email": "matias@gmail.com",
+      "password": "$2a$10$TlqMAdiFD7sAQL.IYxHcUug95mVYFoEPX1ak7XJQYaYjQHH2uUTOy",
+      "password2": "$2a$10$oF5mGysf4ab9u2UNA89y9ePdLA4aoz/Ifpb4STsquwR7OyJpDtDHK",
+      "category": null,
+      "avatar": null
+   },
+   {
+      "id": 4,
+      "name": "Daniel",
+      "email": "daniel@gmail.com",
+      "password": "$2a$10$NkGn9bnAWChNW1PyCMDove4WbMFLp5U/.DaY1U8O4JMQMonrYp0r2",
+      "password2": "$2a$10$fFFlHWxMrOky8PztY1VmVOWCv2Nyv9vXMexbsaSl6..05QRocP9dm",
+      "category": null,
+      "avatar": null
+   },
+   {
+      "id": 5,
+      "name": "Julian",
+      "email": "julian@gmail.com",
+      "password": "$2a$10$LqPFWS0kwXPga7wvqEKM3etxhWZYLkJB6cC.3k1JFb.63XikykcqW",
+      "password2": "$2a$10$fha42/C71oDrHTgC.GvUHeZ768VaeilxkCcUCwosOOiPK1Hg83m3i",
+      "category": null,
+      "avatar": null
+   },
+   {
+      "id": 6,
+      "name": "Eric",
+      "email": "eric@gmail.com",
+      "password": "$2a$10$NBnHJCBKr29IGiPw2LTqHeGaV7gUIg74SSJbJxpggzKquQKJaG2k.",
+      "password2": "$2a$10$nu5wTAxCY9FWjKleMLpfHuqwWHeaO5pb/FTbM9PZqeKsIBZyJlRju",
+      "category": null,
+      "avatar": null
    }
 ]

@@ -96,4 +96,7 @@ module.exports = {
         req.session.destroy(); /* borra automaticamente todo registro en session */
         return res.redirect("/");
     },
+    profile: (req, res) => {
+        return res.render("./users/profile");
+    },
 }

@@ -9,7 +9,7 @@
       </article>
       <% if (locals.userLogged) { %>
         <article class="header_section_user_car">
-          <h4 class="home_header_ingresar"><%= locals.userLogged.name %> </h4>
+          <a href="/users/profile" class="home_header_ingresar"><%= locals.userLogged.name %> </a>
           <a href="/users/logout" class="home_header_ingresar">Salir</i></a>
           <a href="/products/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
         </article>
