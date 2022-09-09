@@ -9,7 +9,7 @@
       </article>
       <% if (locals.userLogged) { %>
         <ul class="header_section_user_car">
-          <li><img src="/img/fotos-users/<%= locals.userLogged.avatar ? locals.userLogged.avatar : "default.png" %> "></li>
+          <li><a href="/users/profile"><img src="/img/fotos-users/<%= locals.userLogged.avatar ? locals.userLogged.avatar : "default.png" %> "></a></li>
           <ul class="header_perfil" onclick="document.querySelector('.header_perfil_desplegable').classList.toggle('header_perfil_desplegable-show')">
             <a class="home_header_ingresar"><%= locals.userLogged.name %> <i class="fa-sharp fa-solid fa-caret-down"></i></a>
           </ul>
@@ -37,6 +37,18 @@
       <nav class="header_section_dos_lista">
         <img src="/img/LogoInvertidoBlanco.png" alt="logo" />
         <ul class="header_section_dos_lista--1">
+          <!-- CUENTA -->
+          <li class="header_cuenta-solo-para-movil-y-tablet" onclick="document.querySelector('.header_section_dos_lista--submenu-1').classList.toggle('subMenu-1')">
+            <a href="#">Cuenta <i class="fa-solid fa-angle-down"></i></a>
+            <ul class="header_section_dos_lista--submenu-1">
+              <li><a href="/users/profile">Mi perfil</a></li>
+              <hr>
+              <li><a href="/users/logout">Salir</a></li>
+              <hr>
+            </ul>
+
+          </li>
+          <hr />
           <!-- CATEGORIAS -->
           <li onclick="document.querySelector('.header_section_dos_lista--submenu').classList.toggle('subMenu')">
             <a href="#">Categorias <i class="fa-solid fa-angle-down"></i></a>
