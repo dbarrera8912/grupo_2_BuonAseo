@@ -1,1 +1,43 @@
-hola
+<%- include('../partials/head', {title: 'Perfil' })%> 
+<body class="perfil-body">
+    <%- include('../partials/header') %> 
+    <main class="perfil-main">
+        <div class="perfil-container">
+        <div class="perfil-main-h1-img">
+            <a class="perfil-main-salida" href="/">x</a>
+            <h1 class="perfil-main-titulo">Bienvenido</h1>
+            <img class="perfil-main-image" src="../img/fotos-users/<%= locals.userLogged.avatar ? locals.userLogged.avatar : "default.png" %>"/>
+        </div>
+        <form>
+            <div class="perfil-main-caja--input-label">
+                <label class="perfil-main-label" for="nombre">Nombre</label>
+                <input class="perfil-main-input" name="nombre" type="text">
+            </div>
+            <div class="perfil-main-caja--input-label">
+                <label class="perfil-main-label" for="nombre">Email</label>
+                <input class="perfil-main-input" name="nombre" type="text">
+            </div>
+
+            <div class="perfil-main-caja--input-label">
+                <label class="perfil-main-label" for="nombre">Contraseña</label>
+                <input class="perfil-main-input" name="nombre" type="text">
+            </div>
+
+            <div class="perfil-main-caja--input-label">
+                <label class="perfil-main-label" for="nombre">Categoria</label>
+                <input class="perfil-main-input" name="nombre" type="text">
+            </div>
+            <div class="perfil-main-caja--input-label">
+                <label class="perfil-main-label" for="nombre">Imagen</label>
+                <input class="perfil-main-input" name="nombre" type="file">
+            </div>
+            <div class="perfil-main-caja--boton">
+                <button class="perfil_botonRegistro" type="reset">CANCELAR</button>
+                <button class="perfil_botonRegistro" type="submit">GUARDAR</button>
+              </div>
+        </form>
+    </div>
+    </main>
+    
+</body>
+</html>

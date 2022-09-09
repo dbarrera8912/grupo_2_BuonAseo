@@ -1,0 +1,145 @@
+.perfil-main {
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    flex-direction:column;
+    align-items: center;
+    background: rgb(2,64,177);
+    background: linear-gradient(0deg, rgba(2,64,177,1) 0%, rgba(26,121,237,1) 54%, rgba(26,121,237,1) 100%);
+}
+
+.perfil-container{
+    background-color: var(--blanco);
+    border-radius: 10px;
+    width: 80%;
+}
+
+.perfil-main-salida{
+    font-size: 1.5rem;
+    top: 0;
+    margin-left: 12.3rem;
+    color: var(--negro);
+    font-weight: 600;
+}
+
+.perfil-main-h1-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+.perfil-main-image{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.perfil-main-caja--input-label{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.perfil-main-label{
+    font-size: 0.9rem;
+    padding-left: 20px;
+    padding-bottom: 5px;
+}
+
+.perfil-main-input{
+    border: 1px var(--azulFuerte) solid;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.8rem;
+    background-color: var(--azulFuerte);
+    width: 90%;
+    height: 30px;
+    padding-left: 10px;
+    align-self: center;
+}
+
+.perfil-main-input:-webkit-autofill, 
+.perfil-main-input:-webkit-autofill:hover, 
+.perfil-main-input:-webkit-autofill:focus, 
+.perfil-main-input:-webkit-autofill:active { 
+    box-shadow: 0 0 0 30px var(--azulFuerte) inset !important; -webkit-text-fill-color: white !important;}
+
+    .perfil-main-caja--boton{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0px;
+    }
+
+.perfil_botonRegistro{
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+}
+
+
+    @media (min-width: 768px){   
+       
+        .perfil-main-titulo{
+            font-size: 3rem;
+        }
+
+        .perfil-main-salida{
+            font-size: 2.5rem;
+            margin-left: 34rem;
+        }
+
+        .perfil-main-input{
+            height: 40px;
+        }
+
+        .perfil-main-label{
+            font-size: 1.5rem;
+            padding-left: 30px;
+        }
+
+        .perfil_botonRegistro{
+            width: 130px;
+            height: 40px;
+        }
+
+        .perfil-main-image{
+            width: 150px;
+            height: 150px;
+        }
+    }
+
+    @media (min-width: 1024px){
+        .perfil-main-titulo{
+            font-size: 4rem;
+        }
+
+        .perfil-main-salida{
+            font-size: 3rem;
+            margin-left: 59rem;
+        }
+
+        .perfil-main-input{
+            height: 45px;
+        }
+
+        .perfil-main-label{
+            font-size: 1.5rem;
+            padding-left: 50px;
+        }
+
+        .perfil_botonRegistro{
+            width: 130px;
+            height: 45px;
+        }
+
+        .perfil-main-image{
+            width: 200px;
+            height: 200px;
+        }
+    }

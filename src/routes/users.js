@@ -7,9 +7,10 @@ const validacionRegistroUser = require('../validators/val_users/validacionRegist
 const validacionLoginUser = require('../validators/val_users/validacionLoginUsers');
 const guestMiddleware = require("../middlewares/mw_users/guestMiddleware")/* Middleware para no permitir ingresar a vistas si estamos logueado */
 const authMiddleware = require("../middlewares/mw_users/authMiddleware")/* Middleware para no permitir ingresar a vistas si no estamos logueado */
+const {uploadAvatar} = require('../middlewares/mw_users/uploadAvatar')
 
 // ************ Controller Require ************
-const { login, formulario, password, processFormulario, processLogin, logout, profile}=require('../controllers/usersController');
+const { login, formulario, password, processFormulario, processLogin, logout, profile, update}=require('../controllers/usersController');
 
 // ************ Rutas ************
 /* /users/... */
@@ -21,5 +22,6 @@ router
       .get("/logout", authMiddleware, logout)
       .get('/password-lost', guestMiddleware, password)
       .get("/profile", authMiddleware, profile)
+      .put('/update/:id',uploadAvatar.single('avatar'), update)
       
 module.exports = router;
