@@ -37,12 +37,17 @@
                         <button class="detalle_main_article_boton_principal">
                             <a href="/products/carrito">AGREGAR AL CARRITO</a>
                         </button>
-                        <div class="detalle_main_article_boton_editar-eliminar">
-                            <a href="/products/editarProducto/<%= product.Id %> "><button class="detalle_mani_action-button-edit"> EDITAR PRODUCTO</button></a>
+                        <% if (locals.adminEntry) { %>
+                         <div class="detalle_main_article_boton_editar-eliminar">
+                            <a href="/products/editarProducto/<%= product.Id %> "><button
+                                    class="detalle_mani_action-button-edit"> EDITAR PRODUCTO</button></a>
                             <form action="/products/eliminarProducto/<%= product.Id %>?_method=DELETE" method="POST"
                                 style="display: inline-flex">
                                 <button type="submit" class="detalle_mani_action-button-delete">ELIMINAR</button>
-                            </form></div>
+                            </form>
+                        </div>
+                        <% } %>
+                        
                     </article>
 
                 </section>
