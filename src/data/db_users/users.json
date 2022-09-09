@@ -52,14 +52,5 @@
       "password2": "$2a$10$nu5wTAxCY9FWjKleMLpfHuqwWHeaO5pb/FTbM9PZqeKsIBZyJlRju",
       "category": null,
       "avatar": null
-   },
-   {
-      "id": 7,
-      "name": "richarduno",
-      "email": "richarduno@gmail.com",
-      "password": "$2a$10$Uy/tnllZG7xGI3tkxbXG/.rQlcG2x8JslJnMREw8t9U/Yye38kXSC",
-      "password2": "$2a$10$MB.tZjkmLdyv9MUGy0BnuuKyHOJSe4Gs.8AXJwNNsamRmKW2TOPtm",
-      "category": null,
-      "avatar": null
    }
 ]
