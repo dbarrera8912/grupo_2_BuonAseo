@@ -23,7 +23,8 @@
         <article class="header_section_user_car">
           <a href="/users/login" class="home_header_ingresar">Ingresar</a>
           <a href="/users/login"><i class="fa-solid fa-circle-user"></i></a>
-          <a href="/products/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+          <a href="/users/formulario" class="home_header_ingresar">Crear</a>
+          <a href="/users/formulario"><i class="far fa-address-card"></i></a>
         </article>
         
         <% } %>
@@ -38,7 +39,8 @@
         <img src="/img/LogoInvertidoBlanco.png" alt="logo" />
         <ul class="header_section_dos_lista--1">
           <!-- CUENTA -->
-          <li class="header_cuenta-solo-para-movil-y-tablet" onclick="document.querySelector('.header_section_dos_lista--submenu-1').classList.toggle('subMenu-1')">
+          <% if (locals.userLogged) { %>
+           <li class="header_cuenta-solo-para-movil-y-tablet" onclick="document.querySelector('.header_section_dos_lista--submenu-1').classList.toggle('subMenu-1')">
             <a href="#">Cuenta <i class="fa-solid fa-angle-down"></i></a>
             <ul class="header_section_dos_lista--submenu-1">
               <li><a href="/users/profile">Mi perfil</a></li>
@@ -49,6 +51,8 @@
 
           </li>
           <hr />
+          <% } %>
+          
           <!-- CATEGORIAS -->
           <li onclick="document.querySelector('.header_section_dos_lista--submenu').classList.toggle('subMenu')">
             <a href="#">Categorias <i class="fa-solid fa-angle-down"></i></a>

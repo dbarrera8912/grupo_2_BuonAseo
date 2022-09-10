@@ -72,15 +72,17 @@
 
 
 .header_section_user_car i {
-    font-size: 15px;
+    font-size: 18px;
+    
     color: var(--blanco);
 }
 
 /* PERFIL DESPLEGABLE */
 .header_section_user_car img{
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
+   
 }
 .header_perfil_desplegable {
     display: none;
@@ -244,13 +246,18 @@
 
 @media (min-width: 768px) {
 
-    .home_header_ingresar {
-        display: flex;
-    }
-
     header a {
         font-size: 1.3rem;
         color: var(--blanco);
+    }
+    .header_section_user_car i {
+        font-size: 30px;
+        color: var(--blanco);
+        margin-left: 5px;
+    }
+    .header_section_user_car img{
+        width: 34px;
+        height: 34px;   
     }
 
 }
@@ -280,6 +287,7 @@
 
     .header_section_user_car i {
         font-size: 20px;
+        margin-left: 2px;
     }
 
     .header_section_hamburguesa {
@@ -360,6 +368,12 @@
     }
 
     .home_header_ingresar {
+        display: flex;
         font-size: 20px;
+        margin-left: 10px;
+    }
+    .header_section_user_car img{
+        width: 30px;
+        height: 30px;   
     }
 }
