@@ -10,7 +10,9 @@
           <!-- TITULO Y BUSCADOR-->
           <!-- tiene un + al lado para agregar una pregunta, si hace click manda la peticion al metodo agregarPregunta -->
           <div class="preguntasFrecuentes__section__cajaTitulo">
-            <h1>Preguntas frecuentes <a href="/footer/preguntas/agregar"><i class="fa-solid fa-plus"></i></a></h1>
+            <h1>Preguntas frecuentes <% if (locals.adminEntry) { %>
+              <a href="/footer/preguntas/agregar"><i class="fa-solid fa-plus"></i></a>
+            <% } %> </h1>
             <!-- metodo searchPregunta de footerController, mandamos el keywords a la vista preguntasEncontradas-->
             <form action="/footer/preguntas/search" class="header_section_input preguntasFrecuentes_barraBuscador" method="get">
               <input type="text" name="keywords" placeholder="Buscar una pregunta...">
