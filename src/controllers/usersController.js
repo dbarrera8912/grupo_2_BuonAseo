@@ -111,12 +111,13 @@ module.exports = {
 		});
     },
     update : (req, res) => {
-        const {name, email, password, category, gender, interests, phone, dni, birthday, nationality, postalCode, domicile, city} = req.body;                                              
+        const {name, email,password, category, gender, interests, phone, dni, birthday, nationality, postalCode, domicile, city} = req.body;                                              
         let usersModify = cargarUsers().map(user => {
             if(user.id === +req.params.id){
                 return {
                     ...user,
                     ...req.body,
+                    interests : interests,
                     avatar : req.file ? req.file.filename : req.session.userLogged.avatar
                 }
             }
