@@ -117,7 +117,7 @@ module.exports = {
                 return {
                     ...user,
                     ...req.body,
-                    interests : interests,
+                    interests : interests && interests.length > 1 ? interests : [interests],
                     avatar : req.file ? req.file.filename : req.session.userLogged.avatar
                 }
             }

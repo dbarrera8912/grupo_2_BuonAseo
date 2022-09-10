@@ -21,7 +21,6 @@ function userLoggedMiddleware(req, res, next) {
         admins.forEach(admin => {/* recorremos admins */
             if (req.session.userLogged.email === admin) {/* si el email en sesion es igual al email de un admin, entra */
                 res.locals.adminEntry = true;
-                return next()/* se ejecuta lo pedido y continuamos. Sirve en casos donde quiera acceder a un lugar prohibido de la web, donde solo pueden entrar adminss */
             }
         });
     }

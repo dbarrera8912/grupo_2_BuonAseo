@@ -50,15 +50,15 @@
                 <label class="perfil-main-label" for="intereses">Intereses</label>
                 <div class="perfil-main-caja-checkbox">
                  <label  class="perfil-main-label-checkbox" for="jabones"> 
-                    <input class="perfil-main-input-checkbox"  value="jabones" type="checkbox" id="jabones"  name="interests" <%= user.interests.includes('jabones') && "checked"%>>Jabones</label>
+                    <input class="perfil-main-input-checkbox"  value="jabones" type="checkbox" id="jabones"  name="interests" <%= user.interests && user.interests.includes('jabones') && "checked"%>>Jabones</label>
                  </div>
                  <div class="perfil-main-caja-checkbox">
                     <label class="perfil-main-label-checkbox" for="suavisantes">
-                    <input class="perfil-main-input-checkbox"  value="suavisantes" type="checkbox" id="suavisantes" name="interests" <%= user.interests.includes('suavisantes') && "checked"%>> Suavisantes</label>
+                    <input class="perfil-main-input-checkbox"  value="suavisantes" type="checkbox" id="suavisantes" name="interests" <%= user.interests && user.interests.includes('suavisantes') && "checked"%>> Suavisantes</label>
                 </div>
                 <div class="perfil-main-caja-checkbox">
                     <label class="perfil-main-label-checkbox" for="lavandinas">
-                    <input class="perfil-main-input-checkbox"  value="lavandinas" type="checkbox" id="lavandinas" name="interests" <%= user.interests.includes('lavandinas') && "checked"%>> Lavandinas</label>
+                    <input class="perfil-main-input-checkbox"  value="lavandinas" type="checkbox" id="lavandinas" name="interests" <%= user.interests && user.interests.includes('lavandinas') && "checked"%>> Lavandinas</label>
             </div>
         </div>
 

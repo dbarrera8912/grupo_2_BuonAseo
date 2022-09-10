@@ -5,17 +5,20 @@
       "email": "richard@gmail.com",
       "password": "$2a$10$64EoZmrUKJS94rLHjEN5.uYxWyWWh0xob4ZH5hXfE3n4wKxL2Aicy",
       "password2": "$2a$10$RmK64t.Df8JVeYF8tLFNmONDwHdH3eFCt61O3IvvBA9Q1MDixSH5q",
-      "gender": null,
-      "interests": null,
-      "phone": null,
-      "dni": null,
-      "birthday": null,
-      "nationality": null,
-      "postalCode": null,
-      "domicile": null,
-      "city": null,
-      "category": null,
-      "avatar": null
+      "gender": "o",
+      "interests": [
+         "jabones",
+         "suavisantes"
+      ],
+      "phone": "213321",
+      "dni": "213213132",
+      "birthday": "0432-03-21",
+      "nationality": "Argentina pa",
+      "postalCode": "calle213",
+      "domicile": "la calle",
+      "city": "la calle",
+      "category": "vendedor",
+      "avatar": "avatar-1662845446711.png"
    },
    {
       "id": 2,
