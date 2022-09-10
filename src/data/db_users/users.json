@@ -59,16 +59,20 @@
       "email": "matiassabbadini24@gmail.com",
       "password": "$2a$10$GNez/A0XqPS63h47qx/0a.73Gg0C2KRHgnYuc8h.W8CAz5zIdLVTy",
       "password2": "$2a$10$SGptaZ0rIpqm1UcA71BDruOEvg6EZrfjxgez5Cnr2L7zXzn3UV4Di",
-      "gender": null,
-      "interests": null,
-      "phone": "",
-      "dni": "",
-      "birthday": "",
-      "nationality": "",
-      "postalCode": "",
-      "domicile": "",
-      "city": "",
+      "gender": "m",
+      "interests": [
+         "jabones",
+         "suavisantes",
+         "lavandinas"
+      ],
+      "phone": "432432",
+      "dni": "32432432",
+      "birthday": "2022-09-18",
+      "nationality": "sadsad",
+      "postalCode": "asdsaddsa",
+      "domicile": "sadsad",
+      "city": "324324",
       "category": null,
-      "avatar": "avatar-1662760377351.png"
+      "avatar": "avatar-1662771826634.jpg"
    }
 ]

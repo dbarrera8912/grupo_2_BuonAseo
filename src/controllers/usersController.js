@@ -111,22 +111,22 @@ module.exports = {
 		});
     },
     update : (req, res) => {
-        const {name, email, password, category, gender, interests, phone, dni, birthday, nationality, postalCode, domicile, city, avatar} = req.body;                                              
+        const {name, email, password, category, gender, interests, phone, dni, birthday, nationality, postalCode, domicile, city} = req.body;                                              
         let usersModify = cargarUsers().map(user => {
             if(user.id === +req.params.id){
                 return {
                     ...user,
                     ...req.body,
-                    avatar : req.file ? req.file.filename : req.session.userLogin.avatar
+                    avatar : req.file ? req.file.filename : req.session.userLogged.avatar
                 }
             }
             return user
         });
     
-        req.session.userLogin = {
-            ...req.session.userLogin,
+        req.session.userLogged = {
+            ...req.session.userLogged,
             name,
-            avatar : req.file ? req.file.filename : req.session.userLogin.avatar
+            avatar : req.file ? req.file.filename : req.session.userLogged.avatar
         }
 
         crearUsers(usersModify);
