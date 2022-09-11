@@ -3,10 +3,10 @@
       <article class="header_section_logo">
         <a href="/"><img src="/img/logoFinal.png" alt="logo" /></a>
       </article>
-      <article class="header_section_input">
-        <input type="text" placeholder="Que producto busca?" />
-        <span class="header_section_input_span"><i class="fa-solid fa-magnifying-glass"></i></span>
-      </article>
+      <form class="header_section_input" action="/search" method="get">
+        <input type="text" placeholder="Que producto busca?" name="keywords" />
+        <button class="header_section_input_span"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
       <% if (locals.userLogged) { %>
         <ul class="header_section_user_car">
           <li><a href="/users/profile"><img src="/img/fotos-users/<%= locals.userLogged.avatar ? locals.userLogged.avatar : "default.png" %> "></a></li>

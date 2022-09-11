@@ -1,4 +1,5 @@
 const { loadProducts } = require('../data/db_productos/dbModule');
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 module.exports = {
     home: (req, res) => {
         let userLogin = req.session.userLogin;
@@ -36,5 +37,18 @@ module.exports = {
     },
     notAdmin: (req, res) => {
         return res.render('./home/notAdmin')
-    }
+    },
+    search: (req, res) => {
+		// Do the magic
+		let keywords = req.query.keywords;
+		let products = loadProducts();
+		let result = products.filter(produc => produc.Nombre.toLowerCase().includes(keywords.toLowerCase()));
+	    return res.render('./home/results', {
+			result,
+			toThousand,
+			keywords
+		})
+	}
+
+
 }

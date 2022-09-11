@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('../partials/head', {title: 'Resultados de tu búsqueda'}) %>
+<body>
+	<!-- Header -->
+	<%- include('../partials/header') %>
+	<!-- /Header -->
+
+	<!-- todos los productos -->
+	<main class="carrito">
+		<div class="carrito__section">
+		  <section class="carrito__caja__titulo">
+			<h1 class="carrito__titulo"> Resultados de la búsqueda: <%= keywords %></h1>
+			<hr class="carrito__primer__linia__espacio">
+		  </section> 
+          <% if (result.length > 0) { %>
+           <div class="carrito__section__paraescritorio">
+			<section class="carrito__titulo__paraescritorio"> 
+			  <p class="carrito__producto__desktop">PRODUCTO</p>
+			  <p class="carrito__producto__desktop">CATEGORIA</p>
+			  <p class="carrito__producto__desktop">AROMA</p>
+			  <p class="carrito__producto__desktop">STOCK</p>
+			  <p class="carrito__producto__desktop">DESCUENTO</p>
+			  <p class="carrito__producto__desktop">PRECIO</p>
+			</section>
+			<% result.forEach(({Id,Nombre,Precio,Image,Descuento,Aroma,Volumen,Dimenciones,Categoria,Stock}) => { %> 
+				<%- include('../partials/product',{
+					Id,
+					Nombre,
+					Precio,
+					Image,
+					Descuento,
+					Aroma,
+					Volumen,
+					Dimenciones,
+					Categoria,
+					Stock,
+					toThousand
+				}) %> 
+			<% }) %>
+        </div>
+          <% } else{%>
+            <h2 class="products-title" style="color: tomato;">No hay productos que coincidan con esa búsqueda</h2>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+		  <% } %> 
+			
+		</div>
+	</main>
+	<!-- /todos los productos -->
+
+	<!-- footer -->
+	<%- include('../partials/footer') %>
+	<!-- /footer -->
+</body>	
+</html>
