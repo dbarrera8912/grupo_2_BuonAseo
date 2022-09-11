@@ -116,7 +116,8 @@ module.exports = {
             if(user.id === +req.params.id){
                 return {
                     ...user,
-                    ...req.body,
+                    ...req.body, 
+                    password: password ? password: user.password,
                     interests : interests && interests.length > 1 ? interests : [interests],
                     avatar : req.file ? req.file.filename : req.session.userLogged.avatar
                 }
