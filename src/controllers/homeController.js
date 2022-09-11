@@ -33,5 +33,8 @@ module.exports = {
         return res.render('./home/productosDestacados',{
             products
         })
+    },
+    notAdmin: (req, res) => {
+        return res.render('./home/notAdmin')
     }
 }

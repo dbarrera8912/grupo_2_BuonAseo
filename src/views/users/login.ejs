@@ -36,18 +36,20 @@
       <h4 class="registro__email__titulo">Con su Email</h4>
       <form action="/users/login" method="POST">
         <article class="registro__email__container">
-          <input class="registro__email__texto" value="" type="email, text" id="email" name="email"
+          <input class="registro__email__texto <%= locals.errors && errors.email ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.email %>" type="email, text" id="email" name="email"
             placeholder="Nombre de usuario o Email*" />
           <img src="/img/login-register/imgEmail.png" alt="">
+          <small><%= locals.errors && errors.email && errors.email.msg %></small>
         </article>
         <article class="registro__email__container">
-          <input class="registro__email__texto" value="" type="password" id="" name="password" placeholder="Contraseña*" />
+          <input class="registro__email__texto <%= locals.errors && errors.password ? "registro__email__container-inValid" : null %>" value="" type="password" id="" name="password" placeholder="Contraseña*" />
           <img src="/img/login-register/imgContraseña.png" alt="">
+          <small><%= locals.errors && errors.password && errors.password.msg %></small>
         </article>
         <!-- BOTON INGRESAR -->
         <article class="login-detail__article__containerBotonIngreso">
           <div>
-            <input type="checkbox" name="perdio" id="recordarme" value=""> 
+            <input type="checkbox" name="perdio" id="recordarme" value="on"> 
             <label for="recordarme">Recordarme</label>
           </div>
           <button class="registro__email__botonRegistro" type="submit">INGRESAR</button>

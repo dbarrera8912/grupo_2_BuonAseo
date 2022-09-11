@@ -23,7 +23,8 @@
                     <% } %>
         </p>
         <!-- BOTONES Y FECHA -->
-        <div class="preguntasAgregar__Caja__boton">
+        <% if (locals.adminEntry) { %>
+         <div class="preguntasAgregar__Caja__boton">
             <!-- boton para editar, si hace click aca lo mandamos a una ruta dinamica con su id para editar la elegida, con los metodos editarPregunta y modificarPregunta -->
             <a href="/footer/preguntas/editar/<%= array[x].id %>"><button type="button"
                     class="registro__email__botonRegistro">Editar</button></a>
@@ -32,6 +33,8 @@
                 <button type="submit" class="registro__email__botonRegistro">Eliminar</button>
             </form>
         </div>
+        <% } %>
+        
         <!-- fecha que contiene el json, dada gracias a new Date(), que al agregar o modificar le agrega la fecha exacta. Metodo ubicado en data/db_FooterModule -->
         <small class="preguntasAgregar__Caja__boton">
             <%= array[x].fecha %>
@@ -58,7 +61,8 @@
                     <% }) %>
             </ul>
             <!-- BOTONES Y FECHA -->
-            <div class="preguntasAgregar__Caja__boton">
+            <% if (locals.adminEntry) { %>
+             <div class="preguntasAgregar__Caja__boton">
                 <!-- boton para editar, si hace click aca lo mandamos a una ruta dinamica con su id para editar la elegida, con los metodos editarPregunta y modificarPregunta -->
                 <a href="/footer/preguntas/editar/<%= array[x].id %>"><button type="button"
                         class="registro__email__botonRegistro">Editar</button></a>
@@ -67,6 +71,8 @@
                     <button type="submit" class="registro__email__botonRegistro">Eliminar</button>
                 </form>
             </div>
+            <% } %>
+            
             <!-- fecha que contiene el json, dada gracias a new Date(), que al agregar o modificar le agrega la fecha exacta. Metodo ubicado en data/db_FooterModule -->
             <small class="preguntasAgregar__Caja__boton">
                 <%= array[x].fecha %>

@@ -11,7 +11,9 @@
 	<main class="carrito">
 		<div class="carrito__section">
 		  <section class="carrito__caja__titulo">
-			<h1 class="carrito__titulo">CATALOGO DE PRODUCTOS</h1>
+			<h1 class="carrito__titulo"> CATALOGO DE PRODUCTOS <% if (locals.adminEntry) { %>
+				<a href="/products/crearProducto"><i class="fa-solid fa-plus"></i></a>
+			<% } %> </h1>
 			<hr class="carrito__primer__linia__espacio">
 		  </section>
 		  <div class="carrito__section__paraescritorio">

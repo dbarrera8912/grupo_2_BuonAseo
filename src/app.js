@@ -6,8 +6,7 @@ var logger = require('morgan');
 
 const session = require('express-session');
 
-const cookieCheck = require('./middlewares/mw_cookie/mw_cookie');
-const localUser = require('./middlewares/mw_users/localUser');
+const localUser = require('./middlewares/mw_users/userLoggedMiddleware');
 
 const methodOverride = require ("method-override");
 
@@ -32,11 +31,11 @@ app.use (methodOverride ("_method"));
 
 app.use(session({
   secret : 'BuonAseo',
-  resave : true,
+  resave : false,
   saveUninitialized : true
 }));
 
-app.use(cookieCheck);
+
 app.use(localUser);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

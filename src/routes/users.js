@@ -1,15 +1,27 @@
+// ************ Require's ************
 var express = require('express');
 var router = express.Router();
-const { login, formulario, password, processFormulario, processLogin}=require('../controllers/usersController');
+
+// ************ Middleware Require ************
 const validacionRegistroUser = require('../validators/val_users/validacionRegistroUsers');
 const validacionLoginUser = require('../validators/val_users/validacionLoginUsers');
+const guestMiddleware = require("../middlewares/mw_users/guestMiddleware")/* Middleware para no permitir ingresar a vistas si estamos logueado */
+const authMiddleware = require("../middlewares/mw_users/authMiddleware")/* Middleware para no permitir ingresar a vistas si no estamos logueado */
+const {uploadAvatar} = require('../middlewares/mw_users/uploadAvatar')
 
-/* GET home page. */
+// ************ Controller Require ************
+const { login, formulario, password, processFormulario, processLogin, logout, profile, update}=require('../controllers/usersController');
+
+// ************ Rutas ************
+/* /users/... */
 router
-      .get('/login', login)
-      .get('/formulario', formulario)
+      .get('/formulario',guestMiddleware, formulario)
       .post('/formulario', validacionRegistroUser, processFormulario)
-      .get('/password-lost', password)
+      .get('/login',guestMiddleware, login)
       .post('/login', validacionLoginUser, processLogin)
-
+      .get("/logout", authMiddleware, logout)
+      .get('/password-lost', guestMiddleware, password)
+      .get("/profile", authMiddleware, profile)
+      .put('/update/:id',uploadAvatar.single('avatar'), update)
+      
 module.exports = router;

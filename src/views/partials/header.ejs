@@ -7,16 +7,24 @@
         <input type="text" placeholder="Que producto busca?" />
         <span class="header_section_input_span"><i class="fa-solid fa-magnifying-glass"></i></span>
       </article>
-      <% if (locals.userLogin) { %>
-        <article class="header_section_user_car">
-          <h4 class="home_header_ingresar"><%= userLogin.name %> </h4>
-          <a href="/products/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
-        </article>
+      <% if (locals.userLogged) { %>
+        <ul class="header_section_user_car">
+          <li><a href="/users/profile"><img src="/img/fotos-users/<%= locals.userLogged.avatar ? locals.userLogged.avatar : "default.png" %> "></a></li>
+          <ul class="header_perfil" onclick="document.querySelector('.header_perfil_desplegable').classList.toggle('header_perfil_desplegable-show')">
+            <a class="home_header_ingresar"><%= locals.userLogged.name %> <i class="fa-sharp fa-solid fa-caret-down"></i></a>
+          </ul>
+          <ul class="header_perfil_desplegable">
+            <a href="/users/profile">Mi perfil</a>
+            <a href="/users/logout" class="home_header_ingresar">Salir</i></a>
+          </ul>
+          <li><a href="/products/carrito"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        </ul>
       <% }else{ %>
         <article class="header_section_user_car">
-          <h4 class="home_header_ingresar">Ingresar</h4>
+          <a href="/users/login" class="home_header_ingresar">Ingresar</a>
           <a href="/users/login"><i class="fa-solid fa-circle-user"></i></a>
-          <a href="/products/carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+          <a href="/users/formulario" class="home_header_ingresar">Crear</a>
+          <a href="/users/formulario"><i class="far fa-address-card"></i></a>
         </article>
         
         <% } %>
@@ -30,6 +38,21 @@
       <nav class="header_section_dos_lista">
         <img src="/img/LogoInvertidoBlanco.png" alt="logo" />
         <ul class="header_section_dos_lista--1">
+          <!-- CUENTA -->
+          <% if (locals.userLogged) { %>
+           <li class="header_cuenta-solo-para-movil-y-tablet" onclick="document.querySelector('.header_section_dos_lista--submenu-1').classList.toggle('subMenu-1')">
+            <a href="#">Cuenta <i class="fa-solid fa-angle-down"></i></a>
+            <ul class="header_section_dos_lista--submenu-1">
+              <li><a href="/users/profile">Mi perfil</a></li>
+              <hr>
+              <li><a href="/users/logout">Salir</a></li>
+              <hr>
+            </ul>
+
+          </li>
+          <hr />
+          <% } %>
+          
           <!-- CATEGORIAS -->
           <li onclick="document.querySelector('.header_section_dos_lista--submenu').classList.toggle('subMenu')">
             <a href="#">Categorias <i class="fa-solid fa-angle-down"></i></a>

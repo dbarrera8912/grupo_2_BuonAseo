@@ -8,7 +8,7 @@ function adminMiddleware (req, res, next){
             return next()/* se ejecuta lo pedido y continuamos. Sirve en casos donde quiera acceder a un lugar prohibido de la web, donde solo pueden entrar adminss */
         }
     });
-    return res.send("No eres admin")/* si no coincide ningun email, retorna esto */
+    return res.redirect("/notAdmin")/* si no coincide ningun email, retorna esto */
 }
 
 module.exports = adminMiddleware;
