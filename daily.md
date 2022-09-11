@@ -138,3 +138,89 @@ Lo hizo fue hacer repaso de las clases, está complicado en todo y va a tratar d
 
 #### Sirley
 Lo que hizo fue hacer el proyecto, e implemento las rutas del home al catálogo y al detalle, y va seguir haciendo lo del css, para pasarlo al QA.
+
+
+# Daily Sprint 5
+
+## General:
+En este apartado veremos el progreso de los integrantes del equipo de Buon Aseo mediante las dailys del Sprint 5.
+
+## Fecha de daily: 05 de Septiembre 2022.
+
+### Integrantes:
+
+#### Daniel
+Lo que hizo fue completar el PG y mirar las clases grabadas, que va a hacer la retro y en lo que estaba trabado es, en un ejercicio de multer de PG.
+
+#### Richard
+Lo que hizo fue el PG, tuvo complicaciones en instalar el programa ya que estaba en inglés. Y lo que va a hacer es seguir con el PG y con el trabajo de QA.
+
+#### Matias
+Lo hizo fue trabajar con el T.P de validaciones y empezó con el integrador, tuvo complicaciones con las validaciones y ahora va a seguir con el registro.
+
+#### Sirley
+Lo que hizo el PG la clase nueva, y haciendo T.P adeudado, problemas si con algunos ejercicios del PG, y lo que va a hacer es terminar con PG y T.P.
+
+## Fecha de daily: 06 de Septiembre 2022.
+
+### Integrantes:
+
+#### Daniel
+No hizo nada aun, pero va a hacer los ejercicios de PG y ver las clases grabadas para descargar lo que necesita para MySQL, no tuvo complicaciones.
+
+#### Richard
+Lo que hizo fue ponerse al día con el PG y terminar con lo de multer y validaciones en producto no me tomaba categoría, por que no me tomaba lo fs y path. Va a seguir con validaciones de preguntas frecuentes y cookies en el proyecto.
+
+#### Matias
+Lo que hizo fue lo del registro, no entiende lo que hay que hacer, voy a ponerme al día con PG. 
+
+#### Sirley
+Lo que hizo fue terminar la clase del PG, problemas ninguno por ahora y va a empezar a hacer el login del proyecto.
+
+## Fecha de daily: 07 de Septiembre 2022.
+
+### Integrantes:
+
+#### Daniel
+Lo que hizo fue completar el PG, lo que va a hacer es seguir con el PG, no tuvo complicaciones.
+
+#### Richard
+Lo que hizo fue terminar con las validaciones en preguntas, error y editar y middlewares. No tuvo complicaciones y va a estar a la espera para hacer su trabajo de QA.
+
+#### Matias
+Lo hizo fue el PG y va a hacer es el trabajo integrador en un archivo aparte.
+
+#### Sirley
+Lo que hizo fue empezar la primera parte del login, si tuvo complicaciones en el login ya que no aparecía el nombre del que se logeaba y va a seguir con ello.
+
+## Fecha de daily: 08 de Septiembre 2022.
+
+### Integrantes:
+
+#### Daniel
+Lo que hizo fue hacer la clase del PG y viendo lo descargado en la clase, los inconvenientes que tuvo fue que estuvo un poco perdido con la descarga y va a seguir con PG y su trabajo de QA.
+
+#### Richard
+Lo que hizo fue mirar un video sobre MySQL (lo paso por slack). Tuvo impedimentos al querer poner en modo oscuro MySQL y piensa seguir viendo el video esperando su turno para trabajar en el proyecto.
+
+#### Matias
+Lo que hizo fue un poco de la vista perfil y estuvo con la instalación de MySQL y va seguir con la instalación a ver si puede.
+
+#### Sirley
+Lo que hizo ayer fue ver el T.P de craftsy y videos para ver como podía hacer para que se vea el nombre cuando te logias, los impedimentos que tuvo es que sigue con la duda de cómo resolverlo y hoy a ver si lo logra antes de entrar a la clase o si no se lo paso a Richard y a ver la última parte de la clase de ayer para cargar el archivo en MySQL.
+
+## Fecha de daily: 10 de Septiembre 2022.
+
+### Integrantes:
+
+#### Daniel
+Lo que hizo fue ver las últimas clases grabadas, tuvo complicaciones para presenciar la clase por el laburo, y va a seguir viendo las clases y a trabajar en el proyecto con Richard.
+
+#### Richard
+Lo que hizo fue terminar con middlewares de Buon Aseo y arreglo detalles del header, tuvo complicaciones con las cookies ya que llegaba en false, va a seguir con su trabajo de QA para entregar el Sprint.
+
+#### Matias
+Lo que hizo fue estar con la vista de perfil, y ahora está con las cookies y esta perdido con eso, va a ver la clase de nuevo.
+
+#### Sirley
+Lo que hizo fue entregar T.P adeudado, tuvo complicaciones con para colocar un cartel cuando uno agrega un producto o elimina y lo que va a hacer es subir las dailys al proyecto integrador.
