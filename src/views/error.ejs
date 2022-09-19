@@ -5,20 +5,40 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Houston - ¡We have an ERROR!</title>
 	<style>
-		html, body {
+		html{
+			background-image: url('/img/notAdmin.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+			background-position: center 0px;
+			height: 100%;
+		}
+		body {
 			font-size: 10px;
 			font-family: sans-serif;
-			background-color: #dddddd;
             display: flex;
             flex-flow: column wrap;
             align-items: center;
 
+			color: white;
 		}
-		h1 {
+		article{
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+			align-items: center; 
+			gap: 40px;
+			color: white;
 			font-size: 3.2em;
 		}
-		h2 {
-			font-size: 2.4em;
+		div{
+			border: 1px white solid;
+			background-color: white;
+			width: 2px;
+			height: 70px;
+			
+		}
+		img{
+			border-radius: 20px;
 		}
 		pre {
 			color: crimson;
@@ -27,6 +47,7 @@
 			padding: 10px;
 			border-radius: 10px;
 			font-size: 1.4em;
+			background-color: rgb(187, 182, 182);
 		}
 		pre::first-line {
 			font-weight: bold;
@@ -37,9 +58,12 @@
 	</style>
 </head>
 <body>
-	<h1><%= message %></h1>
+	<article>
+		<h1><%= message %></h1>
+		<div></div>
+		<h1><%= error.status %></h1>
+	</article>
     <img src="https://http.cat/<%= error.status %>" alt="" width="400px">
-	<h2><%= error.status %></h2>
 	<p>Error trying to access to: <b><%= path %></b></p>
 	<pre><i><%= error.stack %></i></pre>
     
