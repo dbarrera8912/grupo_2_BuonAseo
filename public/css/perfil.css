@@ -8,12 +8,9 @@
     background: linear-gradient(0deg, rgba(2,64,177,1) 0%, rgba(26,121,237,1) 54%, rgba(26,121,237,1) 100%);
 }
 
-.perfil-container{
-    background-color: var(--blanco);
-    border-radius: 10px;
-    width: 80%;
+.perfil-main-titulo{
+    font-size: 20px;
 }
-
 .perfil-main-salida{
     font-size: 1.5rem;
     top: 0;
@@ -30,10 +27,33 @@
 }
 
 .perfil-main-image{
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
 }
+
+.perfil-container{
+    background-color: var(--blanco);
+    border-radius: 10px;
+    width: 80%;
+}
+
+.perfil-main-formulario {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+}
+
+.perfil-main-conteiner1 {
+width: 40%;
+}
+
+.perfil-main-conteiner2 {
+    width: 40%;
+}
+
 
 .perfil-main-caja--input-label{
     width: 100%;
@@ -43,7 +63,7 @@
 }
 
 .perfil-main-label{
-    font-size: 0.9rem;
+    font-size: 0.5rem;
     padding-left: 20px;
     padding-bottom: 5px;
 }
@@ -52,6 +72,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    font-size: 0.5rem;
     gap: 10px;
     margin-bottom: 20px;
 }
@@ -73,6 +94,7 @@ flex-direction: row;
 .perfil-main-caja--input-label-checkbox {
 display: flex;
 flex-direction: column;
+font-size: 0.5rem;
 gap: 10px;
 width: 100%;
 margin-bottom: 15px;
@@ -149,11 +171,11 @@ margin-bottom: 15px;
     @media (min-width: 768px){   
        
         .perfil-main-titulo{
-            font-size: 3rem;
+            font-size: 2rem;
         }
 
         .perfil-main-salida{
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-left: 34rem;
         }
 
@@ -162,9 +184,17 @@ margin-bottom: 15px;
         }
 
         .perfil-main-label{
-            font-size: 1.5rem;
+            font-size: 1rem;
             padding-left: 30px;
         }
+
+        .perfil-main-caja--input-label-checkbox {
+            font-size: 1rem;
+            }
+
+            .perfil-main-caja--input-label-radio {
+                font-size: 1rem;
+                }
 
         .perfil_botonRegistro{
             width: 130px;
@@ -172,19 +202,19 @@ margin-bottom: 15px;
         }
 
         .perfil-main-image{
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
         }
     }
 
     @media (min-width: 1024px){
         .perfil-main-titulo{
-            font-size: 4rem;
+            font-size: 3rem;
         }
 
         .perfil-main-salida{
             font-size: 3rem;
-            margin-left: 59rem;
+            margin-left: 47rem;
         }
 
         .perfil-main-input{
@@ -196,13 +226,21 @@ margin-bottom: 15px;
             padding-left: 50px;
         }
 
+        .perfil-main-caja--input-label-checkbox {
+            font-size: 1.5rem;
+            }
+
+            .perfil-main-caja--input-label-radio {
+                font-size: 1.5rem;
+                }
+
         .perfil_botonRegistro{
             width: 130px;
             height: 45px;
         }
 
         .perfil-main-image{
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
         }
     }

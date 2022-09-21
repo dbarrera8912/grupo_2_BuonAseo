@@ -8,96 +8,86 @@
             <h1 class="perfil-main-titulo">Bienvenido <%= user.name %></h1>
             <img class="perfil-main-image" src="../img/fotos-users/<%= locals.userLogged.avatar ? locals.userLogged.avatar : "default.png" %>"/>
         </div>
-        <form action="/users/update/<%= user.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
-            <div class="perfil-main-caja--input-label">
-                <label class="perfil-main-label" for="name">Nombre</label>
-                <input class="perfil-main-input" name="name" type="text" value="<%= user.name %>">
-            </div>
-            <div class="perfil-main-caja--input-label">
-                <label class="perfil-main-label" for="email">Email</label>
-                <input class="perfil-main-input" name="email" type="text" value="<%= user.email %>">
-            </div>
-
-            <div class="perfil-main-caja--input-label">
-                <label class="perfil-main-label" for="password">Contraseña</label>
-                <input class="perfil-main-input-password" name="password" type="password" value="<%= user.password %>" v>
-            </div>
-            <div class="perfil-main-caja--input-label">
-                <label class="perfil-main-label" for="phone">Telefono</label>
-                <input class="perfil-main-input" name="phone" type="tel" value="<%= user.phone %>">
-            </div>
-            <div class="perfil-main-caja--input-label">
-                <label class="perfil-main-label" for="dni">Dni</label>
-                <input class="perfil-main-input" name="dni" type="number" value="<%= user.dni %>">
-            </div>
-            <div class="perfil-main-caja--input-label">
-                <label class="perfil-main-label" for="birthday">Fecha de nacimiento</label>
-                <input class="perfil-main-input" name="birthday" type="date" value="<%= user.birthday %>">
-            </div>
-
-            <div class="perfil-main-caja--input-label-radio">
-                <label class="perfil-main-label" for="category">Categoria</label>
-                 <div class="perfil-main-caja-radio">
-                <label class="perfil-main-radio-label" for="vendedor">
-                    <input class="perfil-main-radio" <%= user.category === "vendedor" && 'checked' %>  value="vendedor" type="radio" id="vendedor" name="category"> Vendedor</label>
-                 </div>
-                 <div class="perfil-main-caja-radio">
-                    <label class="perfil-main-radio-label" for="comprador">
-                    <input class="perfil-main-radio" <%= user.category === "comprador" && 'checked' %> value="comprador" type="radio" id="comprador" name="category"> Comprador</label>
+        <form  action="/users/update/<%= user.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
+            <div class="perfil-main-formulario">
+                <div class="perfil-main-conteiner1">   
+                    <div class="perfil-main-caja--input-label">
+                    <label class="perfil-main-label" for="name">Nombre</label>
+                    <input class="perfil-main-input" name="name" type="text" value="<%= user.name %>">
                 </div>
-        </div>
-            <div class="perfil-main-caja--input-label-checkbox">
-                <label class="perfil-main-label" for="intereses">Intereses</label>
-                <div class="perfil-main-caja-checkbox">
-                 <label  class="perfil-main-label-checkbox" for="jabones"> 
-                    <input class="perfil-main-input-checkbox"  value="jabones" type="checkbox" id="jabones"  name="interests" <%= user.interests && user.interests.includes('jabones') && "checked"%>>Jabones</label>
-                 </div>
-                 <div class="perfil-main-caja-checkbox">
-                    <label class="perfil-main-label-checkbox" for="suavisantes">
-                    <input class="perfil-main-input-checkbox"  value="suavisantes" type="checkbox" id="suavisantes" name="interests" <%= user.interests && user.interests.includes('suavisantes') && "checked"%>> Suavisantes</label>
+                
+                <div class="perfil-main-caja--input-label">
+                    <label class="perfil-main-label" for="password">Contraseña</label>
+                    <input class="perfil-main-input" name="password" type="password" >
                 </div>
-                <div class="perfil-main-caja-checkbox">
-                    <label class="perfil-main-label-checkbox" for="lavandinas">
-                    <input class="perfil-main-input-checkbox"  value="lavandinas" type="checkbox" id="lavandinas" name="interests" <%= user.interests && user.interests.includes('lavandinas') && "checked"%>> Lavandinas</label>
+                <div class="perfil-main-caja--input-label">
+                    <label class="perfil-main-label" for="phone">Telefono</label>
+                    <input class="perfil-main-input" name="phone" type="tel" value="<%= user.phone %>">
+                </div>
+                <div class="perfil-main-caja--input-label">
+                    <label class="perfil-main-label" for="dni">Dni</label>
+                    <input class="perfil-main-input" name="dni" type="number" value="<%= user.dni %>">
+                </div>
+                <div class="perfil-main-caja--input-label">
+                    <label class="perfil-main-label" for="birthday">Fecha de nacimiento</label>
+                    <input class="perfil-main-input" name="birthday" type="date" value="<%= user.birthday %>">
+                </div>
+                <div class="perfil-main-caja--input-label-checkbox">
+                    <label class="perfil-main-label" for="intereses">Intereses</label>
+                    <div class="perfil-main-caja-checkbox">
+                     <label  class="perfil-main-label-checkbox" for="jabones"> 
+                        <input class="perfil-main-input-checkbox"  value="jabones" type="checkbox" id="jabones"  name="interests" <%= user.interests && user.interests.includes('jabones') && "checked"%>>Jabones</label>
+                     </div>
+                     <div class="perfil-main-caja-checkbox">
+                        <label class="perfil-main-label-checkbox" for="suavisantes">
+                        <input class="perfil-main-input-checkbox"  value="suavisantes" type="checkbox" id="suavisantes" name="interests" <%= user.interests && user.interests.includes('suavisantes') && "checked"%>> Suavisantes</label>
+                    </div>
+                    <div class="perfil-main-caja-checkbox">
+                        <label class="perfil-main-label-checkbox" for="lavandinas">
+                        <input class="perfil-main-input-checkbox"  value="lavandinas" type="checkbox" id="lavandinas" name="interests" <%= user.interests && user.interests.includes('lavandinas') && "checked"%>> Lavandinas</label>
+                </div>
             </div>
         </div>
-
-        <div class="perfil-main-caja--input-label-radio">
-            <label class="perfil-main-label" for="genero">Genero</label>
-             <div class="perfil-main-caja-radio">
-            <label class="perfil-main-radio-label" for="masculino">
-                <input class="perfil-main-radio" <%= user.gender === "m" && 'checked' %>  value="m" type="radio" id="masculino" name="gender"> Masculino</label>
+             <div class="perfil-main-conteiner2">
+                <div class="perfil-main-caja--input-label">
+                    <label class="perfil-main-label" for="nationality">Nacionalidad</label>
+                    <input class="perfil-main-input" name="nationality" type="text" value="<%= user.nationality %>">
+                </div>
+                <div class="perfil-main-caja--input-label">
+                    <label class="perfil-main-label" for="domicile">Domicilio</label>
+                    <input class="perfil-main-input" name="domicile" type="text" value="<%= user.domicile %>">
+                </div>
+                <div class="perfil-main-caja--input-label">
+                    <label class="perfil-main-label" for="city">Ciudad</label>
+                    <input class="perfil-main-input" name="city" type="text" value="<%= user.city %>">
+                </div>
+                <div class="perfil-main-caja--input-label">
+                    <label class="perfil-main-label" for="postalCode">Codigo Postal</label>
+                    <input class="perfil-main-input" name="postalCode" type="text" value="<%= user.postalCode %>">
+                </div>
+                    <div class="perfil-main-caja--input-label">
+                        <label class="perfil-main-label" for="avatar">Imagen</label>
+                        <input class="perfil-main-input" name="avatar" type="file">
+                    </div>
+                    <div class="perfil-main-caja--input-label-radio">
+                        <label class="perfil-main-label" for="genero">Genero</label>
+                         <div class="perfil-main-caja-radio">
+                        <label class="perfil-main-radio-label" for="masculino">
+                            <input class="perfil-main-radio" <%= user.gender === "m" && 'checked' %>  value="m" type="radio" id="masculino" name="gender"> Masculino</label>
+                         </div>
+                         <div class="perfil-main-caja-radio">
+                            <label class="perfil-main-radio-label" for="femenino">
+                            <input class="perfil-main-radio" <%= user.gender === "f" && 'checked' %> value="f" type="radio" id="femenino" name="gender"> Femenino</label>
+                        </div>
+                        <div class="perfil-main-caja-radio">
+                            <label class="perfil-main-radio-label" for="otro">
+                            <input class="perfil-main-radio" value="o" <%= user.gender === "o" && 'checked' %> type="radio" id="otro" name="gender"> Otro</label>
+                    </div>
+                </div>
              </div>
-             <div class="perfil-main-caja-radio">
-                <label class="perfil-main-radio-label" for="femenino">
-                <input class="perfil-main-radio" <%= user.gender === "f" && 'checked' %> value="f" type="radio" id="femenino" name="gender"> Femenino</label>
+           
             </div>
-            <div class="perfil-main-caja-radio">
-                <label class="perfil-main-radio-label" for="otro">
-                <input class="perfil-main-radio" value="o" <%= user.gender === "o" && 'checked' %> type="radio" id="otro" name="gender"> Otro</label>
-        </div>
-    </div>
-
-        <div class="perfil-main-caja--input-label">
-            <label class="perfil-main-label" for="nationality">Nacionalidad</label>
-            <input class="perfil-main-input" name="nationality" type="text" value="<%= user.nationality %>">
-        </div>
-        <div class="perfil-main-caja--input-label">
-            <label class="perfil-main-label" for="domicile">Domicilio</label>
-            <input class="perfil-main-input" name="domicile" type="text" value="<%= user.domicile %>">
-        </div>
-        <div class="perfil-main-caja--input-label">
-            <label class="perfil-main-label" for="city">Ciudad</label>
-            <input class="perfil-main-input" name="city" type="text" value="<%= user.city %>">
-        </div>
-        <div class="perfil-main-caja--input-label">
-            <label class="perfil-main-label" for="postalCode">Codigo Postal</label>
-            <input class="perfil-main-input" name="postalCode" type="text" value="<%= user.postalCode %>">
-        </div>
-            <div class="perfil-main-caja--input-label">
-                <label class="perfil-main-label" for="avatar">Imagen</label>
-                <input class="perfil-main-input" name="avatar" type="file">
-            </div>
+            
             <div class="perfil-main-caja--boton">
                 <button class="perfil_botonRegistro" type="reset">CANCELAR</button>
                 <button class="perfil_botonRegistro" type="submit">GUARDAR</button>
