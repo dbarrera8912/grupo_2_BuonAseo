@@ -23,13 +23,12 @@ module.exports = {
         if (errors.isEmpty()) {
             const users = cargarUsers();
 
-            const { name, email, password, password2 } = req.body;
+            const { name, email, password} = req.body;
             const newUser = {
                 id: users[users.length - 1] ? users[users.length - 1].id + 1 : 1,
                 name: name.trim(),
                 email: email.trim(),
                 password: bcryptjs.hashSync(password.trim(), 10),
-                password2: bcryptjs.hashSync(password.trim(), 10),
                 gender: null,
                 interests: null,
                 phone: null,
@@ -39,7 +38,6 @@ module.exports = {
                 postalCode: null,
                 domicile: null,
                 city: null,
-                category: null,
                 avatar: null
 
             }
@@ -111,7 +109,7 @@ module.exports = {
 		});
     },
     update : (req, res) => {
-        const {name, email,password, category, gender, interests, phone, dni, birthday, nationality, postalCode, domicile, city} = req.body;                                              
+        const {name, email,password, gender, interests, phone, dni, birthday, nationality, postalCode, domicile, city} = req.body;                                              
         let usersModify = cargarUsers().map(user => {
             if(user.id === +req.params.id){
                 return {
