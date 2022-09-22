@@ -67,12 +67,11 @@ module.exports = {
             let isOkTheClave = bcryptjs.compareSync(req.body.password, userToLogin.password)/* Comparamos si la clave es igual a la guardada con hash */
             
             if (isOkTheClave) {
-                delete userToLogin.password;/* eliminamos la clave */
-                delete userToLogin.password2;/* eliminamos la clave */
-                req.session.userLogged = userToLogin;/* Guardamos el resto de datos del usuario en session */
+                let {id,name,interests,avatar} = userToLogin
+                req.session.userLogged = {id,name,interests,avatar};/* Guardamos el resto de datos del usuario en session */
                 
                 if (req.body.perdio) {/* preguntamos si marco la opcion de recordar */
-                    res.cookie("buonaseo", req.body.email, {maxAge: (24000 * 60) * 60})/* implementamos cookie para guardar la sesion del usuario */
+                    res.cookie("buonaseo", req.session.userLogged, {maxAge: (24000 * 60) * 60})/* implementamos cookie para guardar la sesion del usuario */
                 }
 
                 return res.redirect("/users/profile")
@@ -104,8 +103,9 @@ module.exports = {
         return res.redirect("/");
     },
     profile: (req, res) => {
+       let user = cargarUsers().find(user => user.id === req.session.userLogged.id)
         return res.render("./users/profile", {
-			user: req.session.userLogged/* guardamos los datos del usuario de session */
+			user/* guardamos los datos del usuario de session */
 		});
     },
     update : (req, res) => {
@@ -115,7 +115,7 @@ module.exports = {
                 return {
                     ...user,
                     ...req.body, 
-                    password: password ? password: user.password,
+                    password: password ? bcryptjs.hashSync(password.trim(), 10): user.password,
                     interests : interests && interests.length > 1 ? interests : [interests],
                     avatar : req.file ? req.file.filename : req.session.userLogged.avatar
                 }

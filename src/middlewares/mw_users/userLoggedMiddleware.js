@@ -6,11 +6,9 @@ const admins = ["richard@gmail.com", "sirley@gmail.com", "matias@gmail.com", "da
 function userLoggedMiddleware(req, res, next) {
     res.locals.userLogin = false;
 
-    let emailInCookie = req.cookies.buonaseo;/* Sacamos el email de la cookie */
-    let userFromCookie = cargarUsers().find(oneUser => oneUser["email"] === emailInCookie)/* Buscamos un email igual en la base de datos */
 
-    if (userFromCookie) {/* si hay usuario en cookie, entra */
-        req.session.userLogged = userFromCookie /* guardamos el usuario de la cookie en session */
+    if (req.cookies.buonaseo) {/* si hay usuario en cookie, entra */
+        req.session.userLogged = req.cookies.buonaseo /* guardamos el usuario de la cookie en session */
     }
 
     if (req.session.userLogged) {/* si hay usuario en sesion, entra */
@@ -18,8 +16,9 @@ function userLoggedMiddleware(req, res, next) {
         res.locals.userLogged = req.session.userLogged; /* mandamos el usuario en sesion a nivel app */
 
         res.locals.adminEntry = false;
+        let {email} = cargarUsers().find(user => user.id === req.session.userLogged.id)
         admins.forEach(admin => {/* recorremos admins */
-            if (req.session.userLogged.email === admin) {/* si el email en sesion es igual al email de un admin, entra */
+            if (email === admin) {/* si el email en sesion es igual al email de un admin, entra */
                 res.locals.adminEntry = true;
             }
         });
