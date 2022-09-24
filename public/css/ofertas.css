@@ -1,6 +1,8 @@
 .ofertas_main {
     margin-top: 1em;
     width: 100%;
+    padding-left: 7px;
+    padding-right: 7px;
   }
 
   .ofertas_main_titulo {
@@ -16,8 +18,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 5px;
-    gap: 10px;
+    padding: 10px 5px;
+    gap: 20px;
   }
 
   .ofertas_main_section_productos_destacados_caja {
@@ -32,7 +34,6 @@
   .ofertas_main_section_productos_destacados_caja:hover{
     box-shadow:  5px 5px 5px 5px #888888;
     transition: 2s;
-    padding: 5px;
     border-radius: 10px;
   }
   
@@ -46,6 +47,7 @@
   .ofertas_main_section_productos_destacados_img--tablet,
   .ofertas_main_section_productos_destacados_img--deskop {
     display: none;
+    object-fit: contain;
     border-radius: 50%;
   }
   
@@ -102,15 +104,27 @@
     padding: 5px;
   }
   
-  
-  
-  
-  
+@media (min-width: 768px)and (max-width:1024px){
+  .ofertas_main_section_article_imagenes {
+    flex-direction: unset;
+    flex-wrap: wrap;
+  }
+}
+  @media (min-width: 320px) and (max-width:480px) {
+    .home_main_section_article_imagenes{
+      padding: 5px 10px;
+    }
+  }
   @media (min-width: 768px) {
     .ofertas_main_section_productos_destacados_caja {
       margin-left: 10rem;
     }
-  
+    .ofertas_main {
+      margin-top: 1em;
+      width: 100%;
+      padding-left: 25px;
+      padding-right: 25px;
+    }
   
     .ofertas_main_carousel{
       display: block;
@@ -159,7 +173,9 @@
     }
   
     .ofertas_main_titulo {
-      font-size: 45px;
+      font-size: 35px;
+      font-weight: lighter;
+      text-align: left;
     }
   
     .ofertas_main_section_article_boton {
@@ -187,4 +203,3 @@
       width: 100%;;
     }
   }
-  

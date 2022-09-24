@@ -1,9 +1,9 @@
 <%- include('../partials/head', {title: 'Home'}) %> 
   <body>
     <%- include('../partials/header', {userLogin : userLogin}) %>
-    <section class="home_main_banner">
-      <img class="home_main_banner_img" src="../../../img/fotos-productos/imagen-Banner.jpg">
-    </section>
+    <!--  <section class="home_main_banner">
+      <img class="home_main_banner_img" src="../../../img/fotos-productos/banner-sale.gif">
+    </section>-->
     <section class="home_main_carousel">
       <div class="carousel">
           <button id="home_retroceder"><i class="fa-solid fa-angle-left"></i></button>
@@ -17,40 +17,28 @@
           <h1 class="home_main_titulo">Productos Destacados</h1>
         </article>
         <article class="home_main_section_article_imagenes">
-          <div class="home_main_section_productos_destacados_caja">
-            <a href="/products/detail/<%= productosDestacados[0].Id %>"><img class="home_main_section_productos_destacados_img--mobile"
-              src="<%= productosDestacados[0].Image %>"
-              alt="imagen producto"
-          /></a>
-            <div class="home_main_section_productos_destacados_parrafo--mobile">
-              <p class="home_main_parrafo_mobile_precio">$<%= productosDestacados[0].Precio %></p>
-              <br>
-              <p class="home_main_parrafo_mobile_titulo"><%= productosDestacados[0].Nombre %></p> 
+          <% for( let index = 0; index < 4; index++ ) { %>
+            <div class="home_main_section_productos_destacados_caja">
+              <a href="/products/detail/<%= productosDestacados[index].Id %>"><img class="home_main_section_productos_destacados_img--mobile"
+                src="<%= productosDestacados[index].Image %>"
+                alt="imagen producto"
+            /></a>
+              <div class="home_main_section_productos_destacados_parrafo--mobile">
+                <p class="home_main_parrafo_mobile_titulo"><%= productosDestacados[index].Nombre %></p>
+                <br>
+                <p class="home_main_parrafo_mobile_precio">
+                  <% if ( productosDestacados[index].Descuento > 0 ) { %>
+                    <% let precioDescuento = productosDestacados[index].Precio - (productosDestacados[index].Precio * (productosDestacados[index].Descuento / 100)) %> 
+                    <span class="precioDesc">$<%= precioDescuento %> </span>
+                    <s>$<%= productosDestacados[index].Precio %></s>
+                  <% } else { %>
+                    <span class="precioDesc">$<%= productosDestacados[index].Precio %></span>
+                  <% } %>
+                </p>
+              </div>
             </div>
-          </div>
-          <div class="home_main_section_productos_destacados_caja">
-            <a href="/products/detail/<%= productosDestacados[1].Id %>"><img class="home_main_section_productos_destacados_img--tablet"
-              src="<%= productosDestacados[1].Image %>"
-              alt="imagen producto"
-          /></a>
-            <div class="home_main_section_productos_destacados_parrafo--tablet">
-              <p class="home_main_parrafo_mobile_precio">$<%= productosDestacados[1].Precio %></p>
-              <br>
-              <p class="home_main_parrafo_mobile_titulo"><%= productosDestacados[1].Nombre %></p> 
-        </div>
-        </div>
-          <div class="home_main_section_productos_destacados_caja">
-            <a href="/products/detail/<%= productosDestacados[2].Id %>"> <img class="home_main_section_productos_destacados_img--deskop"
-              src="<%= productosDestacados[2].Image %>"
-              alt="imagen producto"
-          /></a>
-           
-            <div class="home_main_section_productos_destacados_parrafo--deskop">
-              <p class="home_main_parrafo_mobile_precio">$<%= productosDestacados[2].Precio %></p>
-              <br>
-              <p class="home_main_parrafo_mobile_titulo"><%= productosDestacados[2].Nombre %></p> 
-            </div>
-          </div>
+          <% } %>
+          
 
         </article>
         <article class="home_main_section_article_boton">
@@ -62,44 +50,31 @@
           <h1 class="home_main_titulo">Ofertas</h1>
         </article>
         <article class="home_main_section_article_imagenes">
-          <div class="home_main_section_productos_destacados_caja">
-            <a href="/products/detail/<%= productosEnOferta[0].Id %>"><img class="home_main_section_productos_destacados_img--mobile"
-              src="<%= productosEnOferta[0].Image %>"
-              alt="imagen producto"
-          /></a>
-              
-            <div class="home_main_section_productos_destacados_parrafo--mobile">
-              <p class="home_main_parrafo_mobile_precio">$<%= productosEnOferta[0].Precio %></p>
-              <br>
-              <p class="home_main_parrafo_mobile_titulo"><%= productosEnOferta[0].Nombre %></p> 
-            </div>
-          </div>
+          <% for( let index = 0; index < 4; index++ ) { %>
+            <div class="home_main_section_productos_destacados_caja">
+              <a href="/products/detail/<%= productosEnOferta[index].Id %>"><img class="home_main_section_productos_destacados_img--mobile"
+                src="<%= productosEnOferta[index].Image %>"
+                alt="imagen producto"
+            /></a>
+                
+              <div class="home_main_section_productos_destacados_parrafo--mobile">
+                <p class="home_main_parrafo_mobile_titulo"><%= productosEnOferta[index].Nombre %></p> 
+                <br>
+                <p class="home_main_parrafo_mobile_precio">
+                  <% if ( productosEnOferta[index].Descuento > 0 ) { %>
+                    <% let precioDescuento = productosEnOferta[index].Precio - (productosEnOferta[index].Precio * (productosEnOferta[index].Descuento / 100)) %> 
+                    <span class="precioDesc">$<%= precioDescuento %> </span>
+                    <s>$<%= productosEnOferta[index].Precio %></s>
+                  <% } else { %>
 
-          <div class="home_main_section_productos_destacados_caja">
-            <a href="/products/detail/<%= productosEnOferta[1].Id %>"><img class="home_main_section_productos_destacados_img--tablet"
-              src="<%= productosEnOferta[1].Image %>"
-              alt="imagen producto"
-          /></a>
-              
-            <div class="home_main_section_productos_destacados_parrafo--tablet">
-              <p class="home_main_parrafo_mobile_precio">$<%= productosEnOferta[1].Precio %></p>
-              <br>
-              <p class="home_main_parrafo_mobile_titulo"><%= productosEnOferta[1].Nombre %></p> 
-            </div>
-          </div>
+                    <span class="precioDesc">$<%= productosEnOferta[index].Precio %></span>
 
-          <div class="home_main_section_productos_destacados_caja">
-            <a href="/products/detail/<%= productosEnOferta[2].Id %>"><img class="home_main_section_productos_destacados_img--deskop"
-              src="<%= productosEnOferta[2].Image %>"
-              alt="imagen producto"
-          /></a>
-            
-            <div class="home_main_section_productos_destacados_parrafo--deskop">
-              <p class="home_main_parrafo_mobile_precio">$<%= productosEnOferta[2].Precio %></p>
-              <br>
-              <p class="home_main_parrafo_mobile_titulo"><%= productosEnOferta[2].Nombre %></p> 
+                  <% } %>
+                </p> 
+              </div>
             </div>
-          </div>
+          <% } %>
+
 
         </article>
         <article class="home_main_section_article_boton">
@@ -109,31 +84,77 @@
       <section>
         <h1 class="home_main_titulo"></h1>
       </section>
-      <div class="home_main_slider--movimiento">
+
+      <div class="home_main_slider--movimiento desktop">
         <ul>
           <li>
-            <img
-              src="../../../img/fotos-productos/marcas/marca-ayudin.png"
-              alt="slider1"
-            />
+            <img src="../../../img/fotos-productos/marcas/marca-ayudin.png" alt="slider1"/>
+            <img src="../../../img/fotos-productos/marcas/marca-downy.png" alt="slider2"/>
+            <img src="../../../img/fotos-productos/marcas/marca-misteMusculo.png" alt="slider3"/>
+            <img src="../../../img/fotos-productos/marcas/marca-suavitel.png" alt="slider4"/>
+            <img src="../../../img/fotos-productos/marcas/marca-misteMusculo.png" alt="slider5"/>
           </li>
           <li>
-            <img
-              src="../../../img/fotos-productos/marcas/marca-downy.png"
-              alt="slider2"
-            />
+            <img src="../../../img/fotos-productos/marcas/marca-suavitel.png" alt="slider4"/>
+            <img src="../../../img/fotos-productos/marcas/marca-downy.png" alt="slider2"/>
+            <img src="../../../img/fotos-productos/marcas/marca-ayudin.png" alt="slider1"/>
+            <img src="../../../img/fotos-productos/marcas/marca-misteMusculo.png" alt="slider3"/>
+            <img src="../../../img/fotos-productos/marcas/marca-misteMusculo.png" alt="slider5"/>
           </li>
           <li>
-            <img
-              src="../../../img/fotos-productos/marcas/marca-misteMusculo.png"
-              alt="slider3"
-            />
+            <img src="../../../img/fotos-productos/marcas/marca-ayudin.png" alt="slider1"/>
+            <img src="../../../img/fotos-productos/marcas/marca-downy.png" alt="slider2"/>
+            <img src="../../../img/fotos-productos/marcas/marca-misteMusculo.png" alt="slider3"/>
+            <img src="../../../img/fotos-productos/marcas/marca-suavitel.png" alt="slider4"/>
+            <img src="../../../img/fotos-productos/marcas/marca-misteMusculo.png" alt="slider5"/>
           </li>
           <li>
-            <img
-              src="../../../img/fotos-productos/marcas/marca-suavitel.png"
-              alt="slider4"
-            />
+            <img src="../../../img/fotos-productos/marcas/marca-ayudin.png" alt="slider1"/>
+            <img src="../../../img/fotos-productos/marcas/marca-downy.png" alt="slider2"/>
+            <img src="../../../img/fotos-productos/marcas/marca-misteMusculo.png" alt="slider3"/>
+            <img src="../../../img/fotos-productos/marcas/marca-suavitel.png" alt="slider4"/>
+            <img src="../../../img/fotos-productos/marcas/marca-misteMusculo.png" alt="slider5"/>
+          </li>
+        </ul>
+      </div>
+      <div class="home_main_slider--movimiento tablet">
+        <ul>
+          <li>
+            <img src="../../../img/fotos-productos/marcas/marca-ayudin.png" alt="slider1"/>
+            <img src="../../../img/fotos-productos/marcas/marca-downy.png" alt="slider2"/>
+            <img src="../../../img/fotos-productos/marcas/marca-misteMusculo.png" alt="slider3"/>
+          </li>
+          <li>
+            <img src="../../../img/fotos-productos/marcas/marca-suavitel.png" alt="slider4"/>
+            <img src="../../../img/fotos-productos/marcas/marca-downy.png" alt="slider2"/>
+            <img src="../../../img/fotos-productos/marcas/marca-ayudin.png" alt="slider1"/>
+          </li>
+          <li>
+            <img src="../../../img/fotos-productos/marcas/marca-ayudin.png" alt="slider1"/>
+            <img src="../../../img/fotos-productos/marcas/marca-downy.png" alt="slider2"/>
+            <img src="../../../img/fotos-productos/marcas/marca-misteMusculo.png" alt="slider3"/>
+          </li>
+          <li>
+            <img src="../../../img/fotos-productos/marcas/marca-ayudin.png" alt="slider1"/>
+            <img src="../../../img/fotos-productos/marcas/marca-downy.png" alt="slider2"/>
+            <img src="../../../img/fotos-productos/marcas/marca-misteMusculo.png" alt="slider3"/>
+          </li>
+        </ul>
+      </div>
+      <div class="home_main_slider--movimiento mobile">
+        <ul>
+          <li>
+            <img src="../../../img/fotos-productos/marcas/marca-ayudin.png" alt="slider1"/>
+          </li>
+          <li>
+            <img src="../../../img/fotos-productos/marcas/marca-downy.png" alt="slider2"/>
+          </li>
+          <li>
+            <img src="../../../img/fotos-productos/marcas/marca-misteMusculo.png" alt="slider3"/>
+          </li>
+          <li>
+            <img src="../../../img/fotos-productos/marcas/marca-suavitel.png" alt="slider4"/>
+
           </li>
         </ul>
       </div>
@@ -143,12 +164,16 @@
       window.onload = function () {
           // Variables
           const IMAGENES = [
-         
-              '../../../img/fotos-productos/liquido-para-pisos/liquidoP-imagen-10.png',
-              '../../../img/fotos-productos/jabones/jabon-imagen-10.png',
-              '../../../img/fotos-productos/lavandinas/lavandina-imagen-10.png',
+              
+              /*'../../../img/fotos-productos/liquido-para-pisos/liquidoP-imagen-10.png',
+              '../../../img/fotos-productos/jabones/jabon-imagen-10.png',*/
+              '../../../img/fotos-productos/banner-sale.gif',
+              '../../../img/fotos-productos/banner-productos.gif',
+              '../../../img/fotos-productos/banner-septiembre.gif',
+              '../../../img/fotos-productos/banner-sucursal.gif',
+              /*'../../../img/fotos-productos/lavandinas/lavandina-imagen-10.png',
               '../../../img/fotos-productos/suavisantes/suavisante-imagen-10.png',
-              '../../../img/fotos-productos/detergentes/detergente-imagen-10.png'
+              '../../../img/fotos-productos/detergentes/detergente-imagen-10.png'*/
           ];
           const TIEMPO_INTERVALO_MILESIMAS_SEG = 1000;
           let posicionActual = 1;

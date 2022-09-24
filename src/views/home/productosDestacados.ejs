@@ -7,131 +7,85 @@
         <article class="ofertas_main_section_article_titulo">
             <h1 class="ofertas_main_titulo">Productos en destacados</h1>
           </article>
-      <section class="ofertas_main_section_productos_destacados">
-        <article class="ofertas_main_section_article_imagenes">
-          <div class="home_main_section_productos_destacados_caja">
-            <a href="/products/detail/<%= products[10].Id %>"><img class="home_main_section_productos_destacados_img--mobile"
-              src="<%= products[10].Image %>"
-              alt="imagen producto"
-          /></a>
+      
+          <section class="ofertas_main_section_productos_destacados">
+            <article class="ofertas_main_section_article_imagenes">
               
-            <div class="ofertas_main_section_productos_destacados_parrafo--mobile">
-              <p class="ofertas_main_parrafo_mobile_precio">$<%= products[10].Precio %></p>
-              <br>
-              <p class="ofertas_main_parrafo_mobile_titulo"><%= products[10].Nombre %></p> 
-            </div>
-          </div>
-
-          <div class="ofertas_main_section_productos_destacados_caja">
-            <a href="/products/detail/<%= products[11].Id %>"><img class="ofertas_main_section_productos_destacados_img--tablet"
-              src="<%= products[11].Image %>"
-              alt="imagen producto"
-          /></a>
+              <% for( let index = 0; index < 4; index++ ) { %>
+                <div class="home_main_section_productos_destacados_caja">
+                  <a href="/products/detail/<%= products[index].Id %>"><img class="home_main_section_productos_destacados_img--mobile"
+                    src="<%= products[index].Image %>"
+                    alt="imagen producto"
+                /></a>
+                  <div class="home_main_section_productos_destacados_parrafo--mobile">
+                    <p class="home_main_parrafo_mobile_titulo"><%= products[index].Nombre %></p>
+                    <br>
+                    <p class="home_main_parrafo_mobile_precio">
+                      <% if ( products[index].Descuento > 0 ) { %>
+                        <% let precioDescuento = products[index].Precio - (products[index].Precio * (products[index].Descuento / 100)) %> 
+                        <span class="precioDesc">$<%= precioDescuento %> </span>
+                        <s>$<%= products[index].Precio %></s>
+                      <% } else { %>
+                        <span class="precioDesc">$<%= products[index].Precio %></span>
+                      <% } %>
+                    </p>
+                  </div>
+                </div>
+              <% } %>
+            </article>
+          </section>
+          <section class="ofertas_main_section_productos_destacados">
+            <article class="ofertas_main_section_article_imagenes">
               
-            <div class="ofertas_main_section_productos_destacados_parrafo--tablet">
-              <p class="ofertas_main_parrafo_mobile_precio">$<%= products[11].Precio %></p>
-              <br>
-              <p class="ofertas_main_parrafo_mobile_titulo"><%= products[11].Nombre %></p> 
-            </div>
-          </div>
-          <div class="ofertas_main_section_productos_destacados_caja">
-            <a href="/products/detail/<%= products[12].Id %>"><img class="ofertas_main_section_productos_destacados_img--deskop"
-              src="<%= products[12].Image %>"
-              alt="imagen producto"
-          /></a>
-           
-            <div class="ofertas_main_section_productos_destacados_parrafo--deskop">
-              <p class="home_main_parrafo_mobile_precio">$<%= products[12].Precio %></p>
-              <br>
-              <p class="home_main_parrafo_mobile_titulo"><%= products[12].Nombre %></p> 
-            </div>
-          </div>
-        </article>
-      </section>
-      <section class="ofertas_main_section_productos_destacados">
-        <article class="ofertas_main_section_article_imagenes">
-          <div class="ofertas_main_section_productos_destacados_caja">
-            <a href="/products/detail/<%= products[13].Id %>"><img class="ofertas_main_section_productos_destacados_img--mobile"
-              src="<%= products[13].Image %>"
-              alt="imagen producto"
-          /></a>
+              <% for( let index = 4; index < 8; index++ ) { %>
+                <div class="home_main_section_productos_destacados_caja">
+                  <a href="/products/detail/<%= products[index].Id %>"><img class="home_main_section_productos_destacados_img--mobile"
+                    src="<%= products[index].Image %>"
+                    alt="imagen producto"
+                /></a>
+                  <div class="home_main_section_productos_destacados_parrafo--mobile">
+                    <p class="home_main_parrafo_mobile_titulo"><%= products[index].Nombre %></p>
+                    <br>
+                    <p class="home_main_parrafo_mobile_precio">
+                      <% if ( products[index].Descuento > 0 ) { %>
+                        <% let precioDescuento = products[index].Precio - (products[index].Precio * (products[index].Descuento / 100)) %> 
+                        <span class="precioDesc">$<%= precioDescuento %> </span>
+                        <s>$<%= products[index].Precio %></s>
+                      <% } else { %>
+                        <span class="precioDesc">$<%= products[index].Precio %></span>
+                      <% } %>
+                    </p>
+                  </div>
+                </div>
+              <% } %>
+            </article>
+          </section>
+          <section class="ofertas_main_section_productos_destacados">
+            <article class="ofertas_main_section_article_imagenes">
               
-            <div class="ofertas_main_section_productos_destacados_parrafo--mobile">
-              <p class="home_main_parrafo_mobile_precio">$<%= products[13].Precio %></p>
-              <br>
-              <p class="home_main_parrafo_mobile_titulo"><%= products[13].Nombre %></p> 
-            </div>
-          </div>
-
-          <div class="ofertas_main_section_productos_destacados_caja">
-            <a href="/products/detail/<%= products[14].Id %>"><img class="ofertas_main_section_productos_destacados_img--tablet"
-              src="<%= products[14].Image %>"
-              alt="imagen producto"
-          /></a>
-              
-            <div class="ofertas_main_section_productos_destacados_parrafo--tablet">
-              <p class="home_main_parrafo_mobile_precio">$<%= products[14].Precio %></p>
-              <br>
-              <p class="home_main_parrafo_mobile_titulo"><%= products[14].Nombre %></p> 
-            </div>
-          </div>
-
-          <div class="ofertas_main_section_productos_destacados_caja">
-            <a href="/products/detail/<%= products[2].Id %>"><img class="ofertas_main_section_productos_destacados_img--deskop"
-              src="<%= products[2].Image %>"
-              alt="imagen producto"
-          /></a>
-            
-            <div class="ofertas_main_section_productos_destacados_parrafo--deskop">
-              <p class="home_main_parrafo_mobile_precio">$<%= products[2].Precio %></p>
-              <br>
-              <p class="home_main_parrafo_mobile_titulo"><%= products[12].Nombre %></p> 
-            </div>
-          </div>
-        </article>
-      </section>
-      <section class="ofertas_main_section_productos_destacados">
-        <article class="ofertas_main_section_article_imagenes">
-          <div class="ofertas_main_section_productos_destacados_caja">
-            <a href="/products/detail/<%= products[0].Id %>"><img class="ofertas_main_section_productos_destacados_img--mobile"
-              src="<%= products[0].Image %>"
-              alt="imagen producto"
-          /></a>
-              
-            <div class="ofertas_main_section_productos_destacados_parrafo--mobile">
-              <p class="home_main_parrafo_mobile_precio">$<%= products[0].Precio %></p>
-              <br>
-              <p class="home_main_parrafo_mobile_titulo"><%= products[0].Nombre %></p> 
-            </div>
-          </div>
-
-          <div class="ofertas_main_section_productos_destacados_caja">
-            <a href="/products/detail/<%= products[1].Id %>"><img class="ofertas_main_section_productos_destacados_img--tablet"
-              src="<%= products[1].Image %>"
-              alt="imagen producto"
-          /></a>
-              
-            <div class="ofertas_main_section_productos_destacados_parrafo--tablet">
-              <p class="home_main_parrafo_mobile_precio">$<%= products[1].Precio %></p>
-              <br>
-              <p class="home_main_parrafo_mobile_titulo"><%= products[1].Nombre %></p> 
-            </div>
-          </div>
-
-          <div class="ofertas_main_section_productos_destacados_caja">
-            <a href="/products/detail/<%= products[3].Id %>"><img class="ofertas_main_section_productos_destacados_img--deskop"
-              src="<%= products[3].Image %>"
-              alt="imagen producto"
-          /></a>
-            
-            <div class="ofertas_main_section_productos_destacados_parrafo--deskop">
-              <p class="home_main_parrafo_mobile_precio">$<%= products[3].Precio %></p>
-              <br>
-              <p class="home_main_parrafo_mobile_titulo"><%= products[3].Nombre %></p> 
-            </div>
-          </div>
-        </article>
-      </section>
+              <% for( let index = 8; index < 12; index++ ) { %>
+                <div class="home_main_section_productos_destacados_caja">
+                  <a href="/products/detail/<%= products[index].Id %>"><img class="home_main_section_productos_destacados_img--mobile"
+                    src="<%= products[index].Image %>"
+                    alt="imagen producto"
+                /></a>
+                  <div class="home_main_section_productos_destacados_parrafo--mobile">
+                    <p class="home_main_parrafo_mobile_titulo"><%= products[index].Nombre %></p>
+                    <br>
+                    <p class="home_main_parrafo_mobile_precio">
+                      <% if ( products[index].Descuento > 0 ) { %>
+                        <% let precioDescuento = products[index].Precio - (products[index].Precio * (products[index].Descuento / 100)) %> 
+                        <span class="precioDesc">$<%= precioDescuento %> </span>
+                        <s>$<%= products[index].Precio %></s>
+                      <% } else { %>
+                        <span class="precioDesc">$<%= products[index].Precio %></span>
+                      <% } %>
+                    </p>
+                  </div>
+                </div>
+              <% } %>
+            </article>
+          </section>
     </main>
     <%- include('../partials/footer') %>
     </body>
