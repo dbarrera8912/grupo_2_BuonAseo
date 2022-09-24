@@ -122,13 +122,21 @@ module.exports = {
             }
             return user
         });
-    
+
+        if(req.file && req.session.userLogged.avatar){
+            if(fs.existsSync(path.resolve(__dirname,'..','..','public','img','fotos-users',req.session.userLogged.avatar))){
+                fs.unlinkSync(path.resolve(__dirname,'..','..','public','img','fotos-users',req.session.userLogged.avatar))
+            }
+        }
+        
         req.session.userLogged = {
             ...req.session.userLogged,
             name,
+            interests,
             avatar : req.file ? req.file.filename : req.session.userLogged.avatar
         }
-
+        res.cookie("buonaseo", req.session.userLogged, {maxAge: (24000 * 60) * 60})
+        
         crearUsers(usersModify);
         return res.redirect('/users/profile')
     },

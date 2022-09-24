@@ -132,5 +132,23 @@
       "domicile": null,
       "city": null,
       "avatar": null
+   },
+   {
+      "id": 9,
+      "name": "richarduno",
+      "email": "richarduno@gmail.com",
+      "password": "$2a$10$zYXcfXI.T/qrwHONUHjy4Ow..H.qXUU0eYXMqXHyFP13lm1/K8Epe",
+      "gender": "f",
+      "interests": [
+         null
+      ],
+      "phone": "",
+      "dni": "",
+      "birthday": "",
+      "nationality": "",
+      "postalCode": "",
+      "domicile": "",
+      "city": "",
+      "avatar": "avatar-1664054310340.jpeg"
    }
 ]
