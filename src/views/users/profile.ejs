@@ -5,8 +5,8 @@
         <div class="perfil-container">
         <div class="perfil-main-h1-img">
             <a class="perfil-main-salida" href="/">x</a>
-            <h1 class="perfil-main-titulo">Bienvenido <%= user.name %></h1>
             <img class="perfil-main-image" src="../img/fotos-users/<%= locals.userLogged.avatar ? locals.userLogged.avatar : "default.png" %>"/>
+            <h1 class="perfil-main-titulo">Bienvenido <%= user.name %></h1>
         </div>
         <form  action="/users/update/<%= user.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
             <div class="perfil-main-formulario">
@@ -19,14 +19,16 @@
                 <div class="perfil-main-caja--input-label">
                     <label class="perfil-main-label" for="password">Contraseña</label>
                     <input class="perfil-main-input" name="password" type="password" >
+                    <span class="registro-text-danger"><%= locals.errors && errors.password ? errors.password.msg : null %></span>
+                </div>
+                <div class="perfil-main-caja--input-label">
+                    <label class="perfil-main-label" for="password2">Confirmar Contraseña</label>
+                    <input class="perfil-main-input" name="password2" type="password" >
+                    <span class="registro-text-danger"><%= locals.errors && errors.password2 ? errors.password2.msg : null %></span>
                 </div>
                 <div class="perfil-main-caja--input-label">
                     <label class="perfil-main-label" for="phone">Telefono</label>
                     <input class="perfil-main-input" name="phone" type="tel" value="<%= user.phone %>">
-                </div>
-                <div class="perfil-main-caja--input-label">
-                    <label class="perfil-main-label" for="dni">Dni</label>
-                    <input class="perfil-main-input" name="dni" type="number" value="<%= user.dni %>">
                 </div>
                 <div class="perfil-main-caja--input-label">
                     <label class="perfil-main-label" for="birthday">Fecha de nacimiento</label>
@@ -65,10 +67,11 @@
                     <label class="perfil-main-label" for="postalCode">Codigo Postal</label>
                     <input class="perfil-main-input" name="postalCode" type="text" value="<%= user.postalCode %>">
                 </div>
-                    <div class="perfil-main-caja--input-label">
-                        <label class="perfil-main-label" for="avatar">Imagen</label>
-                        <input class="perfil-main-input" name="avatar" type="file">
-                    </div>
+                <div class="perfil-main-caja--input-label">
+                    <label class="perfil-main-label" for="dni">Dni</label>
+                    <input class="perfil-main-input" name="dni" type="number" value="<%= user.dni %>">
+                </div>
+                
                     <div class="perfil-main-caja--input-label-radio">
                         <label class="perfil-main-label" for="genero">Genero</label>
                          <div class="perfil-main-caja-radio">
@@ -87,7 +90,10 @@
              </div>
            
             </div>
-            
+            <div class="perfil-main-caja--input-label2">
+                <label class="perfil-main-label2" for="avatar">Imagen</label>
+                <input class="perfil-main-input2" name="avatar" type="file">
+            </div>
             <div class="perfil-main-caja--boton">
                 <button class="perfil_botonRegistro" type="reset">CANCELAR</button>
                 <button class="perfil_botonRegistro" type="submit">GUARDAR</button>

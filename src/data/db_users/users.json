@@ -38,17 +38,19 @@
       "id": 3,
       "name": "Matias",
       "email": "matias@gmail.com",
-      "password": "$2a$10$TlqMAdiFD7sAQL.IYxHcUug95mVYFoEPX1ak7XJQYaYjQHH2uUTOy",
+      "password": "$2a$10$cBjZYK3AeRx/EuPIwmvfXuwuF0ZdG8cJpfQRRcoqo6vAHVMVruDcO",
       "gender": null,
-      "interests": null,
-      "phone": null,
-      "dni": null,
-      "birthday": null,
-      "nationality": null,
-      "postalCode": null,
-      "domicile": null,
-      "city": null,
-      "avatar": null
+      "interests": [
+         null
+      ],
+      "phone": "",
+      "dni": "",
+      "birthday": "",
+      "nationality": "",
+      "postalCode": "",
+      "domicile": "",
+      "city": "",
+      "avatar": "avatar-1664055187271.png"
    },
    {
       "id": 4,
@@ -150,5 +152,24 @@
       "domicile": "",
       "city": "",
       "avatar": "avatar-1664054310340.jpeg"
+   },
+   {
+      "id": 10,
+      "name": "Matias",
+      "email": "matias14@gmail.com",
+      "password": "$2a$10$dkRTDl3MwQcTJipMigAVvuVqLSKT.hG3JojCvlwRyZvBI4ZUpK/g.",
+      "gender": null,
+      "interests": [
+         null
+      ],
+      "phone": "",
+      "dni": "",
+      "birthday": "",
+      "nationality": "",
+      "postalCode": "",
+      "domicile": "",
+      "city": "",
+      "avatar": null,
+      "password2": ""
    }
 ]

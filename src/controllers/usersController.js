@@ -136,7 +136,6 @@ module.exports = {
             avatar : req.file ? req.file.filename : req.session.userLogged.avatar
         }
         res.cookie("buonaseo", req.session.userLogged, {maxAge: (24000 * 60) * 60})
-        
         crearUsers(usersModify);
         return res.redirect('/users/profile')
     },
