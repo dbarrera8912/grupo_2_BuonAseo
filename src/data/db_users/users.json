@@ -160,19 +160,19 @@
       "id": 10,
       "name": "Matias",
       "email": "matias14@gmail.com",
-      "password": "$2a$10$dkRTDl3MwQcTJipMigAVvuVqLSKT.hG3JojCvlwRyZvBI4ZUpK/g.",
+      "password": "$2a$10$9y8bDflJBfq3d.hxrUYaSO7io5HSnGqyRpqqBCgo81gmMb7nT7CxO",
       "gender": null,
       "interests": [
          null
       ],
       "phone": "",
-      "dni": "",
+      "dni": "34343012",
       "birthday": "",
       "nationality": "",
       "postalCode": "",
       "domicile": "",
       "city": "",
       "avatar": null,
-      "password2": ""
+      "password2": "$2a$10$PBz68NOohoB79dnAHqJJNu32eALi/PAkwE0ZawJT8IUOf5M.gHyhm"
    }
 ]

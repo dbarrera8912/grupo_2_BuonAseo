@@ -116,13 +116,14 @@ module.exports = {
             errors = { ...errors, avatar: { msg: req.fileValidationError } }
         }
         if (Object.entries(errors).length === 0) {
-            const { name, email, password, gender, interests, phone, dni, birthday, nationality, postalCode, domicile, city } = req.body;
+            const { name, email, password, password2, gender, interests, phone, dni, birthday, nationality, postalCode, domicile, city } = req.body;
             let usersModify = cargarUsers().map(user => {
                 if (user.id === +req.params.id) {
                     return {
                         ...user,
                         ...req.body,
                         password: password ? bcryptjs.hashSync(password.trim(), 10) : user.password,
+                        password2: password2 ? bcryptjs.hashSync(password2.trim(), 10) : user.password2,
                         interests: interests && interests.length > 1 ? interests : [interests],
                         avatar: req.file ? req.file.filename : req.session.userLogged.avatar
                     }
