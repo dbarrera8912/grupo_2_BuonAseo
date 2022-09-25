@@ -9,18 +9,6 @@
           </article>
       <section class="ofertas_main_section_productos_destacados">
         <article class="ofertas_main_section_article_imagenes">
-          <!--<div class="home_main_section_productos_destacados_caja">
-            <a href="/products/detail/<%= productosEnOferta[1].Id %>"><img class="home_main_section_productos_destacados_img--mobile"
-              src="<%= productosEnOferta[1].Image %>"
-              alt="imagen producto"
-          /></a>
-              
-            <div class="ofertas_main_section_productos_destacados_parrafo--mobile">
-              <p class="ofertas_main_parrafo_mobile_precio">$<%= productosEnOferta[1].Precio %></p>
-              <br>
-              <p class="ofertas_main_parrafo_mobile_titulo"><%= productosEnOferta[1].Nombre %></p> 
-            </div>
-          </div>-->
           <% for( let index = 0; index < 4; index++ ) { %>
             <div class="home_main_section_productos_destacados_caja">
               <a href="/products/detail/<%= productosEnOferta[index].Id %>"><img class="home_main_section_productos_destacados_img--mobile"
