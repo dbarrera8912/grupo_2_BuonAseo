@@ -1,9 +1,6 @@
 <%- include('../partials/head', {title: 'Home'}) %> 
   <body>
     <%- include('../partials/header', {userLogin : userLogin}) %>
-    <!--  <section class="home_main_banner">
-      <img class="home_main_banner_img" src="../../../img/fotos-productos/banner-sale.gif">
-    </section>-->
     <section class="home_main_carousel">
       <div class="carousel">
           <button id="home_retroceder"><i class="fa-solid fa-angle-left"></i></button>
@@ -165,15 +162,10 @@
           // Variables
           const IMAGENES = [
               
-              /*'../../../img/fotos-productos/liquido-para-pisos/liquidoP-imagen-10.png',
-              '../../../img/fotos-productos/jabones/jabon-imagen-10.png',*/
               '../../../img/fotos-productos/banner-sale.gif',
               '../../../img/fotos-productos/banner-productos.gif',
-              '../../../img/fotos-productos/banner-septiembre.gif',
               '../../../img/fotos-productos/banner-sucursal.gif',
-              /*'../../../img/fotos-productos/lavandinas/lavandina-imagen-10.png',
-              '../../../img/fotos-productos/suavisantes/suavisante-imagen-10.png',
-              '../../../img/fotos-productos/detergentes/detergente-imagen-10.png'*/
+              '../../../img/fotos-productos/banner-septiembre.gif',
           ];
           const TIEMPO_INTERVALO_MILESIMAS_SEG = 1000;
           let posicionActual = 1;

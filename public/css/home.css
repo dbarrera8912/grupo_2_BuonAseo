@@ -21,7 +21,7 @@ width: 100%;
 
 .carousel {
 	max-width: 100%;
-	margin: 0px auto 10px auto;
+	margin: 0px auto 0px auto;
 	display: flex;
   position: relative;
 }
@@ -32,7 +32,7 @@ width: 100%;
 	background-size: cover;
   background-repeat: no-repeat;
   background-position:center;
-	background-image: url('../../../img/fotos-productos/banner-sale.gif');
+	background-image: url('../../../img/fotos-productos/banner-septiembre.gif');
 	padding: 5px;
 	border-radius: 0px;
 }
@@ -68,6 +68,7 @@ width: 100%;
   font-size: 25px;
   font-family: var(--tipografiaLetra);
   color: var(--colorLetras);
+  font-weight: lighter;
 }
 
 .home_main_section_article_imagenes {
@@ -215,7 +216,7 @@ text-align: center;
 }
 .home_main_slider--movimiento.tablet img {
   width: 32%;
-  height: 300px;
+  height: 200px;
   display: inline-block;
   object-fit: contain;
   border-radius: 25px;
@@ -228,7 +229,7 @@ text-align: center;
 }
 .home_main_slider--movimiento.mobile img {
   width: 100%;
-  height: 300px;
+  height: 150px;
   display: block;
   object-fit: contain;
   border-radius: 25px;
@@ -334,6 +335,7 @@ text-align: center;
 
   .home_main_titulo {
     margin-left: 35px;
+    margin-top: 0px;
     font-size: 35px;
     font-weight: lighter;
     text-align: left;
