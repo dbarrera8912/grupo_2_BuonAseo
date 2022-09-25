@@ -4,7 +4,6 @@
       "name": "Richard",
       "email": "richard@gmail.com",
       "password": "$2a$10$64EoZmrUKJS94rLHjEN5.uYxWyWWh0xob4ZH5hXfE3n4wKxL2Aicy",
-      "password2": "$2a$10$RmK64t.Df8JVeYF8tLFNmONDwHdH3eFCt61O3IvvBA9Q1MDixSH5q",
       "gender": "o",
       "interests": [
          "jabones",
@@ -17,7 +16,6 @@
       "postalCode": "calle213",
       "domicile": "la calle",
       "city": "la calle",
-      "category": "vendedor",
       "avatar": "avatar-1662845446711.png"
    },
    {
@@ -25,7 +23,6 @@
       "name": "Sirley",
       "email": "sirley@gmail.com",
       "password": "$2a$10$uoKKFsMcXlf8kK3iMNDLO..Shva2q.Bp9zJpywdIJpi59tAB31UJS",
-      "password2": "$2a$10$Y3EPYxKlnAddms.m8jRu0OolHWJwmdx1vZDAGSQIzOysTyDLn34Ge",
       "gender": null,
       "interests": null,
       "phone": null,
@@ -35,33 +32,31 @@
       "postalCode": null,
       "domicile": null,
       "city": null,
-      "category": null,
       "avatar": null
    },
    {
       "id": 3,
       "name": "Matias",
       "email": "matias@gmail.com",
-      "password": "$2a$10$TlqMAdiFD7sAQL.IYxHcUug95mVYFoEPX1ak7XJQYaYjQHH2uUTOy",
-      "password2": "$2a$10$oF5mGysf4ab9u2UNA89y9ePdLA4aoz/Ifpb4STsquwR7OyJpDtDHK",
+      "password": "$2a$10$cBjZYK3AeRx/EuPIwmvfXuwuF0ZdG8cJpfQRRcoqo6vAHVMVruDcO",
       "gender": null,
-      "interests": null,
-      "phone": null,
-      "dni": null,
-      "birthday": null,
-      "nationality": null,
-      "postalCode": null,
-      "domicile": null,
-      "city": null,
-      "category": null,
-      "avatar": null
+      "interests": [
+         null
+      ],
+      "phone": "",
+      "dni": "",
+      "birthday": "",
+      "nationality": "",
+      "postalCode": "",
+      "domicile": "",
+      "city": "",
+      "avatar": "avatar-1664055187271.png"
    },
    {
       "id": 4,
       "name": "Daniel",
       "email": "daniel@gmail.com",
       "password": "$2a$10$NkGn9bnAWChNW1PyCMDove4WbMFLp5U/.DaY1U8O4JMQMonrYp0r2",
-      "password2": "$2a$10$fFFlHWxMrOky8PztY1VmVOWCv2Nyv9vXMexbsaSl6..05QRocP9dm",
       "gender": "m",
       "interests": "jabones",
       "phone": "299 003345",
@@ -71,7 +66,6 @@
       "postalCode": "8322",
       "domicile": "brentana 7",
       "city": "cutral co",
-      "category": "comprador",
       "avatar": "avatar-1662861993706.jpg"
    },
    {
@@ -79,7 +73,6 @@
       "name": "Julian",
       "email": "julian@gmail.com",
       "password": "$2a$10$LqPFWS0kwXPga7wvqEKM3etxhWZYLkJB6cC.3k1JFb.63XikykcqW",
-      "password2": "$2a$10$fha42/C71oDrHTgC.GvUHeZ768VaeilxkCcUCwosOOiPK1Hg83m3i",
       "gender": null,
       "interests": null,
       "phone": null,
@@ -89,7 +82,6 @@
       "postalCode": null,
       "domicile": null,
       "city": null,
-      "category": null,
       "avatar": null
    },
    {
@@ -97,7 +89,6 @@
       "name": "Eric",
       "email": "eric@gmail.com",
       "password": "$2a$10$NBnHJCBKr29IGiPw2LTqHeGaV7gUIg74SSJbJxpggzKquQKJaG2k.",
-      "password2": "$2a$10$nu5wTAxCY9FWjKleMLpfHuqwWHeaO5pb/FTbM9PZqeKsIBZyJlRju",
       "gender": null,
       "interests": null,
       "phone": null,
@@ -107,7 +98,6 @@
       "postalCode": null,
       "domicile": null,
       "city": null,
-      "category": null,
       "avatar": null
    },
    {
@@ -115,7 +105,6 @@
       "name": "sabbadini",
       "email": "matiassabbadini24@gmail.com",
       "password": "123456",
-      "password2": "$2a$10$SGptaZ0rIpqm1UcA71BDruOEvg6EZrfjxgez5Cnr2L7zXzn3UV4Di",
       "gender": "m",
       "interests": [
          "jabones",
@@ -128,7 +117,61 @@
       "postalCode": "asdsaddsa",
       "domicile": "sadsad",
       "city": "324324",
-      "category": "comprador",
       "avatar": "avatar-1662830469810.png"
+   },
+   {
+      "id": 8,
+      "name": "dani",
+      "email": "daniel89@gmail.com",
+      "password": "$2a$10$TGszO7/8InzzeoOry47Z4e9XLwwchyZo6YzStyM3Oj0.9YI36xwRC",
+      "gender": null,
+      "interests": null,
+      "phone": null,
+      "dni": null,
+      "birthday": null,
+      "nationality": null,
+      "postalCode": null,
+      "domicile": null,
+      "city": null,
+      "avatar": null
+   },
+   {
+      "id": 9,
+      "name": "richarduno",
+      "email": "richarduno@gmail.com",
+      "password": "$2a$10$zYXcfXI.T/qrwHONUHjy4Ow..H.qXUU0eYXMqXHyFP13lm1/K8Epe",
+      "gender": "f",
+      "interests": [
+         "jabones",
+         "suavisantes",
+         "lavandinas"
+      ],
+      "phone": "",
+      "dni": "12",
+      "birthday": "0432-03-12",
+      "nationality": "324",
+      "postalCode": "2133",
+      "domicile": "657",
+      "city": "sasda",
+      "avatar": "avatar-1664116045248.PNG",
+      "password2": ""
+   },
+   {
+      "id": 10,
+      "name": "Matias",
+      "email": "matias14@gmail.com",
+      "password": "$2a$10$Wq/e9MBe8tdtMu3plGMX0.5s26D8S9pKpEcJN1P9XryKju40vsBqa",
+      "gender": null,
+      "interests": [
+         null
+      ],
+      "phone": "",
+      "dni": "34343012",
+      "birthday": "",
+      "nationality": "",
+      "postalCode": "",
+      "domicile": "",
+      "city": "",
+      "avatar": null
    }
 ]

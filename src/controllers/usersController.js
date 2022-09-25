@@ -23,23 +23,21 @@ module.exports = {
         if (errors.isEmpty()) {
             const users = cargarUsers();
 
-            const { name, email, password, password2 } = req.body;
+            const { name, email, password } = req.body;
             const newUser = {
                 id: users[users.length - 1] ? users[users.length - 1].id + 1 : 1,
                 name: name.trim(),
                 email: email.trim(),
                 password: bcryptjs.hashSync(password.trim(), 10),
-                password2: bcryptjs.hashSync(password.trim(), 10),
                 gender: null,
                 interests: null,
                 phone: null,
                 dni: null,
                 birthday: null,
-                nationality : null,
+                nationality: null,
                 postalCode: null,
                 domicile: null,
                 city: null,
-                category: null,
                 avatar: null
 
             }
@@ -67,14 +65,13 @@ module.exports = {
 
         if (userToLogin) {
             let isOkTheClave = bcryptjs.compareSync(req.body.password, userToLogin.password)/* Comparamos si la clave es igual a la guardada con hash */
-            
+
             if (isOkTheClave) {
-                delete userToLogin.password;/* eliminamos la clave */
-                delete userToLogin.password2;/* eliminamos la clave */
-                req.session.userLogged = userToLogin;/* Guardamos el resto de datos del usuario en session */
-                
+                let { id, name, interests, avatar } = userToLogin
+                req.session.userLogged = { id, name, interests, avatar };/* Guardamos el resto de datos del usuario en session */
+
                 if (req.body.perdio) {/* preguntamos si marco la opcion de recordar */
-                    res.cookie("buonaseo", req.body.email, {maxAge: (24000 * 60) * 60})/* implementamos cookie para guardar la sesion del usuario */
+                    res.cookie("buonaseo", req.session.userLogged, { maxAge: (24000 * 60) * 60 })/* implementamos cookie para guardar la sesion del usuario */
                 }
 
                 return res.redirect("/users/profile")
@@ -90,7 +87,7 @@ module.exports = {
             })
         } else {
             return res.render('./users/login', {
-                errors:{
+                errors: {
                     ...errors,
                     email: {
                         msg: "No se encuentra este email"
@@ -106,32 +103,64 @@ module.exports = {
         return res.redirect("/");
     },
     profile: (req, res) => {
+        let user = cargarUsers().find(user => user.id === req.session.userLogged.id)
         return res.render("./users/profile", {
-			user: req.session.userLogged/* guardamos los datos del usuario de session */
-		});
+            user/* guardamos los datos del usuario de session */
+        });
     },
-    update : (req, res) => {
-        const {name, email,password, category, gender, interests, phone, dni, birthday, nationality, postalCode, domicile, city} = req.body;                                              
-        let usersModify = cargarUsers().map(user => {
-            if(user.id === +req.params.id){
-                return {
-                    ...user,
-                    ...req.body, 
-                    password: password ? password: user.password,
-                    interests : interests && interests.length > 1 ? interests : [interests],
-                    avatar : req.file ? req.file.filename : req.session.userLogged.avatar
+    update: (req, res) => {
+        let errors = validationResult(req)
+        errors = errors.mapped()
+
+        if (req.fileValidationError) {
+            errors = { ...errors, avatar: { msg: req.fileValidationError } }
+        }
+        if (Object.entries(errors).length === 0) {
+            const { name, email, password, gender, interests, phone, dni, birthday, nationality, postalCode, domicile, city } = req.body;
+            let usersModify = cargarUsers().map(user => {
+                if (user.id === +req.params.id) {
+                    return {
+                        ...user,
+                        ...req.body,
+                        password: password ? bcryptjs.hashSync(password.trim(), 10) : user.password,
+                        password2 :  password2 = () => {if(password2 == true || password2 == false){
+                            return delete password2
+                            }},
+                        interests: interests && interests.length > 1 ? interests : [interests],
+                        avatar: req.file ? req.file.filename : req.session.userLogged.avatar
+                    }
+                }
+                return user
+            });
+
+            if (req.file && req.session.userLogged.avatar) {
+                if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.session.userLogged.avatar))) {
+                    fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.session.userLogged.avatar))
                 }
             }
-            return user
-        });
-    
-        req.session.userLogged = {
-            ...req.session.userLogged,
-            name,
-            avatar : req.file ? req.file.filename : req.session.userLogged.avatar
+            
+            req.session.userLogged = {
+                ...req.session.userLogged,
+                name,
+                interests: interests ? interests:null,
+                avatar: req.file ? req.file.filename : req.session.userLogged.avatar
+            }
+            
+            res.cookie("buonaseo", req.session.userLogged, { maxAge: (24000 * 60) * 60 })
+            crearUsers(usersModify);
+            return res.redirect('/users/profile')
+        }else {
+            if (req.file) {
+                if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.file.filename))) {
+                    fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.file.filename))
+                }
+            }
+           
+            let user = cargarUsers().find(user => user.id === req.session.userLogged.id)
+            return res.render('./users/profile', {
+                user,
+                errors,
+            })
         }
-
-        crearUsers(usersModify);
-        return res.redirect('/users/profile')
     },
 }
