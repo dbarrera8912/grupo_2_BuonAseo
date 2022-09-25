@@ -5,7 +5,7 @@
         <div class="perfil-container">
         <div class="perfil-main-h1-img">
             <a class="perfil-main-salida" href="/">x</a>
-            <img class="perfil-main-image" src="../img/fotos-users/<%= locals.userLogged.avatar ? locals.userLogged.avatar : "default.png" %>"/>
+            <img class="perfil-main-image" alt="foto de perfil" src="/img/fotos-users/<%= user.avatar ? user.avatar : "default.png" %>">
             <h1 class="perfil-main-titulo">Bienvenido <%= user.name %></h1>
         </div>
         <form  action="/users/update/<%= user.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
@@ -13,17 +13,18 @@
                 <div class="perfil-main-conteiner1">   
                     <div class="perfil-main-caja--input-label">
                     <label class="perfil-main-label" for="name">Nombre</label>
-                    <input class="perfil-main-input" name="name" type="text" value="<%= user.name %>">
+                    <input class="perfil-main-input <%= locals.errors && errors.name ? "registro__email__container-inValid" : null %>" name="name" type="text" value="<%= user.name %>">
+                    <span class="registro-text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %></span>
                 </div>
                 
                 <div class="perfil-main-caja--input-label">
                     <label class="perfil-main-label" for="password">Contraseña</label>
-                    <input class="perfil-main-input" name="password" type="password" >
+                    <input class="perfil-main-input <%= locals.errors && errors.password ? "registro__email__container-inValid" : null %>" name="password" type="password" >
                     <span class="registro-text-danger"><%= locals.errors && errors.password ? errors.password.msg : null %></span>
                 </div>
                 <div class="perfil-main-caja--input-label">
                     <label class="perfil-main-label" for="password2">Confirmar Contraseña</label>
-                    <input class="perfil-main-input" name="password2" type="password" >
+                    <input class="perfil-main-input <%= locals.errors && errors.password2 ? "registro__email__container-inValid" : null %>" name="password2" type="password" >
                     <span class="registro-text-danger"><%= locals.errors && errors.password2 ? errors.password2.msg : null %></span>
                 </div>
                 <div class="perfil-main-caja--input-label">
@@ -92,7 +93,8 @@
             </div>
             <div class="perfil-main-caja--input-label2">
                 <label class="perfil-main-label2" for="avatar">Imagen</label>
-                <input class="perfil-main-input2" name="avatar" type="file">
+                <input class="perfil-main-input2 <%= locals.errors && errors.avatar ? "registro__email__container-inValid" : null %>" name="avatar" type="file">
+                <span class="registro-text-danger"><%= locals.errors && errors.avatar ? errors.avatar.msg : null %></span>
             </div>
             <div class="perfil-main-caja--boton">
                 <button class="perfil_botonRegistro" type="reset">CANCELAR</button>

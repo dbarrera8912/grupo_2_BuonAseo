@@ -142,16 +142,19 @@
       "password": "$2a$10$zYXcfXI.T/qrwHONUHjy4Ow..H.qXUU0eYXMqXHyFP13lm1/K8Epe",
       "gender": "f",
       "interests": [
-         null
+         "jabones",
+         "suavisantes",
+         "lavandinas"
       ],
       "phone": "",
-      "dni": "",
-      "birthday": "",
-      "nationality": "",
-      "postalCode": "",
-      "domicile": "",
-      "city": "",
-      "avatar": "avatar-1664054310340.jpeg"
+      "dni": "12",
+      "birthday": "0432-03-12",
+      "nationality": "324",
+      "postalCode": "2133",
+      "domicile": "657",
+      "city": "sasda",
+      "avatar": "avatar-1664116045248.PNG",
+      "password2": ""
    },
    {
       "id": 10,
