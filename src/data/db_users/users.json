@@ -160,7 +160,7 @@
       "id": 10,
       "name": "Matias",
       "email": "matias14@gmail.com",
-      "password": "$2a$10$9y8bDflJBfq3d.hxrUYaSO7io5HSnGqyRpqqBCgo81gmMb7nT7CxO",
+      "password": "$2a$10$Wq/e9MBe8tdtMu3plGMX0.5s26D8S9pKpEcJN1P9XryKju40vsBqa",
       "gender": null,
       "interests": [
          null
@@ -172,7 +172,6 @@
       "postalCode": "",
       "domicile": "",
       "city": "",
-      "avatar": null,
-      "password2": "$2a$10$PBz68NOohoB79dnAHqJJNu32eALi/PAkwE0ZawJT8IUOf5M.gHyhm"
+      "avatar": null
    }
 ]
