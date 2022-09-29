@@ -61,7 +61,7 @@ module.exports = {
     processLogin: (req, res) => {
         let errors = validationResult(req).mapped();
         const users = cargarUsers();
-        let userToLogin = users.find(oneUser => oneUser["email"] === req.body.email)/* buscamos si el email es igual a un email de nuestra base de datos */
+        let userToLogin = req.body.email.includes("@") ? users.find(oneUser => oneUser["email"] === req.body.email) : users.find(oneUser => oneUser["name"] === req.body.email)/* buscamos si el email es igual a un email de nuestra base de datos */
 
         if (userToLogin) {
             let isOkTheClave = bcryptjs.compareSync(req.body.password, userToLogin.password)/* Comparamos si la clave es igual a la guardada con hash */

@@ -36,7 +36,7 @@
    },
    {
       "id": 3,
-      "name": "Matias",
+      "name": "MatiasAdmin",
       "email": "matias@gmail.com",
       "password": "$2a$10$cBjZYK3AeRx/EuPIwmvfXuwuF0ZdG8cJpfQRRcoqo6vAHVMVruDcO",
       "gender": null,
@@ -153,8 +153,7 @@
       "postalCode": "2133",
       "domicile": "657",
       "city": "sasda",
-      "avatar": "avatar-1664116045248.PNG",
-      "password2": ""
+      "avatar": "avatar-1664116045248.PNG"
    },
    {
       "id": 10,
@@ -172,6 +171,22 @@
       "postalCode": "",
       "domicile": "",
       "city": "",
+      "avatar": null
+   },
+   {
+      "id": 11,
+      "name": "richarddos",
+      "email": "richarddos@gmail.com",
+      "password": "$2a$10$XIdZLNPRSdLZVp9ug7EqFO27yDT9Q3OFxch5w7S5fIYqwb71L1FG2",
+      "gender": null,
+      "interests": null,
+      "phone": null,
+      "dni": null,
+      "birthday": null,
+      "nationality": null,
+      "postalCode": null,
+      "domicile": null,
+      "city": null,
       "avatar": null
    }
 ]
