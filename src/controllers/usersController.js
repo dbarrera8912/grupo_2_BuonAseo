@@ -163,4 +163,17 @@ module.exports = {
             })
         }
     },
+    deleteAcc: (req, res) => {
+        let user = cargarUsers().find(user => user.id === req.session.userLogged.id)
+        return res.render("./users/deleteAcc", {
+            user/* guardamos los datos del usuario de session */
+        });
+    },
+    remove: (req, res) => {
+        const usersModify = cargarUsers().filter(user => user.id !== req.session.userLogged.id);
+        crearUsers(usersModify);
+        res.clearCookie("buonaseo")/* borra la cookie para mantener sesion */
+        req.session.destroy(); /* borra automaticamente todo registro en session */
+        return res.redirect('/');
+    },
 }
