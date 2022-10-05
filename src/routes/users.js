@@ -11,7 +11,7 @@ const authMiddleware = require("../middlewares/mw_users/authMiddleware")/* Middl
 const {uploadAvatar} = require('../middlewares/mw_users/uploadAvatar')
 
 // ************ Controller Require ************
-const { login, formulario, password, processFormulario, processLogin, logout, profile, update}=require('../controllers/usersController');
+const { login, formulario, password, processFormulario, processLogin, logout, profile, update, deleteAcc, remove}=require('../controllers/usersController');
 
 // ************ Rutas ************
 /* /users/... */
@@ -24,5 +24,7 @@ router
       .get('/password-lost', guestMiddleware, password)
       .get("/profile", authMiddleware, profile)
       .put('/update/:id',uploadAvatar.single('avatar'), validacionPerfilUser, update)
+      .get("/delete", authMiddleware, deleteAcc)
+      .delete("/delete/:id", authMiddleware, remove)
       
 module.exports = router;

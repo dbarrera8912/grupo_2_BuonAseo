@@ -61,7 +61,7 @@ module.exports = {
     processLogin: (req, res) => {
         let errors = validationResult(req).mapped();
         const users = cargarUsers();
-        let userToLogin = users.find(oneUser => oneUser["email"] === req.body.email)/* buscamos si el email es igual a un email de nuestra base de datos */
+        let userToLogin = req.body.email.includes("@") ? users.find(oneUser => oneUser["email"] === req.body.email) : users.find(oneUser => oneUser["name"] === req.body.email)/* buscamos si el email es igual a un email de nuestra base de datos */
 
         if (userToLogin) {
             let isOkTheClave = bcryptjs.compareSync(req.body.password, userToLogin.password)/* Comparamos si la clave es igual a la guardada con hash */
@@ -162,5 +162,18 @@ module.exports = {
                 errors,
             })
         }
+    },
+    deleteAcc: (req, res) => {
+        let user = cargarUsers().find(user => user.id === req.session.userLogged.id)
+        return res.render("./users/deleteAcc", {
+            user/* guardamos los datos del usuario de session */
+        });
+    },
+    remove: (req, res) => {
+        const usersModify = cargarUsers().filter(user => user.id !== req.session.userLogged.id);
+        crearUsers(usersModify);
+        res.clearCookie("buonaseo")/* borra la cookie para mantener sesion */
+        req.session.destroy(); /* borra automaticamente todo registro en session */
+        return res.redirect('/');
     },
 }

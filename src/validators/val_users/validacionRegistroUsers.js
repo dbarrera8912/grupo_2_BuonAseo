@@ -8,7 +8,16 @@ module.exports = [
         .isLength({
             min : 2
         }).withMessage('Mínimo 2 caracteres').bail()
-        .isAlpha('es-ES').withMessage('Solo caracteres alfabéticos'),
+        .isAlpha('es-ES').withMessage('Solo caracteres alfabéticos').bail()
+        .custom((value, {req}) => {
+            const user = cargarUsers().find(user => user.name === value);
+
+            if(user){
+                return false
+            }else {
+                return true
+            }
+        }).withMessage('El nombre ya existe. Por favor, selecciona otro.'),
     body('email')
         .notEmpty().withMessage('El email es obligatorio').bail()
         .isEmail().withMessage('Debe ser un email válido').bail()

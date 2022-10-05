@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/Logo.png">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <title>A CASA | Buon Aseo</title>
+    <style>
+        html {
+            background-image: url('/img/notAdmin.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center 0px;
+            height: 100%;
+        }
+
+        body {
+			font-family: sans-serif;
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+
+			color: white;
+		}
+        h1, h2{
+            margin-top: 150px;
+        }
+		article{
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+			align-items: center; 
+			gap: 40px;
+			color: white;
+			font-size: 1.2em;
+		}
+		button{
+            color: white;
+            padding: 30px;
+
+            margin-top: 50px;
+        }
+        a{
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Eliminar cuenta</h1>
+    <article>
+        <p>¿Estás seguro que quieres proseguir?</p>
+        <p>Si sigues, tu cuenta de BuonAseo se eliminará para toda la vida.</p>
+    </article>
+    <h2>¿Estás seguro que querés continuar con ésta acción?</h2>
+    <article>
+        <button><a href="/users/profile">No, no quiero eliminar mi cuenta</a></button>
+        <form action="/users/delete/<%= user.id %>?_method=DELETE" method="POST">
+            <button type="submit">Sí, si quiero eliminar mi cuenta</button>
+        </form>
+    </article>
+</body>
+
+</html>

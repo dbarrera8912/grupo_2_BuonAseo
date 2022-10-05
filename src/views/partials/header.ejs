@@ -15,10 +15,23 @@
           </ul>
           <ul class="header_perfil_desplegable">
             <a href="/users/profile">Mi perfil</a>
-            <a href="/users/logout" class="home_header_ingresar">Salir</i></a>
+            <div></div>
+            <a href="/users/logout">Salir</a>
+            <div></div>
+            <a href="/users/delete">Eliminar cuenta</a>
+            <div></div>
+            <% if (locals.adminEntry) { %>
+              <a href="/products/crearProducto">Crear producto</a>
+              <div></div>
+              <a href="/footer/preguntas/agregar">Crear pregunta</a>
+              <div></div>
+              <a href="/footer/pagos/agregar">Crear metodo</a>
+              <div></div>
+            <% } %>
           </ul>
           <li><a href="/products/carrito"><i class="fa-solid fa-cart-shopping"></i></a></li>
         </ul>
+        
       <% }else{ %>
         <article class="header_section_user_car">
           <a href="/users/login" class="home_header_ingresar">Ingresar</a>
@@ -28,7 +41,7 @@
         </article>
         
         <% } %>
-      
+        
     </section>
     <section class="header_section_dos">
       <button class="header_section_hamburguesa"
@@ -47,6 +60,16 @@
               <hr>
               <li><a href="/users/logout">Salir</a></li>
               <hr>
+              <li><a href="/users/delete">Eliminar cuenta</a></li>
+              <hr>
+              <% if (locals.adminEntry) { %>
+              <li><a href="/products/crearProducto">Crear producto</a></li>
+              <hr>
+              <li><a href="/footer/preguntas/agregar">Crear pregunta</i></a></li>
+              <hr>
+              <li><a href="/footer/pagos/agregar">Crear metodo</i></a></li>
+              <hr>
+              <% } %>
             </ul>
 
           </li>

@@ -91,23 +91,30 @@
     
     border: solid 1px var(--blanco);
     border-radius: 4px;
-    width: 80px;
-    padding-left: 8px;
+    
+    
 }
+
 .header_perfil_desplegable a{
     color: var(--blanco);
-    border-bottom: 1px solid var(--blanco);
-    margin-top: 4px;
     font-size: 16px;
+    padding: 16px 10px;
+    margin-top: 50px;
+}
+.header_perfil_desplegable div{
+    color: var(--blanco);
+    background-color: var(--azulClaro);
+    height: 1px;
+    width: 100%;
+    margin: 5px 0px;
 }
 
-
 .header_perfil_desplegable-show {
-    display: inline-block;
+    display: block;
     position: absolute;
-    
-    margin-top: 65px;
-    margin-right: 37px;
+    top: 35px;
+    right: 35px;
+    padding: 5px;
 }
 
 .header_section_dos {

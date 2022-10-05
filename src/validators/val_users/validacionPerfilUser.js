@@ -1,4 +1,5 @@
 const {check, body} = require('express-validator');
+const {cargarUsers} = require('../../data/db_users/db_users');
 
 module.exports = [
     check('name')
@@ -6,7 +7,16 @@ module.exports = [
         .isLength({
             min : 2
         }).withMessage('Mínimo 2 caracteres').bail()
-        .isAlpha('es-ES').withMessage('Solo caracteres alfabéticos'),
+        .isAlpha('es-ES').withMessage('Solo caracteres alfabéticos').bail()
+        .custom((value, {req}) => {
+            const user = cargarUsers().find(user => user.name === value);
+
+            if(user){
+                return false
+            }else {
+                return true
+            }
+        }).withMessage('El nombre ya existe. Por favor, selecciona otro.'),
         
     check('password')
         .custom((value,{req})=>{
