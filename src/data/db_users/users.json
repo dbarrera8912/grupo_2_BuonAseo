@@ -24,14 +24,16 @@
       "email": "sirley@gmail.com",
       "password": "$2a$10$uoKKFsMcXlf8kK3iMNDLO..Shva2q.Bp9zJpywdIJpi59tAB31UJS",
       "gender": null,
-      "interests": null,
-      "phone": null,
-      "dni": null,
-      "birthday": null,
-      "nationality": null,
-      "postalCode": null,
-      "domicile": null,
-      "city": null,
+      "interests": [
+         null
+      ],
+      "phone": "",
+      "dni": "",
+      "birthday": "",
+      "nationality": "",
+      "postalCode": "",
+      "domicile": "",
+      "city": "",
       "avatar": null
    },
    {
@@ -173,5 +175,21 @@
       "domicile": "",
       "city": "",
       "avatar": null
+   },
+   {
+      "id": 11,
+      "name": "Sirley",
+      "email": "sirley1234@hotmail.com",
+      "password": "$2a$10$j3i.AjE62SDd4RgifEfgoOABXZLecMW0B7tSMYZet4lJL2EIoXTSO",
+      "gender": null,
+      "interests": "suavisantes",
+      "phone": "",
+      "dni": "",
+      "birthday": "",
+      "nationality": "./ ',",
+      "postalCode": "",
+      "domicile": "",
+      "city": "",
+      "avatar": "avatar-1664840577632.png"
    }
 ]

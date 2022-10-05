@@ -1,7 +1,8 @@
 .perfil-main {
     width: 100%;
     display: flex;
-    padding: 10px;
+    padding: 30px 10px 10px 10px;
+
     flex-direction:column;
     align-items: center;
     background: rgb(2,64,177);
@@ -18,12 +19,17 @@
     color: var(--negro);
     font-weight: 600;
 }
-
+.perfil-main-h1-img div{
+    display: flex;
+    align-items: center;
+}
 .perfil-main-h1-img{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 2em;
+    margin-top: 2em;
 }
 
 .perfil-main-image{
@@ -35,7 +41,7 @@
 .perfil-container{
     background-color: var(--blanco);
     border-radius: 10px;
-    width: 80%;
+    width: 60%;
 }
 
 .perfil-main-formulario {
@@ -69,22 +75,21 @@ width: 100%;
 }
 
 .perfil-main-caja--input-label2{
-    width: 100%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
 }
 .perfil-main-label2{
     font-size: 0.5rem;
-    padding-left: 20px;
     padding-bottom: 5px;
 }
 .perfil-main-input2{
-    border: 1px var(--azulFuerte) solid;
+    border: 1px rgb(173, 173, 173) solid;
     border-radius: 10px;
     color: white;
     font-size: 0.8rem;
-    background-color: var(--azulFuerte);
+    background-color: rgb(173, 173, 173);
     width: 90%;
     height: 40px;
     padding-left: 10px;
@@ -101,19 +106,27 @@ width: 100%;
 }
 
 .perfil-main-caja-radio{
-display: flex;
-width: 100%;
-flex-direction: row;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
 }
 
-
-
-
+.perfil-main-radio-label{
+    margin-right: 7px;
+    display: flex;
+    align-items: center;
+    line-height: 13px;
+}
 .perfil-main-radio{
-    width: 50px;
+    width: 15px;
     height: 15px;
+    margin-right: 5px;
 }
-
+.perfil-main-caja--input-label-checkbox > label{
+    font-weight: 600;
+    text-align: center;
+}
 .perfil-main-caja--input-label-checkbox {
 display: flex;
 flex-direction: column;
@@ -127,23 +140,54 @@ margin-bottom: 15px;
     display: flex;
     flex-direction: row;
     width: 100%;
+    justify-content: center;
 }
-
+.perfil-main-input-checkbox{
+    margin-right: 5px;
+}
 .perfil-main-label-checkbox{
-    margin-left: 15px;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    line-height: 13px;
 }
-
+.perfil-main-caja--input-label2 .contenedor-preview{
+    height:170px;
+    
+}
+.perfil-main-caja--input-label2 .preview{
+    width: 50%;
+    display: block;
+    margin: auto;
+    height: 100%;
+    object-fit: contain;
+}
 
 .perfil-main-input{
-    border: 1px var(--azulFuerte) solid;
-    border-radius: 10px;
-    color: white;
+    border: unset;
+    outline: none;
+    color: var(--azulFuerte);
     font-size: 0.8rem;
-    background-color: var(--azulFuerte);
     width: 90%;
     height: 30px;
     padding-left: 10px;
     align-self: center;
+}
+.perfil-main-caja--input-label .barra{
+    content:"";
+    width: 90%;
+    margin: auto;
+    height: 1px;
+    background: linear-gradient(to right,rgb(71, 123, 153),rgb(126, 182, 219));
+    display: block;
+    transition: all 0.4s;
+    margin-top: -5px;
+}
+.perfil-main-input:focus-visible + .barra{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: 2px;
+    background: linear-gradient(to right,rgb(4, 147, 190),rgba(2, 204, 255));
 }
 
 .perfil-main-input-password{
@@ -188,8 +232,14 @@ margin-bottom: 15px;
     width: 100px;
     height: 30px;
     font-size: 16px;
+    font-weight: 400;
+    background: linear-gradient(to right,rgb(5, 109, 179),rgb(6, 167, 241));
+    transition: all 0.3s;
 }
+.perfil_botonRegistro:hover{
+    background: linear-gradient(to right,rgb(5, 84, 136),rgb(7, 139, 201)) !important;
 
+}
 
     @media (min-width: 768px){   
        
@@ -207,11 +257,11 @@ margin-bottom: 15px;
         }
         
         .perfil-main-conteiner1 {
-        width: 45%;
+        width: 40%;
         }
         
         .perfil-main-conteiner2 {
-            width: 45%;
+            width: 40%;
         }
 
         .perfil-main-input{
@@ -225,7 +275,7 @@ margin-bottom: 15px;
 
         .perfil-main-label2{
             font-size: 1rem;
-            padding-left: 50px;
+
         }
 
         .perfil-main-caja--input-label-checkbox {
@@ -249,47 +299,66 @@ margin-bottom: 15px;
 
     @media (min-width: 1024px){
         .perfil-main-titulo{
-            font-size: 3rem;
+            margin-left: 8px;
+            font-size: 1.8rem;
+        }
+        .perfil-main-titulo b{
+            font-size: 2.2rem;
         }
 
         .perfil-main-salida{
             font-size: 3rem;
-            margin-left: 60rem;
+            position: absolute;
+            top: -20px;
+            right: 20px;
         }
 
         .perfil-main-input{
-            height: 45px;
+            height: 35px;
         }
 
         .perfil-main-label{
-            font-size: 1.5rem;
+            font-size: 1rem;
             padding-left: 50px;
         }
 
         .perfil-main-input2{
-            height: 45px;
+            height: 25px;
+            margin: auto;
+            /* line-height: 30px; */
+            width: 95%;
+            font-size: 12px;
         }
 
         .perfil-main-label2{
-            font-size: 1.5rem;
-            padding-left: 70px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
         }
 
         .perfil-main-caja--input-label-checkbox {
-            font-size: 1.5rem;
-            }
+            font-size: 0.8rem;
+            padding-left: 15px;
+        }
 
-            .perfil-main-caja--input-label-radio {
-                font-size: 1.5rem;
-                }
+        .perfil-main-caja--input-label-radio {
+            
+            font-size: 0.8rem;
+            padding-left: 15px;
+        }
+        .perfil-main-caja--input-label-radio > label {
+            text-align: center;
+            font-weight: 600;
+        }
 
         .perfil_botonRegistro{
             width: 130px;
-            height: 45px;
+            height: 28px;
         }
 
         .perfil-main-image{
-            width: 150px;
-            height: 150px;
+            width: 50px;
+            height: 50px;
+            object-fit: cover
         }
     }
