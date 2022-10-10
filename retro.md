@@ -38,3 +38,8 @@ Plantearon que el mayor reto del sprint N° 2, es que lo que trabajemos funcione
 ![image text](https://github.com/dbarrera8912/grupo_2_BuonAseo/blob/develop/public/img/imageRetroMd/StarfishSprint4.jpg)
 ***
 
+# Retrospectiva Sprint N°5
+
+## Starfish:
+![image text](https://github.com/dbarrera8912/grupo_2_BuonAseo/blob/develop/public/img/imageRetroMd/StarfishSprint5.png)
+***
