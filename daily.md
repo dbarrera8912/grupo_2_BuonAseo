@@ -224,3 +224,32 @@ Lo que hizo fue estar con la vista de perfil, y ahora está con las cookies y es
 
 #### Sirley
 Lo que hizo fue entregar T.P adeudado, tuvo complicaciones con para colocar un cartel cuando uno agrega un producto o elimina y lo que va a hacer es subir las dailys al proyecto integrador.
+
+### Sprint 6
+
+## General:
+En este apartado veremos el progreso de los integrantes del equipo de Buon Aseo mediante las dailys del Sprint 6.
+
+### Fecha de daily: 10 de octubre
+
+### Integrantes:
+
+### Sirley
+que hice : crear el diagrama de base de datos del grupo.
+dificultad : no sabia que informacion colocar a la tabla.
+que va a hacer : va a esperar a companieros y terminar el trabajo practico.
+
+### Daniel  
+que hice : completar pg 
+dificultad : le daba error en la terminar lo ayudo sir y pudo completarlo
+que va a hacer : ver videos de migraciones
+
+### Matias 
+que hice = vi clase grabada 70
+dificultad = se para que sirve cada codigo o comando pero me cuesta armar la logica 
+que voy = practicar sobre los modelos 
+
+### Richard 
+que hice = el viernes lo de sequelize ponerlo en el proyecto para que funcione
+dificultad = tubo problemas con sequelize 
+que va a hacer = esperar a que aparesca algo en pg o disponible para dani si necesita ayuda
