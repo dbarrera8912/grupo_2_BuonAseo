@@ -253,3 +253,26 @@ que voy = practicar sobre los modelos
 que hice = el viernes lo de sequelize ponerlo en el proyecto para que funcione
 dificultad = tubo problemas con sequelize 
 que va a hacer = esperar a que aparesca algo en pg o disponible para dani si necesita ayuda
+
+### Fecha de daily: 11 de octubre
+
+### Integrantes:
+
+### Sirley
+que hice = trabajo sobre la clase 33
+dificultad = no sabe como volver al commit anterior 
+que va a hacer = va a editar el der para que quede bien 
+
+### Daniel  
+que hice = repasar pg y video de clase grabadas
+va a hacer = migraciones con richard 
+dificultad = con el codigo sobre migraciones
+
+### Matias 
+que hice = ver videos sobre migraciones y seeders 
+dificultad = sobre crear migraciones y tirarlas para atras 
+que va a hacer = seguir viendo videos sobre migraciones y seeders
+
+### Richard 
+que hice = repasar migraciones y seeders y encontro problemas en el proyecto
+que va a hacer = poner en practicar lo que estuvo repasando 
