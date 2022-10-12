@@ -276,3 +276,28 @@ que va a hacer = seguir viendo videos sobre migraciones y seeders
 ### Richard 
 que hice = repasar migraciones y seeders y encontro problemas en el proyecto
 que va a hacer = poner en practicar lo que estuvo repasando 
+
+
+### Fecha de daily: 12 de octubre
+
+### Integrantes:
+
+### Sirley
+que hice = que hiso tratar de terminar el trabajo 33
+dificultad = un error en consola 
+que va a hacer = nada xd
+
+### Daniel  
+que hice = completar su tarea del sprint le ayudo richard
+va a hacer = seguir con su tarea del sprint 
+dificultad = no tubo
+
+### Matias 
+que hice = seguir viendo el video de ayer 
+dificultad = por ahora no si no una duda
+que va a hacer = seguir viendo el video
+
+### Richard 
+que hice = estuvo con migraciones y seeders
+dificultad = algunos mas que nada con el tema de relaciones con las tablas
+que va a hacer = migraciones completar lo que falta y seguir con seeders
