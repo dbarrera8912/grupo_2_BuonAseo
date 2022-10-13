@@ -21,9 +21,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      gender: {
-        type: Sequelize.STRING
-      },
       phone: {
         type: Sequelize.INTEGER
       },
@@ -56,6 +53,15 @@ module.exports = {
         references : {
           model : {
             tableName : 'Type_users'
+          },
+          key : 'id'
+        }
+      },
+      id_gender: {
+        type: Sequelize.INTEGER,
+        references : {
+          model : {
+            tableName : 'Genders'
           },
           key : 'id'
         }
