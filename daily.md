@@ -301,3 +301,27 @@ que va a hacer = seguir viendo el video
 que hice = estuvo con migraciones y seeders
 dificultad = algunos mas que nada con el tema de relaciones con las tablas
 que va a hacer = migraciones completar lo que falta y seguir con seeders
+
+### Fecha de daily: 13 de octubre
+
+### Integrantes:
+
+### Sirley
+que hice = ver el PG
+dificultad = que dificultades ninguna por ahora
+que va a hacer = los ejercicios de PG
+
+### Daniel  
+que hice = Lo que hice fue tratar de seguir la clase de ayer
+va a hacer = Y voy a seguir tratando de ver el error
+dificultad = Se me complicó porque no me levanta el servidor
+
+### Matias 
+que hice = ver playground
+dificultad = por ahora no
+que va a hacer = seguir con playground
+
+### Richard 
+que hice =  terminar seeders
+dificultad = tuve varios errores, pero los pude solventar
+que va a hacer = arrancar tema nuevo de pg
