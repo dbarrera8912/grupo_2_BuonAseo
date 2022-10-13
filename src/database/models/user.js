@@ -18,7 +18,6 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     gender: DataTypes.STRING,
-    interests: DataTypes.STRING,
     phone: DataTypes.INTEGER,
     dni: DataTypes.INTEGER,
     birthday: DataTypes.DATE,
@@ -32,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
+    paranoid : true
   });
   return User;
 };

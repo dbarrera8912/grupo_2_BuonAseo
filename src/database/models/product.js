@@ -27,11 +27,11 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     image: DataTypes.STRING,
     date: DataTypes.DATE,
-    id_category: DataTypes.INTEGER,
-    id_brand: DataTypes.INTEGER
+    id_category: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Product',
+    paranoid : true //borrado suave
   });
   return Product;
 };

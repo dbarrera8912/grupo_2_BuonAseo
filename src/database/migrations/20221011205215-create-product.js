@@ -62,15 +62,6 @@ module.exports = {
         }
 
       },
-      id_brand: {
-        type: Sequelize.INTEGER,
-        references : {
-          model : {
-            tableName : 'Brands'
-          },
-          key : 'id'
-        }
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

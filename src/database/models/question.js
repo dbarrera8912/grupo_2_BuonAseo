@@ -15,12 +15,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   Question.init({
     title: DataTypes.STRING,
-    response: DataTypes.STRING,
     href: DataTypes.STRING,
     a: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Question',
+    paranoid : true
   });
   return Question;
 };
