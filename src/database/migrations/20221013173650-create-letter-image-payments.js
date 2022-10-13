@@ -2,27 +2,25 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Payment_methods', {
+    await queryInterface.createTable('LetterImage_payments', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      icon: {
-        allowNull: false,
+      letter: {
         type: Sequelize.STRING
       },
-      title: {
+      id_payment: {
         allowNull: false,
-        type: Sequelize.STRING
-      },
-      bottom_letter_title: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      bottom_letter_full: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        references : {
+          model : {
+            tableName : 'Payment_methods'
+          },
+          key : 'id'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +35,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Payment_methods');
+    await queryInterface.dropTable('LetterImage_payments');
   }
 };

@@ -2,14 +2,12 @@
 
 const metodosJson = require('../../data/db_footer/metodosDePago.json');
 
-const metodos = metodosJson.map(({icono,titulo,letraAbajoTitulo,img,letraFullAbajo,letraAbajoDeImagen}) => {
+const metodos = metodosJson.map(({icono,titulo,letraAbajoTitulo,letraFullAbajo,letraAbajoDeImagen}) => {
     return {
         icon: icono,
         title: titulo,
-        botton_letter_title: letraAbajoTitulo,
-        image: img,
-        botton_letter_full: letraFullAbajo,
-        botton_letter_image: letraAbajoDeImagen,
+        bottom_letter_title: letraAbajoTitulo,
+        bottom_letter_full: letraFullAbajo,
         createdAt : new Date()
     }
 })
