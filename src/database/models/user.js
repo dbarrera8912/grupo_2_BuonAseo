@@ -11,6 +11,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.belongsTo(models.Order,{
+        as : 'user',
+        foreignKey : 'id_user'
+      })
+      User.belongsTo(models.Gender, {
+        as : 'gender',
+        foreignKey : 'id_gender'
+      })
+      User.hasMany(models.Type_user, {
+        as : 'type_user',
+        foreignKey : 'id_type_user'
+      })
+      User.belongsTo(models.User_interest, {
+        as : 'interest',
+        foreignKey : 'id_user'
+      })
     }
   }
   User.init({

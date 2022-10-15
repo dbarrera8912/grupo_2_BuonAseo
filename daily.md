@@ -325,3 +325,51 @@ que va a hacer = seguir con playground
 que hice =  terminar seeders
 dificultad = tuve varios errores, pero los pude solventar
 que va a hacer = arrancar tema nuevo de pg
+
+### Fecha de daily: 14 de octubre
+
+### Integrantes:
+
+### Sirley
+que hice = ver la clase grabada, estar con el pg y leer documentacion
+dificultad = ninguna por ahora
+que va a hacer = terminar el t.p 35
+
+### Daniel  
+que hice = Estuve tratando de hacer andar el último tp
+va a hacer = Voy a seguir probando !! A ver si me levanta el servidor
+dificultad = No lo pude hacer andar
+
+### Matias 
+que hice = estoy trabajando en el proyecto
+dificultad = por ahora no solo dudas que maniana preguntare en la dayli
+que va a hacer = seguir trabajando con el proyecto
+
+### Richard 
+que hice =  tp de pg y vi clase 35 de pg
+dificultad =  me quede atras en la clase xd
+que va a hacer = practicando lo nuevo y reformar cv
+
+### Fecha de daily: 15 de octubre
+
+### Integrantes:
+
+### Sirley
+que hice = el tp de apis
+dificultad = no entendio bien
+que va a hacer = terminar el tp de apis y el crud de productos
+
+### Daniel  
+que hice = sigue con el trabajo practico buscando que funcione
+va a hacer = ver de nuevo las clases que no pudo estar
+dificultad = con la clase por el internet
+
+### Matias 
+que hice = terminar con las asociaciones del proyecto
+dificultad = no me funca el tp de apis
+que va a hacer = seguir trabajando en tp de apis
+
+### Richard 
+que hice =  estubo con el tp 35
+dificultad = se quedo atras pero despues lo completo
+que va a hacer = arrancar con el crud de usuarios

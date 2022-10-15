@@ -11,6 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Payment_method.hasMany(models.LetterImage_payments, {
+        as : 'letter_image_payments',
+        foreignKey : 'id_payment'
+      })
+      Payment_method.hasMany(models.Files_payments, {
+        as : 'files_payments',
+        foreignKey : 'id_payment'
+      })
     }
   }
   Payment_method.init({

@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      LetterImage_payments.belongsTo(models.Payment_method,{
+        as : 'payment_methods',
+        foreignKey : 'id_payment'
+      })
     }
   }
   LetterImage_payments.init({
