@@ -3,13 +3,29 @@ const path = require("path");
 const { validationResult } = require("express-validator");
 const bcryptjs = require('bcryptjs')
 const { crearUsers, cargarUsers, loadCategoriasUser } = require("../data/db_users/db_users");
+const db = require("../database/models");
 
 module.exports = {
     login: (req, res) => {
         return res.render('./users/login', { req })
     },
 
-    formulario: (req, res) => {
+    formulario: async (req, res) => {
+        try {
+            const users = await db.User.findAll({
+                
+            })
+            const categorias = await db.Type_user.findAll()
+            console.log("-------------------------------")
+            console.log(users)
+            console.log(("-------------------------------"))
+            return res.render('./users/formulario', {
+                users,
+                categorias
+            })
+        } catch (error) {
+            return console.log(error)
+        }
         const users = cargarUsers();
         const categorias = loadCategoriasUser();
         return res.render('./users/formulario', {
