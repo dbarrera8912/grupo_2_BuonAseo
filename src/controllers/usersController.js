@@ -1,7 +1,9 @@
 const fs = require("fs");
 const path = require("path");
+
 const { validationResult } = require("express-validator");
 const bcryptjs = require('bcryptjs')
+
 const { crearUsers, cargarUsers, loadCategoriasUser } = require("../data/db_users/db_users");
 const db = require("../database/models");
 
@@ -71,43 +73,70 @@ module.exports = {
         return res.render('./users/password-lost')
     },
 
-    processLogin: (req, res) => {
-        let errors = validationResult(req).mapped();
-        const users = cargarUsers();
-        let userToLogin = req.body.email.includes("@") ? users.find(oneUser => oneUser["email"] === req.body.email) : users.find(oneUser => oneUser["name"] === req.body.email)/* buscamos si el email es igual a un email de nuestra base de datos */
+    processLogin: async (req, res) => {
 
-        if (userToLogin) {
-            let isOkTheClave = bcryptjs.compareSync(req.body.password, userToLogin.password)/* Comparamos si la clave es igual a la guardada con hash */
+        try {
+            let errors = validationResult(req).mapped();
+            const users = await db.User.findAll({
+                attributes: {
+                    exclude: ["createdAt", "updatedAt", "deletedAt"],
+                },
+            })
+            const interests = await db.Interest.findAll({
+                attributes: {
+                    exclude: ["createdAt", "updatedAt", "deletedAt"],
+                },
+            })
+            const user_interest = await db.User_interest.findAll({
+                attributes: {
+                    exclude: ["createdAt", "updatedAt", "deletedAt"],
+                },
+            })
+            let userToLogin = req.body.email.includes("@") ? users.find(oneUser => oneUser["email"] === req.body.email) : users.find(oneUser => oneUser["name"] === req.body.email)/* buscamos si el email es igual a un email de nuestra base de datos */
 
-            if (isOkTheClave) {
-                let { id, name, interests, avatar } = userToLogin
-                req.session.userLogged = { id, name, interests, avatar };/* Guardamos el resto de datos del usuario en session */
+            if (userToLogin) {
+                interestsToLogin = []
+                user_interest.forEach(userInterest => {
+                    userInterest.dataValues.id_user === userToLogin.id && userInterest.dataValues.id_interest === 1 && interestsToLogin.push("jabones")
+                    userInterest.dataValues.id_user === userToLogin.id && userInterest.dataValues.id_interest === 2 && interestsToLogin.push("suavisantes")
+                    userInterest.dataValues.id_user === userToLogin.id && userInterest.dataValues.id_interest === 3 && interestsToLogin.push("lavandinas")
+                });
 
-                if (req.body.perdio) {/* preguntamos si marco la opcion de recordar */
-                    res.cookie("buonaseo", req.session.userLogged, { maxAge: (24000 * 60) * 60 })/* implementamos cookie para guardar la sesion del usuario */
-                }
+                let isOkTheClave = bcryptjs.compareSync(req.body.password, userToLogin.password)/* Comparamos si la clave es igual a la guardada con hash */
 
-                return res.redirect("/users/profile")
-            }
-            return res.render('./users/login', {
-                errors: {
-                    ...errors,
-                    email: {
-                        msg: "Las credenciales son invalidas"
+                if (isOkTheClave) {
+
+                    let { id, name, avatar } = userToLogin
+                    req.session.userLogged = { id, name, avatar, interestsToLogin };/* Guardamos el resto de datos del usuario en session */
+
+                    if (req.body.perdio) {/* preguntamos si marco la opcion de recordar */
+                        res.cookie("buonaseo", req.session.userLogged, { maxAge: (24000 * 60) * 60 })/* implementamos cookie para guardar la sesion del usuario */
                     }
-                },
-                old: req.body
-            })
-        } else {
-            return res.render('./users/login', {
-                errors: {
-                    ...errors,
-                    email: {
-                        msg: "No se encuentra este email"
+
+                    return res.redirect("/users/profile")
+                }
+                return res.render('./users/login', {
+                    errors: {
+                        ...errors,
+                        email: {
+                            msg: "Las credenciales son invalidas"
+                        }
                     },
-                },
-                old: req.body
-            })
+                    old: req.body
+                })
+            } else {
+                return res.render('./users/login', {
+                    errors: {
+                        ...errors,
+                        email: {
+                            msg: "No se encuentra este email"
+                        },
+                    },
+                    old: req.body
+                })
+            }
+        } catch (error) {
+            return console.log(error)
         }
     },
     logout: (req, res) => {
@@ -115,13 +144,106 @@ module.exports = {
         req.session.destroy(); /* borra automaticamente todo registro en session */
         return res.redirect("/");
     },
-    profile: (req, res) => {
-        let user = cargarUsers().find(user => user.id === req.session.userLogged.id)
-        return res.render("./users/profile", {
-            user/* guardamos los datos del usuario de session */
-        });
+    profile: async (req, res) => {
+        try {
+            const user = await db.User.findByPk(req.session.userLogged.id, {
+                attributes: {
+                    exclude: ["createdAt", "updatedAt", "deletedAt"],
+                },
+            })
+            const user_interest = await db.User_interest.findAll({
+                attributes: {
+                    exclude: ["createdAt", "updatedAt", "deletedAt"],
+                },
+            })
+
+            interestsToLogin = []
+            user_interest.forEach(userInterest => {
+                userInterest.dataValues.id_user === user.id && userInterest.dataValues.id_interest === 1 && interestsToLogin.push("jabones")
+                userInterest.dataValues.id_user === user.id && userInterest.dataValues.id_interest === 2 && interestsToLogin.push("suavisantes")
+                userInterest.dataValues.id_user === user.id && userInterest.dataValues.id_interest === 3 && interestsToLogin.push("lavandinas")
+            });
+
+            return res.render("./users/profile", {
+                user,/* guardamos los datos del usuario de session */
+                interestsToLogin
+            });
+        } catch (error) {
+            return console.log(error)
+        }
     },
-    update: (req, res) => {
+    update: async (req, res) => {
+        try {
+            const user = await db.User.findByPk(req.session.userLogged.id, {
+                attributes: {
+                    exclude: ["createdAt", "updatedAt", "deletedAt"],
+                },
+            })
+            const user_interest = await db.User_interest.findAll({
+                attributes: {
+                    exclude: ["createdAt", "updatedAt", "deletedAt"],
+                },
+            })
+
+            let errors = validationResult(req)
+            errors = errors.mapped()
+
+            if (req.fileValidationError) {
+                errors = { ...errors, avatar: { msg: req.fileValidationError } }
+            }
+            if (Object.entries(errors).length === 0) {
+                const { name, email, password, gender, interests, phone, dni, birthday, nationality, postalCode, domicile, city } = req.body;
+                
+                let usersModify = cargarUsers().map(user => {
+                    if (user.id === +req.params.id) {
+                        return {
+                            ...user,
+                            ...req.body,
+                            password: password ? bcryptjs.hashSync(password.trim(), 10) : user.password,
+                            password2: password2 = () => {
+                                if (password2 == true || password2 == false) {
+                                    return delete password2
+                                }
+                            },
+                            interests: interests && interests.length > 1 ? interests : [interests],
+                            avatar: req.file ? req.file.filename : req.session.userLogged.avatar
+                        }
+                    }
+                    return user
+                });
+
+                if (req.file && req.session.userLogged.avatar) {
+                    if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.session.userLogged.avatar))) {
+                        fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.session.userLogged.avatar))
+                    }
+                }
+
+                req.session.userLogged = {
+                    ...req.session.userLogged,
+                    name,
+                    interests: interests ? interests : null,
+                    avatar: req.file ? req.file.filename : req.session.userLogged.avatar
+                }
+
+                res.cookie("buonaseo", req.session.userLogged, { maxAge: (24000 * 60) * 60 })
+                crearUsers(usersModify);
+                return res.redirect('/users/profile')
+            } else {
+                if (req.file) {
+                    if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.file.filename))) {
+                        fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.file.filename))
+                    }
+                }
+
+                let user = cargarUsers().find(user => user.id === req.session.userLogged.id)
+                return res.render('./users/profile', {
+                    user,
+                    errors,
+                })
+            }
+        } catch (error) {
+            return console.log(error)
+        }
         let errors = validationResult(req)
         errors = errors.mapped()
 

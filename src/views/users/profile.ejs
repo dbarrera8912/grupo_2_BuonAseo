@@ -46,13 +46,13 @@
                     
                     <div class="perfil-main-caja-checkbox">
                      <label  class="perfil-main-label-checkbox" for="jabones"> 
-                        <input class="perfil-main-input-checkbox"  value="jabones" type="checkbox" id="jabones"  name="interests" <%= user.interests && user.interests.includes('jabones') && "checked"%>> Jabones</label>
+                        <input class="perfil-main-input-checkbox"  value="jabones" type="checkbox" id="jabones"  name="interests" <%= interestsToLogin && interestsToLogin.includes('jabones') && "checked"%>> Jabones</label>
                      
                         <label class="perfil-main-label-checkbox" for="suavisantes">
-                        <input class="perfil-main-input-checkbox"  value="suavisantes" type="checkbox" id="suavisantes" name="interests" <%= user.interests && user.interests.includes('suavisantes') && "checked"%>> Suavisantes</label>
+                        <input class="perfil-main-input-checkbox"  value="suavisantes" type="checkbox" id="suavisantes" name="interests" <%= interestsToLogin && interestsToLogin.includes('suavisantes') && "checked"%>> Suavisantes</label>
                     
                         <label class="perfil-main-label-checkbox" for="lavandinas">
-                        <input class="perfil-main-input-checkbox"  value="lavandinas" type="checkbox" id="lavandinas" name="interests" <%= user.interests && user.interests.includes('lavandinas') && "checked"%>> Lavandinas</label>
+                        <input class="perfil-main-input-checkbox"  value="lavandinas" type="checkbox" id="lavandinas" name="interests" <%= interestsToLogin && interestsToLogin.includes('lavandinas') && "checked"%>> Lavandinas</label>
                 </div>
             </div>
         </div>
@@ -82,13 +82,13 @@
                         <label for="">Genero</label>
                          <div class="perfil-main-caja-radio">
                         <label class="perfil-main-radio-label" for="masculino">
-                            <input class="perfil-main-radio" <%= user.gender === "m" && 'checked' %>  value="m" type="radio" id="masculino" name="gender"> Masculino</label>
+                            <input class="perfil-main-radio" <%= user.id_gender === 1 && 'checked' %>  value="m" type="radio" id="masculino" name="gender"> Masculino</label>
                          
                             <label class="perfil-main-radio-label" for="femenino">
-                            <input class="perfil-main-radio" <%= user.gender === "f" && 'checked' %> value="f" type="radio" id="femenino" name="gender"> Femenino</label>
+                            <input class="perfil-main-radio" <%= user.id_gender === 2 && 'checked' %> value="f" type="radio" id="femenino" name="gender"> Femenino</label>
                         
                             <label class="perfil-main-radio-label" for="otro">
-                            <input class="perfil-main-radio" value="o" <%= user.gender === "o" && 'checked' %> type="radio" id="otro" name="gender"> Otro</label>
+                            <input class="perfil-main-radio" value="o" <%= user.id_gender === 3 && 'checked' %> type="radio" id="otro" name="gender"> Otro</label>
                     </div>
                 </div>
              </div>
