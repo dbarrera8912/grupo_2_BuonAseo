@@ -13,12 +13,17 @@ module.exports = {
     formulario: async (req, res) => {
         try {
             const users = await db.User.findAll({
-                
+                attributes: {
+                    exclude: ["createdAt", "updatedAt", "deletedAt"],
+                },
             })
-            const categorias = await db.Type_user.findAll()
-            console.log("-------------------------------")
-            console.log(users)
-            console.log(("-------------------------------"))
+
+            const categorias = await db.Type_user.findAll({
+                attributes: {
+                    exclude: ["createdAt", "updatedAt", "deletedAt"],
+                },
+            })
+
             return res.render('./users/formulario', {
                 users,
                 categorias
@@ -26,47 +31,39 @@ module.exports = {
         } catch (error) {
             return console.log(error)
         }
-        const users = cargarUsers();
-        const categorias = loadCategoriasUser();
-        return res.render('./users/formulario', {
-            users,
-            categorias
-        })
     },
-    processFormulario: (req, res) => {
-        const errors = validationResult(req);
+    processFormulario: async (req, res) => {
+        try {
+            const errors = validationResult(req);
 
-        if (errors.isEmpty()) {
-            const users = cargarUsers();
+            if (errors.isEmpty()) {
+                const { name, email, password } = req.body;
 
-            const { name, email, password } = req.body;
-            const newUser = {
-                id: users[users.length - 1] ? users[users.length - 1].id + 1 : 1,
-                name: name.trim(),
-                email: email.trim(),
-                password: bcryptjs.hashSync(password.trim(), 10),
-                gender: null,
-                interests: null,
-                phone: null,
-                dni: null,
-                birthday: null,
-                nationality: null,
-                postalCode: null,
-                domicile: null,
-                city: null,
-                avatar: null
+                db.User.create({
+                    name: name.trim(),
+                    email: email.trim(),
+                    password: bcryptjs.hashSync(password.trim(), 10),
+                    gender: null,
+                    interests: null,
+                    phone: null,
+                    dni: null,
+                    birthday: null,
+                    nationality: null,
+                    postalCode: null,
+                    domicile: null,
+                    city: null,
+                    avatar: null
+                })
 
+                return res.redirect('/users/login')
+            } else {
+                return res.render('./users/formulario', {
+                    errors: errors.mapped(),
+                    old: req.body
+                })
             }
-
-            const usersModify = [...users, newUser];
-
-            crearUsers(usersModify);
-            return res.redirect('/users/login')
-        } else {
-            return res.render('./users/formulario', {
-                errors: errors.mapped(),
-                old: req.body
-            })
+        } catch (error) {
+            return console.log(error)
         }
     },
 
@@ -139,9 +136,11 @@ module.exports = {
                         ...user,
                         ...req.body,
                         password: password ? bcryptjs.hashSync(password.trim(), 10) : user.password,
-                        password2 :  password2 = () => {if(password2 == true || password2 == false){
-                            return delete password2
-                            }},
+                        password2: password2 = () => {
+                            if (password2 == true || password2 == false) {
+                                return delete password2
+                            }
+                        },
                         interests: interests && interests.length > 1 ? interests : [interests],
                         avatar: req.file ? req.file.filename : req.session.userLogged.avatar
                     }
@@ -154,24 +153,24 @@ module.exports = {
                     fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.session.userLogged.avatar))
                 }
             }
-            
+
             req.session.userLogged = {
                 ...req.session.userLogged,
                 name,
-                interests: interests ? interests:null,
+                interests: interests ? interests : null,
                 avatar: req.file ? req.file.filename : req.session.userLogged.avatar
             }
-            
+
             res.cookie("buonaseo", req.session.userLogged, { maxAge: (24000 * 60) * 60 })
             crearUsers(usersModify);
             return res.redirect('/users/profile')
-        }else {
+        } else {
             if (req.file) {
                 if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.file.filename))) {
                     fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.file.filename))
                 }
             }
-           
+
             let user = cargarUsers().find(user => user.id === req.session.userLogged.id)
             return res.render('./users/profile', {
                 user,
