@@ -11,10 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Detail_order.hasMany(models.Product,{
+      /*Detail_order.hasMany(models.Product,{
         as : 'product',
         foreignKey : 'id_product'
-      });
+      });*/
       Detail_order.hasMany(models.Order, {
         as : 'orders',
         foreignKey : 'id_order'

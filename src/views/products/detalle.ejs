@@ -7,27 +7,27 @@
             <main class="detalle_main">
                 <section class="detalle_main_section1">
                     <article class="detalle_main_article_img_principal">
-                        <img class="detalle_main_article_img_principal_grande" src="<%= product.Image %>"
+                        <img class="detalle_main_article_img_principal_grande" src="<%= product.image %>"
                             alt="imagen del producto">
                         <div class="detalle_main_article_img_secundaria_mobile">
-                            <img src="<%= product.Image %>" alt="imagen del producto">
-                            <img src="<%= product.Image %>" alt="imagen del producto">
-                            <img src="<%= product.Image %>" alt="imagen del producto">
+                            <img src="<%= product.image %>" alt="imagen del producto">
+                            <img src="<%= product.image %>" alt="imagen del producto">
+                            <img src="<%= product.image %>" alt="imagen del producto">
                         </div>
                     </article>
                     <article class="detalle_main_article_nombre">
                         <div>
                             <h1>
-                                <%= product.Nombre %>
+                                <%= product.name %>
                             </h1>
-                            <p>$ <%= product.Precio %>
+                            <p>$ <%= product.price %>
                                     <p>
-                                    <p>Cantidad: <%= product.Cantidad %>
+                                    <p>Cantidad: <%= product.quantity %>
                                     </p>
                                     <div>
                                         <i class="fa-solid fa-truck"></i><span>Envio: $1.500</span>
                                     </div>
-                                    <p>Descuento: %<%= product.Descuento %>
+                                    <p>Descuento: %<%= product.discount %>
                                     </p>
                                     <p>TOTAL: $</p>
                         </div>
@@ -39,9 +39,9 @@
                         </button>
                         <% if (locals.adminEntry) { %>
                          <div class="detalle_main_article_boton_editar-eliminar">
-                            <a href="/products/editarProducto/<%= product.Id %> "><button
+                            <a href="/products/editarProducto/<%= product.id %> "><button
                                     class="detalle_mani_action-button-edit"> EDITAR PRODUCTO</button></a>
-                            <form action="/products/eliminarProducto/<%= product.Id %>?_method=DELETE" method="POST"
+                            <form action="/products/eliminarProducto/<%= product.id %>?_method=DELETE" method="POST"
                                 style="display: inline-flex">
                                 <button type="submit" class="detalle_mani_action-button-delete">ELIMINAR</button>
                             </form>
@@ -53,13 +53,13 @@
                 </section>
                 <section>
                     <article class="detalle_main_article_img_secundaria_tablet">
-                        <img src="<%= product.Image %>" alt="imagen del producto">
-                        <img src="<%= product.Image %>" alt="imagen del producto">
-                        <img src="<%= product.Image %>" alt="imagen del producto">
-                        <img src="<%= product.Image %>" alt="imagen del producto">
-                        <img src="<%= product.Image %>" alt="imagen del producto">
-                        <img src="<%= product.Image %>" alt="imagen del producto">
-                        <img src="<%= product.Image %>" alt="imagen del producto">
+                        <img src="<%= product.image %>" alt="imagen del producto">
+                        <img src="<%= product.image %>" alt="imagen del producto">
+                        <img src="<%= product.image %>" alt="imagen del producto">
+                        <img src="<%= product.image %>" alt="imagen del producto">
+                        <img src="<%= product.image %>" alt="imagen del producto">
+                        <img src="<%= product.image %>" alt="imagen del producto">
+                        <img src="<%= product.image %>" alt="imagen del producto">
                     </article>
                 </section>
                 <section class="detalle_main_section2">
@@ -77,23 +77,23 @@
                         <div>
                             <h2>.</h2>
                             <p>
-                                <%= product.Categoria %>
+                                <%= product.category.dataValues.name %>
                             </p>
                             <p>
-                                <%= product.Aroma %>
+                                <%= product.smell %>
                             </p>
                             <p>
-                                <%= product.Volumen %>
+                                <%= product.volume %>
                             </p>
                             <p>
-                                <%= product.Dimenciones %>
+                                <%= product.dimensions %>
                             </p>
                             <p>
-                                <%= product.Codigoid %>
+                                <%= product.idCode %>
                             </p>
 
                             <p>
-                                <%= product.Stock %>
+                                <%= product.stock %>
                             </p>
                         </div>
                     </article>
@@ -101,7 +101,7 @@
                         <div>
                             <h2>DESCRIPCION</h2>
                             <p>
-                                <%= product.Descripcion %>
+                                <%= product.description %>
                             </p>
                         </div>
                     </article>

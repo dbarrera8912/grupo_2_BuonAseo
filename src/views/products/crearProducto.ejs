@@ -24,54 +24,54 @@
               </article>
               <article class="productCrear__email__container">
                 <label>Imagen</label>
-                <input class="productCrear__email__texto <%= locals.errors && errors.img ? "registro__email__container-inValid" : null %>" value="" type="file" id="imagen" name="imagen"/>
-                <small style="color: red;"><%= locals.errors && errors.img && errors.img.msg %> </small>
+                <input class="productCrear__email__texto <%= locals.errors && errors.img ? "registro__email__container-inValid" : null %>" value="" type="file" id="image" name="image"/>
+                <small style="color: red;"><%= locals.errors && errors.image && errors.image.msg %> </small>
               </article>
               <article class="productCrear__email__container">
                 <label>Categoría</label>
-                <select class="productCrear__email__texto" id="categoria" name="categoria" aria-label="Default select example">
+                <select class="productCrear__email__texto" id="category" name="category" aria-label="Default select example">
                   <option value="" selected hidden>Seleccione...</option>
-                  <% categorias.forEach(categoria => { %>
-                    <option value="<%= categoria %>" <%= locals.old && old.categoria && categoria === old.categoria ? 'selected' : null %>><%= categoria %></option>
+                  <% categories.forEach(category => { %>
+                    <option value="<%= category.dataValues.name %>" <%= locals.old && old.category && category.dataValues.name === old.category ? 'selected' : null %>><%= category.dataValues.name %></option>
                   <% }) %>         
                 </select>
               </article>
               <article class="productCrear__email__container">
                 <label>Codigo Id</label>
-                <input class="productCrear__email__texto <%= locals.errors && errors.codigoid ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.codigoid : null %>" type="text" id="" name="codigoid" minlength="2" maxlength="20" placeholder="ID" >
-                <small style="color: red;"><%= locals.errors && errors.codigoid && errors.codigoid.msg %></small>
+                <input class="productCrear__email__texto <%= locals.errors && errors.idCode ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.idCode : null %>" type="text" id="" name="idCode" minlength="2" maxlength="20" placeholder="ID" >
+                <small style="color: red;"><%= locals.errors && errors.idCode && errors.idCode.msg %></small>
               </article>
               <article class="productCrear__email__container">
                 <label>Dimenciones</label>
-                <input class="productCrear__email__texto <%= locals.errors && errors.dimenciones ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.dimenciones : null %>" type="text" id="" name="dimenciones" minlength="2" maxlength="20" placeholder="Dimenciones" >
-                <small style="color: red;"><%= locals.errors && errors.dimenciones && errors.dimenciones.msg %></small>
+                <input class="productCrear__email__texto <%= locals.errors && errors.dimensions ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.dimensions : null %>" type="text" id="" name="dimensions" minlength="2" maxlength="20" placeholder="Dimenciones" >
+                <small style="color: red;"><%= locals.errors && errors.dimensions && errors.dimensions.msg %></small>
               </article>
               <article class="productCrear__email__container">
                 <label>Descuento</label>
-                <input class="productCrear__email__texto <%= locals.errors && errors.descuento ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.descuento: null %>" type="number" id="descuento" name="descuento" minlength="2" maxlength="20" placeholder="Descuento" />
-                <small style="color: red;"><%= locals.errors && errors.descuento && errors.descuento.msg %></small>
+                <input class="productCrear__email__texto <%= locals.errors && errors.discount ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.discount: null %>" type="number" id="discount" name="discount" minlength="2" maxlength="20" placeholder="Descuento" />
+                <small style="color: red;"><%= locals.errors && errors.discount && errors.discount.msg %></small>
               </article>
             </section>
            <section class="productCrear__email_section2">
             <article class="productCrear__email__container">
               <label>Precio</label>
-              <input class="productCrear__email__texto <%= locals.errors && errors.precio ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.precio : null %>" type="number" id="precio" name="precio" minlength="2" maxlength="20" placeholder="Precio" />
-              <small style="color: red;"><%= locals.errors && errors.precio && errors.precio.msg %></small>
+              <input class="productCrear__email__texto <%= locals.errors && errors.price ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.price : null %>" type="number" id="price" name="price" minlength="2" maxlength="20" placeholder="price" />
+              <small style="color: red;"><%= locals.errors && errors.price && errors.price.msg %></small>
             </article>
             <article class="productCrear__email__container">
               <label>Volumen</label>
-              <input class="productCrear__email__texto <%= locals.errors && errors.volumen ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.volumen: null %>" type="text" id="volumen" name="volumen" minlength="2" maxlength="20" placeholder="Volumen" />
-              <small style="color: red;"><%= locals.errors && errors.volumen && errors.volumen.msg %></small>
+              <input class="productCrear__email__texto <%= locals.errors && errors.volume ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.volume: null %>" type="text" id="volume" name="volume" minlength="2" maxlength="20" placeholder="volumen" />
+              <small style="color: red;"><%= locals.errors && errors.volume && errors.volume.msg %></small>
             </article>
             <article class="productCrear__email__container">
               <label>Aroma</label>
-              <input class="productCrear__email__texto <%= locals.errors && errors.aroma ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.aroma : null %>" type="text" id="aroma" name="aroma" minlength="2" maxlength="20" placeholder="Aroma" />
-              <small style="color: red;"><%= locals.errors && errors.aroma && errors.aroma.msg %></small>
+              <input class="productCrear__email__texto <%= locals.errors && errors.smell ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.smell : null %>" type="text" id="smell" name="smell" minlength="2" maxlength="20" placeholder="Aroma" />
+              <small style="color: red;"><%= locals.errors && errors.smell && errors.smell.msg %></small>
             </article>
             <article class="productCrear__email__container">
               <label>Cantidad</label>
-              <input class="productCrear__email__texto <%= locals.errors && errors.cantidad ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.cantidad : null %>" type="number" id="" name="cantidad" minlength="2" maxlength="20" placeholder="Cantidad" >
-              <small style="color: red;"><%= locals.errors && errors.cantidad && errors.cantidad.msg %> </small>
+              <input class="productCrear__email__texto <%= locals.errors && errors.quantity ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.quantity : null %>" type="number" id="" name="quantity" minlength="2" maxlength="20" placeholder="Cantidad" >
+              <small style="color: red;"><%= locals.errors && errors.quantity && errors.quantity.msg %> </small>
             </article>
             <article class="productCrear__email__container">
               <label>Stock</label>
@@ -80,14 +80,14 @@
             </article>
             <article class="productCrear__email__container">
               <label>Tipo</label>
-              <input class="productCrear__email__texto <%= locals.errors && errors.tipo ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.tipo : null %>" type="text" id="" name="tipo" minlength="2" maxlength="20" placeholder="Tipo"/>
-              <small style="color: red;"><%= locals.errors && errors.tipo && errors.tipo.msg %></small>
+              <input class="productCrear__email__texto <%= locals.errors && errors.type ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.type : null %>" type="text" id="" name="type" minlength="2" maxlength="20" placeholder="Tipo"/>
+              <small style="color: red;"><%= locals.errors && errors.type && errors.type.msg %></small>
             </article>
            </section>
             <article class="productCrear__email__container">
               <label>Descripción</label>
-              <textarea class="productCrear__email_texto <%= locals.errors && errors.descripcion ? "registro__email__container-inValid" : null %>" rows="5" cols="24" value="" type="text" id="descripcion" name="descripcion"><%= locals.old ? old.descripcion : null %></textarea>
-              <small style="color: red;"><%= locals.errors && errors.descripcion && errors.descripcion.msg %></small>
+              <textarea class="productCrear__email_texto <%= locals.errors && errors.description ? "registro__email__container-inValid" : null %>" rows="5" cols="24" value="" type="text" id="description" name="description"><%= locals.old ? old.description : null %></textarea>
+              <small style="color: red;"><%= locals.errors && errors.description && errors.description.msg %></small>
             </article>
     
             <!-- BOTON REGISTRARSE -->

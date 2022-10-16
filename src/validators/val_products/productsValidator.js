@@ -5,37 +5,37 @@ module.exports = [
         .notEmpty().withMessage("Debes ingresar un nombre").bail()
         .isLength({ min: 5, max: 100}).withMessage('Entre 5 y 100 caracteres'),
 
-    check("codigoid")
+    check("idCode")
         .isNumeric({no_symbols : true,}).withMessage('Debe ser un número entero positivo'),
 
-    check("precio")
+    check("price")
         .notEmpty().withMessage("Debes ingresar un precio").bail()
         .isNumeric({no_symbols : true,}).withMessage('Debe ser un número entero positivo'),
 
-    check("descuento")
+    check("discount")
         .isInt({min : 0,max: 100}).withMessage('El descuento no puede ser mayor que 100').bail()
         .isNumeric({no_symbols : true,}).withMessage('Debe ser un número entero positivo'),
 
-    check("volumen")
+    check("volume")
         .isNumeric({no_symbols : true,}).withMessage('Debe ser un número entero positivo'),   
 
     check("stock")
         .notEmpty().withMessage("Debes poner stock").bail()
         .isNumeric({no_symbols : true,}).withMessage('Debe ser un número entero positivo'),
 
-    check("aroma")
+    check("smell")
         .isLength({max: 100}).withMessage('Maximo 100 caracteres'),
 
-    check("dimenciones")
+    check("dimensions")
         .isLength({max: 100}).withMessage('Maximo 100 caracteres'),
 
-    check("cantidad")
+    check("quantity")
         .notEmpty().withMessage("Debes poner una cantidad").bail()
         .isNumeric({no_symbols : true,}).withMessage('Debe ser un número entero positivo'),
 
-    check("tipo")
+    check("type")
         .isLength({max: 100}).withMessage('Maximo 100 caracteres'),
 
-    check("descripcion")
+    check("description")
         .isLength({max: 200}).withMessage('Maximo 200 caracteres'),
 ]
