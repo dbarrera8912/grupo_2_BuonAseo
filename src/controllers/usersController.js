@@ -192,25 +192,74 @@ module.exports = {
                 errors = { ...errors, avatar: { msg: req.fileValidationError } }
             }
             if (Object.entries(errors).length === 0) {
-                const { name, email, password, gender, interests, phone, dni, birthday, nationality, postalCode, domicile, city } = req.body;
-                
-                let usersModify = cargarUsers().map(user => {
-                    if (user.id === +req.params.id) {
-                        return {
-                            ...user,
-                            ...req.body,
-                            password: password ? bcryptjs.hashSync(password.trim(), 10) : user.password,
-                            password2: password2 = () => {
-                                if (password2 == true || password2 == false) {
-                                    return delete password2
-                                }
-                            },
-                            interests: interests && interests.length > 1 ? interests : [interests],
-                            avatar: req.file ? req.file.filename : req.session.userLogged.avatar
-                        }
+                const { name, password, phone, dni, birthday, nationality, postalCode, domicile, city, interests, gender } = req.body;
+                db.User.update({
+                    name: name.trim(),
+                    password: password && bcryptjs.hashSync(password.trim(), 10),
+                    phone: phone ? +phone : null,
+                    dni: +dni,
+                    birthday: birthday ? birthday : null,
+                    nationality: nationality.trim(),
+                    postal_code: postalCode.trim(),
+                    address: domicile.trim(),
+                    city: city.trim(),
+                    avatar: req.file ? req.file.filename : req.session.userLogged.avatar,
+                    id_gender: gender === "m" ? 1 : gender === "f" ? 2 : gender === "o" ? 3 : null
+                }, {
+                    where: {
+                        id: +req.params.id
                     }
-                    return user
-                });
+                })
+
+                if (Array.isArray(interests) && interests.length === 3) {
+                    interests.forEach(interest => {
+                        db.User_interest.upsert({
+                            id_user: req.session.userLogged.id,
+                            id_interest: interest.includes('jabones') ? 1 : interest.includes('suavisantes') ? 2 : interest.includes('lavandinas') ? 3 : null
+                        }, {
+                            where: {
+                                id_user: req.session.userLogged.id
+                            }
+                        })
+                    });
+                } else if(Array.isArray(interests) && interests.length === 2) {
+                    interests.forEach(interest => {
+                        db.User_interest.upsert({
+                            id_user: req.session.userLogged.id,
+                            id_interest: interest.includes('jabones') ? 1 : interest.includes('suavisantes') ? 2 : interest.includes('lavandinas') ? 3 : null
+                        }, {
+                            where: {
+                                id_user: req.session.userLogged.id
+                            }
+                        })
+                    });
+                    db.User_interest.destroy({
+                        where: { 
+                            id_user: req.session.userLogged.id,
+                            id_interest: !interests.includes('jabones') ? 1 : !interests.includes('suavisantes') ? 2 : !interests.includes('lavandinas') ? 3 : null
+                        }
+                    })
+                }else if (interests) {
+                    db.User_interest.upsert({
+                        id_user: req.session.userLogged.id,
+                        id_interest: interests && interests.includes('jabones') ? 1 : interests.includes('suavisantes') ? 2 : interests.includes('lavandinas') ? 3 : null
+                    }, {
+                        where: {
+                            id_user: req.session.userLogged.id
+                        }
+                    })
+                    db.User_interest.destroy({
+                        where: { 
+                            id_user: req.session.userLogged.id,
+                            id_interest: !interests.includes('jabones') ? 1 : !interests.includes('suavisantes') ? 2 : !interests.includes('lavandinas') ? 3 : null
+                        }
+                    })
+                } else if (!interests) {
+                    db.User_interest.destroy({
+                        where: { id_user: req.session.userLogged.id }
+                    })
+                }
+
 
                 if (req.file && req.session.userLogged.avatar) {
                     if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.session.userLogged.avatar))) {
@@ -226,7 +275,6 @@ module.exports = {
                 }
 
                 res.cookie("buonaseo", req.session.userLogged, { maxAge: (24000 * 60) * 60 })
-                crearUsers(usersModify);
                 return res.redirect('/users/profile')
             } else {
                 if (req.file) {
@@ -235,69 +283,32 @@ module.exports = {
                     }
                 }
 
-                let user = cargarUsers().find(user => user.id === req.session.userLogged.id)
-                return res.render('./users/profile', {
-                    user,
-                    errors,
+                const user = await db.User.findByPk(req.session.userLogged.id, {
+                    attributes: {
+                        exclude: ["createdAt", "updatedAt", "deletedAt"],
+                    },
                 })
+                const user_interest = await db.User_interest.findAll({
+                    attributes: {
+                        exclude: ["createdAt", "updatedAt", "deletedAt"],
+                    },
+                })
+
+                interestsToLogin = []
+                user_interest.forEach(userInterest => {
+                    userInterest.dataValues.id_user === user.id && userInterest.dataValues.id_interest === 1 && interestsToLogin.push("jabones")
+                    userInterest.dataValues.id_user === user.id && userInterest.dataValues.id_interest === 2 && interestsToLogin.push("suavisantes")
+                    userInterest.dataValues.id_user === user.id && userInterest.dataValues.id_interest === 3 && interestsToLogin.push("lavandinas")
+                });
+
+                return res.render("./users/profile", {
+                    user,/* guardamos los datos del usuario de session */
+                    interestsToLogin,
+                    errors
+                });
             }
         } catch (error) {
             return console.log(error)
-        }
-        let errors = validationResult(req)
-        errors = errors.mapped()
-
-        if (req.fileValidationError) {
-            errors = { ...errors, avatar: { msg: req.fileValidationError } }
-        }
-        if (Object.entries(errors).length === 0) {
-            const { name, email, password, gender, interests, phone, dni, birthday, nationality, postalCode, domicile, city } = req.body;
-            let usersModify = cargarUsers().map(user => {
-                if (user.id === +req.params.id) {
-                    return {
-                        ...user,
-                        ...req.body,
-                        password: password ? bcryptjs.hashSync(password.trim(), 10) : user.password,
-                        password2: password2 = () => {
-                            if (password2 == true || password2 == false) {
-                                return delete password2
-                            }
-                        },
-                        interests: interests && interests.length > 1 ? interests : [interests],
-                        avatar: req.file ? req.file.filename : req.session.userLogged.avatar
-                    }
-                }
-                return user
-            });
-
-            if (req.file && req.session.userLogged.avatar) {
-                if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.session.userLogged.avatar))) {
-                    fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.session.userLogged.avatar))
-                }
-            }
-
-            req.session.userLogged = {
-                ...req.session.userLogged,
-                name,
-                interests: interests ? interests : null,
-                avatar: req.file ? req.file.filename : req.session.userLogged.avatar
-            }
-
-            res.cookie("buonaseo", req.session.userLogged, { maxAge: (24000 * 60) * 60 })
-            crearUsers(usersModify);
-            return res.redirect('/users/profile')
-        } else {
-            if (req.file) {
-                if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.file.filename))) {
-                    fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.file.filename))
-                }
-            }
-
-            let user = cargarUsers().find(user => user.id === req.session.userLogged.id)
-            return res.render('./users/profile', {
-                user,
-                errors,
-            })
         }
     },
     deleteAcc: (req, res) => {
