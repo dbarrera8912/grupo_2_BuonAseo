@@ -86,20 +86,22 @@
 }
 .header_perfil_desplegable {
     display: none;
-
     background-color: var(--azulFuerte);
-    
     border: solid 1px var(--blanco);
     border-radius: 4px;
     
-    
 }
-
+.header_perfil_desplegable a:hover{
+    background-color: var(--azulClaro);
+}
 .header_perfil_desplegable a{
+    display: block;
+    width: 100%;
+    transition: all 0.3s;
     color: var(--blanco);
     font-size: 16px;
-    padding: 16px 10px;
-    margin-top: 50px;
+    padding: 5px 10px;
+    border-bottom: var(--blanco) 1px solid;
 }
 .header_perfil_desplegable div{
     color: var(--blanco);
@@ -114,7 +116,7 @@
     position: absolute;
     top: 35px;
     right: 35px;
-    padding: 5px;
+    padding: 5px 7px;
 }
 
 .header_section_dos {

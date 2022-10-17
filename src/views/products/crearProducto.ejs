@@ -32,7 +32,7 @@
                 <select class="productCrear__email__texto" id="category" name="category" aria-label="Default select example">
                   <option value="" selected hidden>Seleccione...</option>
                   <% categories.forEach(category => { %>
-                    <option value="<%= category.dataValues.name %>" <%= locals.old && old.category && category.dataValues.name === old.category ? 'selected' : null %>><%= category.dataValues.name %></option>
+                    <option value="<%= category.dataValues.id %>" <%= locals.old && old.category && category.dataValues.name === old.category ? 'selected' : null %>><%= category.dataValues.name %></option>
                   <% }) %>         
                 </select>
               </article>

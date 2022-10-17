@@ -71,7 +71,7 @@ module.exports = {
                 discount,
                 description,
                 image:`/img/fotos-productos/productsAdd/${req.file.filename}`,
-                categoryId : category
+                id_category : category
             })
                 .then(product => {
                     return res.redirect('/products/catalogo')
@@ -90,9 +90,7 @@ module.exports = {
                     categories
                 }))
                 .catch(error => console.log(error))
-            
         }
-
     },
 
     detalle: (req, res) => {
@@ -108,62 +106,79 @@ module.exports = {
     },
 
     editarProducto: (req, res) => {
-        let productToEdit = loadProducts().find(produc => produc.Id === +req.params.id)
-        return res.render('./products/editarProducto', {
-            productToEdit,
-            categorias: loadCategorias().sort()
-        })
+        let product = db.Product.findByPk(req.params.id,{
+			include : ['category']
+		});
+        let Category;
+        
+        Promise.all([product])
+        .then(([productToEdit]) => {
+            Category = db.Category.findAll();
+            Promise.all([Category])
+            .then(([categorias]) => res.render('./products/editarProducto', {
+                productToEdit,categorias
+                }))
+            .catch(error => console.log(error))
+            }
+        )
     },
     modificarProducto: (req, res) => {
         let errors = validationResult(req)
         errors = errors.mapped()
-        
         if (req.fileValidationError) {
             errors = { ...errors, img: { msg: req.fileValidationError } }
         }
 
         if (Object.entries(errors).length === 0) {
-            let products = loadProducts()
-            const { name, categoria, codigoid, dimenciones, precio, volumen, aroma, cantidad, stock, tipo, descripcion, descuento } = req.body;
-
-            let productsModify = products.map(products => {
-                if (products.Id === +req.params.id) {
-                    if (req.file) {
-                        eliminarImg(products.Image)
-                    }
-
-                    return {
-                        Id: products.Id,
-                        Nombre: name.trim(),
-                        Codigoid: +codigoid,
-                        Precio: +precio,
-                        Categoria: categoria,
-                        Descuento: +descuento,
-                        Volumen: +volumen,
-                        Stock: +stock,
-                        Aroma: aroma.trim(),
-                        Dimenciones: dimenciones,
-                        Cantidad: +cantidad,
-                        tipo: tipo.trim(),
-                        Descripcion: descripcion.trim(),
-                        Image: req.file ? `/img/fotos-productos/productsAdd/${req.file.filename}` : products.Image
-                    }
-                }
-                return products
-            })
-            insertProduct(productsModify);
-            return res.redirect('/products/detail/' + req.params.id)
+            const { name, category, idCode, dimensions, price, volume, smell, quantity, stock, type, description, discount, } = req.body;
+            if (req.file) {
+                let product = db.Product.findByPk(req.params.id,{
+                    include : ['category']
+                });
+                Promise.all([product])
+                .then(([prod]) => 
+                    eliminarImg(prod.image)
+                )
+                .catch(error => console.log(error))
+            }
+            db.Product.update({
+                name : name.trim(),
+                price,
+                idCode,
+                dimensions,
+                volume, 
+                smell, 
+                quantity, 
+                stock, 
+                type,
+                discount,
+                description,
+                image:`/img/fotos-productos/productsAdd/${req.file.filename}`,
+                id_category : category
+            },{where:{id:req.params.id}})
+                .then(product => {
+                    return res.redirect('/products/detail/'+ req.params.id)
+                })
+                .catch(error => console.log(error))
         } else {
             if (req.file) {
                 eliminarImg(`/img/fotos-productos/productsAdd/${req.file.filename}`)
             }
 
-            let productToEdit = loadProducts().find(produc => produc.Id === +req.params.id)
-            return res.render('./products/editarProducto', {
-                productToEdit,
-                errors,
-                categorias: loadCategorias().sort()
-            })
+            let product = db.Product.findByPk(req.params.id,{
+                include : ['category']
+            });
+            let Category;
+            Promise.all([product])
+            .then(([productToEdit]) => {
+                Category = db.Category.findAll();
+                Promise.all([Category])
+                .then(([categorias]) => res.render('./products/editarProducto', {
+                    productToEdit,categorias,errors
+                    }))
+                .catch(error => console.log(error))
+                }
+            )
         }
     },
 

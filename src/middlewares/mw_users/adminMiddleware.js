@@ -1,6 +1,6 @@
 const db = require("../../database/models");
-const admins = ["richard@gmail.com", "sirley@gmail.com","matias@gmail.com","daniel@gmail.com", 
-"julian@gmail.com", "eric@gmail.com"]
+/*const admins = ["richard@gmail.com", "sirley@gmail.com","matias@gmail.com","daniel@gmail.com", 
+"julian@gmail.com", "eric@gmail.com"]*/
 
 /* **************** MIDDLEWARE A NIVEL RUTA **************** */
 async function adminMiddleware (req, res, next){
@@ -10,13 +10,16 @@ async function adminMiddleware (req, res, next){
                 exclude: ["createdAt", "updatedAt", "deletedAt"],
             },
         })
-        const email = user.dataValues.email
+        //const email = user.dataValues.email
         
-        admins.forEach(admin => {/* recorremos admins */
-            if(email === admin){/* si el email en sesion es igual al email de un admin, entra */
-                return next()/* se ejecuta lo pedido y continuamos. Sirve en casos donde quiera acceder a un lugar prohibido de la web, donde solo pueden entrar adminss */
+        if(user.dataValues.is_admin === 1){
+            return next();
+        }
+        /*admins.forEach(admin => {// recorremos admins 
+            if(email === admin){// si el email en sesion es igual al email de un admin, entra 
+                return next()// se ejecuta lo pedido y continuamos. Sirve en casos donde quiera acceder a un lugar prohibido de la web, donde solo pueden entrar adminss
             }
-        });
+        });*/
         return res.redirect("/notAdmin")/* si no coincide ningun email, retorna esto */
     } catch (error) {
         return console.log(error)

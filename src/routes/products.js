@@ -17,12 +17,11 @@ router
       .get('/carrito', authMiddleware, carrito)
       .get('/detail/:id', detalle)
       .get('/catalogo', products)
-      //.get('/crearProducto',authMiddleware, adminMiddleware, crearProducto)
-      .get('/crearProducto', crearProducto)
-      //.post('/crearProducto', uploadProducts.single("imagen"), validacionesProducts, store)
-      .post('/crearProducto', uploadProducts.single("imagen"), validacionesProducts, store)
+      .get('/crearProducto',authMiddleware, adminMiddleware, crearProducto)
+      //.get('/crearProducto', crearProducto)
+      .post('/crearProducto', uploadProducts.single("image"), validacionesProducts, store)
       .get('/editarProducto/:id', authMiddleware, adminMiddleware, editarProducto)
-      .put('/modificarProducto/:id', uploadProducts.single("imagen"), validacionesProducts, modificarProducto)
+      .put('/modificarProducto/:id', uploadProducts.single("image"), validacionesProducts, modificarProducto)
       .delete('/eliminarProducto/:id', authMiddleware, adminMiddleware, destroy)
 
 module.exports = router;
