@@ -373,3 +373,28 @@ que va a hacer = seguir trabajando en tp de apis
 que hice =  estubo con el tp 35
 dificultad = se quedo atras pero despues lo completo
 que va a hacer = arrancar con el crud de usuarios
+
+
+### Fecha de daily: 17 de octubre
+
+### Integrantes:
+
+### Sirley
+que hice = estuve con el proyecto
+dificultad = si en los midelware y con categories
+que va a hacer = seguir con el proyecto
+
+### Daniel  
+que hice = ver playground el video del crud 
+va a hacer = no se cargo por el internet
+dificultad = ver repo de mercado liebre y crafty
+
+### Matias 
+que hice = terminar el tp
+dificultad = un problema con el config pude solucionarlo
+que va a hacer = voy a hacer el proyecto
+
+### Richard 
+que hice = fue trabajar con el proyecto 
+dificultad = tube un problema con el metodo update con el controlador es un detalle con intereses
+que va a hacer = seguir viendo el error
