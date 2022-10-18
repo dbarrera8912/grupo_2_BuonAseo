@@ -37,9 +37,30 @@ module.exports = {
     },
     processFormulario: async (req, res) => {
         try {
-            const errors = validationResult(req);
+            let errors = validationResult(req).mapped();
 
-            if (errors.isEmpty()) {
+            const userToValidateName = await db.User.findOne({
+                where: {
+                    name: req.body.name
+                },
+                attributes: ["name"]
+            })
+            if(userToValidateName){
+               errors = { ...errors, name: { msg: "El nombre ya existe. Por favor, selecciona otro." } } 
+            }
+
+            const userToValidateEmail = await db.User.findOne({
+                where: {
+                    email: req.body.email
+                },
+                attributes: ["email"]
+            })
+            if(userToValidateEmail){
+               errors = { ...errors, email: { msg: "El email ya se encuentra registrado" } } 
+            }
+            
+
+            if (Object.entries(errors).length === 0) {
                 const { name, email, password } = req.body;
 
                 db.User.create({
@@ -61,7 +82,7 @@ module.exports = {
                 return res.redirect('/users/login')
             } else {
                 return res.render('./users/formulario', {
-                    errors: errors.mapped(),
+                    errors: errors,
                     old: req.body
                 })
             }
@@ -78,6 +99,7 @@ module.exports = {
 
         try {
             let errors = validationResult(req).mapped();
+
             const users = await db.User.findAll({
                 attributes: {
                     exclude: ["createdAt", "updatedAt", "deletedAt"],
@@ -188,6 +210,18 @@ module.exports = {
             if (req.fileValidationError) {
                 errors = { ...errors, avatar: { msg: req.fileValidationError } }
             }
+
+            const userToValidateName = await db.User.findOne({
+                where: {
+                    name: req.body.name
+                },
+                attributes: ["id","name"]
+            })
+            
+            if(userToValidateName.id  === +req.params.id ? null : userToValidateName){
+               errors = { ...errors, name: { msg: "El nombre ya existe. Por favor, selecciona otro." } } 
+            }
+
             if (Object.entries(errors).length === 0) {
                 const { name, password, phone, dni, birthday, nationality, postalCode, domicile, city, interests, gender } = req.body;
                 db.User.update({
@@ -328,7 +362,7 @@ module.exports = {
             await db.User.destroy({
                 where: { id: req.session.userLogged.id }
             })
-            
+
             res.clearCookie("buonaseo")/* borra la cookie para mantener sesion */
             req.session.destroy(); /* borra automaticamente todo registro en session */
             return res.redirect('/');

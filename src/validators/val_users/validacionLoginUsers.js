@@ -1,5 +1,4 @@
 const {check, body} = require('express-validator');
-const {cargarUsers} = require('../../data/db_users/db_users');
 
 
 module.exports = [

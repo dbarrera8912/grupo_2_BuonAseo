@@ -8,7 +8,7 @@ module.exports = [
             min : 2
         }).withMessage('Mínimo 2 caracteres').bail()
         .isAlpha('es-ES').withMessage('Solo caracteres alfabéticos').bail()
-        .custom((value, {req}) => {
+        /* .custom((value, {req}) => {
             const user = cargarUsers().find(user => user.name === value);
 
             if(user){
@@ -16,7 +16,7 @@ module.exports = [
             }else {
                 return true
             }
-        }).withMessage('El nombre ya existe. Por favor, selecciona otro.'),
+        }).withMessage('El nombre ya existe. Por favor, selecciona otro.') */,
         
     check('password')
         .custom((value,{req})=>{
