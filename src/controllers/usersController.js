@@ -267,7 +267,7 @@ module.exports = {
                 req.session.userLogged = {
                     ...req.session.userLogged,
                     name,
-                    interests: interests ? interests : null,
+                    interestsToLogin: interests ? interests : null,
                     avatar: req.file ? req.file.filename : req.session.userLogged.avatar
                 }
 
@@ -309,17 +309,31 @@ module.exports = {
             return console.log(error)
         }
     },
-    deleteAcc: (req, res) => {
-        let user = cargarUsers().find(user => user.id === req.session.userLogged.id)
-        return res.render("./users/deleteAcc", {
-            user/* guardamos los datos del usuario de session */
-        });
+    deleteAcc: async (req, res) => {
+        try {
+            const user = await db.User.findByPk(req.session.userLogged.id, {
+                attributes: {
+                    exclude: ["createdAt", "updatedAt", "deletedAt"],
+                },
+            })
+            return res.render("./users/deleteAcc", {
+                user/* guardamos los datos del usuario de session */
+            });
+        } catch (error) {
+            return console.log(error)
+        }
     },
-    remove: (req, res) => {
-        const usersModify = cargarUsers().filter(user => user.id !== req.session.userLogged.id);
-        crearUsers(usersModify);
-        res.clearCookie("buonaseo")/* borra la cookie para mantener sesion */
-        req.session.destroy(); /* borra automaticamente todo registro en session */
-        return res.redirect('/');
+    remove: async (req, res) => {
+        try {
+            await db.User.destroy({
+                where: { id: req.session.userLogged.id }
+            })
+            
+            res.clearCookie("buonaseo")/* borra la cookie para mantener sesion */
+            req.session.destroy(); /* borra automaticamente todo registro en session */
+            return res.redirect('/');
+        } catch (error) {
+            return console.log(error)
+        }
     },
 }
