@@ -373,3 +373,53 @@ que va a hacer = seguir trabajando en tp de apis
 que hice =  estubo con el tp 35
 dificultad = se quedo atras pero despues lo completo
 que va a hacer = arrancar con el crud de usuarios
+
+
+### Fecha de daily: 17 de octubre
+
+### Integrantes:
+
+### Sirley
+que hice = estuve con el proyecto
+dificultad = si en los midelware y con categories
+que va a hacer = seguir con el proyecto
+
+### Daniel  
+que hice = ver playground el video del crud 
+va a hacer = ver repo de mercado liebre y crafty 
+dificultad = no se cargo por el internet
+
+### Matias 
+que hice = terminar el tp
+dificultad = un problema con el config pude solucionarlo
+que va a hacer = voy a hacer el proyecto
+
+### Richard 
+que hice = fue trabajar con el proyecto 
+dificultad = tube un problema con el metodo update con el controlador es un detalle con intereses
+que va a hacer = seguir viendo el error
+
+
+### Fecha de daily: 18 de octubre
+
+### Integrantes:
+
+### Sirley
+que hice = tratar de aplicar borrado suave en el proyecto
+dificultad = ninguno por ahora
+que va a hacer = seguir con eso puliendolo  
+
+### Daniel  
+que hice = quiso hacer el proyecto
+va a hacer = hacer tratar de hacer el proyecto
+dificultad = no tubo internet
+
+### Matias 
+que hice = hacer el crud del home
+dificultad = problemas con una columna de la base de datos
+que va a hacer = seguir con el crud del home
+
+### Richard 
+que hice = estuvo con el proyectyo tambien con el tp 35
+dificultad = si con el proyecto con las validaciones, antes de traer los datos se validaba pero lo supo resolver
+que va a hacer = va a seguir con el proyecto
