@@ -13,10 +13,10 @@ const preguntas = preguntasJson.map(({title,href,a}) => {
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('questions', preguntas, {})
+    await queryInterface.bulkInsert('Questions', preguntas, {})
  },
 
  async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('questions', null, {});
+    await queryInterface.bulkDelete('Questions', null, {});
  }
 };

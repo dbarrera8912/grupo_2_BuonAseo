@@ -11,10 +11,10 @@ const categoryUser = categoryUserJson.map(category => {
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('type_users', categoryUser, {})
+    await queryInterface.bulkInsert('Type_users', categoryUser, {})
  },
 
  async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('type_users', null, {});
+    await queryInterface.bulkDelete('Type_users', null, {});
  }
 };

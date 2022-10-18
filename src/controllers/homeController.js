@@ -23,7 +23,7 @@ module.exports = {
 		});
 
         let productosDestacados = db.Product.findAll({
-			order: [["createdAt", "DESC"]],
+			order: [["createdAt", "DESC"]], ------
 		});
 
         Promise.all([productosDescuento, productosEnOferta, productosDestacados])
@@ -37,7 +37,9 @@ module.exports = {
 			})
 			.catch((error) => console.log(error)); */
 
-        
+           
+
+
          let productosDescuento = products.filter(product => product.Descuento > 0) //filtra productos con descuento 
         
        let productosEnOferta = productosDescuento.sort(() => { //Desordena los productos para no mostrar siempre los mismos en home 

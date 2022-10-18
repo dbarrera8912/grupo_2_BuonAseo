@@ -14,10 +14,10 @@ const metodos = metodosJson.map(({icono,titulo,letraAbajoTitulo,letraFullAbajo,l
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('payment_methods', metodos, {})
+    await queryInterface.bulkInsert('Payment_methods', metodos, {})
  },
 
  async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('payment_methods', null, {});
+    await queryInterface.bulkDelete('Payment_methods', null, {});
  }
 };
