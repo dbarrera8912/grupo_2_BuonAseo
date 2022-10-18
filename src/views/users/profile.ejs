@@ -38,7 +38,7 @@
                     <div class="barra"></div>
                 </div>
                 <div class="perfil-main-caja--input-label">
-                    <input class="perfil-main-input" name="birthday" type="date" value="<%= user.birthday %>"  placeholder="Fecha de nacimiento">
+                    <input class="perfil-main-input" name="birthday" type="date" value="<%= moment(user.birthday).format('YYYY-MM-DD') %>"  placeholder="Fecha de nacimiento">
                     <div class="barra"></div>
                 </div>
                 <div class="perfil-main-caja--input-label-checkbox">

@@ -3,6 +3,7 @@ const path = require("path");
 
 const { validationResult } = require("express-validator");
 const bcryptjs = require('bcryptjs')
+const moment = require("moment")
 
 const { crearUsers, cargarUsers, loadCategoriasUser } = require("../data/db_users/db_users");
 const db = require("../database/models");
@@ -166,7 +167,8 @@ module.exports = {
 
             return res.render("./users/profile", {
                 user,/* guardamos los datos del usuario de session */
-                interestsToLogin
+                interestsToLogin,
+                moment
             });
         } catch (error) {
             return console.log(error)
@@ -175,11 +177,6 @@ module.exports = {
     update: async (req, res) => {
         try {
             const user = await db.User.findByPk(req.session.userLogged.id, {
-                attributes: {
-                    exclude: ["createdAt", "updatedAt", "deletedAt"],
-                },
-            })
-            const user_interest = await db.User_interest.findAll({
                 attributes: {
                     exclude: ["createdAt", "updatedAt", "deletedAt"],
                 },
@@ -195,10 +192,10 @@ module.exports = {
                 const { name, password, phone, dni, birthday, nationality, postalCode, domicile, city, interests, gender } = req.body;
                 db.User.update({
                     name: name.trim(),
-                    password: password && bcryptjs.hashSync(password.trim(), 10),
-                    phone: phone ? +phone : null,
+                    password: password ? bcryptjs.hashSync(password.trim(), 10): user.password,
+                    phone: phone ? +phone :  user.phone,
                     dni: +dni,
-                    birthday: birthday ? birthday : null,
+                    birthday: birthday ? birthday : user.birthday,
                     nationality: nationality.trim(),
                     postal_code: postalCode.trim(),
                     address: domicile.trim(),
@@ -304,7 +301,8 @@ module.exports = {
                 return res.render("./users/profile", {
                     user,/* guardamos los datos del usuario de session */
                     interestsToLogin,
-                    errors
+                    errors,
+                    moment
                 });
             }
         } catch (error) {
