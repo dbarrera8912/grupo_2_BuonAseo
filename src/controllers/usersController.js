@@ -359,6 +359,11 @@ module.exports = {
     },
     remove: async (req, res) => {
         try {
+            if (req.session.userLogged.avatar) {
+                if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.session.userLogged.avatar))) {
+                    fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.session.userLogged.avatar))
+                }
+            }
             await db.User.destroy({
                 where: { id: req.session.userLogged.id }
             })

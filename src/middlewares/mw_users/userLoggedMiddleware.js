@@ -1,6 +1,6 @@
 const db = require("../../database/models");
-const admins = ["richard@gmail.com", "sirley@gmail.com", "matias@gmail.com", "daniel@gmail.com",
-    "julian@gmail.com", "eric@gmail.com"]
+/* const admins = ["richard@gmail.com", "sirley@gmail.com", "matias@gmail.com", "daniel@gmail.com",
+    "julian@gmail.com", "eric@gmail.com"] */
 
 /* **************** MIDDLEWARE A NIVEL APP **************** */
 async function userLoggedMiddleware(req, res, next) {
@@ -22,13 +22,9 @@ async function userLoggedMiddleware(req, res, next) {
                     exclude: ["createdAt", "updatedAt", "deletedAt"],
                 },
             })
-            const email = user.dataValues.email
-            
-            admins.forEach(admin => {/* recorremos admins */
-                if (email === admin) {/* si el email en sesion es igual al email de un admin, entra */
-                    res.locals.adminEntry = true;
-                }
-            });
+            if (user.dataValues.is_admin === 1) {/* si el email en sesion es igual al email de un admin, entra */
+                res.locals.adminEntry = true;
+            }
         }
 
         next();
