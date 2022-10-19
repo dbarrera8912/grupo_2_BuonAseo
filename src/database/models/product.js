@@ -34,6 +34,7 @@ module.exports = (sequelize, DataTypes) => {
     type: DataTypes.STRING,
     description: DataTypes.STRING,
     image: DataTypes.STRING,
+    status: DataTypes.INTEGER,
     //date: DataTypes.DATE,
     id_category: DataTypes.INTEGER
   }, {

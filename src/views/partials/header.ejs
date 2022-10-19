@@ -19,6 +19,7 @@
             <a href="/users/delete">Eliminar cuenta</a>
             <% if (locals.adminEntry) { %>
               <a href="/products/crearProducto">Crear producto</a>
+              <a href="/products/productsDeleted">Productos Eliminados</a>
               <a href="/footer/preguntas/agregar">Crear pregunta</a>
               <a href="/footer/pagos/agregar">Crear metodo</a>
             <% } %>
@@ -58,6 +59,8 @@
               <hr>
               <% if (locals.adminEntry) { %>
               <li><a href="/products/crearProducto">Crear producto</a></li>
+              <hr>
+              <li><a href="/products/productsDeleted">Productos Eliminados</a></li>
               <hr>
               <li><a href="/footer/preguntas/agregar">Crear pregunta</i></a></li>
               <hr>

@@ -38,6 +38,7 @@ CREATE TABLE `products` (
   `type` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
+  `status` INT NULL DEFAULT 1,
   `id_category` int DEFAULT NULL,
   `id_brand` int DEFAULT NULL,
   `createdAt` datetime NOT NULL,

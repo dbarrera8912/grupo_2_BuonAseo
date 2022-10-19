@@ -6,7 +6,8 @@ const { validationResult } = require("express-validator") /* Requerimos check de
 module.exports = { 
     products: (req, res) => {
         let products = db.Product.findAll({
-			include : ['category']
+			include : ['category'],
+            where:{status:1}
 		});
         Promise.all([products])
 			.then(([products]) => res.render('./products/catalogo', {
@@ -14,8 +15,20 @@ module.exports = {
 				toThousand
 			}))
 			.catch(error => console.log(error))
-        console.log(products)
     },
+    productsDeleted: (req, res) => {
+        let products = db.Product.findAll({
+			include : ['category'],
+            where:{status:0}
+		});
+        Promise.all([products])
+			.then(([products]) => res.render('./products/productosEliminados', {
+				products,
+				toThousand
+			}))
+			.catch(error => console.log(error))
+    },
+    
     carrito: (req, res) => {
         return res.render('./products/carrito')
     },
@@ -94,17 +107,29 @@ module.exports = {
     },
 
     detalle: (req, res) => {
-        let product = db.Product.findByPk(req.params.id,{
-			include : ['category']
+        let product = db.Product.findOne({
+			include : ['category'],
+            where:{id:req.params.id,status:1}
 		});
         Promise.all([product])
-        .then(([product]) => res.render('./products/detalle', {
-            product,
-            toThousand
-        }))
+        .then(
+            function(product){
+                product = product[0];
+                res.render('./products/detalle', {product,toThousand})
+            }
+        )
         .catch(error => console.log(error))
     },
-
+    enableProduct:(req,res)=>{
+        db.Product.update({
+            status:1
+        },
+            {where:{id:req.params.id}})
+            .then(product => {
+                return res.redirect('/products/productsDeleted')
+            })
+            .catch(error => console.log(error))
+    },
     editarProducto: (req, res) => {
         let product = db.Product.findByPk(req.params.id,{
 			include : ['category']
@@ -128,9 +153,11 @@ module.exports = {
         if (req.fileValidationError) {
             errors = { ...errors, img: { msg: req.fileValidationError } }
         }
-
+        //Si no hay error
         if (Object.entries(errors).length === 0) {
             const { name, category, idCode, dimensions, price, volume, smell, quantity, stock, type, description, discount, } = req.body;
+            //Encuentra el producto por editar para tener la ruta de image y elimina la image
+            //SOLAMENTE lo hace si se sube un archivo en el formulario.
             if (req.file) {
                 let product = db.Product.findByPk(req.params.id,{
                     include : ['category']
@@ -141,6 +168,7 @@ module.exports = {
                 )
                 .catch(error => console.log(error))
             }
+
             db.Product.update({
                 name : name.trim(),
                 price,
@@ -153,18 +181,23 @@ module.exports = {
                 type,
                 discount,
                 description,
-                image:`/img/fotos-productos/productsAdd/${req.file.filename}`,
                 id_category : category
-            },{where:{id:req.params.id}})
+            },
+                {where:{id:req.params.id}})
                 .then(product => {
+                    //Si subio una imagen al formulario , vuelve a hacer update para editar la ruta.
+                    if(req.file){
+                        db.Product.update({
+                            image:`/img/fotos-productos/productsAdd/${req.file.filename}`},
+                            {where:{id:req.params.id}})
+                        .then(product => {});
+                    }
                     return res.redirect('/products/detail/'+ req.params.id)
                 })
                 .catch(error => console.log(error))
-        } else {
-            if (req.file) {
-                eliminarImg(`/img/fotos-productos/productsAdd/${req.file.filename}`)
-            }
-
+        }
+        //Si HAY errores
+        else {
             let product = db.Product.findByPk(req.params.id,{
                 include : ['category']
             });
@@ -183,15 +216,13 @@ module.exports = {
     },
 
     destroy: (req, res) => {
-        loadProducts().forEach(product => {
-            if (product.Id === +req.params.id) {
-                eliminarImg(product.Image)
-            }
-        });
-        let productsModify = loadProducts().filter(produc => produc.Id !== +req.params.id)
-        insertProduct(productsModify);
-        return res.redirect('/products/catalogo')
-
+        db.Product.update({
+            status:0
+        },{where:{id:req.params.id}})
+            .then( () => {
+                return res.redirect('/products/catalogo')
+            })
+            .catch(error => console.log(error))
     }
 
 
