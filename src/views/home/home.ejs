@@ -14,28 +14,28 @@
           <h1 class="home_main_titulo">Productos Destacados</h1>
         </article>
         <article class="home_main_section_article_imagenes">
-          <% for( let index = 0; index < 4; index++ ) { %>
+          <% productosDestacados.forEach(({id,name,price,image,discount}) => { %>
             <div class="home_main_section_productos_destacados_caja">
-              <a href="/products/detail/<%= productosDestacados[index].Id %>"><img class="home_main_section_productos_destacados_img--mobile"
-                src="<%= productosDestacados[index].Image %>"
+              <a href="/products/detail/<%= id %>"><img class="home_main_section_productos_destacados_img--mobile"
+                src="<%= image %>"
                 alt="imagen producto"
             /></a>
               <div class="home_main_section_productos_destacados_parrafo--mobile">
-                <p class="home_main_parrafo_mobile_titulo"><%= productosDestacados[index].Nombre %></p>
+                <p class="home_main_parrafo_mobile_titulo"><%= name %></p>
                 <br>
                 <p class="home_main_parrafo_mobile_precio">
-                  <% if ( productosDestacados[index].Descuento > 0 ) { %>
-                    <% let precioDescuento = productosDestacados[index].Precio - (productosDestacados[index].Precio * (productosDestacados[index].Descuento / 100)) %> 
+                  <% if ( discount > 0 ) { %>
+                    <% let precioDescuento = price - (price * (discount/ 100)) %> 
                     <span class="precioDesc">$<%= precioDescuento %> </span>
-                    <s>$<%= productosDestacados[index].Precio %></s>
+                    <s>$<%= price %></s>
                   <% } else { %>
-                    <span class="precioDesc">$<%= productosDestacados[index].Precio %></span>
+                    <span class="precioDesc">$<%= price %></span>
                   <% } %>
                 </p>
               </div>
             </div>
-          <% } %>
           
+            <% }) %>
 
         </article>
         <article class="home_main_section_article_boton">
@@ -47,30 +47,30 @@
           <h1 class="home_main_titulo">Ofertas</h1>
         </article>
         <article class="home_main_section_article_imagenes">
-          <% for( let index = 0; index < 4; index++ ) { %>
+          <% productosEnOferta.forEach(({id,name,price,image,discount}) => { %>
             <div class="home_main_section_productos_destacados_caja">
-              <a href="/products/detail/<%= productosEnOferta[index].Id %>"><img class="home_main_section_productos_destacados_img--mobile"
-                src="<%= productosEnOferta[index].Image %>"
+              <a href="/products/detail/<%= id %>"><img class="home_main_section_productos_destacados_img--mobile"
+                src="<%= image %>"
                 alt="imagen producto"
             /></a>
                 
               <div class="home_main_section_productos_destacados_parrafo--mobile">
-                <p class="home_main_parrafo_mobile_titulo"><%= productosEnOferta[index].Nombre %></p> 
+                <p class="home_main_parrafo_mobile_titulo"><%= name %></p> 
                 <br>
                 <p class="home_main_parrafo_mobile_precio">
-                  <% if ( productosEnOferta[index].Descuento > 0 ) { %>
-                    <% let precioDescuento = productosEnOferta[index].Precio - (productosEnOferta[index].Precio * (productosEnOferta[index].Descuento / 100)) %> 
+                  <% if ( discount > 0 ) { %>
+                    <% let precioDescuento = price - (price * (discount / 100)) %> 
                     <span class="precioDesc">$<%= precioDescuento %> </span>
-                    <s>$<%= productosEnOferta[index].Precio %></s>
+                    <s>$<%= price %></s>
                   <% } else { %>
 
-                    <span class="precioDesc">$<%= productosEnOferta[index].Precio %></span>
+                    <span class="precioDesc">$<%= price %></span>
 
                   <% } %>
                 </p> 
               </div>
             </div>
-          <% } %>
+          <% }) %>
 
 
         </article>

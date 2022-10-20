@@ -24,18 +24,18 @@
 			  <p class="carrito__producto__desktop">DESCUENTO</p>
 			  <p class="carrito__producto__desktop">PRECIO</p>
 			</section>
-			<% result.forEach(({Id,Nombre,Precio,Image,Descuento,Aroma,Volumen,Dimenciones,Categoria,Stock}) => { %> 
+			<% result.forEach(({id, name, price, image, discount, smell, volume, dimensions, category, stock}) => { %> 
 				<%- include('../partials/product',{
-					Id,
-					Nombre,
-					Precio,
-					Image,
-					Descuento,
-					Aroma,
-					Volumen,
-					Dimenciones,
-					Categoria,
-					Stock,
+					id,
+					name,
+					price,
+					image,
+					discount,
+					smell,
+					volume,
+					dimensions,
+					category,
+					stock,
 					toThousand
 				}) %> 
 			<% }) %>

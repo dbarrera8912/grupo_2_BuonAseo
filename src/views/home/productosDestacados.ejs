@@ -7,85 +7,82 @@
         <article class="ofertas_main_section_article_titulo">
             <h1 class="ofertas_main_titulo">Productos en destacados</h1>
           </article>
-      
           <section class="ofertas_main_section_productos_destacados">
             <article class="ofertas_main_section_article_imagenes">
-              
-              <% for( let index = 0; index < 4; index++ ) { %>
+              <% productosDestacados1.forEach(({id,name,price,image,discount}) => { %>
                 <div class="home_main_section_productos_destacados_caja">
-                  <a href="/products/detail/<%= products[index].Id %>"><img class="home_main_section_productos_destacados_img--mobile"
-                    src="<%= products[index].Image %>"
+                  <a href="/products/detail/<%= id %>"><img class="home_main_section_productos_destacados_img--mobile"
+                    src="<%= image %>"
                     alt="imagen producto"
                 /></a>
                   <div class="home_main_section_productos_destacados_parrafo--mobile">
-                    <p class="home_main_parrafo_mobile_titulo"><%= products[index].Nombre %></p>
+                    <p class="home_main_parrafo_mobile_titulo"><%= name %></p>
                     <br>
                     <p class="home_main_parrafo_mobile_precio">
-                      <% if ( products[index].Descuento > 0 ) { %>
-                        <% let precioDescuento = products[index].Precio - (products[index].Precio * (products[index].Descuento / 100)) %> 
+                      <% if ( discount > 0 ) { %>
+                        <% let precioDescuento = price - (price * (discount / 100)) %> 
                         <span class="precioDesc">$<%= precioDescuento %> </span>
-                        <s>$<%= products[index].Precio %></s>
+                        <s>$<%= price %></s>
                       <% } else { %>
-                        <span class="precioDesc">$<%= products[index].Precio %></span>
+                        <span class="precioDesc">$<%= price %></span>
                       <% } %>
                     </p>
                   </div>
                 </div>
-              <% } %>
+              <% }) %>
             </article>
           </section>
           <section class="ofertas_main_section_productos_destacados">
             <article class="ofertas_main_section_article_imagenes">
-              
-              <% for( let index = 4; index < 8; index++ ) { %>
+              <% productosDestacados2.forEach(({id,name,price,image,discount}) => { %>
                 <div class="home_main_section_productos_destacados_caja">
-                  <a href="/products/detail/<%= products[index].Id %>"><img class="home_main_section_productos_destacados_img--mobile"
-                    src="<%= products[index].Image %>"
+                  <a href="/products/detail/<%= id %>"><img class="home_main_section_productos_destacados_img--mobile"
+                    src="<%= image %>"
                     alt="imagen producto"
                 /></a>
                   <div class="home_main_section_productos_destacados_parrafo--mobile">
-                    <p class="home_main_parrafo_mobile_titulo"><%= products[index].Nombre %></p>
+                    <p class="home_main_parrafo_mobile_titulo"><%= name %></p>
                     <br>
                     <p class="home_main_parrafo_mobile_precio">
-                      <% if ( products[index].Descuento > 0 ) { %>
-                        <% let precioDescuento = products[index].Precio - (products[index].Precio * (products[index].Descuento / 100)) %> 
+                      <% if ( discount > 0 ) { %>
+                        <% let precioDescuento = price - (price * (discount / 100)) %> 
                         <span class="precioDesc">$<%= precioDescuento %> </span>
-                        <s>$<%= products[index].Precio %></s>
+                        <s>$<%= price %></s>
                       <% } else { %>
-                        <span class="precioDesc">$<%= products[index].Precio %></span>
+                        <span class="precioDesc">$<%= price %></span>
                       <% } %>
                     </p>
                   </div>
                 </div>
-              <% } %>
+              <% }) %>
             </article>
           </section>
           <section class="ofertas_main_section_productos_destacados">
             <article class="ofertas_main_section_article_imagenes">
-              
-              <% for( let index = 8; index < 12; index++ ) { %>
+              <% productosDestacados3.forEach(({id,name,price,image,discount}) => { %>
                 <div class="home_main_section_productos_destacados_caja">
-                  <a href="/products/detail/<%= products[index].Id %>"><img class="home_main_section_productos_destacados_img--mobile"
-                    src="<%= products[index].Image %>"
+                  <a href="/products/detail/<%= id %>"><img class="home_main_section_productos_destacados_img--mobile"
+                    src="<%= image %>"
                     alt="imagen producto"
                 /></a>
                   <div class="home_main_section_productos_destacados_parrafo--mobile">
-                    <p class="home_main_parrafo_mobile_titulo"><%= products[index].Nombre %></p>
+                    <p class="home_main_parrafo_mobile_titulo"><%= name %></p>
                     <br>
                     <p class="home_main_parrafo_mobile_precio">
-                      <% if ( products[index].Descuento > 0 ) { %>
-                        <% let precioDescuento = products[index].Precio - (products[index].Precio * (products[index].Descuento / 100)) %> 
+                      <% if ( discount > 0 ) { %>
+                        <% let precioDescuento = price - (price * (discount / 100)) %> 
                         <span class="precioDesc">$<%= precioDescuento %> </span>
-                        <s>$<%= products[index].Precio %></s>
+                        <s>$<%= price %></s>
                       <% } else { %>
-                        <span class="precioDesc">$<%= products[index].Precio %></span>
+                        <span class="precioDesc">$<%= price %></span>
                       <% } %>
                     </p>
                   </div>
                 </div>
-              <% } %>
+              <% }) %>
             </article>
           </section>
+          
     </main>
     <%- include('../partials/footer') %>
     </body>
