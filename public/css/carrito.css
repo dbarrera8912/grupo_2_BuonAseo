@@ -95,6 +95,7 @@ padding: 10px;
    padding: 10px;
 
 }
+
 .carrito__precio {
     font-size: 12px
 }
@@ -243,6 +244,7 @@ padding: 10px;
     .carrito__section__paraescritorio {
         width: 100%;
     }
+
     .carrito__imagen__producto {
         height: 200px;
         width: 100%;
@@ -291,6 +293,7 @@ padding: 10px;
         margin-left: 130px;
         width: 70%;
     }
+
     .carrito__cantidad__desktop {
         margin-left: 50px;
     }

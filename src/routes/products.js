@@ -22,7 +22,7 @@ router
       //.get('/crearProducto', crearProducto)
       .post('/crearProducto', uploadProducts.single("image"), validacionesProducts, store)
       .get('/editarProducto/:id', authMiddleware, adminMiddleware, editarProducto)
-      .put('/enableProduct/:id', enableProduct)
+      .put('/enableProduct/', enableProduct)
 
       .put('/modificarProducto/:id', uploadProducts.single("image"), validacionesProducts, modificarProducto)
       .delete('/eliminarProducto/:id', authMiddleware, adminMiddleware, destroy)

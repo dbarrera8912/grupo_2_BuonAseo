@@ -1,0 +1,64 @@
+.catalogo__titulo__paraescritorio {
+    display:flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+}
+#catalogo_tabla{
+    width: 100%;
+    margin: auto;
+}
+#catalogo_tabla tr td p{
+    text-align: center;
+}
+#catalogo_tabla tr td{
+    padding: 10px;
+    width: 100% !important;
+}
+#catalogo_tabla td .catalogo__imagen__producto{
+    width: 100% !important;
+    height: 120px !important;
+    object-fit: contain;
+}
+#catalogo_tabla thead tr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+#catalogo_tabla thead tr th{
+    width: 100%;
+
+}
+.catalogo__titulo__paraescritorio p{
+    width: 100%;
+    text-align: center;
+}
+.catalogo__precio__general {
+    display: flex;
+    width: 100%;
+   justify-content: center;
+   align-items:center;
+   border-bottom: ridge 2px var(--grisClaro);
+   padding: 10px;
+   border: 0px;
+}
+.catalogo__cantidad__general {
+    display: flex;
+    width: 100%;
+   justify-content: center;
+   align-items:center;
+   border-bottom: ridge 2px var(--grisClaro);
+   padding: 10px;
+   border: 0px;
+}
+.catalogo__subtotal__general {
+    display: flex;
+ width: 100%;
+justify-content: center;
+align-items:center;
+border-bottom: ridge 3px var(--azulClaro);
+padding: 10px;
+border: 0px;
+}

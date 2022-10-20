@@ -54,22 +54,6 @@ module.exports = {
         if (Object.entries(errors).length === 0) {
             const { name, category, idCode, dimensions, price, volume, smell, quantity, stock, type, description, discount } = req.body;
 
-            /*const newProduct = {
-                Id: products[products.length - 1].Id + 1,
-                Nombre: name.trim(),
-                Codigoid: codigoid ? +codigoid : null,
-                Precio: +precio,
-                Categoria: categoria ? categoria : null,
-                Descuento: descuento ? +descuento : 0,
-                Volumen: volumen ? +volumen : null,
-                Stock: +stock,
-                Aroma: aroma ? aroma.trim() : "---",
-                Dimenciones: dimenciones ? dimenciones : null,
-                Cantidad: +cantidad,
-                tipo: tipo ? tipo.trim() : null,
-                Descripcion: descripcion ? descripcion.trim() : null,
-                Image: req.file ? `/img/fotos-productos/productsAdd/${req.file.filename}` : null
-            }*/
 
             db.Product.create({
                 name : name.trim(),
@@ -121,10 +105,12 @@ module.exports = {
         .catch(error => console.log(error))
     },
     enableProduct:(req,res)=>{
+        console.log(req.body);
+        const {id} = req.body;
         db.Product.update({
             status:1
         },
-            {where:{id:req.params.id}})
+            {where:{id:id}})
             .then(product => {
                 return res.redirect('/products/productsDeleted')
             })
@@ -216,6 +202,7 @@ module.exports = {
     },
 
     destroy: (req, res) => {
+
         db.Product.update({
             status:0
         },{where:{id:req.params.id}})

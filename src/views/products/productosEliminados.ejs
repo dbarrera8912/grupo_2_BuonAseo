@@ -16,16 +16,19 @@
 			<% } %> </h1>
 			<hr class="carrito__primer__linia__espacio">
 		  </section>
-		  <div class="carrito__section__paraescritorio">
-			<section class="carrito__titulo__paraescritorio"> 
-			  <p class="carrito__producto__desktop">PRODUCTO</p>
-			  <p class="carrito__producto__desktop">CATEGORIA</p>
-			  <p class="carrito__producto__desktop">AROMA</p>
-			  <p class="carrito__producto__desktop">STOCK</p>
-			  <p class="carrito__producto__desktop">DESCUENTO</p>
-			  <p class="carrito__producto__desktop">PRECIO</p>
-			</section>
-
+			<table id="catalogo_tabla">
+				<thead>
+					<tr>
+						<th></th>
+						<th>PRODUCTO</th>
+						<th>CATEGORIA</th>
+						<th>AROMA</th>
+						<th>STOCK</th>
+						<th>DESCUENTO</th>
+						<th>PRECIO</th>
+			  			<th>ESTADO</th>
+					</tr>
+				</thead>
 			<% products.forEach(({id,name,price,image,discount,smell,volume,dimensions,category,stock}) => { %> 
 				<%- include('../partials/product_delete',{
 					id,
@@ -41,11 +44,12 @@
 					toThousand
 				}) %> 
 			<% }) %>
-			</div>
+			</table>
 		</div>
 	</main>
 	<!-- /todos los productos -->
-
+	<form action="/products/enableProduct?_method=PUT" method="post" id="form_enable_product">
+    </form>
 	<!-- footer -->
 	<%- include('../partials/footer') %>
 	<!-- /footer -->

@@ -1,36 +1,34 @@
 <!-- PRODUCTOS SEGUNDA IMAGEN-->
-<a href="/products/detail/<%= id %>" target="_blank" class="carrito__primer__producto">
-    <article class="carrito__primer__imagen">
-      <img class="carrito__imagen__producto" src=<%= image %> alt="" />
-    </article>
-    <!-- PRODUCTOS DESCRIPCION-->
-    <article class=" carrito__producto__general">
-      <p class="carrito__subtotal">PRODUCTO:</p>
-      <p class="carrito__producto__desktop"><%= name %></p>
-    </article>
-    <article class="carrito__subtotal__general">
-        <p class="carrito__subtotal">CATEGORIA:</p>
-        <p class="carrito__producto__desktop"><%= category.dataValues.name %></p>
-      </article>
-    <article class="carrito__cantidad__general">
-      <p class="carrito__subtotal">AROMA:</p>
-      <p class="carrito__producto__desktop"><%= smell %></p>
-    </article>
-    <article class="carrito__subtotal__general">
-        <p class="carrito__subtotal">STOCK:</p>
-        <p class="carrito__producto__desktop"><%= stock %></p>
-      </article>
-    <article class="carrito__subtotal__general">
-        <p class="carrito__subtotal">DESCUENTO:</p>
-        <p class="carrito__producto__desktop">%<%= discount %></p>
-    </article>
-    <article class="carrito__precio__general">
-        <p class="carrito__subtotal">PRECIO:</p>
-        <p class="carrito__producto__desktop">$<%= toThousand((parseInt(price) - (parseInt(price) * parseInt(discount) / 100)).toFixed(0)) %></p>
-    </article><article class="carrito__subtotal__general">
-        <form action="/products/enableProduct/<%= id %>?_method=PUT" method="post">
-            <button type="submit" >Activar</button>
-        </form>
-        
-    </article>
-</a>
+<tr href="/products/detail/<%= id %>" onclick="window.location='localhost:3030/products/detail/<%= id %>'" target="_blank" class="carrito__primer__producto">
+  <td class="carrito__primer__imagen">
+    <img class="catalogo__imagen__producto" src=<%= image %> alt="" />
+  </td>
+  <!-- PRODUCTOS DESCRIPCION-->
+  <td class=" carrito__producto__general">
+    <p class="carrito__subtotal">PRODUCTO:</p>
+    <p class="carrito__producto__desktop"><%= name %></p>
+  </td>
+  <td class="catalogo__subtotal__general">
+      <p class="carrito__subtotal">CATEGORIA:</p>
+      <p class="carrito__producto__desktop"><%= category.dataValues.name %></p>
+  </td>
+  <td class="catalogo__cantidad__general">
+    <p class="carrito__subtotal">AROMA:</p>
+    <p class="carrito__producto__desktop"><%= smell %></p>
+  </td>
+  <td class="catalogo__subtotal__general">
+      <p class="carrito__subtotal">STOCK:</p>
+      <p class="carrito__producto__desktop"><%= stock %></p>
+    </td>
+  <td class="catalogo__subtotal__general">
+      <p class="carrito__subtotal">DESCUENTO:</p>
+      <p class="carrito__producto__desktop">%<%= discount %></p>
+  </td>
+  <td class="catalogo__precio__general">
+      <p class="carrito__subtotal">PRECIO:</p>
+      <p class="carrito__producto__desktop">$<%= toThousand((parseInt(price) - (parseInt(price) * parseInt(discount) / 100)).toFixed(0)) %></p>
+  </td>
+  <td class="catalogo__subtotal__general">
+    <button type="submit" form="form_enable_product" name="id" value="<%= id %>">Añadir</button>
+  </td>
+</tr>
