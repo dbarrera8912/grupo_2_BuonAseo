@@ -16,7 +16,8 @@
       "postalCode": "calle213",
       "domicile": "la calle",
       "city": "la calle",
-      "avatar": "avatar-1662845446711.png"
+      "avatar": "avatar-1662845446711.png",
+      "is_admin": 1
    },
    {
       "id": 2,
@@ -34,7 +35,8 @@
       "postalCode": "",
       "domicile": "",
       "city": "",
-      "avatar": null
+      "avatar": null,
+      "is_admin": 1
    },
    {
       "id": 3,
@@ -52,7 +54,8 @@
       "postalCode": "",
       "domicile": "",
       "city": "",
-      "avatar": "avatar-1664055187271.png"
+      "avatar": "avatar-1664055187271.png",
+      "is_admin": 1
    },
    {
       "id": 4,
@@ -68,7 +71,8 @@
       "postalCode": "8322",
       "domicile": "brentana 7",
       "city": "cutral co",
-      "avatar": "avatar-1662861993706.jpg"
+      "avatar": "avatar-1662861993706.jpg",
+      "is_admin": 1
    },
    {
       "id": 5,
@@ -84,7 +88,8 @@
       "postalCode": null,
       "domicile": null,
       "city": null,
-      "avatar": null
+      "avatar": null,
+      "is_admin": 1
    },
    {
       "id": 6,
@@ -100,7 +105,8 @@
       "postalCode": null,
       "domicile": null,
       "city": null,
-      "avatar": null
+      "avatar": null,
+      "is_admin": 1
    },
    {
       "id": 7,
@@ -119,7 +125,8 @@
       "postalCode": "asdsaddsa",
       "domicile": "sadsad",
       "city": "324324",
-      "avatar": "avatar-1662830469810.png"
+      "avatar": "avatar-1662830469810.png",
+      "is_admin": 0
    },
    {
       "id": 8,
@@ -135,7 +142,8 @@
       "postalCode": null,
       "domicile": null,
       "city": null,
-      "avatar": null
+      "avatar": null,
+      "is_admin": 0
    },
    {
       "id": 9,
@@ -155,7 +163,8 @@
       "postalCode": "2133",
       "domicile": "657",
       "city": "sasda",
-      "avatar": "avatar-1664116045248.PNG"
+      "avatar": "avatar-1664116045248.PNG",
+      "is_admin": 0
    },
    {
       "id": 10,
@@ -173,7 +182,8 @@
       "postalCode": "",
       "domicile": "",
       "city": "",
-      "avatar": null
+      "avatar": null,
+      "is_admin": 0
    },
    {
       "id": 11,
@@ -189,6 +199,7 @@
       "postalCode": null,
       "domicile": null,
       "city": null,
-      "avatar": null
+      "avatar": null,
+      "is_admin": 0
    }
 ]

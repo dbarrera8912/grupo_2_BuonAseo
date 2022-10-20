@@ -7,7 +7,7 @@ const typesUsersJson = require('../../data/db_users/categoriaUsuario.json');
 const genderUsersJson = require('../../data/db_users/genderUsers.json');
 
 const users = usersJson.map(({name, email, password,gender,phone, dni,birthday,
-  nationality,postalCode,domicile,city,avatar}) => {
+  nationality,postalCode,domicile,city,avatar,is_admin}) => {
     return {
         name,
         email,
@@ -20,7 +20,7 @@ const users = usersJson.map(({name, email, password,gender,phone, dni,birthday,
         address: domicile,
         city,
         avatar,
-        is_admin: 0,
+        is_admin,
         id_type_user: 1,
         id_gender: gender ? genderUsersJson.indexOf(gender) + 1 : null,
         createdAt : new Date()
