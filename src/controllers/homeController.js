@@ -11,6 +11,20 @@ module.exports = {
     //let products = loadProducts();
 
     try {
+        /*let productosDescuento = products.filter(
+      (product) => product.Descuento > 0
+    ); //filtra productos con descuento
+
+    let productosEnOferta = productosDescuento.sort(() => {
+      //Desordena los productos para no mostrar siempre los mismos en home
+      return Math.random() - 0.5;
+    });
+
+    let productosDestacados = products.sort(() => {
+      //Desordena los productos para no mostrar siempre los mismos en home
+      return Math.random() - 0.5;
+    });*/
+
       let productosEnOferta = await db.Product.findAll({
         where: {
           discount: {
@@ -29,31 +43,12 @@ module.exports = {
       return res.render("./home/home", {
         productosEnOferta,
         productosDestacados,
+        userLogin,
         toThousand,
       });
     } catch (error) {
       console.log(error);
     }
-
-    /*let productosDescuento = products.filter(
-      (product) => product.Descuento > 0
-    ); //filtra productos con descuento
-
-    let productosEnOferta = productosDescuento.sort(() => {
-      //Desordena los productos para no mostrar siempre los mismos en home
-      return Math.random() - 0.5;
-    });
-
-    let productosDestacados = products.sort(() => {
-      //Desordena los productos para no mostrar siempre los mismos en home
-      return Math.random() - 0.5;
-    });*/
-
-    return res.render("./home/home", {
-      productosDestacados,
-      productosEnOferta,
-      userLogin,
-    });
   },
 
   ofertas: async (req, res) => {
