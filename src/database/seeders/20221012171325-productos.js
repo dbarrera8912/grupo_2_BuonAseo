@@ -20,6 +20,7 @@ const products = productsJson.map(({Nombre, Codigoid,Precio,Categoria,Descuento,
         type: tipo,
         description : Descripcion,
         image: Image,
+        status : 1,
         id_category : categoriesJson.indexOf(Categoria) + 1,
         createdAt : new Date()
     }
