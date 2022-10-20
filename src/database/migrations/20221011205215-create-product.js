@@ -52,6 +52,9 @@ module.exports = {
       image: {
         type: Sequelize.STRING
       },
+      status:{
+        type: Sequelize.INTEGER
+      },
       id_category: {
         type: Sequelize.INTEGER,
         references : {
