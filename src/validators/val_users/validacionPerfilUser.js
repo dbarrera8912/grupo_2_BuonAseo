@@ -15,7 +15,6 @@ module.exports = [
                     name : value
                 }
               }).then( user => {
-                 console.log(user)
                     if(user && user.id  === req.session.userLogged.id ? null : user) {
                         return Promise.reject()
                     }

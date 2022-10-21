@@ -7,26 +7,32 @@ const moment = require("moment")
 
 const db = require("../database/models");
 
-module.exports = {
-    login: (req, res) => {
-        return res.render('./users/login', { req })
-    },
-
-    formulario: async (req, res) => {
-        try {
-            const categorias = await db.Type_user.findAll({
+/* OPTIONS para consultas a database */
+const optionUser = [
+    {
+        association: "interest",
+        include: [
+            {
+                association: "interest",
                 attributes: {
                     exclude: ["createdAt", "updatedAt", "deletedAt"],
-                },
-            })
+                }
+            }
+        ],
+        attributes: {
+            exclude: ["createdAt", "updatedAt", "deletedAt"],
+        },
+    }
+];
+const optionData = {
+    exclude: ["createdAt", "updatedAt", "deletedAt"],
+}
 
-            return res.render('./users/formulario', {
-                categorias
-            })
-        } catch (error) {
-            return console.log(error)
-        }
+module.exports = {
+    formulario: (req, res) => {
+        return res.render('./users/formulario')
     },
+
     processFormulario: async (req, res) => {
         try {
             let errors = validationResult(req).mapped();
@@ -62,38 +68,29 @@ module.exports = {
         }
     },
 
-    password: (req, res) => {
-        return res.render('./users/password-lost')
+    login: (req, res) => {
+        return res.render('./users/login')
     },
 
     processLogin: async (req, res) => {
-
         try {
             let errors = validationResult(req).mapped();
 
             const users = await db.User.findAll({
-                attributes: {
-                    exclude: ["createdAt", "updatedAt", "deletedAt"],
-                },
+                attributes: optionData,
+                include: optionUser
             })
-            const interests = await db.Interest.findAll({
-                attributes: {
-                    exclude: ["createdAt", "updatedAt", "deletedAt"],
-                },
-            })
-            const user_interest = await db.User_interest.findAll({
-                attributes: {
-                    exclude: ["createdAt", "updatedAt", "deletedAt"],
-                },
-            })
+
             let userToLogin = req.body.email.includes("@") ? users.find(oneUser => oneUser["email"] === req.body.email) : users.find(oneUser => oneUser["name"] === req.body.email)/* buscamos si el email es igual a un email de nuestra base de datos */
 
             if (userToLogin) {
                 interestsToLogin = []
-                user_interest.forEach(userInterest => {
-                    userInterest.dataValues.id_user === userToLogin.id && userInterest.dataValues.id_interest === 1 && interestsToLogin.push("jabones")
-                    userInterest.dataValues.id_user === userToLogin.id && userInterest.dataValues.id_interest === 2 && interestsToLogin.push("suavisantes")
-                    userInterest.dataValues.id_user === userToLogin.id && userInterest.dataValues.id_interest === 3 && interestsToLogin.push("lavandinas")
+                users.forEach(user => {
+                    if (user.dataValues.interest.length > 0) {
+                        user.dataValues.interest.forEach(intereses => {
+                            intereses.id_user === userToLogin.id && intereses.id_interest === intereses.interest.dataValues.id ? interestsToLogin.push(intereses.interest.dataValues.name) : null
+                        });
+                    }
                 });
 
                 let isOkTheClave = bcryptjs.compareSync(req.body.password, userToLogin.password)/* Comparamos si la clave es igual a la guardada con hash */
@@ -133,30 +130,20 @@ module.exports = {
             return console.log(error)
         }
     },
-    logout: (req, res) => {
-        res.clearCookie("buonaseo")/* borra la cookie para mantener sesion */
-        req.session.destroy(); /* borra automaticamente todo registro en session */
-        return res.redirect("/");
-    },
+
     profile: async (req, res) => {
         try {
             const user = await db.User.findByPk(req.session.userLogged.id, {
-                attributes: {
-                    exclude: ["createdAt", "updatedAt", "deletedAt"],
-                },
-            })
-            const user_interest = await db.User_interest.findAll({
-                attributes: {
-                    exclude: ["createdAt", "updatedAt", "deletedAt"],
-                },
+                attributes: optionData,
+                include: optionUser
             })
 
             interestsToLogin = []
-            user_interest.forEach(userInterest => {
-                userInterest.dataValues.id_user === user.id && userInterest.dataValues.id_interest === 1 && interestsToLogin.push("jabones")
-                userInterest.dataValues.id_user === user.id && userInterest.dataValues.id_interest === 2 && interestsToLogin.push("suavisantes")
-                userInterest.dataValues.id_user === user.id && userInterest.dataValues.id_interest === 3 && interestsToLogin.push("lavandinas")
-            });
+            if (user.dataValues.interest.length > 0) {
+                user.dataValues.interest.forEach(intereses => {
+                    intereses.id_user === user.id && intereses.id_interest === intereses.interest.dataValues.id ? interestsToLogin.push(intereses.interest.dataValues.name) : null
+                });
+            }
 
             return res.render("./users/profile", {
                 user,/* guardamos los datos del usuario de session */
@@ -167,14 +154,18 @@ module.exports = {
             return console.log(error)
         }
     },
+
     update: async (req, res) => {
         try {
             const user = await db.User.findByPk(req.session.userLogged.id, {
-                attributes: {
-                    exclude: ["createdAt", "updatedAt", "deletedAt"],
-                },
+                attributes: optionData,
             })
-
+            const interestsToDatabase = await db.Interest.findAll({
+                attributes: optionData,
+            })
+             
+            console.log(interestsToDatabase)
+            
             let errors = validationResult(req)
             errors = errors.mapped()
 
@@ -186,8 +177,8 @@ module.exports = {
                 let { name, password, phone, dni, birthday, nationality, postalCode, domicile, city, interests, gender } = req.body;
                 db.User.update({
                     name: name.trim(),
-                    password: password ? bcryptjs.hashSync(password.trim(), 10): user.password,
-                    phone: phone ? +phone :  user.phone,
+                    password: password ? bcryptjs.hashSync(password.trim(), 10) : user.password,
+                    phone: phone ? +phone : user.phone,
                     dni: +dni,
                     birthday: birthday ? birthday : user.birthday,
                     nationality: nationality.trim(),
@@ -203,7 +194,7 @@ module.exports = {
                 })
 
                 await db.User_interest.destroy({
-                    where: { 
+                    where: {
                         id_user: req.session.userLogged.id,
                     }
                 })
@@ -245,22 +236,16 @@ module.exports = {
                 }
 
                 const user = await db.User.findByPk(req.session.userLogged.id, {
-                    attributes: {
-                        exclude: ["createdAt", "updatedAt", "deletedAt"],
-                    },
-                })
-                const user_interest = await db.User_interest.findAll({
-                    attributes: {
-                        exclude: ["createdAt", "updatedAt", "deletedAt"],
-                    },
+                    attributes: optionData,
+                    include: optionUser
                 })
 
                 interestsToLogin = []
-                user_interest.forEach(userInterest => {
-                    userInterest.dataValues.id_user === user.id && userInterest.dataValues.id_interest === 1 && interestsToLogin.push("jabones")
-                    userInterest.dataValues.id_user === user.id && userInterest.dataValues.id_interest === 2 && interestsToLogin.push("suavisantes")
-                    userInterest.dataValues.id_user === user.id && userInterest.dataValues.id_interest === 3 && interestsToLogin.push("lavandinas")
-                });
+                if (user.dataValues.interest.length > 0) {
+                    user.dataValues.interest.forEach(intereses => {
+                        intereses.id_user === user.id && intereses.id_interest === intereses.interest.dataValues.id ? interestsToLogin.push(intereses.interest.dataValues.name) : null
+                    });
+                }
 
                 return res.render("./users/profile", {
                     user,/* guardamos los datos del usuario de session */
@@ -276,9 +261,7 @@ module.exports = {
     deleteAcc: async (req, res) => {
         try {
             const user = await db.User.findByPk(req.session.userLogged.id, {
-                attributes: {
-                    exclude: ["createdAt", "updatedAt", "deletedAt"],
-                },
+                attributes: optionData,
             })
             return res.render("./users/deleteAcc", {
                 user/* guardamos los datos del usuario de session */
@@ -304,5 +287,15 @@ module.exports = {
         } catch (error) {
             return console.log(error)
         }
+    },
+
+    password: (req, res) => {
+        return res.render('./users/password-lost')
+    },
+
+    logout: (req, res) => {
+        res.clearCookie("buonaseo")/* borra la cookie para mantener sesion */
+        req.session.destroy(); /* borra automaticamente todo registro en session */
+        return res.redirect("/");
     },
 }
