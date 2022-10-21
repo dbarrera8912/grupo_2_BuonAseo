@@ -5,9 +5,8 @@ const { validationResult } = require("express-validator");
 const bcryptjs = require('bcryptjs')
 const moment = require("moment")
 
-const { crearUsers, cargarUsers, loadCategoriasUser } = require("../data/db_users/db_users");
 const db = require("../database/models");
-/*  */
+
 module.exports = {
     login: (req, res) => {
         return res.render('./users/login', { req })
@@ -15,12 +14,6 @@ module.exports = {
 
     formulario: async (req, res) => {
         try {
-            const users = await db.User.findAll({
-                attributes: {
-                    exclude: ["createdAt", "updatedAt", "deletedAt"],
-                },
-            })
-
             const categorias = await db.Type_user.findAll({
                 attributes: {
                     exclude: ["createdAt", "updatedAt", "deletedAt"],
@@ -28,7 +21,6 @@ module.exports = {
             })
 
             return res.render('./users/formulario', {
-                users,
                 categorias
             })
         } catch (error) {
@@ -38,27 +30,6 @@ module.exports = {
     processFormulario: async (req, res) => {
         try {
             let errors = validationResult(req).mapped();
-
-            const userToValidateName = await db.User.findOne({
-                where: {
-                    name: req.body.name
-                },
-                attributes: ["name"]
-            })
-            if(userToValidateName){
-               errors = { ...errors, name: { msg: "El nombre ya existe. Por favor, selecciona otro." } } 
-            }
-
-            const userToValidateEmail = await db.User.findOne({
-                where: {
-                    email: req.body.email
-                },
-                attributes: ["email"]
-            })
-            if(userToValidateEmail){
-               errors = { ...errors, email: { msg: "El email ya se encuentra registrado" } } 
-            }
-            
 
             if (Object.entries(errors).length === 0) {
                 const { name, email, password } = req.body;
@@ -209,17 +180,6 @@ module.exports = {
 
             if (req.fileValidationError) {
                 errors = { ...errors, avatar: { msg: req.fileValidationError } }
-            }
-
-            const userToValidateName = await db.User.findOne({
-                where: {
-                    name: req.body.name
-                },
-                attributes: ["id","name"]
-            })
-            
-            if(userToValidateName.id  === +req.params.id ? null : userToValidateName){
-               errors = { ...errors, name: { msg: "El nombre ya existe. Por favor, selecciona otro." } } 
             }
 
             if (Object.entries(errors).length === 0) {

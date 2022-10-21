@@ -1,6 +1,5 @@
 const { check, body } = require('express-validator');
 
-const { cargarUsers } = require('../../data/db_users/db_users');
 const db = require("../../database/models");
 
 
@@ -11,35 +10,31 @@ module.exports = [
             min: 2
         }).withMessage('Mínimo 2 caracteres').bail()
         .isAlpha('es-ES').withMessage('Solo caracteres alfabéticos').bail()
-        /* .custom( async (value, { req }) => {
-            await db.User.findOne({
-                where: {
-                    name: value
-                },
-                attributes: ["id"]
-            })
-                .then(user => {
-                    console.log(user)
-                    if (user) {
-                        return false
-                    } else {
-                        return true
+        .custom( async (value, { req }) => {
+            return db.User.findOne({
+                where : {
+                    name : value
+                }
+              }).then( user => {
+                    if(user) {
+                        return Promise.reject()
                     }
-                })
-                .catch(error => console.log(error))
-        }).withMessage('El nombre ya existe. Por favor, selecciona otro.') */,
+              }).catch( () => Promise.reject('El nombre ya existe. Por favor, selecciona otro.'))
+        }),
     body('email')
         .notEmpty().withMessage('El email es obligatorio').bail()
         .isEmail().withMessage('Debe ser un email válido').bail()
-        /* .custom((value, { req }) => {
-            const user = cargarUsers().find(user => user.email === value);
-            
-            if (user) {
-                return false
-            } else {
-                return true
-            }
-        }).withMessage('El email ya se encuentra registrado') */,
+        .custom((value, { req }) => {
+            return db.User.findOne({
+                where : {
+                    email : value
+                }
+              }).then( user => {
+                    if(user) {
+                        return Promise.reject()
+                    }
+              }).catch( () => Promise.reject('El email ya se encuentra registrado'))
+        }),
 
     check('password')
         .notEmpty().withMessage('La contraseña es obligatoria').bail()
