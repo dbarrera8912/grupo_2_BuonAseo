@@ -22,12 +22,23 @@ const consultasDBOptionData = {
     exclude: ["createdAt", "updatedAt", "deletedAt"],
 }
 
-const eliminarAvatarToUser = (archivo) =>{
+const eliminarAvatarToUser = (archivo) => {
     fs.existsSync(path.resolve(__dirname, "../../../public/img/fotos-users/" + archivo)) && fs.unlinkSync(path.resolve(__dirname, "../../../public/img/fotos-users/" + archivo))
+}
+
+const interestsToDBFunction = (userDataValuesInterest) => {
+    interestsToLogin = []
+    if (userDataValuesInterest.length > 0) {
+        userDataValuesInterest.forEach(intereses => {
+            intereses.id_interest === intereses.interest.dataValues.id ? interestsToLogin.push(intereses.interest.dataValues.name) : null
+        });
+    }
+    return interestsToLogin
 }
 
 module.exports = {
     consultasDBOptionUser,
     consultasDBOptionData,
-    eliminarAvatarToUser
+    eliminarAvatarToUser,
+    interestsToDBFunction
 }

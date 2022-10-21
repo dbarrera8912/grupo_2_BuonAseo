@@ -1,13 +1,11 @@
-const fs = require("fs");
-const path = require("path");
-
 const { validationResult } = require("express-validator");
-const bcryptjs = require('bcryptjs')
-const moment = require("moment")
+const bcryptjs = require('bcryptjs');
+const moment = require("moment");
 
 const db = require("../database/models");
 
-const {consultasDBOptionData, consultasDBOptionUser, eliminarAvatarToUser} = require("../resources/users")
+const {consultasDBOptionData, consultasDBOptionUser, eliminarAvatarToUser, interestsToDBFunction} 
+= require("../resources/users");
 
 /* OPTIONS para consultas a database */
 const optionUser = consultasDBOptionUser;
@@ -79,12 +77,7 @@ module.exports = {
             })
             
             if (Object.entries(errors).length === 0) {
-                interestsToLogin = []
-                if (user.dataValues.interest.length > 0) {
-                    user.dataValues.interest.forEach(intereses => {
-                        intereses.id_user === user.id && intereses.id_interest === intereses.interest.dataValues.id ? interestsToLogin.push(intereses.interest.dataValues.name) : null
-                    });
-                }
+                interestsToLogin = interestsToDBFunction(user.dataValues.interest)
                 
                 let { id, name, avatar } = user
                 req.session.userLogged = { id, name, avatar, interestsToLogin };/* Guardamos el resto de datos del usuario en session */
@@ -112,12 +105,7 @@ module.exports = {
                 include: optionUser
             })
 
-            interestsToLogin = []
-            if (user.dataValues.interest.length > 0) {
-                user.dataValues.interest.forEach(intereses => {
-                    intereses.id_user === user.id && intereses.id_interest === intereses.interest.dataValues.id ? interestsToLogin.push(intereses.interest.dataValues.name) : null
-                });
-            }
+            interestsToLogin = interestsToDBFunction(user.dataValues.interest)
 
             return res.render("./users/profile", {
                 user,/* guardamos los datos del usuario de session */
@@ -209,12 +197,7 @@ module.exports = {
                     include: optionUser
                 })
 
-                interestsToLogin = []
-                if (user.dataValues.interest.length > 0) {
-                    user.dataValues.interest.forEach(intereses => {
-                        intereses.id_user === user.id && intereses.id_interest === intereses.interest.dataValues.id ? interestsToLogin.push(intereses.interest.dataValues.name) : null
-                    });
-                }
+                interestsToLogin = interestsToDBFunction(user.dataValues.interest)
 
                 return res.render("./users/profile", {
                     user,/* guardamos los datos del usuario de session */
