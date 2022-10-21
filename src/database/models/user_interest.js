@@ -27,8 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     id_interest: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'User_interest',
-    paranoid : true
+    modelName: 'User_interest'
   });
   return User_interest;
 };

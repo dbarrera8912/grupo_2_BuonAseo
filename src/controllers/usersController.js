@@ -7,7 +7,7 @@ const moment = require("moment")
 
 const { crearUsers, cargarUsers, loadCategoriasUser } = require("../data/db_users/db_users");
 const db = require("../database/models");
-
+/*  */
 module.exports = {
     login: (req, res) => {
         return res.render('./users/login', { req })
@@ -223,7 +223,7 @@ module.exports = {
             }
 
             if (Object.entries(errors).length === 0) {
-                const { name, password, phone, dni, birthday, nationality, postalCode, domicile, city, interests, gender } = req.body;
+                let { name, password, phone, dni, birthday, nationality, postalCode, domicile, city, interests, gender } = req.body;
                 db.User.update({
                     name: name.trim(),
                     password: password ? bcryptjs.hashSync(password.trim(), 10): user.password,
@@ -242,55 +242,25 @@ module.exports = {
                     }
                 })
 
-                if (Array.isArray(interests) && interests.length === 3) {
-                    interests.forEach(interest => {
-                        db.User_interest.upsert({
-                            id_user: req.session.userLogged.id,
-                            id_interest: interest.includes('jabones') ? 1 : interest.includes('suavisantes') ? 2 : interest.includes('lavandinas') ? 3 : null
-                        }, {
-                            where: {
-                                id_user: req.session.userLogged.id
-                            }
-                        })
-                    });
-                } else if(Array.isArray(interests) && interests.length === 2) {
-                    interests.forEach(interest => {
-                        db.User_interest.upsert({
-                            id_user: req.session.userLogged.id,
-                            id_interest: interest.includes('jabones') ? 1 : interest.includes('suavisantes') ? 2 : interest.includes('lavandinas') ? 3 : null
-                        }, {
-                            where: {
-                                id_user: req.session.userLogged.id
-                            }
-                        })
-                    });
-                    db.User_interest.destroy({
-                        where: { 
-                            id_user: req.session.userLogged.id,
-                            id_interest: !interests.includes('jabones') ? 1 : !interests.includes('suavisantes') ? 2 : !interests.includes('lavandinas') ? 3 : null
-                        }
-                    })
-                }else if (interests) {
-                    db.User_interest.upsert({
+                await db.User_interest.destroy({
+                    where: { 
                         id_user: req.session.userLogged.id,
-                        id_interest: interests && interests.includes('jabones') ? 1 : interests.includes('suavisantes') ? 2 : interests.includes('lavandinas') ? 3 : null
-                    }, {
-                        where: {
-                            id_user: req.session.userLogged.id
-                        }
-                    })
-                    db.User_interest.destroy({
-                        where: { 
-                            id_user: req.session.userLogged.id,
-                            id_interest: !interests.includes('jabones') ? 1 : !interests.includes('suavisantes') ? 2 : !interests.includes('lavandinas') ? 3 : null
-                        }
-                    })
-                } else if (!interests) {
-                    db.User_interest.destroy({
-                        where: { id_user: req.session.userLogged.id }
-                    })
-                }
+                    }
+                })
+                if (interests) {
+                    interestsToArray = typeof interests === "string" ? [interests] : interests
 
+                    interestsToArray.forEach(interest => {
+                        db.User_interest.create({
+                            id_user: req.session.userLogged.id,
+                            id_interest: interest === 'jabones' ? 1 : interest === 'suavisantes' ? 2 : interest === 'lavandinas' ? 3 : null
+                        }, {
+                            where: {
+                                id_user: req.session.userLogged.id
+                            }
+                        })
+                    });
+                }
 
                 if (req.file && req.session.userLogged.avatar) {
                     if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.session.userLogged.avatar))) {
