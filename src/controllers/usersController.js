@@ -7,26 +7,11 @@ const moment = require("moment")
 
 const db = require("../database/models");
 
+const {consultasDBOptionData, consultasDBOptionUser, eliminarAvatarToUser} = require("../resources/users")
+
 /* OPTIONS para consultas a database */
-const optionUser = [
-    {
-        association: "interest",
-        include: [
-            {
-                association: "interest",
-                attributes: {
-                    exclude: ["createdAt", "updatedAt", "deletedAt"],
-                }
-            }
-        ],
-        attributes: {
-            exclude: ["createdAt", "updatedAt", "deletedAt"],
-        },
-    }
-];
-const optionData = {
-    exclude: ["createdAt", "updatedAt", "deletedAt"],
-}
+const optionUser = consultasDBOptionUser;
+const optionData = consultasDBOptionData;
 
 module.exports = {
     formulario: (req, res) => {
@@ -202,9 +187,7 @@ module.exports = {
                 }
 
                 if (req.file && req.session.userLogged.avatar) {
-                    if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.session.userLogged.avatar))) {
-                        fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.session.userLogged.avatar))
-                    }
+                    eliminarAvatarToUser(req.session.userLogged.avatar)
                 }
 
                 req.session.userLogged = {
@@ -218,9 +201,7 @@ module.exports = {
                 return res.redirect('/users/profile')
             } else {
                 if (req.file) {
-                    if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.file.filename))) {
-                        fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.file.filename))
-                    }
+                    eliminarAvatarToUser(req.file.filename)
                 }
 
                 const user = await db.User.findByPk(req.session.userLogged.id, {
@@ -261,9 +242,7 @@ module.exports = {
     remove: async (req, res) => {
         try {
             if (req.session.userLogged.avatar) {
-                if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.session.userLogged.avatar))) {
-                    fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'img', 'fotos-users', req.session.userLogged.avatar))
-                }
+                eliminarAvatarToUser(req.session.userLogged.avatar)
             }
             await db.User.destroy({
                 where: { id: req.session.userLogged.id }
