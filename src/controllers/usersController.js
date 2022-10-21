@@ -163,9 +163,7 @@ module.exports = {
             const interestsToDatabase = await db.Interest.findAll({
                 attributes: optionData,
             })
-             
-            console.log(interestsToDatabase)
-            
+
             let errors = validationResult(req)
             errors = errors.mapped()
 
@@ -199,17 +197,18 @@ module.exports = {
                     }
                 })
                 if (interests) {
-                    interestsToArray = typeof interests === "string" ? [interests] : interests
-
-                    interestsToArray.forEach(interest => {
-                        db.User_interest.create({
-                            id_user: req.session.userLogged.id,
-                            id_interest: interest === 'jabones' ? 1 : interest === 'suavisantes' ? 2 : interest === 'lavandinas' ? 3 : null
-                        }, {
-                            where: {
-                                id_user: req.session.userLogged.id
-                            }
-                        })
+                    let interestsToArray = typeof interests === "string" ? [interests] : interests
+                    interestsToDatabase.forEach(interest => {
+                        if (interestsToArray.includes(interest.dataValues.name)) {
+                            db.User_interest.create({
+                                id_user: req.session.userLogged.id,
+                                id_interest: interest.dataValues.id
+                            }, {
+                                where: {
+                                    id_user: req.session.userLogged.id
+                                }
+                            })
+                        }
                     });
                 }
 
