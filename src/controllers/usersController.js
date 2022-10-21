@@ -75,54 +75,43 @@ module.exports = {
     processLogin: async (req, res) => {
         try {
             let errors = validationResult(req).mapped();
-
-            const users = await db.User.findAll({
+        
+            const user = req.body.email.includes("@") ? 
+            await db.User.findOne({
+                where: {
+                    email : req.body.email
+                },
+                attributes: optionData,
+                include: optionUser
+            }) 
+            :
+            await db.User.findOne({
+                where: {
+                    name : req.body.email
+                },
                 attributes: optionData,
                 include: optionUser
             })
-
-            let userToLogin = req.body.email.includes("@") ? users.find(oneUser => oneUser["email"] === req.body.email) : users.find(oneUser => oneUser["name"] === req.body.email)/* buscamos si el email es igual a un email de nuestra base de datos */
-
-            if (userToLogin) {
+            
+            if (Object.entries(errors).length === 0) {
                 interestsToLogin = []
-                users.forEach(user => {
-                    if (user.dataValues.interest.length > 0) {
-                        user.dataValues.interest.forEach(intereses => {
-                            intereses.id_user === userToLogin.id && intereses.id_interest === intereses.interest.dataValues.id ? interestsToLogin.push(intereses.interest.dataValues.name) : null
-                        });
-                    }
-                });
-
-                let isOkTheClave = bcryptjs.compareSync(req.body.password, userToLogin.password)/* Comparamos si la clave es igual a la guardada con hash */
-
-                if (isOkTheClave) {
-
-                    let { id, name, avatar } = userToLogin
-                    req.session.userLogged = { id, name, avatar, interestsToLogin };/* Guardamos el resto de datos del usuario en session */
-
-                    if (req.body.perdio) {/* preguntamos si marco la opcion de recordar */
-                        res.cookie("buonaseo", req.session.userLogged, { maxAge: (24000 * 60) * 60 })/* implementamos cookie para guardar la sesion del usuario */
-                    }
-
-                    return res.redirect("/users/profile")
+                if (user.dataValues.interest.length > 0) {
+                    user.dataValues.interest.forEach(intereses => {
+                        intereses.id_user === user.id && intereses.id_interest === intereses.interest.dataValues.id ? interestsToLogin.push(intereses.interest.dataValues.name) : null
+                    });
                 }
-                return res.render('./users/login', {
-                    errors: {
-                        ...errors,
-                        email: {
-                            msg: "Las credenciales son invalidas"
-                        }
-                    },
-                    old: req.body
-                })
+                
+                let { id, name, avatar } = user
+                req.session.userLogged = { id, name, avatar, interestsToLogin };/* Guardamos el resto de datos del usuario en session */
+                
+                if (req.body.perdio) {/* preguntamos si marco la opcion de recordar */
+                    res.cookie("buonaseo", req.session.userLogged, { maxAge: (24000 * 60) * 60 })/* implementamos cookie para guardar la sesion del usuario */
+                }
+
+                return res.redirect("/users/profile")
             } else {
                 return res.render('./users/login', {
-                    errors: {
-                        ...errors,
-                        email: {
-                            msg: "No se encuentra este email"
-                        },
-                    },
+                    errors,
                     old: req.body
                 })
             }
