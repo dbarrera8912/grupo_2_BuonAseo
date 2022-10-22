@@ -5,6 +5,7 @@ const categoriesJson = require('../../data/db_productos/categorias.json');
 const categories = categoriesJson.map(category => {
     return {
         name : category,
+        status : 1,
         createdAt : new Date()
     }
 })
