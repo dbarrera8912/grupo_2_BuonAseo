@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('../partials/head', {title: 'Todos las categorias'}) %>
+<body>
+	<!-- Header -->
+	<%- include('../partials/header') %>
+	<!-- /Header -->
+
+	<!-- todos los productos -->
+	<main class="carrito">
+		<div class="carrito__section">
+		  <section class="carrito__caja__titulo">
+			<h1 class="carrito__titulo"> LISTA DE CATEGORIAS <% if (locals.adminEntry) { %>
+				<a href="/categories/crearCategoria"><i class="fa-solid fa-plus"></i></a>
+			<% } %> </h1>
+			<hr class="carrito__primer__linia__espacio">
+		  </section>
+		  <!--  <div class="carrito__section__paraescritorio">-->
+			<table id="lista_tabla">
+				<thead>
+					<tr>
+						<th class="th_lista_izquierda">CATEGORIAS DE PRODUCTOS</th>
+						<th>FECHA DE CREACION</th>
+						<th>ESTADO</th>
+						<th>EDITAR</th>
+						<th>ELIMINAR/HABILITAR</th>
+					</tr>
+				</thead>
+
+			<% categories.forEach(({id,name,createdAt,status}) => { %> 
+                <!-- PRODUCTOS SEGUNDA IMAGEN-->
+                <tr class="lista_categoria_fila">
+                    <!-- PRODUCTOS DESCRIPCION-->
+                    <td class="td_lista_categoria">
+                        <p class="carrito__subtotal">CATEGORIA:</p>
+                        <p class="carrito__producto__desktop"><%= name %></p>
+                    </td>
+                    <td class="td_lista_texto">
+                        <p class="carrito__subtotal">PRODUCTO:</p>
+                        <p class="carrito__producto__desktop"><%= createdAt %></p>
+                    </td> 
+					<td class="td_lista_texto">
+                        <p class="carrito__subtotal">STATUS:</p>
+                        <p class="carrito__producto__desktop">
+							<%= status === 0 ? "DESHABILITADO" : "HABILITADO" %> 
+						</p>
+                    </td>
+                    <td class="td_lista_texto">
+                        <p class="carrito__subtotal">EDITAR:</p>
+                        <p class="carrito__producto__desktop"><a href="/categories/editarCategoria/<%=id %>"><button>EDITAR</button></a></p>
+					</td>
+					<td>   
+						<% if (status === 1) { %>
+						<p class="carrito__subtotal">ELIMINAR:</p>
+                        <p class="carrito__producto__desktop"><button name="id" value="<%= id %>" type="submit" form="eliminarCategoria">ELIMINAR</button></p>
+						<% } else { %>
+						<p class="carrito__subtotal">HABILITAR:</p>
+                        <p class="carrito__producto__desktop"><button name="id" value="<%= id %>" type="submit" form="habilitarCategoria">HABILITAR</button></p>
+						<% } %>
+                    	
+					</td>
+                </tr>
+
+			<% }) %>
+			<form action="/categories/eliminarCategoria?_method=PUT" method="POST" id="eliminarCategoria"></form>
+			<form action="/categories/habilitarCategoria?_method=PUT" method="POST" id="habilitarCategoria"></form>
+			</table>
+			<!-- </div> -->
+		</div>
+	</main>
+	<!-- /todos los productos -->
+
+	<!-- footer -->
+	<%- include('../partials/footer') %>
+	<!-- /footer -->
+</body>	
+</html>

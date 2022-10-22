@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs', {title: 'Crear Categoria'}) %>
+<body class="productCrear">
+
+    <main class="productCrear_main">
+        <!-- LOGO, TITULO Y SALIDA -->
+        <section class="productCrear__logo-y-titulo">
+          <div class="productCrear__logo-y-titulo__logo">
+            <a href="/"><img class="productCrear__logo-y-titulo__logo2" src="/img/Logo.png"
+                alt="logo pagina"></a>
+                <h2 class="productCrear__logo-y-titulo__titulo">Editar Categoria</h2>
+          </div>
+          <a class="productCrear__logo-y-titulo__salida" href="/">x</a>
+        </section>
+        <!-- PRODUCTO CREAR EMAIL -->
+        <section class="productCrear__email">
+          <form action="/categories/modificarCategoria/<%= category.dataValues.id %>?_method=PUT " id="form_crearCategoria" method="POST">
+            <section class="productCrear__email_section1">
+              <article class="productCrear__email__container">
+                <label>Nombre de categoria</label>
+                <input class="productCrear__email__texto <%= locals.errors && errors.name ? "registro__email__container-inValid" : null %>" value="<%= category.dataValues.name %>" type="text" id="" name="name" minlength="2" maxlength="20" placeholder="Nombre">
+                <small style="color: red;"><%= locals.errors && errors.name && errors.name.msg %> </small>
+              </article> 
+            <!-- BOTON REGISTRARSE -->
+            <article class="productCrear__cuenta">
+              <button class="productCrear__email__botonregistro" type="reset">Borrar</button>
+              <button class="productCrear__email__botonregistro" type="submit">Crear</button>
+            </article>
+            
+          </form>
+        </section>
+      </main>
+    </body>
+</html>

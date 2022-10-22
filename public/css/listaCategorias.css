@@ -1,0 +1,21 @@
+#lista_tabla {
+    width: 100%;
+    margin: auto;
+}
+#lista_tabla thead tr{
+    
+}
+.th_lista_izquierda{
+    text-align: left;
+}
+.td_lista_categoria p{
+    text-align: left;
+}
+.td_lista_texto p{
+    text-align: center;
+}
+
+#lista_tabla tr td {
+    padding: 10px;
+
+}

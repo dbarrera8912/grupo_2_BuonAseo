@@ -1,3 +1,5 @@
+const moment = require("moment");
+
 'use strict';
 const {
   Model
@@ -17,7 +19,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Category.init({
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    status: DataTypes.INTEGER,
+    createdAt: {
+      type:DataTypes.DATEONLY,
+      get() {
+        return moment(this.getDataValue('createdAt')).format('DD/MM/YYYY');
+      }
+    }
   }, {
     sequelize,
     modelName: 'Category',
