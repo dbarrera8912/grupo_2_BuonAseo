@@ -7,7 +7,7 @@ const router = require('express').Router();
 /* /api/users */
 
 router
-    .post('/signin',signIn)
-    .post('/signup',signUp)
+    .get('/signin',signIn)
+    .get('/signup',signUp)
 
 module.exports = router
