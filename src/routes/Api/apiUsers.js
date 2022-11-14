@@ -1,5 +1,3 @@
-
-
 const { all, getOne, getAvatar } = require('../../controllers/api/apiUsersController');
 
 const router = require('express').Router();
@@ -9,7 +7,7 @@ const router = require('express').Router();
 router
     .get('/',all)
     .get('/:id',getOne)
-    .get('/avatar/:img',getAvatar)
+    .get('/avatar/:avatar',getAvatar)
 
 
 module.exports = router
