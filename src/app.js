@@ -17,6 +17,12 @@ var productsRouter = require('./routes/products');
 var footerRouter = require('./routes/footer');
 var categoriesRouter = require('./routes/categories');
 
+//inicializando rutas de api
+var apiAuthRouter = require('./routes/api/apiAuth');
+var apiUsersRouter = require('./routes/api/apiUsers');
+var apiProductsRouter = require('./routes/api/apiProducts');
+var apiFooterRouter = require('./routes/api/apiFooter');
+
 var app = express();
 
 // view engine setup
@@ -45,6 +51,11 @@ app.use('/products', productsRouter);
 app.use('/footer', footerRouter);
 app.use('/categories', categoriesRouter);
 
+//rutas para appi
+app.use('/api/products', apiProductsRouter);
+app.use('/api/users', apiUsersRouter);
+app.use('/api/auth', apiAuthRouter);
+app.use('/api/footer', apiFooterRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -62,5 +73,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;
