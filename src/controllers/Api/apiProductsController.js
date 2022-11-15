@@ -1,27 +1,49 @@
 const { render } = require("ejs")
 const db = require('../../database/models');
 const path = require('path');
+const category = require("../../database/models/category");
 module.exports = {
     all : async (req,res) => {
         /* devuelve todos los productos */
         try {
+            //opcion1 es la configuracion para el findAndCountAll que va a traer cantidad de productos por categoria.
+            let opcion1 = {
+                group:"id_category",
+                include:[{association:"category",attributes:["name"]}]
+                };
+            //a diferencia del FindAll que trae todas las filas
+            //findAndCountAll trae el count(cantidad de resultados NUMERICO) y rows(Filas) 
+            const {count,rows} = await db.Product.findAndCountAll(opcion1);
+
+            //La otra opcion2, es exclusivo para traer todos los productos
+            let opcion2 = {
+                include:[{association:"category"}]
+                };
+            const {count:countByProducts,rows:products} = await db.Product.findAndCountAll(opcion2);
+            
+            //Todo esto es para juntar por un lado 
+            // la cantidad de productos por categorias [    5,      2,      7,      3]
+            // + el nombre de la categoria          ["lavandina","jabon","trapos","escobas"]
+            //Vienen separados y los juntamos en el for creando un nuevo array. categorias
+            let categorias = [];
+            for (let index = 0; index < count.length; index++) {
+                let objeto = {count:count[index].count,categoria:rows[index].category.dataValues.name}
+                categorias.push(objeto);//Empuja un elemento nuevo al array
+            }
             return res.status(200).json({
 				ok : true,
 				meta : {
-					total : count,
-					quantity : products.length,
-					page,
-					prev, 
-					next
+					count : countByProducts,
+					countByCategory : categorias,
 				},
 				data : products
 			})
         } catch (error) {
-            let errors = sendSequelizeError(error);
+            //let errors = sendSequelizeError(error);
 
             return res.status(error.status || 500).json({
                 ok: false,
-                errors,
+                error,
             });
         }
     },
