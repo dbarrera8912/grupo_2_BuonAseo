@@ -1,6 +1,6 @@
 
 
-const { all, getOne, getAvatar } = require('../../controllers/api/apiProductsController');
+const { all, getOne, getImagen } = require('../../controllers/api/apiProductsController');
 
 const router = require('express').Router();
 
@@ -8,8 +8,8 @@ const router = require('express').Router();
 
 router
     .get('/',all)
-    .get('/:id',getOne)
-    .get('/imagen/:img',getAvatar)
+    .get('/detail/:id',getOne)
+    .get('/imagen/',getImagen)
 
 
 module.exports = router
