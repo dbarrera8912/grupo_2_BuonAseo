@@ -1,13 +1,13 @@
 const db = require("../../database/models");
 const moment = require("moment");
-const { literal } = require('sequelize');
+const { literal, Op } = require('sequelize');
 const path = require('path');
 
 module.exports = {
     all: async (req, res) => {
         /* devuelve todos los usuarios */
         try {
-            let { limit = 4, page = 1, order = 'ASC', sortBy = 'id', search = "", sale = 0 } = req.query;
+            let { limit = 4, page = 1, order = 'ASC', sortBy = 'id', search = ""} = req.query;
 
             /* paginación */
             limit = limit > 16 ? 16 : +limit; //no puede tener mas de 16 limit
@@ -17,9 +17,8 @@ module.exports = {
             /* ordenamiento */
 			order = ['ASC','DESC'].includes(order.toUpperCase()) ? order : 'ASC'; /* preguntamos si lo que viene en order es igual a la forma que tenemos para ordenar, si lo es se ordena con eso, sino con ascendente */
 			sortBy =  ['name', 'email', 'dni', 'birthday', 'nationality', 'postal_code', 'address', 'city', 'tipoUsuario', 'gender', 'interest'].includes(sortBy.toLowerCase()) ? sortBy : 'id'; /* preguntamos si lo que viene en sortBy es igual a las columnas que tenemos para ordenar, si lo es se ordena esa columna, sino con el id */
-
 			let orderQuery = sortBy === "gender" ? ['gender','name',order] : sortBy === "interest" ? ['interest', 'interest','name',order] : [sortBy, order]
-            console.log(orderQuery)
+
 
             let { count, rows: users } = await db.User.findAndCountAll({
                 distinct: true, // no cuenta resultados anidados, como los intereses.
@@ -27,9 +26,10 @@ module.exports = {
                 offset,
                 order : [orderQuery],
                 attributes: {
-                    exclude: ['password', 'id_type_user', "is_admin", "id_gender", 'createdAt', 'updatedAt', 'deletedAt'],
+                    exclude: ['password', 'id_type_user', "id_gender", 'createdAt', 'updatedAt', 'deletedAt'],
                     include: [
                         [literal(`CONCAT('${req.protocol}://${req.get('host')}/api/users/avatar/',avatar)`), 'avatarURL'],
+                        [literal(`CONCAT('${req.protocol}://${req.get('host')}/api/users/',User.id)`),'url'],
                         [literal(`CASE WHEN is_admin = 1 THEN 'admin' ELSE 'usuario' END`), 'tipoUsuario'] /* if, si es 1, tipo usuario se carga con admin, sino, con usuario */
                     ]
                 },
@@ -56,6 +56,20 @@ module.exports = {
                         },
                     }
                 ],
+                where : {
+					[Op.or] : [
+						{
+							name : {
+								[Op.substring] : search // Op.substring es LIKE '%hat%', trae resultados sin importar lo que haya antes o despues de la palabra buscada.
+							}
+						},
+						{
+							email : {
+								[Op.substring] : search
+							}
+						},
+					]
+				},
                 subQuery:false,
             })
 
@@ -63,6 +77,7 @@ module.exports = {
                 limit,
                 order,
 				sortBy,
+                search,
             }
 
             let queryUrl = "";
