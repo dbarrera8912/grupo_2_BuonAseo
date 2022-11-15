@@ -16,10 +16,10 @@ module.exports = {
 
             /* ordenamiento */
 			order = ['ASC','DESC'].includes(order.toUpperCase()) ? order : 'ASC'; /* preguntamos si lo que viene en order es igual a la forma que tenemos para ordenar, si lo es se ordena con eso, sino con ascendente */
-			sortBy =  ['name', 'email', 'dni', 'birthday'].includes(sortBy.toLowerCase()) ? sortBy : 'id'; /* preguntamos si lo que viene en sortBy es igual a las columnas que tenemos para ordenar, si lo es se ordena esa columna, sino con el id */
+			sortBy =  ['name', 'email', 'dni', 'birthday', 'nationality', 'postal_code', 'address', 'city', 'tipoUsuario', 'gender', 'interest'].includes(sortBy.toLowerCase()) ? sortBy : 'id'; /* preguntamos si lo que viene en sortBy es igual a las columnas que tenemos para ordenar, si lo es se ordena esa columna, sino con el id */
 
-			let orderQuery = sortBy === "category" ? ['category','name',order] : [sortBy, order]
-
+			let orderQuery = sortBy === "gender" ? ['gender','name',order] : sortBy === "interest" ? ['interest', 'interest','name',order] : [sortBy, order]
+            console.log(orderQuery)
 
             let { count, rows: users } = await db.User.findAndCountAll({
                 distinct: true, // no cuenta resultados anidados, como los intereses.
@@ -50,11 +50,13 @@ module.exports = {
                     },
                     {
                         association: "gender",
+                        
                         attributes: {
                             exclude: ["id", "createdAt", "updatedAt", "deletedAt"],
                         },
                     }
-                ]
+                ],
+                subQuery:false,
             })
 
             const queryKeys = {/* objeto con todas las queries que hay */
