@@ -18,10 +18,10 @@ var footerRouter = require('./routes/footer');
 var categoriesRouter = require('./routes/categories');
 
 //inicializando rutas de api
-var apiAuthRouter = require('./routes/api/apiAuth');
-var apiUsersRouter = require('./routes/api/apiUsers');
-var apiProductsRouter = require('./routes/api/apiProducts');
-var apiFooterRouter = require('./routes/api/apiFooter');
+var apiAuthRouter = require('./routes/Api/apiAuth');
+var apiUsersRouter = require('./routes/Api/apiUsers');
+var apiProductsRouter = require('./routes/Api/apiProducts');
+var apiFooterRouter = require('./routes/Api/apiFooter');
 
 var app = express();
 

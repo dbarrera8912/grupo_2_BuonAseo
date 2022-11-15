@@ -1,13 +1,13 @@
 
 
-const { signIn, signUp } = require('../../controllers/api/apiAuthController');
+const { signIn, signUp } = require('../../controllers/Api/apiAuthController');
 
 const router = require('express').Router();
 
-/* /api/users */
+/* /api/auth */
 
 router
-    .get('/signin',signIn)
-    .get('/signup',signUp)
+    .post('/signin',signIn)
+    .post('/signup',signUp)
 
 module.exports = router
