@@ -31,6 +31,7 @@ console.log(req.body)
                 city: null,
                 avatar: null,
                 id_type_user: 1,
+                is_admin: 0
             });
 
         
