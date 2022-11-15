@@ -1,5 +1,4 @@
 
-
 const { signIn, signUp } = require('../../controllers/Api/apiAuthController');
 
 const router = require('express').Router();
