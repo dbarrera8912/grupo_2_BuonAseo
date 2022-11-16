@@ -9,7 +9,7 @@ const router = require('express').Router();
 router
     .get('/',all)
     .get('/detail/:id',getOne)
-    .get('/imagen/',getImagen)
+    .get('/imagen/:id',getImagen)
 
 
 module.exports = router
