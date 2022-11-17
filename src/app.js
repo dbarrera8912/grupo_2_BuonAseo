@@ -58,9 +58,14 @@ app.use('/api/auth', apiAuthRouter);
 app.use('/api/footer', apiFooterRouter);
 
 // catch 404 and forward to error handler
+app.use("/api/*", (req,res) => res.status(404).json(
+  {msg:"ruta no encontrada :C"}
+))
+
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {
