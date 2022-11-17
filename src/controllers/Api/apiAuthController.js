@@ -1,21 +1,30 @@
 const { hashSync, compareSync } = require("bcryptjs");
 const db = require("../../database/models");
-const { sendSequelizeError, createError } = require("../../helpers");
+const {validationResult} = require('express-validator');
+const { sendSequelizeError, createError, createErrorExpress } = require("../../helpers");
 const { sign } = require("jsonwebtoken");
 
 module.exports = {
   signUp: async (req, res) => {
     try {
+
+     
+      let errors = await validationResult(req);
+      console.log(errors)
+      if(!errors.isEmpty()){
+        throw createErrorExpress(errors, req)
+      }
+      
+
       const { name, email, password } = req.body;
 // traemos el name, el email y el password del body
-      console.log(req.body);
 
 /* con el metodo create creamos un nuevo usuario
 y le pasamos las propiedades que vengan por body 
 y pasamos por defecto null a las que se cambiaran en update*/
-      const { id, id_type_user } = await db.User.create({ 
-        name: name.trim(),                               
-        email: email.trim(),
+      const { id, is_admin } = await db.User.create({ 
+        name: name && name.trim(),                               
+        email: email && email.trim(),
         password: hashSync(password.trim(), 10),
         gender: null,
         interests: null,
@@ -37,7 +46,7 @@ y pasamos por defecto null a las que se cambiaran en update*/
       const token = sign(
         {
           id,
-          id_type_user,
+          is_admin,
         },
         process.env.SECRET_KEY_JWT,
         {
@@ -62,15 +71,21 @@ y pasamos por defecto null a las que se cambiaran en update*/
   },
   signIn: async (req, res) => {
     try {
-      const { email, password } = req.body;
+      let errors = await validationResult(req);
+      console.log(errors)
+      if(!errors.isEmpty()){
+        throw createErrorExpress(errors, req)
+      }
+      
+      const { email, password} = req.body;
 /*validamos si el email o el password es falso y si es falso mandamos el error */
-      if (!email || !password) {
+      if (!email || !password ) {
         throw createError(404, "Se require email y password");
       }
 /* si pasa la validacion buscamos el usuario por email */
       let user = await db.User.findOne({
         where: {
-          email,
+          email
         },
       });
 
@@ -92,7 +107,7 @@ y pasamos por defecto null a las que se cambiaran en update*/
       const token = sign(
         {
           id: user.id,
-          id_type_user: user.id_type_user,
+          is_admin: user.is_admin,
         },
         process.env.SECRET_KEY_JWT,
         {

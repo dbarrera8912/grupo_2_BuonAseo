@@ -10,7 +10,7 @@ const checkAdminToken = require('../../middlewares/Api/checkAdminToken')
 /* /api/users */
 
 router
-    .post('/signin', authLogin,checkAdminToken, signIn)
+    .post('/signin', authLogin, signIn)
     .post('/signup',authRegister,signUp)
 
 module.exports = router
