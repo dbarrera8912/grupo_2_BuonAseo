@@ -1,12 +1,14 @@
 
-const {all} = require('../../controllers/Api/apiFooterController')
+const {questionAll,questionOne,paymentAll,paymentOne} = require('../../controllers/Api/apiFooterController')
 const router = require('express').Router();
 
 /* /api/users */
 
 router
-    .get('/',all)
-   
+    .get('/question/',questionAll)
+    .get('/question/detail/:id',questionOne)
+    .get('/payment/',paymentAll)
+    .get('/payment/detail/:id',paymentOne)
 
 
 module.exports = router
