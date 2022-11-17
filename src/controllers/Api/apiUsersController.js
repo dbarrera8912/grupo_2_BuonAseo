@@ -2,6 +2,7 @@ const db = require("../../database/models");
 const moment = require("moment");
 const { literal, Op } = require('sequelize');
 const path = require('path');
+const { sendSequelizeError, createError } = require("../../helpers")
 
 module.exports = {
     all: async (req, res) => {
@@ -105,26 +106,11 @@ module.exports = {
             })
 
         } catch (error) {
-
-            if (!error.errors) {
-                return res.status(error.status || 500).json({
-                    ok: false,
-                    error: error.message || "Upss, error! Comuníquese con el administrador",
-                })
-            }
-
-            let errorsObject = {}
-
-            error.errors.forEach(error => {
-                errorsObject = {
-                    ...errorsObject,
-                    [error.path]: error.message
-                }
-            });
+            let errors = sendSequelizeError(error)
 
             return res.status(error.status || 500).json({
                 ok: false,
-                error: errorsObject,
+                errors,
             });
         }
     },
@@ -165,6 +151,10 @@ module.exports = {
                 ]
             })
 
+            if (!user) {
+                throw createError(404, "No se encuentra tal id, pruebe con otro!!")
+            }
+
             return res.status(200).json({
                 ok: true,
                 status: 200,
@@ -172,26 +162,11 @@ module.exports = {
             })
 
         } catch (error) {
-
-            if (!error.errors) {
-                return res.status(error.status || 500).json({
-                    ok: false,
-                    error: error.message || "Upss, error! Comuníquese con el administrador",
-                })
-            }
-
-            let errorsObject = {}
-
-            error.errors.forEach(error => {
-                errorsObject = {
-                    ...errorsObject,
-                    [error.path]: error.message
-                }
-            });
+            let errors = sendSequelizeError(error)
 
             return res.status(error.status || 500).json({
                 ok: false,
-                error: errorsObject,
+                errors,
             });
         }
     },
