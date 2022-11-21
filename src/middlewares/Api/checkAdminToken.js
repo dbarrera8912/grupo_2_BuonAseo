@@ -19,7 +19,7 @@ const checkAdminToken = (req,res,next) => {
             
                 req.userToken = decoded;
 
-                if(req.userToken.rolId !== 1){
+                if(req.userToken.is_admin !== 1){
                     throw createError(403, "Acceso restringido solo a administradores.")
                 }
 

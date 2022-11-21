@@ -1,5 +1,4 @@
 const db = require("../../database/models");
-const moment = require("moment");
 const { literal, Op } = require('sequelize');
 const path = require('path');
 const { sendSequelizeError, createError } = require("../../helpers")
@@ -11,6 +10,9 @@ module.exports = {
             let { limit = 4, page = 1, order = 'ASC', sortBy = 'id', search = ""} = req.query;
 
             /* paginación */
+            if (page < 1 || limit < 1) {
+                throw createError(404, `valor erroneo en: ${page < 1 ? "page" : "limit"}`)
+            }
             limit = limit > 16 ? 16 : +limit; //no puede tener mas de 16 limit
             page = +page;
             let offset = +limit * (+page - 1); //desde de donde arranca offset. 4*0 = 0, 4*1 = 4, 4*2 = 8, y asi
@@ -22,6 +24,7 @@ module.exports = {
 
 
             let { count, rows: users } = await db.User.findAndCountAll({
+                subQuery:false,
                 distinct: true, // no cuenta resultados anidados, como los intereses.
                 limit,
                 offset,
@@ -50,8 +53,8 @@ module.exports = {
                         },
                     },
                     {
-                        association: "gender",
                         
+                        association: "gender",
                         attributes: {
                             exclude: ["id", "createdAt", "updatedAt", "deletedAt"],
                         },
@@ -71,7 +74,6 @@ module.exports = {
 						},
 					]
 				},
-                subQuery:false,
             })
 
             const queryKeys = {/* objeto con todas las queries que hay */
