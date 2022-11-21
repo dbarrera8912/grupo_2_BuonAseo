@@ -7,7 +7,7 @@ module.exports = {
     questionAll : async (req,res) => {
         try {
 
-            let {page} = req.query;
+            let {page= 1} = req.query;
             let limit = 10;
             
             //La otra opcion2, es exclusivo para traer todos los productos
@@ -92,7 +92,7 @@ module.exports = {
     paymentAll : async (req,res) => {
         try {
 
-            let {page} = req.query;
+            let {page = 1} = req.query;
             let limit = 10;
             
             //La otra opcion2, es exclusivo para traer todos los productos

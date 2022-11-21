@@ -7,7 +7,7 @@ module.exports = {
     all : async (req,res) => {
         /* devuelve todos los productos */
         try {
-            let {page} = req.query;
+            let {page = 1} = req.query;
             let limit = 10;
             //opcion1 es la configuracion para el findAndCountAll que va a traer cantidad de productos por categoria.
             let opcion1 = {
@@ -79,7 +79,12 @@ module.exports = {
                         association : 'category',
 
                     }
-                ]
+                ],
+                attributes:{
+                    include: [
+                        [literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products',image)`), 'avatarURL'],
+                    ]
+                }
             };
             //FindByPk solamente recibe un id findByPk(req.params.id)
             //FindOne es muy similar a ByPk(trae uno) pero hay que escribirle el where (condicion) 
@@ -114,19 +119,8 @@ module.exports = {
             }
     },
     getImagen : async (req,res) => {
-        /* devuelve la imagen del producto */
-        /*let imagen = path.join(__dirname, '..','..','public','images','products',"1" );
-        return res.status(200).json({
-            ok: true,
-            meta: {
-                status : 200,
-                url: "api/products/imagen",
-                
-            },
-            data: {
-                imagen,
-            }
-        });*/
+        return res.sendFile(path.join(__dirname, '..', '..', '..', 'public', 'img', 'fotos-productos', req.params.nameFolder, req.params.image))
+        /*
         try {
             let options = {
                 where:[
@@ -165,7 +159,7 @@ module.exports = {
                     msg: error.message
                 }
                 });
-            }
+            }*/
         
         
     }

@@ -2,7 +2,7 @@ const { loadProducts, insertProduct, eliminarImg, loadCategorias} = require('../
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const db = require("../database/models");
 const { validationResult } = require("express-validator") /* Requerimos check de express-validador, body es lo mismo que check */
-
+const querystring = require('querystring');  
 module.exports = { 
     products: (req, res) => {
         let products = db.Product.findAll({
@@ -14,6 +14,31 @@ module.exports = {
 				products,
 				toThousand
 			}))
+			.catch(error => console.log(error))
+    },
+    //Es igual al catalogo pero cuando viene desde el borrar o crear producto (ALERTAS)
+    productsAlert: (req, res) => {
+        
+        let products = db.Product.findAll({
+			include : ['category'],
+            where:{status:1}
+		});
+        
+        let product = db.Product.findByPk(req.params.id);
+        
+        Promise.all([products,product])
+			.then(([products,product]) => {
+                
+                
+            
+                res.render('./products/catalogo', {
+                    products,
+                    toThousand,
+                    product,
+                    type:req.query.type,
+                })
+                
+        })
 			.catch(error => console.log(error))
     },
     productsDeleted: (req, res) => {
@@ -71,7 +96,8 @@ module.exports = {
                 id_category : category
             })
                 .then(product => {
-                    return res.redirect('/products/catalogo')
+                    const query = new URLSearchParams('type=create');
+                    return res.redirect('/products/catalogo/'+product.id+'?'+ query)
                 })
                 .catch(error => console.log(error))
         } else {
@@ -105,14 +131,15 @@ module.exports = {
         .catch(error => console.log(error))
     },
     enableProduct:(req,res)=>{
-        console.log(req.body);
+
         const {id} = req.body;
         db.Product.update({
             status:1
         },
             {where:{id:id}})
             .then(product => {
-                return res.redirect('/products/productsDeleted')
+                const query = new URLSearchParams('type=enable');
+                return res.redirect('/products/catalogo/'+id+'?'+ query)
             })
             .catch(error => console.log(error))
     },
@@ -207,7 +234,8 @@ module.exports = {
             status:0
         },{where:{id:req.params.id}})
             .then( () => {
-                return res.redirect('/products/catalogo')
+                const query = new URLSearchParams('type=delete');
+                return res.redirect('/products/catalogo/'+req.params.id+'?'+ query)
             })
             .catch(error => console.log(error))
     }

@@ -6,7 +6,37 @@
 	<!-- Header -->
 	<%- include('../partials/header') %>
 	<!-- /Header -->
+	
+	<% if (typeof product !== "undefined") { %>
+		<script>
+			let url = window.location.href;
+			url = url.split("products/catalogo");
+			let newUrl = url[0] + "products/catalogo";
+			window.history.pushState({page: "another"}, "another page", newUrl);
 
+
+			if("<%= type %>" == "delete"){
+				Swal.fire(
+				'Producto borrado!',
+				"<%= product.name %>",
+				'error'
+				);
+			}else if("<%= type %>" == "create"){
+				Swal.fire(
+				'Nuevo producto agregado!',
+				"<%= product.name %>",
+				'success'
+				);
+			}
+			else if("<%= type %>" == "enable"){
+				Swal.fire(
+				'Producto habilitado!',
+				"<%= product.name %>",
+				'success'
+				);
+			}
+		</script>
+	<% } %>
 	<!-- todos los productos -->
 	<main class="carrito">
 		<div class="carrito__section">

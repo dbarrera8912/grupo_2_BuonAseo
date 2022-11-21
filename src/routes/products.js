@@ -10,12 +10,13 @@ const authMiddleware = require("../middlewares/mw_users/authMiddleware")/* Middl
 const adminMiddleware = require("../middlewares/mw_users/adminMiddleware")/* Middleware para no permitir ingresar a vistas si no eres admin */
 
 // ************ Controller Require ************
-const { carrito, crearProducto, detalle, editarProducto,enableProduct,productsDeleted,products,store, modificarProducto, destroy} = require('../controllers/productsController');
+const { carrito, crearProducto, detalle, editarProducto,enableProduct,productsDeleted,products,productsAlert,store, modificarProducto, destroy} = require('../controllers/productsController');
 
 /* /products */
 router
       .get('/carrito', authMiddleware, carrito)
       .get('/detail/:id', detalle)
+      .get('/catalogo/:id', productsAlert)
       .get('/catalogo', products)
       .get('/productsDeleted',authMiddleware, adminMiddleware, productsDeleted)
       .get('/crearProducto',authMiddleware, adminMiddleware, crearProducto)
