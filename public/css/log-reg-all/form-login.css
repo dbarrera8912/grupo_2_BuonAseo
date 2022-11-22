@@ -242,6 +242,20 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     font-size: 20px;
 }
 
+.password-visible2{
+    position: absolute;
+    right: 10px;
+    top: 8px;
+}
+.password-visible2 .fas.active{
+    display: block;
+}
+.password-visible2 .fas{
+    display: none;
+    color: #fff;
+    font-size: 20px;
+}
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* MEDIA || TABLET 768px */
 /*~~~~~~~~~~~~~~~~~~~~~~~~*/
