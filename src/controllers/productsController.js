@@ -84,7 +84,7 @@ module.exports = {
                 name : name.trim(),
                 price,
                 idCode,
-                dimensions,
+                dimensions: dimensions ? dimensions : null,
                 volume, 
                 smell, 
                 quantity, 
@@ -92,8 +92,9 @@ module.exports = {
                 type,
                 discount,
                 description,
-                image:`/img/fotos-productos/productsAdd/${req.file.filename}`,
-                id_category : category
+                image: req.file ? `/img/fotos-productos/productsAdd/${req.file.filename}` : null,
+                status : 1,
+                id_category : category ? category : null
             })
                 .then(product => {
                     const query = new URLSearchParams('type=create');
