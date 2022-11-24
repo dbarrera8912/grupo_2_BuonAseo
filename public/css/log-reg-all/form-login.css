@@ -198,6 +198,9 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
 .registro__email__container-inValid{
     border: red 1px solid !important;
 }
+.registro__email__container-Valid{
+    border: green 1px solid !important;
+}
 .registro__email__container small{
     color: red;
 }
@@ -240,6 +243,26 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     display: none;
     color: #fff;
     font-size: 20px;
+}
+
+.formulario__mensaje {
+    font-size: 14px;
+    padding: 5px 0;
+	color: #F66060;
+	display: none;
+}
+.formulario__mensaje-activo {
+	display: inline-block;
+}
+
+.formulario__mensaje-exito {
+	font-size: 14px;
+    padding: 5px 0;
+	color: #119200;
+	display: none;
+}
+.formulario__mensaje-exito-activo {
+	display: inline;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~*/
