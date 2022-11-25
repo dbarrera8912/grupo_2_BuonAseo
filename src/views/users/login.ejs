@@ -34,15 +34,16 @@
     <!-- INGRESO EMAIL -->
     <section class="registro__email">
       <h4 class="registro__email__titulo">Con su Email</h4>
-      <form action="/users/login" method="POST">
+      <form action="/users/login" method="POST" id="form-login-validator" >
         <article class="registro__email__container">
           <input class="registro__email__texto <%= locals.errors && errors.email ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.email %>" type="email, text" id="email" name="email"
-            placeholder="Nombre de usuario o Email*" />
+            placeholder="Nombre de usuario o Email*" onclick="inputParaValidar(this)" />
           <img src="/img/login-register/imgEmail.png" alt="">
           <small id="small-email"><%= locals.errors && errors.email && errors.email.msg %></small>
         </article>
         <article class="registro__email__container">
-          <input class="registro__email__texto <%= locals.errors && errors.password ? "registro__email__container-inValid" : null %>" value="" type="password" id="password" name="password" placeholder="Contraseña*" />
+          <input class="registro__email__texto <%= locals.errors && errors.password ? "registro__email__container-inValid" : null %>" value="" type="password" id="password" name="password" 
+          placeholder="Contraseña*" onclick="inputParaValidar(this)" />
           <div class="password-visible">
             <i class="fas fa-eye" onclick="password_visible('ocultar',this)"></i>
             <i class="fas fa-eye-slash active"  onclick="password_visible('mostrar',this)"></i>
@@ -57,7 +58,7 @@
             <input type="checkbox" name="perdio" id="recordarme" value="on"> 
             <label for="recordarme">Recordarme</label>
           </div>
-          <button class="registro__email__botonRegistro" type="submit">INGRESAR</button>
+          <button class="registro__email__botonRegistro" type="submit" onclick="formParaValidar('form-login-validator')" >INGRESAR</button>
         </article>
         <div class="formulario__grupo formulario__grupo-btn-enviar">
           <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>

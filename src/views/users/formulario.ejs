@@ -35,14 +35,16 @@
       <h4 class="registro__email__titulo">Con su Email</h4>
       <form action="" method="POST">
         <article class="registro__email__container">
-          <input class="registro__email__texto <%= locals.errors && errors.name ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.name ? old.name : null %>" type="text" id="name" name="name" placeholder="Name*" />
+          <input class="registro__email__texto <%= locals.errors && errors.name ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.name ? old.name : null %>" type="text" id="name" name="name" 
+          placeholder="Name*" onclick="inputParaValidar(this)" />
           <img src="/img/login-register/imgName.png" alt="">
-          <span class="registro-text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %></span>
+          <small id="small-name" class="registro-text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
         </article>
         <article class="registro__email__container">
-          <input class="registro__email__texto <%= locals.errors && errors.email ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.email ? old.email : null %>" type="email" id="email" name="email" placeholder="Email*" />
+          <input class="registro__email__texto <%= locals.errors && errors.email ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.email ? old.email : null %>" type="email" id="emailRegister" name="email" 
+          placeholder="Email*" onclick="inputParaValidar(this)" />
           <img src="/img/login-register/imgEmail.png" alt="">
-          <span class="registro-text-danger"><%= locals.errors && errors.email ? errors.email.msg : null %></span>
+          <small id="small-emailRegister" class="registro-text-danger"><%= locals.errors && errors.email ? errors.email.msg : null %></small>
         </article>
         <article class="registro__email__container">
           <input class="registro__email__texto <%= locals.errors && errors.password ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.password ? old.password : null %>" type="password" id="password" name="password" placeholder="Contraseña*" />
