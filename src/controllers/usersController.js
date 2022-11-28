@@ -54,44 +54,62 @@ module.exports = {
     login: (req, res) => {
         return res.render('./users/login')
     },
+    /*
+    processLoginFacebook: async (req, res) => {
+        try {
+            let email = (req.body.facebookEmail).replaceAll('"', "");
+        const user = await db.User.findOne({
+            where: {
+                email:email
+            },
+            attributes: optionData,
+            include: optionUser
+        });
+        const { id, name, avatar, interestsToLogin } = user;
+        req.session.userLogged = { id, name, avatar, interestsToLogin };/* Guardamos el resto de datos del usuario en session */ 
 
+    /*    return res.redirect("/users/profile");
+        }catch (error) {
+            return console.log(error)
+        }
+    }, */
     processLogin: async (req, res) => {
         try {
-            let errors = validationResult(req).mapped();
-        
-            const user = req.body.email.includes("@") ? 
-            await db.User.findOne({
-                where: {
-                    email : req.body.email
-                },
-                attributes: optionData,
-                include: optionUser
-            }) 
-            :
-            await db.User.findOne({
-                where: {
-                    name : req.body.email
-                },
-                attributes: optionData,
-                include: optionUser
-            })
+                let errors = validationResult(req).mapped();
             
-            if (Object.entries(errors).length === 0) {
-                interestsToLogin = interestsToDBFunction(user.dataValues.interest)
-                
-                let { id, name, avatar } = user
-                req.session.userLogged = { id, name, avatar, interestsToLogin };/* Guardamos el resto de datos del usuario en session */
-                
-                if (req.body.perdio) {/* preguntamos si marco la opcion de recordar */
-                    res.cookie("buonaseo", req.session.userLogged, { maxAge: (24000 * 60) * 60 })/* implementamos cookie para guardar la sesion del usuario */
-                }
-
-                return res.redirect("/users/profile")
-            } else {
-                return res.render('./users/login', {
-                    errors,
-                    old: req.body
+                const user = req.body.email.includes("@") ? 
+                await db.User.findOne({
+                    where: {
+                        email : req.body.email
+                    },
+                    attributes: optionData,
+                    include: optionUser
+                }) 
+                :
+                await db.User.findOne({
+                    where: {
+                        name : req.body.email
+                    },
+                    attributes: optionData,
+                    include: optionUser
                 })
+                
+                if (Object.entries(errors).length === 0) {
+                    interestsToLogin = interestsToDBFunction(user.dataValues.interest)
+                    
+                    let { id, name, avatar } = user
+                    req.session.userLogged = { id, name, avatar, interestsToLogin };/* Guardamos el resto de datos del usuario en session */
+                    
+                    if (req.body.perdio) {/* preguntamos si marco la opcion de recordar */
+                        res.cookie("buonaseo", req.session.userLogged, { maxAge: (24000 * 60) * 60 })/* implementamos cookie para guardar la sesion del usuario */
+                    }
+
+                    return res.redirect("/users/profile")
+                } else {
+                    return res.render('./users/login', {
+                        errors,
+                        old: req.body
+                    })
             }
         } catch (error) {
             return console.log(error)

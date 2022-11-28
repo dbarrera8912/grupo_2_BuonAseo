@@ -20,6 +20,7 @@ router
       .post('/formulario', validacionRegistroUser, processFormulario)
       .get('/login',guestMiddleware, login)
       .post('/login', validacionLoginUser, processLogin)
+//      .post('/facebookLogin', processLoginFacebook)
       .get("/logout", authMiddleware, logout)
       .get('/password-lost', guestMiddleware, password)
       .get("/profile", authMiddleware, profile)

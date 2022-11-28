@@ -20,8 +20,15 @@
         <button class="registro__redes__botonFB">Continuar con <b>Facebook</b></button>
         <img src="/img/login-register/imgFacebook.png" alt="facebook">
       </article>
+     <!-- <fb:login-button 
+        scope="public_profile,email"
+        onlogin="checkLoginState();">
+      </fb:login-button> -->
+      <form action="/users/facebookLogin" id="facebook-login" method="POST">
+        <input type="hidden" name="facebookEmail" value="">
+      </form>
       <article class="registro__redes__containerGoogle">
-        <button class="registro__redes__botonGoogle">Continuar con <b>Google</b></button>
+      <!--  <div class="registro__redes__botonGoogle g-signin2"  data-onsuccess="onSignIn">Continuar con <b>Google</b></div>-->
         <img src="/img/login-register/imgGoogle.png" alt="Google">
       </article>
     </section>
