@@ -1,16 +1,16 @@
-let form = document.querySelector("#formCrearProducto") ?? null;
-let nombre = document.querySelector("#formCrearProducto_name") ?? null;
-let image = document.querySelector("#formCrearProducto_image") ?? null;
-let idCode = document.querySelector("#formCrearProducto_idCode") ?? null;
-let smell = document.querySelector("#formCrearProducto_smell") ?? null;
-let dimensions = document.querySelector("#formCrearProducto_dimensions") ?? null;
-let discount = document.querySelector("#formCrearProducto_discount") ?? null;
-let price = document.querySelector("#formCrearProducto_price") ?? null;
-let volume = document.querySelector("#formCrearProducto_volume") ?? null;
-let quantity = document.querySelector("#formCrearProducto_quantity") ?? null;
-let stock = document.querySelector("#formCrearProducto_stock") ?? null;
-let type = document.querySelector("#formCrearProducto_type") ?? null;
-let description = document.querySelector("#formCrearProducto_description") ?? null;
+let form = document.querySelector("#formCrearEditarProducto") ?? null;
+let nombre = document.querySelector("#formProducto_name") ?? null;
+let image = document.querySelector("#formProducto_image") ?? null;
+let idCode = document.querySelector("#formProducto_idCode") ?? null;
+let smell = document.querySelector("#formProducto_smell") ?? null;
+let dimensions = document.querySelector("#formProducto_dimensions") ?? null;
+let discount = document.querySelector("#formProducto_discount") ?? null;
+let price = document.querySelector("#formProducto_price") ?? null;
+let volume = document.querySelector("#formProducto_volume") ?? null;
+let quantity = document.querySelector("#formProducto_quantity") ?? null;
+let stock = document.querySelector("#formProducto_stock") ?? null;
+let type = document.querySelector("#formProducto_type") ?? null;
+let description = document.querySelector("#formProducto_description") ?? null;
 let pattern = /([0-9])+/;
 const msgError = (element, msg, target) => {
     document.getElementById(element).innerHTML = msg;
@@ -203,16 +203,27 @@ description.addEventListener("blur", function ({ target }) {
           break;
       }
 });
-/*image.addEventListener('change', function ({ target }) {
-    
-    let reader = new FileReader();
-
+image.addEventListener('change', function ({ target }) {
+    let allowed_type = ["jpg","png","jpeg","gif","webp"];
+    var extension = target.files[0].name.split('.').pop().toLowerCase(),
+    isSuccess = allowed_type.indexOf(extension) > -1;
+    if(isSuccess){
+      let reader = new FileReader();
     reader.readAsDataURL(target.files[0]);
-
+    
     reader.onload = () => {
-        $('imagePreview').src = reader.result
+      console.log(reader.result);
+      document.querySelector(".imagePreview").setAttribute("src",reader.result)
     }
-})*/
+    }else{
+      msgError(
+        "errorImage",
+        "El formato de la imagen debe ser Jpg, Png, Jpeg, Gif, Webp",
+        target
+      );
+    }
+    
+})
 let success = false;
 form.addEventListener("submit", function (e) {
     if(success == false){

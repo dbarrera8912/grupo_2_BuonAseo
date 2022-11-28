@@ -29,8 +29,6 @@ module.exports = {
         Promise.all([products,product])
 			.then(([products,product]) => {
                 
-                
-            
                 res.render('./products/catalogo', {
                     products,
                     toThousand,
@@ -122,11 +120,13 @@ module.exports = {
 			include : ['category'],
             where:{id:req.params.id,status:1}
 		});
+        let type = req.query.type ?? "";
+
         Promise.all([product])
         .then(
             function(product){
                 product = product[0];
-                res.render('./products/detalle', {product,toThousand})
+                res.render('./products/detalle', {product,toThousand,type})
             }
         )
         .catch(error => console.log(error))
@@ -202,11 +202,13 @@ module.exports = {
                     //Si subio una imagen al formulario , vuelve a hacer update para editar la ruta.
                     if(req.file){
                         db.Product.update({
+                            
                             image:`/img/fotos-productos/productsAdd/${req.file.filename}`},
                             {where:{id:req.params.id}})
                         .then(product => {});
                     }
-                    return res.redirect('/products/detail/'+ req.params.id)
+                    const query = new URLSearchParams('type=edit');
+                    return res.redirect('/products/detail/'+ req.params.id+'?'+ query)
                 })
                 .catch(error => console.log(error))
         }

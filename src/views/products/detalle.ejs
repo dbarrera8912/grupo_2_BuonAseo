@@ -2,6 +2,28 @@
 <html lang="en">
 <%- include('../partials/head', {title: 'Home' }) %>
 
+
+    <script>
+        let url = window.location.href;
+        url = url.split("products/detail");
+        let newUrl = url[0] + "products/detail/" + "<%= product.id %>";
+        window.history.pushState({page: "another"}, "another page", newUrl);
+        if("<%= type %>" == "edit"){
+            Swal.fire(
+            'Producto editado!',
+            "<%= product.name %>",
+            'error'
+            );
+        }/*else if("<%= type %>" == "create"){
+            Swal.fire(
+            'Nuevo producto agregado!',
+            "<%= product.name %>",
+            'success'
+            );
+        }*/
+        
+    </script>
+
     <body>
         <%- include('../partials/header') %>
             <main class="detalle_main">

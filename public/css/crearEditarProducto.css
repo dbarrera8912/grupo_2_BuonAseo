@@ -18,11 +18,22 @@
     justify-content: center;
     align-items: center;
 }
-
+.productCrear__email__container small{
+    display: block;
+    min-height: 15px;
+}
 /* LOGO, TITULO Y SALIDA */
 .productCrear__logo-y-titulo{
     width: 100%;
     padding: 10px;
+}
+.productCrear_main .imagePreview{
+    width: 40%;
+    display: block;
+    margin: auto;
+    height: 50%;
+    aspect-ratio: 5/5;
+    object-fit: contain;
 }
 
 .productCrear__logo-y-titulo__logo{
@@ -117,9 +128,14 @@
 }
 .productCrear__email__container{
     width: 90%;
-    margin-top: 10px;
+    margin-top: 3px;
 }
-
+.productCrear__email__container input.is-valid,textarea.is-valid{
+    border: 2px green solid;
+}
+.productCrear__email__container input.is-invalid,textarea.is-invalid{
+    border: 2px red solid;
+}
 
 .productCrear__email__texto{
     border: 1px var(--azulFuerte) solid;
@@ -154,11 +170,11 @@
     box-shadow: 0 0 0 30px var(--azulFuerte) inset !important; -webkit-text-fill-color: white !important;}/* Para poner un color especifico cuando el usuario ingresa un dato. */
 
 .productCrear__email__container img{
-    width: 20px;
+    /*width: 20px;
 
     position: absolute;
     right:  5px;
-    top: 4px;
+    top: 4px;*/
 }
 
 /* BOTON REGISTRARSE */
@@ -232,7 +248,7 @@
         width: 100%;
         display: flex;
         flex-flow:wrap row;
-        align-items: center;
+        align-items: flex-start;
         gap: 10px;
     }
 
