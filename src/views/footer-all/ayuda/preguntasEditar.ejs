@@ -13,19 +13,21 @@
                         <h1>Editar pregunta</h1>
                     </div>
                     <!-- FORMULARIO -->
-                    <form action="/footer/preguntas/modificar/<%= pregunta.id %>?_method=PUT" method="POST" class="preguntasAgregar__Caja">
+                    <form action="/footer/preguntas/modificar/<%= pregunta.id %>?_method=PUT" method="POST" class="preguntasAgregar__Caja" id="form-preguntas-validator">
                         <!-- Si modifica la pregunta y hace click en Guardar, con este formulario mandamos la peticion al metodo modificarPregunta que actualiza data ingresada -->
                         <div class="registro__email__container"> 
                             <label for="title" class="registro__email__titulo">Titulo</label >
                             <!-- ponemos el value con el title que tiene el JSON, asi lo puede ver y editar.  -->
-                            <input type="text" name="title" class="preguntasFrecuentes__section__article <%= locals.errors && errors.title ? "registro__email__container-inValid" : null %>" value="<%= pregunta.title %>" id="name">
+                            <input onclick="inputParaValidar(this)" type="text" name="title" id="title" class="preguntasFrecuentes__section__article <%= locals.errors && errors.title ? "registro__email__container-inValid" : null %>" value="<%= pregunta.title %>" >
                             <small><%= locals.errors && errors.title && errors.title.msg %></small>
+                            <small id="smallFormPreguntas-title"></small>
                         </div>
                         <div class="registro__email__container">
                             <label for="response">Respuesta</label>
                             <!-- ponemos el value con el response que tiene el JSON, asi lo puede ver y editar.  -->
-                            <textarea name="response" class="preguntasFrecuentes__section__article <%= locals.errors && errors.response ? "registro__email__container-inValid" : null %>" id="response" cols="40" rows="5" wrap="VIRTUAL"><%= pregunta.response %> </textarea>
+                            <textarea onclick="inputParaValidar(this)" name="response" id="response" class="preguntasFrecuentes__section__article <%= locals.errors && errors.response ? "registro__email__container-inValid" : null %>"  cols="40" rows="5" wrap="VIRTUAL"><%= pregunta.response %> </textarea>
                             <small><%= locals.errors && errors.response && errors.response.msg %></small>
+                            <small id="smallFormPreguntas-response"></small>
                         </div>
                         <div class="registro__email__container">
                             <label for="href">Link</label>
@@ -42,8 +44,9 @@
                             <!-- boton de cancelar, si hace click vuelve a las preguntas sin modificar nada -->
                             <a href="/footer/preguntas"><button type="button" class="registro__email__botonRegistro">Cancelar</button></a>
                             <!-- boton para guardar, si hace click dirige la peticion al metodo modificarPreguntar, y hace su magia. -->
-                            <button type="submit" class="registro__email__botonRegistro">Guardar</button>
+                            <button type="submit" onclick="formParaValidar('form-preguntas-validator')" class="registro__email__botonRegistro">Guardar</button>
                         </div>
+                        <br><small id="form-preguntas-exito"></small> 
                     </form>
                 </section>
             </main>
