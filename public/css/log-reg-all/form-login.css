@@ -278,8 +278,6 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     /* REGISTRO REDES */
     .registro__redes{
         width: 45%;
-    
-        flex-flow: wrap row;
         justify-content: center;
     }
     .registro__redes__titulo{

@@ -54,7 +54,7 @@ module.exports = {
     login: (req, res) => {
         return res.render('./users/login')
     },
-    /*
+
     processLoginFacebook: async (req, res) => {
         try {
             let email = (req.body.facebookEmail).replaceAll('"', "");
@@ -68,11 +68,29 @@ module.exports = {
         const { id, name, avatar, interestsToLogin } = user;
         req.session.userLogged = { id, name, avatar, interestsToLogin };/* Guardamos el resto de datos del usuario en session */ 
 
-    /*    return res.redirect("/users/profile");
+       return res.redirect("/users/profile");
         }catch (error) {
             return console.log(error)
         }
-    }, */
+    },
+    processLoginGoogle: async (req, res) => {
+        try {
+            let email = (req.body.googleEmail).replaceAll('"', "");
+        const user = await db.User.findOne({
+            where: {
+                email:email
+            },
+            attributes: optionData,
+            include: optionUser
+        });
+        const { id, name, avatar, interestsToLogin } = user;
+        req.session.userLogged = { id, name, avatar, interestsToLogin };/* Guardamos el resto de datos del usuario en session */ 
+
+       return res.redirect("/users/profile");
+        }catch (error) {
+            return console.log(error)
+        }
+    },
     processLogin: async (req, res) => {
         try {
                 let errors = validationResult(req).mapped();

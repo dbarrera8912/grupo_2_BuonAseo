@@ -16,20 +16,48 @@
     <!-- INGRESO REDES -->
     <section class="registro__redes">
       <h4 class="registro__redes__titulo">Con su red favorita</h4>
-      <article class="registro__redes__containerFB">
-        <button class="registro__redes__botonFB">Continuar con <b>Facebook</b></button>
-        <img src="/img/login-register/imgFacebook.png" alt="facebook">
-      </article>
-     <!-- <fb:login-button 
-        scope="public_profile,email"
-        onlogin="checkLoginState();">
-      </fb:login-button> -->
+ 
+        <!--  <article class="registro__redes__containerFB">
+          <button class="registro__redes__botonFB">Continuar con <b>Facebook</b></button>
+          <img src="/img/login-register/imgFacebook.png" alt="facebook">
+        </article>
+        <article class="registro__redes__containerGoogle" onClick="clickGoogleSignIn()">
+          <button class="registro__redes__botonGoogle" >Continuar con <b>Google</b></button>
+          <img src="/img/login-register/imgGoogle.png" alt="Google">
+        </article>-->
+
       <form action="/users/facebookLogin" id="facebook-login" method="POST">
         <input type="hidden" name="facebookEmail" value="">
       </form>
+      <form action="/users/googleLogin" id="google-login" method="POST">
+        <input type="hidden" name="googleEmail" value="">
+      </form>
+
+
+        <fb:login-button 
+        scope="public_profile,email"
+        data-size="large"
+        data-width="232"
+        data-layout="default"
+        onlogin="checkLoginState();">
+      </fb:login-button>
+
+      
       <article class="registro__redes__containerGoogle">
-      <!--  <div class="registro__redes__botonGoogle g-signin2"  data-onsuccess="onSignIn">Continuar con <b>Google</b></div>-->
-        <img src="/img/login-register/imgGoogle.png" alt="Google">
+        <div id="g_id_onload"
+          data-client_id="893438789002-ale6m7ln7e0ud8dm3tnt4gabs6hnsftv.apps.googleusercontent.com"
+          data-login_uri="http://localhost:3030/users/login"
+          data-auto_prompt="false"
+          data-callback="handleCredentialResponse">
+        </div>
+        <div class="g_id_signin"
+            data-type="standard"
+            data-size="large"
+            data-theme="outline"
+            data-text="sign_in_with"
+            data-shape="rectangular"
+            data-logo_alignment="center">
+        </div>
       </article>
     </section>
     <!-- LINEA -->

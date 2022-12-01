@@ -11,7 +11,7 @@ const authMiddleware = require("../middlewares/mw_users/authMiddleware")/* Middl
 const {uploadAvatar} = require('../middlewares/mw_users/uploadAvatar')
 
 // ************ Controller Require ************
-const { login, formulario, password, processFormulario, processLogin, logout, profile, update, deleteAcc, remove}=require('../controllers/usersController');
+const { login, formulario, password, processFormulario,processLoginGoogle,processLoginFacebook, processLogin, logout, profile, update, deleteAcc, remove}=require('../controllers/usersController');
 
 // ************ Rutas ************
 /* /users/... */
@@ -20,7 +20,8 @@ router
       .post('/formulario', validacionRegistroUser, processFormulario)
       .get('/login',guestMiddleware, login)
       .post('/login', validacionLoginUser, processLogin)
-//      .post('/facebookLogin', processLoginFacebook)
+      .post('/facebookLogin', processLoginFacebook)
+      .post('/googleLogin', processLoginGoogle)
       .get("/logout", authMiddleware, logout)
       .get('/password-lost', guestMiddleware, password)
       .get("/profile", authMiddleware, profile)

@@ -47,7 +47,7 @@ idCode.addEventListener("blur", function ({ target }) {
       case !pattern.test(this.value):
         msgError(
           "errorIdCode",
-          "El codigo debe ser numerico positivo",
+          "El codigo debe ser un número entero positivo",
           target
         );
         break;
@@ -64,7 +64,7 @@ price.addEventListener("blur", function ({ target }) {
       case !pattern.test(this.value):
         msgError(
           "errorPrice",
-          "El precio debe ser numerico positivo",
+          "El precio debe ser número entero positivo",
           target
         );
         break;
@@ -81,7 +81,7 @@ discount.addEventListener("blur", function ({ target }) {
       case !pattern.test(this.value):
         msgError(
           "errorDiscount",
-          "El precio debe ser numerico positivo",
+          "El precio debe ser un valor numérico positivo",
           target
         );
         break;
@@ -93,12 +93,12 @@ discount.addEventListener("blur", function ({ target }) {
 volume.addEventListener("blur", function ({ target }) {
     switch (true) {
         case !this.value:
-          msgError("errorVolume", "Volumen es obligatorio", target);
+          msgError("errorVolume", "El Volumen es obligatorio", target);
           break;
         case !pattern.test(this.value):
           msgError(
             "errorVolume",
-            "El volumen debe ser numerico positivo",
+            "El volumen debe ser un valor numérico positivo",
             target
           );
           break;
@@ -110,12 +110,12 @@ volume.addEventListener("blur", function ({ target }) {
 stock.addEventListener("blur", function ({ target }) {
     switch (true) {
         case !this.value:
-          msgError("errorStock", "Stock es obligatorio", target);
+          msgError("errorStock", "El Stock es obligatorio", target);
           break;
         case !pattern.test(this.value):
           msgError(
             "errorStock",
-            "El stock debe ser numerico positivo",
+            "El stock debe ser un valor numérico positivo",
             target
           );
           break;
@@ -127,12 +127,12 @@ stock.addEventListener("blur", function ({ target }) {
 smell.addEventListener("blur", function ({ target }) {
     switch (true) {
         case !this.value:
-          msgError("errorSmell", "Aroma es obligatorio", target);
+          msgError("errorSmell", "El Aroma es obligatorio", target);
           break;
         case  this.value.trim().length < 3 || this.value.trim().length > 100:
           msgError(
             "errorSmell",
-            "Aroma debe ser entre 3-100 caracteres",
+            "El Aroma debe ser entre 3 y 100 caracteres",
             target
           );
           break;
@@ -149,7 +149,7 @@ dimensions.addEventListener("blur", function ({ target }) {
         case  this.value.trim().length > 100:
           msgError(
             "errorDimensions",
-            "Dimension debe ser menor a 100 caracteres",
+            "La Dimension debe ser menor a 100 caracteres",
             target
           );
           break;
@@ -166,7 +166,7 @@ quantity.addEventListener("blur", function ({ target }) {
         case !pattern.test(this.value):
           msgError(
             "errorQuantity",
-            "Cantidad debe ser numero entero positivo",
+            "La Cantidad debe ser número entero positivo",
             target
           );
           break;
@@ -180,7 +180,7 @@ type.addEventListener("blur", function ({ target }) {
         case  this.value.trim().length > 100:
           msgError(
             "errorType",
-            "tipo debe ser menor a 100 caracteres",
+            "El Tipo debe ser menor a 100 caracteres",
             target
           );
           break;
@@ -191,10 +191,10 @@ type.addEventListener("blur", function ({ target }) {
 });
 description.addEventListener("blur", function ({ target }) {
     switch (true) {
-        case  this.value.trim().length > 100:
+        case  this.value.trim().length > 200:
           msgError(
             "errorDescription",
-            "Descripcion debe ser menor a 100 caracteres",
+            "Descripcion debe ser menor a 200 caracteres",
             target
           );
           break;
@@ -235,7 +235,7 @@ form.addEventListener("submit", function (e) {
       for (let i = 0; i < elements.length - 1; i++) {
           if((!elements[i].value.trim() || elements[i].classList.contains('is-invalid')) && elements[i].getAttribute("type") != "reset"){
                 console.log(elements[i]);
-                document.querySelector("#errorForm").innerHTML = 'Llená bien formulario men!';
+                document.querySelector("#errorForm").innerHTML = 'El formulario no se ha llenado correctamente!';
                 success = false;
           }
       }
