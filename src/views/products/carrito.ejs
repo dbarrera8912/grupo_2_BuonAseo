@@ -6,7 +6,7 @@
 <body>
   <%- include('../partials/header') %>
   <!-- CARRITO -->
-  <main class="carrito">
+  <main class="carrito" id="carrito">
     <div class="carrito__section">
       <section class="carrito__caja__titulo">
         <h1 class="carrito__titulo">Carro</h1>
@@ -19,6 +19,9 @@
           <p class="carrito__cantidad__desktop">Cantidad</p>
           <p class="carrito__subtotal__desktop">Subtotal</p>
         </section>
+      <div id="carrito_localstorage">
+
+      </div>
       <section class="carrito__primer__producto">
         <figure class="carrito__boton__imagen">x</figure>
         <article class="carrito__primer__imagen">
@@ -27,45 +30,23 @@
         <!-- CARRITO DESCRIPCION-->
         <article class=" carrito__producto__general">
           <p class="carrito__producto">Producto</p>
-          <p class="carrito__producto__articulo">Detergente<br> BUON ASEO</p>
+          <p class="carrito__producto__articulo"></p>
         </article>
         <article class="carrito__precio__general">
           <p class="carrito__precio">Precio</p>
-          <p class="carrito__precio__numero">12</p>
+          <p class="carrito__precio__numero"></p>
         </article>
         <article class="carrito__cantidad__general">
           <p class="carrito__cantidad">Cantidad</p>
-          <input class="carrito__cantidad__boton" type="number" min="0" placeholder="123.34">
+          <input class="carrito__cantidad__boton" type="number" min="0" placeholder="">
         </article>
         <article class="carrito__subtotal__general">
           <p class="carrito__subtotal">Subtotal</p>
-          <p class="carrito__subtotal__numero">12</p>
+          <p class="carrito__subtotal__numero"></p>
         </article>
       </section>
+
       <!-- CARRITO SEGUNDA IMAGEN-->
-      <section class="carrito__primer__producto">
-        <figure class="carrito__boton__imagen">x</figure>
-        <article class="carrito__primer__imagen">
-          <img class="carrito__imagen__producto" src="../../../img/fotos-productos/lavandinas/lavandina-imagen-2.png" alt="" />
-        </article>
-        <!-- CARRITO DESCRIPCION-->
-        <article class=" carrito__producto__general">
-          <p class="carrito__producto">Producto</p>
-          <p class="carrito__producto__articulo">Lavandina <br> BUON ASEO</p>
-        </article>
-        <article class="carrito__precio__general">
-          <p class="carrito__precio">Precio</p>
-          <p class="carrito__precio__numero">12</p>
-        </article>
-        <article class="carrito__cantidad__general">
-          <p class="carrito__cantidad">Cantidad</p>
-          <input class="carrito__cantidad__boton" type="number" min="0" placeholder="123.34">
-        </article>
-        <article class="carrito__subtotal__general">
-          <p class="carrito__subtotal">Subtotal</p>
-          <p class="carrito__subtotal__numero">12</p>
-        </article>
-      </section>
 
       <section class="carrito__pie__pagina">
         <article class="carrito__caja__escribe">
