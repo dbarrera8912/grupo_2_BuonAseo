@@ -41,15 +41,17 @@
     <!-- INGRESO EMAIL -->
     <section class="registro__email">
       <h4 class="registro__email__titulo">Con su Email</h4>
-      <form action="/users/login" method="POST">
+      <form action="/users/login" method="POST" id="registro-main-form">
         <article class="registro__email__container">
-          <input class="registro__email__texto <%= locals.errors && errors.email ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.email %>" type="email, text" id="email" name="email"
+          <input class="registro__email__texto" value="<%= locals.old && old.email %>" type="email, text"  name="email" id="registro-main-form-email"
             placeholder="Nombre de usuario o Email*" />
           <img src="/img/login-register/imgEmail.png" alt="">
           <small><%= locals.errors && errors.email && errors.email.msg %></small>
+          <span id="registro-text-errores-email" class="registro-text-danger"></span>
+        </article>
         </article>
         <article class="registro__email__container">
-          <input class="registro__email__texto <%= locals.errors && errors.password ? "registro__email__container-inValid" : null %>" value="" type="password" id="" name="password" placeholder="Contraseña*" />
+          <input class="registro__email__texto" value="" type="password" id="registro-main-form-password" name="password" placeholder="Contraseña*" />
           <div class="password-visible">
             <i class="fas fa-eye" onclick="password_visible('ocultar',this)"></i>
             <i class="fas fa-eye-slash active"  onclick="password_visible('mostrar',this)"></i>
@@ -57,14 +59,17 @@
           
           <!-- <img src="/img/login-register/imgContraseña.png" alt=""> -->
           <small><%= locals.errors && errors.password && errors.password.msg %></small>
+          <span id="registro-text-errores-password" class="registro-text-danger"></span>
         </article>
+        </article>
+        <span id="registro-text-errores-formulario" class="registro-text-danger"></span>
         <!-- BOTON INGRESAR -->
         <article class="login-detail__article__containerBotonIngreso">
           <div>
             <input type="checkbox" name="perdio" id="recordarme" value="on"> 
             <label for="recordarme">Recordarme</label>
           </div>
-          <button class="registro__email__botonRegistro" type="submit">INGRESAR</button>
+          <button class="registro__email__botonRegistro" id="registro-main-form-boton" type="submit">INGRESAR</button>
         </article>
       </form>
       <!-- REGISTRARSE -->
@@ -77,6 +82,7 @@
       </article>
     </section>
   </main>
+  <script src="../../../../javascripts/validaciones/validaciones_users/loginUser.js"></script>
 </body>
 
 </html>

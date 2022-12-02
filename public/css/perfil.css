@@ -167,6 +167,8 @@ margin-bottom: 15px;
     border: unset;
     outline: none;
     color: var(--azulFuerte);
+    border: solid 2px rgba(2, 204, 255);
+    border-radius: 15px;
     font-size: 0.8rem;
     width: 90%;
     height: 30px;

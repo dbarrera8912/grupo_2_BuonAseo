@@ -33,27 +33,46 @@
     <!-- REGISTRO EMAIL -->
     <section class="registro__email">
       <h4 class="registro__email__titulo">Con su Email</h4>
-      <form action="" method="POST">
+      <form action="" method="POST" id="registro-main-form">
         <article class="registro__email__container">
-          <input class="registro__email__texto <%= locals.errors && errors.name ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.name ? old.name : null %>" type="text" id="name" name="name" placeholder="Name*" />
+          <input class="registro__email__texto <%= locals.errors && errors.name ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.name ? old.name : null %>" type="text" id="registro-main-form-name" name="name" placeholder="Name*" />
           <img src="/img/login-register/imgName.png" alt="">
           <span class="registro-text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %></span>
+          <span id="registro-text-errores-name" class="registro-text-danger"></span>
         </article>
         <article class="registro__email__container">
-          <input class="registro__email__texto <%= locals.errors && errors.email ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.email ? old.email : null %>" type="email" id="email" name="email" placeholder="Email*" />
+          <input class="registro__email__texto <%= locals.errors && errors.email ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.email ? old.email : null %>" type="email" id="registro-main-form-email" name="email" placeholder="Email*" />
           <img src="/img/login-register/imgEmail.png" alt="">
           <span class="registro-text-danger"><%= locals.errors && errors.email ? errors.email.msg : null %></span>
+          <span id="registro-text-errores-email" class="registro-text-danger"></span>
         </article>
         <article class="registro__email__container">
-          <input class="registro__email__texto <%= locals.errors && errors.password ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.password ? old.password : null %>" type="password" id="password" name="password" placeholder="Contraseña*" />
-          <img src="/img/login-register/imgContraseña.png" alt="">
+          <input class="registro__email__texto <%= locals.errors && errors.password ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.password ? old.password : null %>" type="password" id="registro-main-form-password" name="password" placeholder="Contraseña*" />
+          <div class="password-visible">
+            <i class="fas fa-eye" onclick="password_visible2('ocultar',this)"></i>
+            <i class="fas fa-eye-slash active"  onclick="password_visible2('mostrar',this)"></i>
+          </div>
           <span class="registro-text-danger"><%= locals.errors && errors.password ? errors.password.msg : null %></span>
+          <span id="registro-text-errores-password" class="registro-text-danger"></span>
+          <ul id="passUl" hidden> 
+          <li id="mayu">Mayuscula</li>
+          <li id="minu">Minuscula</li>
+          <li id="num">Numero</li>
+          <li id="sim">Simbolo ($@$!%*?&)</li>
+          <li id="minSeis">Minimo 6 caracteres</li>
+          <li id="maxOcho">Maximo 8 caracteres</li>
+        </ul>
         </article>
         <article class="registro__email__container">
-          <input class="registro__email__texto <%= locals.errors && errors.password2 ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.password2 ? old.password2 : null %>" type="password" id="password2" name="password2" placeholder="Confirmar Contraseña*" />
-          <img src="/img/login-register/imgContraseña.png" alt="">
+          <input class="registro__email__texto <%= locals.errors && errors.password2 ? "registro__email__container-inValid" : null %>" value="<%= locals.old && old.password2 ? old.password2 : null %>" type="password" id="registro-main-form-password2" name="password2" placeholder="Confirmar Contraseña*" />
+          <div class="password-visible">
+            <i class="fas fa-eye" onclick="password_visible2('ocultar',this)"></i>
+            <i class="fas fa-eye-slash active"  onclick="password_visible2('mostrar',this)"></i>
+          </div>
           <span class="registro-text-danger"><%= locals.errors && errors.password2 ? errors.password2.msg : null %></span>
+          <span id="registro-text-errores-password2" class="registro-text-danger"></span>
         </article>
+        <span id="registro-text-errores-formulario" class="registro-text-danger"></span>
         <!-- BOTON REGISTRARSE -->
         <button class="registro__email__botonRegistro" type="submit">REGISTRARSE</button>
       </form>
@@ -64,6 +83,7 @@
       </article>
     </section>
   </main>
+  <script src="../../../../javascripts/validaciones/validaciones_users/formulario.js"></script>
 </body>
 
 </html>

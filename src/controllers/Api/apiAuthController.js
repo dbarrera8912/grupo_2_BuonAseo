@@ -1,5 +1,6 @@
 const { hashSync, compareSync } = require("bcryptjs");
 const db = require("../../database/models");
+const { Op } = require('sequelize');
 const {validationResult} = require('express-validator');
 const { sendSequelizeError, createError, createErrorExpress } = require("../../helpers");
 const { sign } = require("jsonwebtoken");
@@ -76,13 +77,14 @@ y pasamos por defecto null a las que se cambiaran en update*/
       if(!errors.isEmpty()){
         throw createErrorExpress(errors, req)
       }
-      
+
       const { email, password} = req.body;
 /*validamos si el email o el password es falso y si es falso mandamos el error */
       if (!email || !password ) {
         throw createError(404, "Se require email y password");
       }
 /* si pasa la validacion buscamos el usuario por email */
+      
       let user = await db.User.findOne({
         where: {
           email
@@ -119,6 +121,7 @@ y pasamos por defecto null a las que se cambiaran en update*/
         ok: true,
         status: 200,
         data: token,
+        user
       });
     } catch (error) { // atrapamos los errores que vengan de las validaciones y los retornamos
       let errors = sendSequelizeError(error);
@@ -128,4 +131,96 @@ y pasamos por defecto null a las que se cambiaran en update*/
       });
     }
   },
-};
+  verifyEmail: async (req,res) => {
+   
+    try {
+      const {email} = await req.body;
+      
+      let user = await db.User.findOne({
+        where: {
+          email
+        },
+      });
+      
+      
+      return res.status(200).json({
+        ok: true,
+        verified: user ? true : false,
+        user
+      });
+    } catch (error) {
+      let errors = sendSequelizeError(error);
+      return res.status(error.status || 500).json({
+        ok: false,
+        errors,
+      });
+    }
+  },
+
+
+  verifyName: async (req,res) => {
+   
+    try {
+      const {name} = await req.body;
+      
+      let user = await db.User.findOne({
+        where: {
+          name
+        },
+      });
+      
+      return res.status(200).json({
+        ok: true,
+        verified: user ? true : false
+      });
+    } catch (error) {
+      let errors = sendSequelizeError(error);
+      return res.status(error.status || 500).json({
+        ok: false,
+        errors,
+      });
+    }
+  },
+  verifyEmailAndPassword: async (req,res) => {
+   
+    try {
+    const { email, password} = req.body;
+
+  
+/* si pasa la validacion buscamos el usuario por email */
+      
+      let user = await db.User.findOne({
+        where: {
+          email
+        },
+      });
+
+console.log(">>>>>>>>>>>>>>>>>>" + user)
+      
+switch (user) {
+  case !compareSync(password, user.password):
+  user = false
+    break;
+case  !email || !password :
+  user = false
+break;
+  default:
+    user = true
+    break;
+}
+      return res.status(200).json({
+        ok: true,
+        status: 200,
+        user,
+      });
+    } catch (error) { // atrapamos los errores que vengan de las validaciones y los retornamos
+      let errors = sendSequelizeError(error);
+      return res.status(error.status || 500).json({
+        ok: false,
+        errors,
+      });
+    }
+  }
+
+
+}

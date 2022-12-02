@@ -11,35 +11,46 @@
             </div>
             
         </div>
-        <form  action="/users/update/<%= user.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
+        <form  id='registro-main-form' action="/users/update/<%= user.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
             <div class="perfil-main-formulario">
                 <div class="perfil-main-conteiner1">   
                     <div class="perfil-main-caja--input-label">
-
-                    <input class="perfil-main-input <%= locals.errors && errors.name ? "registro__email__container-inValid" : null %>" name="name" type="text" value="<%= user.name %>" placeholder="Nombre">
-                    <div class="barra"></div>
+                    <input id="registro-main-form-name" class="perfil-main-input <%= locals.errors && errors.name ? "registro__email__container-inValid" : null %>" name="name" type="text" value="<%= user.name %>" placeholder="Nombre">
+                    
                     <span class="registro-text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %></span>
+                    <span id="registro-text-errores-name" class="registro-text-danger"></span>
+                    <ul id="passUl" hidden> 
+                        <li id="mayu">Mayuscula</li>
+                        <li id="minu">Minuscula</li>
+                        <li id="num">Numero</li>
+                        <li id="sim">Simbolo ($@$!%*?&)</li>
+                        <li id="minSeis">Minimo 6 caracteres</li>
+                        <li id="maxOcho">Maximo 8 caracteres</li>
+                      </ul>
                 </div>
                 
                 <div class="perfil-main-caja--input-label">
                     
-                    <input class="perfil-main-input <%= locals.errors && errors.password ? "registro__email__container-inValid" : null %>" name="password" type="password"  placeholder="Contraseña">
-                    <div class="barra"></div>
+                    <input id="registro-main-form-password" class="perfil-main-input <%= locals.errors && errors.password ? "registro__email__container-inValid" : null %>" name="password" type="password"  placeholder="Contraseña">
+
+                    
                     <span class="registro-text-danger"><%= locals.errors && errors.password ? errors.password.msg : null %></span>
+                    <span id="registro-text-errores-password" class="registro-text-danger"></span>
                 </div>
                 <div class="perfil-main-caja--input-label">
                     
-                    <input class="perfil-main-input <%= locals.errors && errors.password2 ? "registro__email__container-inValid" : null %>" name="password2" type="password"  placeholder="Repetir contraseña" >
-                    <div class="barra"></div>
+                    <input id="registro-main-form-password2" class="perfil-main-input <%= locals.errors && errors.password2 ? "registro__email__container-inValid" : null %>" name="password2" type="password"  placeholder="Repetir contraseña" >
+                    
                     <span class="registro-text-danger"><%= locals.errors && errors.password2 ? errors.password2.msg : null %></span>
+                    <span id="registro-text-errores-password2" class="registro-text-danger"></span>
                 </div>
                 <div class="perfil-main-caja--input-label">
                     <input class="perfil-main-input" name="phone" type="tel" value="<%= user.phone %>" placeholder="Telefono">
-                    <div class="barra"></div>
+                    
                 </div>
                 <div class="perfil-main-caja--input-label">
                     <input class="perfil-main-input" name="birthday" type="date" value="<%= moment(user.birthday).format('YYYY-MM-DD') %>"  placeholder="Fecha de nacimiento">
-                    <div class="barra"></div>
+                    
                 </div>
                 <div class="perfil-main-caja--input-label-checkbox">
                     <label for="">Intereses</label>
@@ -59,23 +70,23 @@
              <div class="perfil-main-conteiner2">
                 <div class="perfil-main-caja--input-label">
                     <input class="perfil-main-input" name="nationality" type="text" value="<%= user.nationality %>"  placeholder="Nacionalidad">
-                    <div class="barra"></div>
+                    
                 </div>
                 <div class="perfil-main-caja--input-label">
                     <input class="perfil-main-input" name="domicile" type="text" value="<%= user.address %>"  placeholder="Domicilio">
-                    <div class="barra"></div>
+                    
                 </div>
                 <div class="perfil-main-caja--input-label">
                     <input class="perfil-main-input" name="city" type="text" value="<%= user.city %>" placeholder="Ciudad">
-                    <div class="barra"></div>
+                    
                 </div>
                 <div class="perfil-main-caja--input-label">
                     <input class="perfil-main-input" name="postalCode" type="text" value="<%= user.postal_code %>" placeholder="Cod Postal">
-                    <div class="barra"></div>
+                    
                 </div>
                 <div class="perfil-main-caja--input-label">
                     <input class="perfil-main-input" name="dni" type="number" value="<%= user.dni %>"  placeholder="DNI">
-                    <div class="barra"></div>
+                    
                 </div>
                 
                     <div class="perfil-main-caja--input-label-radio">
@@ -97,13 +108,15 @@
             <div class="perfil-main-formulario">
                 <div class="perfil-main-caja--input-label2">
                     <label class="perfil-main-label2" for="avatar">Imagen</label>
-                    <input onchange="foto_change(this)" class="perfil-main-input2 <%= locals.errors && errors.avatar ? "registro__email__container-inValid" : null %>" name="avatar" type="file">
+                    <input id="avatar" onchange="foto_change(this)" class="perfil-main-input2 <%= locals.errors && errors.avatar ? "registro__email__container-inValid" : null %>" name="avatar" type="file">
                     <span class="registro-text-danger"><%= locals.errors && errors.avatar ? errors.avatar.msg : null %></span>
+                    <span id="registro-text-errores-avatar" class="registro-text-danger"></span>
                 </div>
                 <div class="perfil-main-caja--input-label2">
                     <div class="contenedor-preview"></div>
                 </div>
             </div>
+            <span id="registro-text-errores-formulario" class="registro-text-danger"></span>
             <div class="perfil-main-caja--boton">
                 <button class="perfil_botonRegistro" type="reset">CANCELAR</button>
                 <button class="perfil_botonRegistro" type="submit">GUARDAR</button>
@@ -111,6 +124,6 @@
         </form>
     </div>
     </main>
-    
+    <script src="../../../../javascripts/validaciones/validaciones_users/profile.js"></script>
 </body>
 </html>

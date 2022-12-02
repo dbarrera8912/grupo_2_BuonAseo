@@ -36,6 +36,10 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
 .registro-text-danger{
     color: red;
 }
+
+.registro-text-succes {
+    color: green;
+}
 /* LOGO, TITULO Y SALIDA */
 .registro__logo-y-titulo{
     width: 100%;
@@ -241,6 +245,8 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
     color: #fff;
     font-size: 20px;
 }
+
+
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* MEDIA || TABLET 768px */
