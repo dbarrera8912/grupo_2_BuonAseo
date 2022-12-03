@@ -423,3 +423,82 @@ que va a hacer = seguir con el crud del home
 que hice = estuvo con el proyectyo tambien con el tp 35
 dificultad = si con el proyecto con las validaciones, antes de traer los datos se validaba pero lo supo resolver
 que va a hacer = va a seguir con el proyecto
+
+### Sprint 7
+
+## General:
+En este apartado veremos el progreso de los integrantes del equipo de Buon Aseo mediante las dailys del Sprint 7.
+
+### Fecha de daily: lunes 28 noviembre
+
+### Integrantes:
+
+### Sirley
+que hice? viendo el modulo 8 de pg y ademas empece a crear productos en trabajo integrador!
+dificutades? no savia por donde comenzar en crear producto como modularizar
+que hibas a serguir haciendo? voy a seguir con editar productos en trabajo intergador
+
+### Daniel  
+que hice? estuve completando pg mod 8
+dificultades no he tenido 
+voy seguir con pg a mirar los videos de react
+
+### Matias 
+que hice? estuve con pg la parte react terminando ejercicios del modulo anterior
+dificultades? pg en varios ejercicios tuve incombenientes con las comillas
+que vas a seguir? voy a empezar con el tp integrador
+
+### Richard 
+que hice? estuve con pg mod 8 y 9 
+tuve complicaciones en algunos ejercicios que pedian cosas imposibles
+voy a seguir con el tp integrador
+
+### Fecha de daily: martes 29 noviembre
+
+### Integrantes:
+
+### Sirley
+que hice? restaure el cartelito de productos 
+estuve haciendo el mod 9 pg
+complicaciones ,no entiendo la documentación de google para abrir sección.
+voy a seguir con la seccion google y tp manipulando el evento
+
+### Daniel  
+lo que hice fue completar pg,
+complicaciones no tuve
+voy a ver clase grabadas de ayer
+
+### Matias 
+que hice?estuve haciendo la pare del proyecto integrador
+complicacion con api la parte para validar, si esta el email o no.
+voy a seguir con el proyecto integrador
+
+### Richard 
+que hice ? fue terminar mi parte de validaciones Sprint 7
+complicación ? con unas validaciones de algunos campos que tenian mas de una validación.
+voy a seguir con pg
+
+### Fecha de daily: viernes 2 de diciembre
+
+### Integrantes:
+
+### Sirley
+estuve con el pg y me puse hacer el carrito,
+complicaciones no sé como hacer funcionar la vista de carrito.
+voy a seguir con lo de carrito y pg
+
+### Daniel  
+ estuve haciendo mi parte del Sprint  con richard.
+complicacione estuve sin internet .
+lo que voy a seguir haciendo es las validaciones que me faltan del Sprint 
+
+### Matias 
+
+estuve con el login y el perfil.
+complicacione no podia validar el login ,me ayudo richard.
+voy a seguir metiendole al sprint al loguin y al perfil ajustando detalles
+
+### Richard 
+ estuve trabajando en los trabajos practicos y ayudando a dani en su Sprint.
+complicacione la compu me anda lenta por react.
+voy a terminar con el Sprint y ayudarle a dani.
