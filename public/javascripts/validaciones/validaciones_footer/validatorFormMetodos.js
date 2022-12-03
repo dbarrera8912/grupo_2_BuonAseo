@@ -39,10 +39,12 @@ const validarFormulario = (e) => {/* funcion para validar un campo en especifico
             console.log(+e.target.value.length)
             let allowed_type = ["jpg", "png", "jpeg", "gif", "webp"];
             let extension = e.target.files[0].name.split('.').pop().toLowerCase()
-                if ( allowed_type.indexOf(extension) == -1) {
-                    validarCampo(e.target, 'img', "Solo se permiten imagenes jpg, png, jpeg, gif, webp", true);
-                }
-            
+            if (allowed_type.indexOf(extension) == -1) {
+                validarCampo(e.target, 'img', "Solo se permiten imagenes jpg, png, jpeg, gif, webp", true);
+            } else {
+                validarCampo(e.target, 'img', "Debes completar este campo");
+            }
+
             break;
     }
 }
@@ -58,17 +60,24 @@ function formParaValidar(id) {
     console.log(formulario)
     document.getElementById(`${id}`).addEventListener("submit", (e) => {
         let errores = []
-        for (let x = 0; x < 2; x++) {
+        for (let x = 0; x < 4; x++) {
             console.log(e.target[x].classList.contains("registro__email__container-inValid"))
             if (e.target[x].value === "" || e.target[x].classList.contains("registro__email__container-inValid")) {
-                if (e.target[x].value === "") {
+                if (e.target[x].value === "" && e.target[x].name != "img") {
                     validarCampo(e.target[x], e.target[x].name, "Debes completar este campo")
                     errores.push(`${e.target[x].name}: Debes completar este campo`)
                 } else if (e.target[x].name === "title") {
+                    validarCampo(e.target[x], e.target[x].name, "Entre 5 y 20 caracteres", true)
+                    errores.push(`${e.target[x].name}: Debes completar este campo`)
+                } else if (e.target[x].name === "letraAbajoS") {
                     validarCampo(e.target[x], e.target[x].name, "Entre 5 y 50 caracteres", true)
                     errores.push(`${e.target[x].name}: Debes completar este campo`)
-                } else if (e.target[x].name === "response") {
-                    validarCampo(e.target[x], e.target[x].name, "Entre 5 y 100 caracteres", true)
+                } else if (e.target[x].name === "img"&& e.target[x].files[0]) {
+                    let allowed_type = ["jpg", "png", "jpeg", "gif", "webp"];
+                    let extension = e.target[x].files[0].name.split('.').pop().toLowerCase()
+                    if (allowed_type.indexOf(extension) == -1) {
+                        validarCampo(e.target[x], e.target[x].name , "Solo se permiten imagenes jpg, png, jpeg, gif, webp", true);
+                    }
                     errores.push(`${e.target[x].name}: Debes completar este campo`)
                 }
             }
