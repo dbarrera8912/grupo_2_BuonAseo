@@ -127,18 +127,29 @@ window.addEventListener("load", () => {
         break;
     }})
 
-
     formulario.addEventListener("submit", function(e) {
       e.preventDefault();
-  const elements = this.elements;
+  
+  
+      const elements = this.elements;
     for (let i = 0; i < elements.length - 1; i++) {
         if((!elements[i].value.trim() || elements[i].classList.contains('registro__email__container-inValid')) && elements[i].getAttribute("type") != "reset"){
               formularioError.innerHTML = 'No puedes dejar el formulario vacio';
         }
     else {
-    return formulario.submit()
+  
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Se actualizaron tus cambios con exito',
+        showConfirmButton: false,
+        timer: 1500
+      }) 
+  
+    formulario.submit()
+      
     }}
-
-});
+  
+  });
   }); 
   

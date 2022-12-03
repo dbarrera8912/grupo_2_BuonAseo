@@ -252,17 +252,29 @@ const verifieldName = async (name) => {
     
    });
 
-  
    formulario.addEventListener("submit", function(e) {
-           e.preventDefault();
-       const elements = this.elements;
-         for (let i = 0; i < elements.length - 1; i++) {
-             if((!elements[i].value.trim() || elements[i].classList.contains('registro__email__container-inValid')) && elements[i].getAttribute("type") != "reset"){
-                   formularioError.innerHTML = 'Debes completar los campos';
-             }
-         else {
-         return formulario.submit()
-         }}
-   
-  });
+    e.preventDefault();
+
+
+    const elements = this.elements;
+  for (let i = 0; i < elements.length - 1; i++) {
+      if((!elements[i].value.trim() || elements[i].classList.contains('registro__email__container-inValid')) && elements[i].getAttribute("type") != "reset"){
+            formularioError.innerHTML = 'No puedes dejar el formulario vacio';
+      }
+  else {
+  
+  formulario.submit()
+ 
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Te registraste con exito',
+    showConfirmButton: false,
+    timer: 1500
+  }) 
+
+
+  }}
+
+});
 });

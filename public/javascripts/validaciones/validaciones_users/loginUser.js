@@ -37,11 +37,12 @@ const verifieldName = async (name) => {
 }
 let passwordApi
 let emailApi
-const verifieldEmail = async (email) => {
+const verifieldEmail = async (email, password) => {
   try {
       let response = await fetch('/api/auth/verify-email', {
           method:'POST',
-          body: JSON.stringify({email: email}),
+          body: JSON.stringify({email: email},
+            {password: password}),
           headers: {
               'Content-Type' : "Application/json"
           }
@@ -84,15 +85,8 @@ email.addEventListener("blur", async function() {
        
         email.classList.remove('registro__email__container-inValid')
         
-        function removeElement( formularioError ) {
-          formularioError.parentNode.removeChild(formularioError);
-        }
-        function removeElement( emailErrores ) {
-          emailErrores.parentNode.removeChild(emailErrores);
-        }
-        break;
-    }
-  });
+        formularioError.innerText = "  "
+  }});
 
   password.addEventListener("blur", async function( ) {
     switch (true) {
@@ -104,34 +98,38 @@ email.addEventListener("blur", async function() {
         
             case await verifieldEmail(this.value) != await passwordApi:
               formularioError.innerText = "Credenciales Invalidas1"
-              
             break;
       default:
        
         password.classList.remove('registro__email__container-inValid')
-       
-        function removeElement( formularioError ) {
-          formularioError.parentNode.removeChild(formularioError);
-        }
-        function removeElement(  passwordErrores ) {
-           passwordErrores.parentNode.removeChild( passwordErrores);
-        }
-        break;
-    }
-  });
+      
+        formularioError.innerText = "  "
+  }});
 
 
 
 
   formulario.addEventListener("submit", function(e) {
     e.preventDefault();
-const elements = this.elements;
+
+
+    const elements = this.elements;
   for (let i = 0; i < elements.length - 1; i++) {
       if((!elements[i].value.trim() || elements[i].classList.contains('registro__email__container-inValid')) && elements[i].getAttribute("type") != "reset"){
             formularioError.innerHTML = 'No puedes dejar el formulario vacio';
       }
   else {
-  return formulario.submit()
+
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Logueado con exito',
+      showConfirmButton: false,
+      timer: 1500
+    }) 
+
+  formulario.submit()
+    
   }}
 
 });
