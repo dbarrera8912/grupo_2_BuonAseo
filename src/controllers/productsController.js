@@ -5,10 +5,16 @@ const { validationResult } = require("express-validator") /* Requerimos check de
 const querystring = require('querystring');  
 module.exports = { 
     products: (req, res) => {
+
+        let options = {status:1}
+        if(req.query.cat && req.query.cat > 0){
+            options = {status:1,id_category:req.query.cat};
+        }
         let products = db.Product.findAll({
-			include : ['category'],
-            where:{status:1}
-		});
+            include : ['category'],
+            where:options
+        });
+        
         Promise.all([products])
 			.then(([products]) => res.render('./products/catalogo', {
 				products,
@@ -52,8 +58,9 @@ module.exports = {
 			.catch(error => console.log(error))
     },
     
-    carrito: (req, res) => {
-        return res.render('./products/carrito')
+    carrito: async (req, res) => {
+        let ShippingPrice = await db.shipping_price.findAll();
+        return res.render('./products/carrito',{ShippingPrice})
     },
 
     crearProducto: (req, res) => {

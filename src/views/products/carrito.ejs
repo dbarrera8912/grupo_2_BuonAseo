@@ -66,9 +66,17 @@
         <p class="carrito__corresponde__subtotal">0</p>
       </article>
       <article class="carrito__caja__envio">
-        <p class="carrito__envio">Envío</p>
-        <p class="carrito__corresponde__envio">Retiro por el local<br> Las opciones de vío se actualizaran <br> durante
-          el pago.<br><br><a class="carrito__calcular__envio">Calcular envío</a></p>
+        <div>
+          <p class="carrito__envio">Envío</p>
+          
+          <select name="shippingPrice" id="shippingPrice" onchange="calcularEnvio(this)">
+            <option value="-1">Elija una opcion</option>
+            <% ShippingPrice.forEach(element => { %>
+             <option value="<%= element.price %>"><%= element.province %></option>
+            <% }) %>
+          </select>
+        </div>
+          <p id="carrito__precio__envio">$0</p>
       </article>
         <article class="carrito__caja__total">
         <p class="carrito__total">Total</p>

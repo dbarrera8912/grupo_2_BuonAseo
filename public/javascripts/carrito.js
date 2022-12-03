@@ -1,3 +1,5 @@
+
+
 //1. addCartBtn es el boton de agregar al carrito
 let addCartBtn = document.querySelector(".addCartBtn") ?? null;
 (addCartBtn != null) //2.si existe
@@ -78,18 +80,20 @@ if (carrito != "") {
     });
     updateTotal();
 }
-function updateTotal(){
-    let total = 0;
+function updateTotal(envio = 0){
+    let subtotal = 0;
     let cartProducts = JSON.parse(localStorage.getItem("cart")) ?? null;
     //Si localstorage vacio, muestra "no hay productos"
     if(cartProducts != null){
         //Si hay producto/s
         cartProducts.forEach((cart)=>{
-            total += (cart.quantity * cart.price);
+            subtotal += (cart.quantity * cart.price);
         });
     }
-    document.querySelector(".carrito__corresponde__subtotal").innerHTML = total;
-    document.querySelector(".carrito__numero__total").innerHTML = total;
+    
+    document.querySelector(".carrito__corresponde__subtotal").innerHTML = subtotal;
+    document.querySelector(".carrito__numero__total").innerHTML = (subtotal + parseInt(envio));
+    
 }
 
 function deleteCart(element){
@@ -122,4 +126,12 @@ function quantityCart(element){
         c++;
     });
     updateTotal();
+}
+function calcularEnvio(element){
+    let opcion_sel = element.options[element.selectedIndex];
+    if(opcion_sel.value != -1){
+        let precio = opcion_sel.value;
+        document.querySelector("#carrito__precio__envio").textContent = "$"+precio;
+        updateTotal(precio);
+    }
 }

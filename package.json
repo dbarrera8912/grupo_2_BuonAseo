@@ -5,9 +5,9 @@
   "scripts": {
     "start": "node ./src/bin/www",
     "server": "nodemon ./src/bin/www",
-    "client:start" : "cd admin & npm run start",
+    "client:start": "cd admin & npm run start",
     "client:build": "cd admin & npm run build",
-    "dev" : "concurrently \"npm run server\" \"npm run client:start\"",
+    "dev": "concurrently \"npm run server\" \"npm run client:start\"",
     "reset-db": "sequelize db:migrate:undo:all & sequelize db:migrate & sequelize db:seed:all"
   },
   "dependencies": {
@@ -31,5 +31,8 @@
     "querystring": "^0.2.1",
     "sequelize": "^6.25.2",
     "y": "^0.3.2"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
   }
 }
