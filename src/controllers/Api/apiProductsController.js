@@ -94,7 +94,7 @@ module.exports = {
             //Si queres una consulta mas amplia y con mas configuraciones (excluir columnas,incluir asociacion, etc)
             //Hay que usar findOne
             let product = await db.Product.findOne(options);
-            let image_path = path.join(__dirname, '..', '..','..','public','img','fotos-productos',product.category.name+"s",product.category.name+"-imagen-"+product.category.id+".png").toLowerCase();
+            let image_path = product.image;
             
             return res.status(200).json({
                 ok: true,

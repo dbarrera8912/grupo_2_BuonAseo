@@ -22,8 +22,9 @@
       <div id="carrito_localstorage">
 
       </div>
-      <section class="carrito__primer__producto">
-        <figure class="carrito__boton__imagen">x</figure>
+  <!-- No borrar LO USA EL JS -->
+      <section class="carrito__primer__producto" style="display:none;" data-product-id="">
+        <figure class="carrito__boton__imagen" onclick="deleteCart(this)">x</figure>
         <article class="carrito__primer__imagen">
           <img class="carrito__imagen__producto" src="../../../img/fotos-productos/detergentes/detergente-imagen-2.png" alt="" />
         </article>
@@ -38,13 +39,14 @@
         </article>
         <article class="carrito__cantidad__general">
           <p class="carrito__cantidad">Cantidad</p>
-          <input class="carrito__cantidad__boton" type="number" min="0" placeholder="">
+          <input class="carrito__cantidad__boton" onchange="quantityCart(this)" type="number" min="0" placeholder="">
         </article>
         <article class="carrito__subtotal__general">
           <p class="carrito__subtotal">Subtotal</p>
           <p class="carrito__subtotal__numero"></p>
         </article>
       </section>
+  <!-- FIN DE --No borrar LO USA EL JS -->
 
       <!-- CARRITO SEGUNDA IMAGEN-->
 
@@ -61,7 +63,7 @@
         <h2 class="carrito__total__carrito">Total del carrito</h2>
         <article class="carrito__caja__subtotal">
         <p class="carrito__subtotal__envio">subtotal</p>
-        <p class="carrito__corresponde__subtotal">32</p>
+        <p class="carrito__corresponde__subtotal">0</p>
       </article>
       <article class="carrito__caja__envio">
         <p class="carrito__envio">Envío</p>
@@ -70,7 +72,7 @@
       </article>
         <article class="carrito__caja__total">
         <p class="carrito__total">Total</p>
-        <p class="carrito__numero__total">100</p>
+        <p class="carrito__numero__total">0</p>
       </article>
         <button class="carrito__finalizar">FINALIZAR COMPRA</button>
       </section>

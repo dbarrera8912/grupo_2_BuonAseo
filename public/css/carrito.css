@@ -44,6 +44,7 @@
     display: none;
 }
 .carrito__boton__imagen {
+    cursor: pointer;
     width: 25px;
     height: 25px;
    color: var(--azulFuerte);
@@ -62,7 +63,7 @@
     background-color: var(--blanco) #fff;
     display: flex;
     justify-content: center;
-   
+    object-fit: contain;
 }
 
 
