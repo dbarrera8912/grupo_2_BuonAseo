@@ -1,6 +1,5 @@
 window.addEventListener('load', ()=> {
 
-
 let formulario = document.getElementById('registro-main-form');
 let email = document.getElementById('registro-main-form-email');
 let password = document.getElementById('registro-main-form-password');
@@ -36,22 +35,27 @@ const verifieldName = async (name) => {
       console.error
   }
 }
-
-const verifieldEmail = async ({email, password}) => {
+let passwordApi
+let emailApi
+const verifieldEmail = async (email) => {
   try {
-      
-      let response = await fetch('http://localhost:3030/api/auth/signin', {
+      let response = await fetch('/api/auth/verify-email', {
           method:'POST',
-          body: JSON.stringify({email},{password}),
+          body: JSON.stringify({email: email}),
           headers: {
               'Content-Type' : "Application/json"
           }
 
       })
       let result = await response.json();
-     return result
-      
-    
+       passwordApi = result.user.password
+       emailApi = result.user.email
+      result.user.email
+     console.log(result)
+     console.log(result.user)
+     console.log(result.user.email)
+     console.log(result.user.password)
+     return passwordApi && emailApi
   } catch (error) {
       console.error
   }
@@ -72,8 +76,8 @@ email.addEventListener("blur", async function() {
         email.classList.add('registro__email__container-inValid')
         
         break;
-        case await verifieldEmail(this.value):
-          formularioError.innerText = "Credenciales Invalidas2"
+        case await verifieldEmail(this.value) != await emailApi:
+           formularioError.innerText = "Credenciales Invalidas2" 
         
         break;
       default:
@@ -90,7 +94,7 @@ email.addEventListener("blur", async function() {
     }
   });
 
-  password.addEventListener("blur", async function() {
+  password.addEventListener("blur", async function( ) {
     switch (true) {
       case !this.value:
          passwordErrores.innerText = "No puedes dejar el campo vacio";
@@ -98,7 +102,7 @@ email.addEventListener("blur", async function() {
          
         break;
         
-            case await verifieldEmail(this.value):
+            case await verifieldEmail(this.value) != await passwordApi:
               formularioError.innerText = "Credenciales Invalidas1"
               
             break;
@@ -119,11 +123,16 @@ email.addEventListener("blur", async function() {
 
 
 
-  formulario.addEventListener("submit", async function(e) {
+  formulario.addEventListener("submit", function(e) {
     e.preventDefault();
-    
+const elements = this.elements;
+  for (let i = 0; i < elements.length - 1; i++) {
+      if((!elements[i].value.trim() || elements[i].classList.contains('registro__email__container-inValid')) && elements[i].getAttribute("type") != "reset"){
+            formularioError.innerHTML = 'No puedes dejar el formulario vacio';
+      }
+  else {
   return formulario.submit()
-
+  }}
 
 });
 
