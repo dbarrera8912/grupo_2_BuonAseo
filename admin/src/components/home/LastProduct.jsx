@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { fetchWithoutToken } from "../hooks/useFetch";
+import { fetchWithoutToken } from "../../hooks/useFetch";
 
 export const LastProduct = () => {
   const [product, setProduct] = useState({

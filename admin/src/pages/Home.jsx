@@ -1,7 +1,7 @@
 import React from "react";
-import { Categories } from "../components/categories/Categories";
-import { LastProduct } from "../components/LastProduct";
-import { Metrics } from "../components/metrics/Metrics";
+import { Categories } from "../components/home/categories/Categories";
+import { LastProduct } from "../components/home/LastProduct";
+import { Metrics } from "../components/home/metrics/Metrics";
 
 export const Home = () => {
   return (
