@@ -3,26 +3,26 @@ import {Link} from 'react-router-dom';
 
 export const SideBar = () => {
   return (
-    <ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion " id="accordionSidebar">
 
-    <Link className="sidebar-brand " to="/">
+    <Link className="sidebar-brand mb-5" to="/">
         <div className="sidebar-brand-icon">
-            <img className="w-100" src="/images/LogoInvertidoBlanco.png" alt="Mercado Liebre"/>
+            <img className="w-100" style={{height : "100px"}} src="/images/logoDashboard.png" alt="Mercado Liebre"/>
         </div>
     </Link>
 
     
-    <hr className="sidebar-divider my-0"/>
+    <hr className="sidebar-divider mt-3"/>
 
     
-    <li className="nav-item active">
+    <li className="nav-item active ">
         <Link className="nav-link" to="/">
             <i className="fas fa-fw fa-tachometer-alt"></i>
-            <span>DASHBOARD</span></Link>
+            <span  >DASHBOARD</span></Link>
     </li>
 
     
-    <hr className="sidebar-divider"/>
+    <hr className="sidebar-divider mt-3"/>
 
     
     <div className="sidebar-heading">NAVEGACIÓN</div>

@@ -51,7 +51,7 @@ export const Metrics = () => {
   };
 
   useEffect(() => {
-    getData("/totals")
+    getData("/main/getTotals")
   }, []);
   
 

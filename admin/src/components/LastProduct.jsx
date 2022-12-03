@@ -11,11 +11,10 @@ export const LastProduct = () => {
 
   useEffect(() => {
     fetchWithoutToken("/products/detail/1")
-      .then((data) => {
-        console.log(data)
+      .then(({data}) => {
         setProduct({
           loading: false,
-          data: data[0],
+          data: data.product,
         });
       })
       .catch(() => console.error);
@@ -29,7 +28,7 @@ export const LastProduct = () => {
         <div className="card shadow mb-4">
           <div className="card-header py-3">
             <h5 className="m-0 font-weight-bold text-gray-800">
-              Último producto agregado
+              Producto destacado
             </h5>
           </div>
           <div className="card-body">
@@ -37,8 +36,8 @@ export const LastProduct = () => {
               <img
                 className="img-fluid px-3 px-sm-4 mt-3 mb-4"
                 style={{ width: "40rem" }}
-                src={product.data.images[0].url}
-                alt=" Star Wars - Mandalorian "
+                src={product.data.avatarURL}
+                alt=" Product - BuonAseo "
               />
             </div>
             <p>{product.data.description}</p>
@@ -48,7 +47,7 @@ export const LastProduct = () => {
               rel="nofollow"
               href="/"
             >
-              View movie detail
+              Ver detalle del producto
             </a>
           </div>
         </div>
