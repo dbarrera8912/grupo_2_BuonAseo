@@ -1,17 +1,17 @@
 import React from "react";
-//import { useEffect } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
-//import { fetchWithoutToken } from "../../hooks/useFetch";
+import { fetchWithoutToken } from "../../../hooks/useFetch";
 import { Category } from "./Category";
 
 export const Categories = () => {
-  const [categories, /* setCategories */] = useState({
+  const [categories, setCategories] = useState({
     loading: true,
     error: null,
     data: [],
   });
 
-  /* useEffect(() => {
+  useEffect(() => {
     fetchWithoutToken("/categories").then((response) => {
       if (response.ok) {
         const { data } = response;
@@ -27,8 +27,9 @@ export const Categories = () => {
         });
       }
     });
+    //eslint-disable-next-line
   }, []);
- */
+
   return (
     <div className="col-lg-6 mb-4">
       <div className="card shadow mb-4">

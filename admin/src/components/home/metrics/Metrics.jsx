@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
-import { fetchWithoutToken } from '../../hooks/useFetch';
+import { fetchWithoutToken } from '../../../hooks/useFetch';
 import { Metric } from './Metric';
 
 export const Metrics = () => {
@@ -52,6 +52,7 @@ export const Metrics = () => {
 
   useEffect(() => {
     getData("/main/getTotals")
+    //eslint-disable-next-line
   }, []);
   
 
