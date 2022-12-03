@@ -41,7 +41,7 @@
                             <a href="">COMPRA AHORA</a>
                         </button>
                         <button class="detalle_main_article_boton_principal">
-                            <a href="/products/carrito">AGREGAR AL CARRITO</a>
+                            <button  type="button" value="<%= product.id %>" class="addCartBtn">AGREGAR AL CARRITO</button>
                         </button>
                         <% if (locals.adminEntry) { %>
                          <div class="detalle_main_article_boton_editar-eliminar">

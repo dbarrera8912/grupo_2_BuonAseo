@@ -121,7 +121,6 @@ module.exports = {
             where:{id:req.params.id,status:1}
 		});
         let type = req.query.type ?? "";
-        console.log(type)
         Promise.all([product])
         .then(
             function(product){
