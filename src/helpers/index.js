@@ -7,7 +7,11 @@ let createErrorExpress = require('./createErrorExpress');
 module.exports = {
     sendSequelizeError,
     validationsModelsDefault,
+<<<<<<< HEAD
     objectValidate,
+=======
+    objectValidate, 
+>>>>>>> home
     createError, 
     createErrorExpress 
 }
