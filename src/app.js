@@ -11,6 +11,8 @@ const localUser = require('./middlewares/mw_users/userLoggedMiddleware');
 
 const methodOverride = require ("method-override");
 
+const cors = require('cors');
+
 var indexRouter = require('./routes/home');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
@@ -18,9 +20,11 @@ var footerRouter = require('./routes/footer');
 var categoriesRouter = require('./routes/categories');
 
 //inicializando rutas de api
+var apiMainRouter = require('./routes/api/apiMain');
 var apiAuthRouter = require('./routes/api/apiAuth');
 var apiUsersRouter = require('./routes/api/apiUsers');
 var apiProductsRouter = require('./routes/api/apiProducts');
+var apiCategoriesRouter = require('./routes/api/apiCategories');
 var apiFooterRouter = require('./routes/api/apiFooter');
 
 var app = express();
@@ -43,6 +47,7 @@ app.use(session({
   saveUninitialized : true
 }));
 
+app.use(cors());
 
 app.use(localUser);
 app.use('/', indexRouter);
@@ -52,9 +57,11 @@ app.use('/footer', footerRouter);
 app.use('/categories', categoriesRouter);
 
 //rutas para appi
+app.use('/api/main', apiMainRouter);
 app.use('/api/products', apiProductsRouter);
 app.use('/api/users', apiUsersRouter);
 app.use('/api/auth', apiAuthRouter);
+app.use('/api/categories', apiCategoriesRouter);
 app.use('/api/footer', apiFooterRouter);
 
 // catch 404 and forward to error handler

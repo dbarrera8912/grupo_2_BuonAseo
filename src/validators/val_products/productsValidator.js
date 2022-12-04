@@ -24,10 +24,10 @@ module.exports = [
         .isNumeric({no_symbols : true,}).withMessage('Debe ser un número entero positivo'),
 
     check("smell")
-        .isLength({min:3,max: 100}).withMessage('Maximo 100 caracteres'),
+        .isLength({min:3,max: 100}).withMessage('Debe tener entre 3 y 100 caracteres'),
 
     check("dimensions")
-        .isLength({max: 100}).withMessage('Maximo 100 caracteres'),
+        .isLength({max: 100}).withMessage('Debe tener máximo 100 caracteres'),
 
     check("quantity")
         .notEmpty().withMessage("Debes poner una cantidad").bail()

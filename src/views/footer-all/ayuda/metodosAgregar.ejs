@@ -11,34 +11,38 @@
                     </div>
                     <!-- FORMULARIO -->
                     <!-- Si completa el formulario, se guardaran los datos en el JSON gracias al metodo escribirPregunta -->
-                    <form action="" method="POST" class="preguntasAgregar__Caja" enctype="multipart/form-data">
+                    <form id="form-metodos-validator" action="" method="POST" class="preguntasAgregar__Caja" enctype="multipart/form-data">
                         <div class="registro__email__container">
                             <label for="icono">Icono (solo lo que contiene class)</label>
-                            <input type="text" name="icono" id="icono" class="preguntasFrecuentes__section__article <%= locals.errors && errors.icono ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.icono : null %>">
+                            <input onclick="inputParaValidar(this)" type="text" name="icono" id="icono" class="preguntasFrecuentes__section__article <%= locals.errors && errors.icono ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.icono : null %>">
                             <% if (locals.errors && errors.icono) { %><!-- si vino locals, y tengo un error en el icono, entra -->
                                 <small><%= errors.icono.msg %></small>
-                            <% } %>  
+                            <% } %> 
+                            <small id="smallFormMetodos-icono"></small> 
                         </div>
                         <div class="registro__email__container"> 
                             <label for="title">Subtitulo</label >
-                            <input type="text" name="title" id="name" class="preguntasFrecuentes__section__article <%= locals.errors && errors.title ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.title : null %>">
+                            <input onclick="inputParaValidar(this)" type="text" name="title" id="title" class="preguntasFrecuentes__section__article <%= locals.errors && errors.title ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.title : null %>">
                             <% if (locals.errors && errors.title) { %><!-- si vino locals, y tengo un error en el icono, entra -->
                                 <small><%= errors.title.msg %></small>
                             <% } %>  
+                            <small id="smallFormMetodos-title"></small>
                         </div>
                         <div class="registro__email__container">
                             <label for="letraAbajoS">Agregar frase abajo del subtitulo</label>
-                            <input type="text" name="letraAbajoS" id="letra" class="preguntasFrecuentes__section__article <%= locals.errors && errors.letraAbajoS ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.letraAbajoS : null %>">
+                            <input onclick="inputParaValidar(this)" type="text" name="letraAbajoS" id="letraAbajoS" class="preguntasFrecuentes__section__article <%= locals.errors && errors.letraAbajoS ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.letraAbajoS : null %>">
                             <% if (locals.errors && errors.letraAbajoS) { %><!-- si vino locals, y tengo un error en el icono, entra -->
                                 <small><%= errors.letraAbajoS.msg %></small>
                             <% } %>
+                            <small id="smallFormMetodos-letraAbajoS"></small>
                         </div>
                         <div class="registro__email__container">
                             <label for="img">Imagenes</label>
-                            <input type="file" name="img" id="img" class="preguntasFrecuentes__section__article" multiple accept="image/*">
+                            <input onclick="inputParaValidar(this)" type="file" name="img" id="img" class="preguntasFrecuentes__section__article" multiple accept="image/*">
                             <% if (locals.errors && errors.img) { %><!-- si vino locals, y tengo un error en el icono, entra -->
                                 <small><%= errors.img.msg %></small>
                             <% } %>
+                            <small id="smallFormMetodos-img"></small>
                         </div>
                         <div class="registro__email__container">
                             <label for="letraAbajoI">Agregar frase abajo de cada imagen.</label>
@@ -54,11 +58,13 @@
                             <a href="/footer/pagos"><button type="button" class="registro__email__botonRegistro">Cancelar</button></a>
                             <!-- boton para guardar, manda la peticion al metodo escribirPregunta para almacenar la pregunta en el JSON -->
                             <div>
-                                <button type="submit" class="registro__email__botonRegistro">Guardar</button>
+                                <button onclick="formParaValidar('form-metodos-validator')" type="submit" class="registro__email__botonRegistro">Guardar</button>
                             </div>                           
                         </div>
+                        <br><small id="form-preguntas-exito"></small>
                     </form>
                 </section>
             </main>
         <%- include('../../partials/footer') %>
+        <script src="/javascripts/validaciones/validaciones_footer/validatorFormMetodos.js"></script>
     </body>

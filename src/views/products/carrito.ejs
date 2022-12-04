@@ -6,7 +6,7 @@
 <body>
   <%- include('../partials/header') %>
   <!-- CARRITO -->
-  <main class="carrito">
+  <main class="carrito" id="carrito">
     <div class="carrito__section">
       <section class="carrito__caja__titulo">
         <h1 class="carrito__titulo">Carro</h1>
@@ -19,53 +19,36 @@
           <p class="carrito__cantidad__desktop">Cantidad</p>
           <p class="carrito__subtotal__desktop">Subtotal</p>
         </section>
-      <section class="carrito__primer__producto">
-        <figure class="carrito__boton__imagen">x</figure>
+      <div id="carrito_localstorage">
+
+      </div>
+  <!-- No borrar LO USA EL JS -->
+      <section class="carrito__primer__producto" style="display:none;" data-product-id="">
+        <figure class="carrito__boton__imagen" onclick="deleteCart(this)">x</figure>
         <article class="carrito__primer__imagen">
           <img class="carrito__imagen__producto" src="../../../img/fotos-productos/detergentes/detergente-imagen-2.png" alt="" />
         </article>
         <!-- CARRITO DESCRIPCION-->
         <article class=" carrito__producto__general">
           <p class="carrito__producto">Producto</p>
-          <p class="carrito__producto__articulo">Detergente<br> BUON ASEO</p>
+          <p class="carrito__producto__articulo"></p>
         </article>
         <article class="carrito__precio__general">
           <p class="carrito__precio">Precio</p>
-          <p class="carrito__precio__numero">12</p>
+          <p class="carrito__precio__numero"></p>
         </article>
         <article class="carrito__cantidad__general">
           <p class="carrito__cantidad">Cantidad</p>
-          <input class="carrito__cantidad__boton" type="number" min="0" placeholder="123.34">
+          <input class="carrito__cantidad__boton" onchange="quantityCart(this)" type="number" min="0" placeholder="">
         </article>
         <article class="carrito__subtotal__general">
           <p class="carrito__subtotal">Subtotal</p>
-          <p class="carrito__subtotal__numero">12</p>
+          <p class="carrito__subtotal__numero"></p>
         </article>
       </section>
+  <!-- FIN DE --No borrar LO USA EL JS -->
+
       <!-- CARRITO SEGUNDA IMAGEN-->
-      <section class="carrito__primer__producto">
-        <figure class="carrito__boton__imagen">x</figure>
-        <article class="carrito__primer__imagen">
-          <img class="carrito__imagen__producto" src="../../../img/fotos-productos/lavandinas/lavandina-imagen-2.png" alt="" />
-        </article>
-        <!-- CARRITO DESCRIPCION-->
-        <article class=" carrito__producto__general">
-          <p class="carrito__producto">Producto</p>
-          <p class="carrito__producto__articulo">Lavandina <br> BUON ASEO</p>
-        </article>
-        <article class="carrito__precio__general">
-          <p class="carrito__precio">Precio</p>
-          <p class="carrito__precio__numero">12</p>
-        </article>
-        <article class="carrito__cantidad__general">
-          <p class="carrito__cantidad">Cantidad</p>
-          <input class="carrito__cantidad__boton" type="number" min="0" placeholder="123.34">
-        </article>
-        <article class="carrito__subtotal__general">
-          <p class="carrito__subtotal">Subtotal</p>
-          <p class="carrito__subtotal__numero">12</p>
-        </article>
-      </section>
 
       <section class="carrito__pie__pagina">
         <article class="carrito__caja__escribe">
@@ -80,16 +63,24 @@
         <h2 class="carrito__total__carrito">Total del carrito</h2>
         <article class="carrito__caja__subtotal">
         <p class="carrito__subtotal__envio">subtotal</p>
-        <p class="carrito__corresponde__subtotal">32</p>
+        <p class="carrito__corresponde__subtotal">0</p>
       </article>
       <article class="carrito__caja__envio">
-        <p class="carrito__envio">Envío</p>
-        <p class="carrito__corresponde__envio">Retiro por el local<br> Las opciones de vío se actualizaran <br> durante
-          el pago.<br><br><a class="carrito__calcular__envio">Calcular envío</a></p>
+        <div>
+          <p class="carrito__envio">Envío</p>
+          
+          <select name="shippingPrice" id="shippingPrice" onchange="calcularEnvio(this)">
+            <option value="-1">Elija una opcion</option>
+            <% ShippingPrice.forEach(element => { %>
+             <option value="<%= element.price %>"><%= element.province %></option>
+            <% }) %>
+          </select>
+        </div>
+          <p id="carrito__precio__envio">$0</p>
       </article>
         <article class="carrito__caja__total">
         <p class="carrito__total">Total</p>
-        <p class="carrito__numero__total">100</p>
+        <p class="carrito__numero__total">0</p>
       </article>
         <button class="carrito__finalizar">FINALIZAR COMPRA</button>
       </section>

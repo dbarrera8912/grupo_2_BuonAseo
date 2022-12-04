@@ -121,3 +121,11 @@
     width: 90%;
     gap: 10px;
 }
+
+.registro__email__container-Valid{
+    border-color: green;
+}
+
+.form-preguntas-exito-activo{
+    color: green;
+}

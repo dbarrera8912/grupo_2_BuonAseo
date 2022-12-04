@@ -5,10 +5,16 @@ const { validationResult } = require("express-validator") /* Requerimos check de
 const querystring = require('querystring');  
 module.exports = { 
     products: (req, res) => {
+
+        let options = {status:1}
+        if(req.query.cat && req.query.cat > 0){
+            options = {status:1,id_category:req.query.cat};
+        }
         let products = db.Product.findAll({
-			include : ['category'],
-            where:{status:1}
-		});
+            include : ['category'],
+            where:options
+        });
+        
         Promise.all([products])
 			.then(([products]) => res.render('./products/catalogo', {
 				products,
@@ -29,8 +35,6 @@ module.exports = {
         Promise.all([products,product])
 			.then(([products,product]) => {
                 
-                
-            
                 res.render('./products/catalogo', {
                     products,
                     toThousand,
@@ -54,8 +58,9 @@ module.exports = {
 			.catch(error => console.log(error))
     },
     
-    carrito: (req, res) => {
-        return res.render('./products/carrito')
+    carrito: async (req, res) => {
+        let ShippingPrice = await db.shipping_price.findAll();
+        return res.render('./products/carrito',{ShippingPrice})
     },
 
     crearProducto: (req, res) => {
@@ -122,11 +127,12 @@ module.exports = {
 			include : ['category'],
             where:{id:req.params.id,status:1}
 		});
+        let type = req.query.type ?? "";
         Promise.all([product])
         .then(
             function(product){
                 product = product[0];
-                res.render('./products/detalle', {product,toThousand})
+                res.render('./products/detalle', {product,toThousand,type})
             }
         )
         .catch(error => console.log(error))
@@ -202,11 +208,13 @@ module.exports = {
                     //Si subio una imagen al formulario , vuelve a hacer update para editar la ruta.
                     if(req.file){
                         db.Product.update({
+                            
                             image:`/img/fotos-productos/productsAdd/${req.file.filename}`},
                             {where:{id:req.params.id}})
                         .then(product => {});
                     }
-                    return res.redirect('/products/detail/'+ req.params.id)
+                    const query = new URLSearchParams('type=edit');
+                    return res.redirect('/products/detail/'+ req.params.id+'?'+ query)
                 })
                 .catch(error => console.log(error))
         }

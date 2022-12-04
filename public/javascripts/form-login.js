@@ -11,6 +11,7 @@ function password_visible(tipo,element){
     }
 }
 
+<<<<<<< HEAD
 function password_visible2(tipo,element){
     if(tipo == "mostrar"){
         element.classList.remove("active");
@@ -30,4 +31,6 @@ function password_visible2(tipo,element){
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 } */
+=======
+>>>>>>> 43e0ac6848dbcf96151deaf321ab017646b681e5
 

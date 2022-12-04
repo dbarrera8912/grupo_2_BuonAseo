@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head', {title: 'Home' }) %>
+<script>
+    let id = "<%= product.id %>";
+    let type = "<%= type %>";
+    let name = "<%= product.name %>";
+</script>
 
+<script src="/javascripts/editarProducto.js" defer></script>
     <body>
         <%- include('../partials/header') %>
             <main class="detalle_main">
@@ -35,7 +41,7 @@
                             <a href="">COMPRA AHORA</a>
                         </button>
                         <button class="detalle_main_article_boton_principal">
-                            <a href="/products/carrito">AGREGAR AL CARRITO</a>
+                            <button  type="button" value="<%= product.id %>" class="addCartBtn">AGREGAR AL CARRITO</button>
                         </button>
                         <% if (locals.adminEntry) { %>
                          <div class="detalle_main_article_boton_editar-eliminar">

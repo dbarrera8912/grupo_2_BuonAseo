@@ -395,8 +395,6 @@ width: 100%;
     /* REGISTRO REDES */
     .registro__redes{
         width: 45%;
-    
-        flex-flow: wrap row;
         justify-content: center;
     }
     .registro__redes__titulo{
