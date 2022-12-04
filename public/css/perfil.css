@@ -12,9 +12,19 @@
 .perfil-main-titulo{
     font-size: 20px;
 }
+
+.perfil-main-contenedor-h1-image{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+
 .perfil-main-salida{
     font-size: 1.5rem;
-    top: 0;
+    position: relative;
+    top: -25px;
+    right: 30px;
     margin-left: 12.3rem;
     color: var(--negro);
     font-weight: 600;
@@ -37,6 +47,9 @@
     height: 50px;
     border-radius: 50%;
 }
+
+
+
 
 .perfil-container{
     background-color: var(--blanco);
@@ -75,7 +88,7 @@ width: 100%;
 }
 
 .perfil-main-caja--input-label2{
-    width: 40%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
@@ -83,6 +96,7 @@ width: 100%;
 .perfil-main-label2{
     font-size: 0.5rem;
     padding-bottom: 5px;
+    margin-left: 15px;
 }
 .perfil-main-input2{
     border: 1px rgb(173, 173, 173) solid;
@@ -91,9 +105,9 @@ width: 100%;
     font-size: 0.8rem;
     background-color: rgb(173, 173, 173);
     width: 90%;
+    margin-left: 15px;
     height: 40px;
     padding-left: 10px;
-    align-self: center;
 }
 
 .perfil-main-caja--input-label-radio{
@@ -208,16 +222,7 @@ margin-bottom: 15px;
 .perfil-main-input:-webkit-autofill, 
 .perfil-main-input:-webkit-autofill:hover, 
 .perfil-main-input:-webkit-autofill:focus, 
-.perfil-main-input:-webkit-autofill:active { 
-    box-shadow: 0 0 0 30px var(--azulFuerte) inset !important; -webkit-text-fill-color: white !important;
-}
-
-.perfil-main-input-password:-webkit-autofill, 
-.perfil-main-input-password:-webkit-autofill:hover, 
-.perfil-main-input-password:-webkit-autofill:focus, 
-.perfil-main-input-password:-webkit-autofill:active { 
-    box-shadow: 0 0 0 30px var(--azulFuerte) inset !important; -webkit-text-fill-color: white !important;
-}
+.perfil-main-input:-webkit-autofill:active { -webkit-box-shadow: 0 0 0 30px var(--azulFuerte) inset !important; -webkit-text-fill-color: white !important;}/* Para poner un color especifico cuando el usuario ingresa un dato. */
 
 
     .perfil-main-caja--boton{
@@ -251,7 +256,7 @@ margin-bottom: 15px;
 
         .perfil-main-salida{
             font-size: 2rem;
-            margin-left: 34rem;
+            margin-left: 28rem;
         }
         .perfil-main-formulario {
             
@@ -296,6 +301,15 @@ margin-bottom: 15px;
         .perfil-main-image{
             width: 100px;
             height: 100px;
+        }
+
+        .perfil-main-caja-checkbox{
+            flex-direction: column;
+            gap: 5px;
+        }
+        .perfil-main-caja-radio{
+            flex-direction: column;
+            gap: 5px;
         }
     }
 

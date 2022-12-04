@@ -4,14 +4,14 @@
     <main class="perfil-main">
         <div class="perfil-container">
         <div class="perfil-main-h1-img">
-            <a class="perfil-main-salida" href="/">x</a>
-            <div>
+            <a class="perfil-main-salida" href="/"><i class="fa-regular fa-circle-xmark"></i></a>
+            <div class="perfil-main-contenedor-h1-image">
                 <img class="perfil-main-image" alt="foto de perfil" src="/img/fotos-users/<%= user.avatar ? user.avatar : "default.png" %>">
                 <span class="perfil-main-titulo"> Bienvenido <b><%= user.name %></b></span>
             </div>
             
         </div>
-        <form  id='registro-main-form' action="/users/update/<%= user.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
+        <form  id='registro-main-form' action="/users/update/<%= user.id %>?_method=PUT" enctype="multipart/form-data" method="POST" autocomplete="off">
             <div class="perfil-main-formulario">
                 <div class="perfil-main-conteiner1">   
                     <div class="perfil-main-caja--input-label">
@@ -105,7 +105,7 @@
              </div>
            
             </div>
-            <div class="perfil-main-formulario">
+            <div class="perfil-main-formulario2">
                 <div class="perfil-main-caja--input-label2">
                     <label class="perfil-main-label2" for="avatar">Imagen</label>
                     <input id="avatar" onchange="foto_change(this)" class="perfil-main-input2 <%= locals.errors && errors.avatar ? "registro__email__container-inValid" : null %>" name="avatar" type="file">

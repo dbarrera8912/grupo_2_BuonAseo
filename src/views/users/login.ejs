@@ -10,7 +10,7 @@
       <nav class="registro__logo-y-titulo__logo">
         <a href="/"><img class="registro__logo-y-titulo__logo2" src="/img/Logo.png" alt="logo pagina"></a>
       </nav>
-      <a class="registro__logo-y-titulo__salida" href="/">x</a>
+      <a class="registro__logo-y-titulo__salida" href="/"><i class="fa-regular fa-circle-xmark"></i></a>
       <h2 class="registro__logo-y-titulo__titulo">Ingresar</h2>
     </section>
     <!-- INGRESO REDES -->
@@ -24,7 +24,7 @@
         scope="public_profile,email"
         onlogin="checkLoginState();">
       </fb:login-button> -->
-      <form action="/users/facebookLogin" id="facebook-login" method="POST">
+      <form action="/users/facebookLogin" id="facebook-login" method="POST" autocomplete="off>
         <input type="hidden" name="facebookEmail" value="">
       </form>
       <article class="registro__redes__containerGoogle">
@@ -44,7 +44,7 @@
       <form action="/users/login" method="POST" id="registro-main-form">
         <article class="registro__email__container">
           <input class="registro__email__texto" value="<%= locals.old && old.email %>" type="email, text"  name="email" id="registro-main-form-email"
-            placeholder="Nombre de usuario o Email*" />
+            placeholder="Ingresa Email*" />
           <img src="/img/login-register/imgEmail.png" alt="">
           <small><%= locals.errors && errors.email && errors.email.msg %></small>
           <span id="registro-text-errores-email" class="registro-text-danger"></span>
@@ -74,11 +74,15 @@
       </form>
       <!-- REGISTRARSE -->
       <article class="login-detail__cuenta">
-        <a href="password-lost" class="registro__cuenta__ingresar">¿Perdió su contraseña?</a>
-        <div>
-          <p class="registro__cuenta__texto-cuenta">¿Es nuevo en Buon Aseo?</p>
-          <a class="registro__cuenta__ingresar" href="formulario"> Registrarse</a>
+        <div class="login-detail__cuenta-div1">
+          <h6 class="registro__cuenta__texto-cuenta">¿Perdió su contraseña?</h6>
+          <h6 class="registro__cuenta__texto-cuenta">¿Es nuevo en Buon Aseo?</h6>
+      </div> 
+          <div class="login-detail__cuenta-div2">
+            <button class="registro__cuenta__ingresar-boton"><a href="password-lost" class="registro__cuenta__ingresar">AYUDA</a></button> 
+          <button class="registro__cuenta__ingresar-boton"><a class="registro__cuenta__ingresar" href="formulario"> REGISTRARSE</a></button>
         </div>
+        
       </article>
     </section>
   </main>
