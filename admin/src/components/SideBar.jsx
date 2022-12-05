@@ -7,7 +7,7 @@ export const SideBar = () => {
 
     <Link className="sidebar-brand mb-5" to="/">
         <div className="sidebar-brand-icon">
-            <img className="w-100" style={{height : "100px"}} src="/images/logoDashboard.png" alt="Mercado Liebre"/>
+            <img className="w-100" style={{height : "100px"}} src="/images/logoDashboard.png" alt="Buon Aseo"/>
         </div>
     </Link>
 
