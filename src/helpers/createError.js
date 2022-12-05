@@ -3,8 +3,4 @@ module.exports = (status, message) => {
     error.status = status; // a la propiedad error.status le aniadimos el status que viene por parametro
 
     return error //retornamos el error
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> home

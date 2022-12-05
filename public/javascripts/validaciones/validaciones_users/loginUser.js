@@ -1,5 +1,7 @@
 window.addEventListener("load", () => {
   let formulario = document.getElementById("registro-main-form");
+  let formFace = document.getElementById("facebook-login");
+  let formGoogle = document.getElementById("google-login");
   let email = document.getElementById("registro-main-form-email");
   let password = document.getElementById("registro-main-form-password");
   let boton = document.getElementById("registro-main-form-boton");
@@ -102,12 +104,14 @@ window.addEventListener("load", () => {
     }
   });
 
+
+
   formulario.addEventListener("submit", function (e) {
     e.preventDefault();
+    let elements = this.elements
     let error = false;
-
-    const elements = this.elements;
     for (let i = 0; i < elements.length - 1; i++) {
+      console.log(">>>>>>>" + elements[i])
       if (
         !elements[i].value.trim() ||
         elements[i].classList.contains("registro__email__container-inValid")
@@ -117,13 +121,12 @@ window.addEventListener("load", () => {
         error = true;
       }
     }
-
     if (!error) {
       formulario.submit();
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Registrado con exito",
+        title: "Logueado con exito",
         showConfirmButton: false,
         timer: 1500,
       });
