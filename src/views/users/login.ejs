@@ -16,29 +16,19 @@
     <!-- INGRESO REDES -->
     <section class="registro__redes">
       <h4 class="registro__redes__titulo">Con su red favorita</h4>
-<<<<<<< HEAD
       <article class="registro__redes__containerFB">
-        <button class="registro__redes__botonFB">Continuar con <b>Facebook</b></button>
-        <img src="/img/login-register/imgFacebook.png" alt="facebook">
-      </article>
-     <!-- <fb:login-button 
-        scope="public_profile,email"
-        onlogin="checkLoginState();">
-      </fb:login-button> -->
-      <form action="/users/facebookLogin" id="facebook-login" method="POST" autocomplete="off>
-=======
+       
  
-        <!--  <article class="registro__redes__containerFB">
+       <article class="registro__redes__containerFB">
           <button class="registro__redes__botonFB">Continuar con <b>Facebook</b></button>
           <img src="/img/login-register/imgFacebook.png" alt="facebook">
         </article>
-        <article class="registro__redes__containerGoogle" onClick="clickGoogleSignIn()">
+        <article class="registro__redes__containerGoogle">
           <button class="registro__redes__botonGoogle" >Continuar con <b>Google</b></button>
           <img src="/img/login-register/imgGoogle.png" alt="Google">
-        </article>-->
+        </article>
 
       <form action="/users/facebookLogin" id="facebook-login" method="POST">
->>>>>>> 43e0ac6848dbcf96151deaf321ab017646b681e5
         <input type="hidden" name="facebookEmail" value="">
       </form>
       <form action="/users/googleLogin" id="google-login" method="POST">
@@ -127,6 +117,8 @@
     </section>
   </main>
   <script src="../../../../javascripts/validaciones/validaciones_users/loginUser.js"></script>
+  <script src="../../../../javascripts/google_signin.js"></script>
+  <script src="../../../../javascripts/facebook_signin.js"></script>
 </body>
 
 </html>

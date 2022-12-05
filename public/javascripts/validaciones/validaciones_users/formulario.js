@@ -265,7 +265,7 @@ window.addEventListener("load", () => {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Logueado con exito",
+        title: "Registrado con exito",
         showConfirmButton: false,
         timer: 1500,
       });

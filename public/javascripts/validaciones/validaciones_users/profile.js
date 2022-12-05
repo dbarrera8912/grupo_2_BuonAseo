@@ -28,7 +28,7 @@ window.addEventListener("load", () => {
     exRegNum: /[0-9]/,
     exRegEsp: /[$@$!%*?&]/,
     exRegMin: /.{6}/,
-    exRegMax: /.{12}/,
+    exRegMax: /.{8}/,
   };
 
   //Función que se ejecuta al detectar un cambio en el input tipo password
@@ -128,7 +128,7 @@ window.addEventListener("load", () => {
     }
   });
 
-  password.value = " ";
+  password.value = "";
   formulario.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -186,7 +186,7 @@ window.addEventListener("load", () => {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Logueado con exito",
+        title: "Cambios actualizados con exito",
         showConfirmButton: false,
         timer: 1500,
       });
