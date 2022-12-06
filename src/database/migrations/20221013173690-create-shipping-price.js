@@ -10,7 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       province: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING
       },
       price:{
@@ -18,15 +18,15 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       createdAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       deletedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       }
     });

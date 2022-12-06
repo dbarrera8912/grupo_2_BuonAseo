@@ -214,6 +214,7 @@ image.addEventListener('change', function ({ target }) {
     reader.onload = () => {
       console.log(reader.result);
       document.querySelector(".imagePreview").setAttribute("src",reader.result)
+      validField("errorImage", target)
     }
     }else{
       msgError(
