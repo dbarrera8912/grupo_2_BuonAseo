@@ -1,5 +1,5 @@
 import React from 'react'
-import ComponentUser from '../components/users/ComponentUser'
+import {ComponentUser} from '../components/users/ComponentUser'
 export const Users = () => {
   return (
     <div className="container-fluid">
@@ -7,10 +7,7 @@ export const Users = () => {
         <h1 className="h3 mb-0 text-gray-800">Dashboard Buon Aseo | Users</h1>
       </div>
 
-      <div className="row">
-        <ComponentUser />
-        <ComponentUser />
-        <ComponentUser />
+      <div className="row w-100">
         <ComponentUser />
       </div>
     </div>
