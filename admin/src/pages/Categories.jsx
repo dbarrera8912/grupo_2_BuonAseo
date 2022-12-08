@@ -8,10 +8,7 @@ export const Categories = () => {
         <h1 className="h3 mb-0 text-gray-800">Dashboard Buon Aseo | Categorias</h1>
       </div>
 
-      <div className="row">
-        <ComponentCategory />
-        <ComponentCategory />
-        <ComponentCategory />
+      <div className="row justify-content-center">
         <ComponentCategory />
       </div>
     </div>
