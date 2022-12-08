@@ -7,7 +7,7 @@ const router = require('express').Router();
 router
     .get('/',all)
     .get('/:id',getOne)
-    .get('/avatar/:img',getAvatar)
+    .get('/avatar/:avatar',getAvatar)
 
     
 
