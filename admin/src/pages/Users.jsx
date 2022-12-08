@@ -7,7 +7,6 @@ export const Users = () => {
   location = +location
   let previousPage = location === 1 ? 1 : location - 1;
   let nextPage = location === 3? 3 : location + 1;
-  
   return (
     <div className="container-fluid">
       <div className="d-sm-flex align-items-center justify-content-between mb-4">
@@ -20,7 +19,7 @@ export const Users = () => {
               <li className="page-item">
                 <a href={`?page=${previousPage}`} className="page-link">Previous</a>
               </li>
-              <li className={`page-item ${location === 1 && "active"}`}><a className="page-link" href="?page=1">1</a></li>
+              <li className={`page-item ${(location === 1 || !location) && "active"}`}><a className="page-link" href="?page=1">1</a></li>
               <li className={`page-item ${location === 2 && "active"}`}><a className="page-link" href="?page=2">2</a></li>
               <li className={`page-item ${location === 3 && "active"}`}><a className="page-link" href="?page=3">3</a></li>
               <li className="page-item">
@@ -34,7 +33,7 @@ export const Users = () => {
               <li className="page-item">
                 <a href={`?page=${previousPage}`} className="page-link">Previous</a>
               </li>
-              <li className={`page-item ${location === 1 && "active"}`}><a className="page-link" href="?page=1">1</a></li>
+              <li className={`page-item ${(location === 1 || !location) && "active"}`}><a className="page-link" href="?page=1">1</a></li>
               <li className={`page-item ${location === 2 && "active"}`}><a className="page-link" href="?page=2">2</a></li>
               <li className={`page-item ${location === 3 && "active"}`}><a className="page-link" href="?page=3">3</a></li>
               <li className="page-item">

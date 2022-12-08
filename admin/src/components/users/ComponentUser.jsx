@@ -17,7 +17,6 @@ export const ComponentUser = () => {
   useEffect(() => {
     fetchWithoutToken(`/users${location ? location : "?page=1"}&limit=6`)
       .then(({ data }) => {
-        console.log(data.length)
         setProduct({
           loading: false,
           data: data,
