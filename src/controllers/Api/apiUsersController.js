@@ -24,7 +24,7 @@ module.exports = {
 
 
             let { count, rows: users } = await db.User.findAndCountAll({
-                subQuery:false,
+                /* subQuery:false, */
                 distinct: true, // no cuenta resultados anidados, como los intereses.
                 limit,
                 offset,
