@@ -17,13 +17,13 @@ export const Users = () => {
       <nav aria-label="..." className='mx-auto'>
             <ul className="pagination">
               <li className="page-item">
-                <a href={`?page=${previousPage}`} className="page-link">Previous</a>
+                <a href={`?page=${previousPage}`} className="page-link azulFuerte">Previous</a>
               </li>
               <li className={`page-item ${(location === 1 || !location) && "active"}`}><a className="page-link" href="?page=1">1</a></li>
-              <li className={`page-item ${location === 2 && "active"}`}><a className="page-link" href="?page=2">2</a></li>
+              <li className={`page-item ${location === 2 && "active" }`}><a className="page-link" href="?page=2">2</a></li>
               <li className={`page-item ${location === 3 && "active"}`}><a className="page-link" href="?page=3">3</a></li>
-              <li className="page-item">
-                <a href={`?page=${nextPage}`} className="page-link">Next</a>
+              <li className="page-item ">
+                <a href={`?page=${nextPage}`} className="page-link azulFuerte">Next</a>
               </li>
             </ul>
           </nav>
@@ -31,13 +31,13 @@ export const Users = () => {
         <nav aria-label="..." className='mx-auto'>
             <ul className="pagination">
               <li className="page-item">
-                <a href={`?page=${previousPage}`} className="page-link">Previous</a>
+                <a href={`?page=${previousPage}`} className="page-link azulFuerte">Previous</a>
               </li>
               <li className={`page-item ${(location === 1 || !location) && "active"}`}><a className="page-link" href="?page=1">1</a></li>
               <li className={`page-item ${location === 2 && "active"}`}><a className="page-link" href="?page=2">2</a></li>
               <li className={`page-item ${location === 3 && "active"}`}><a className="page-link" href="?page=3">3</a></li>
               <li className="page-item">
-                <a href={`?page=${nextPage}`} className="page-link">Next</a>
+                <a href={`?page=${nextPage}`} className="page-link azulFuerte">Next</a>
               </li>
             </ul>
           </nav>

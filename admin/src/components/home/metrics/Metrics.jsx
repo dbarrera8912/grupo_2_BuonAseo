@@ -15,13 +15,13 @@ export const Metrics = () => {
     },
     users: {
       title: "Usuarios registrados",
-      color: "success",
+      color: "primary",
       icon: "fa-users",
       data: 0,
     },
     categories: {
       title: "Categorias activas",
-      color: "warning",
+      color: "primary",
       icon: "fa-folder",
       data: 0,
     },

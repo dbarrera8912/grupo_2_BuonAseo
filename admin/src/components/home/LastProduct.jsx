@@ -42,7 +42,7 @@ export const LastProduct = () => {
             </div>
             <p>{product.data.description}</p>
             <a
-              className="btn btn-danger"
+              className="btn btn-danger azulFuerteFondo azulFuerteBorde"
               target="_blank"
               rel="nofollow"
               href="/"
