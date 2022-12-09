@@ -6,6 +6,7 @@ import { Products } from '../pages/Products';
 import { Users } from '../pages/Users';
 import { Categories } from '../pages/Categories';
 
+
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path='/' element={<Root/>}>
@@ -13,6 +14,7 @@ const router = createBrowserRouter(
             <Route path='/products' element={<Products/>}/>
             <Route path='/users' element={<Users/>}/>
             <Route path='/categories' element={<Categories/>}/>
+            
         </Route>
     )
 )
