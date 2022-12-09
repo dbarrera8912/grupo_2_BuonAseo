@@ -26,6 +26,7 @@ var apiUsersRouter = require('./routes/api/apiUsers');
 var apiProductsRouter = require('./routes/api/apiProducts');
 var apiCategoriesRouter = require('./routes/api/apiCategories');
 var apiFooterRouter = require('./routes/api/apiFooter');
+var apiCrudRoutes = require('./routes/Api/apiCrud')
 
 var app = express();
 
@@ -63,6 +64,7 @@ app.use('/api/users', apiUsersRouter);
 app.use('/api/auth', apiAuthRouter);
 app.use('/api/categories', apiCategoriesRouter);
 app.use('/api/footer', apiFooterRouter);
+app.use('/api/crud', apiCrudRoutes)
 
 // catch 404 and forward to error handler
 app.use("/api/*", (req,res) => res.status(404).json(
