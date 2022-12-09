@@ -1,7 +1,9 @@
 import React from 'react'
 import ComponentCategory from '../components/categories/ComponentCategory'
 
+
 export const Categories = () => {
+  
   return (
     <div className="container-fluid">
       <div className="d-sm-flex align-items-center justify-content-between mb-4">
@@ -9,6 +11,7 @@ export const Categories = () => {
       </div>
 
       <div className="row justify-content-center">
+          
         <ComponentCategory />
       </div>
     </div>
