@@ -112,6 +112,7 @@ module.exports = {
                     include: optionUser
                 })
                 
+
                 if (Object.entries(errors).length === 0) {
                     interestsToLogin = interestsToDBFunction(user.dataValues.interest)
                     
@@ -121,7 +122,55 @@ module.exports = {
                     if (req.body.perdio) {/* preguntamos si marco la opcion de recordar */
                         res.cookie("buonaseo", req.session.userLogged, { maxAge: (24000 * 60) * 60 })/* implementamos cookie para guardar la sesion del usuario */
                     }
+                    /* carrito */
+                    db.Cart_order.findOne({
+                        where : {
+                        userId : req.session.userLogged.id,
+                        },
+                        include : [
+                        {
+                            association : 'carts',
+                            attributes : ['id','quantity'],
+                            include : [
+                            {
+                                association : 'product',
+                                attributes : ['id','name','price','discount','image'],
 
+                            }
+                            ]
+                        }
+                        ]
+                    }).then(order => {
+                        if(order) {
+                    
+                            req.session.orderCart = {
+                            id : order.id,
+                            total : order.total,
+                            items : order.carts
+                            }
+            
+                        }else {
+            
+                            db.Cart_order.create({
+                            date : new Date(),
+                            total : 0,
+                            userId : req.session.userLogged.id,
+                            status : "inicial"
+                            }).then(order => {
+                            
+                            req.session.orderCart = {
+                                id : order.id,
+                                total : order.total,
+                                items : []
+                            }
+                
+                            })
+                        }
+                        console.log("--------------------------")
+                        console.log(req.session);
+                        console.log("--------------------------")
+                        
+                    }).catch(error => console.log(error))
                     return res.redirect("/users/profile")
                 } else {
                     return res.render('./users/login', {

@@ -21,6 +21,7 @@ var categoriesRouter = require('./routes/categories');
 
 //inicializando rutas de api
 var apiMainRouter = require('./routes/api/apiMain');
+var apiCartRouter = require('./routes/api/apiCart');
 var apiAuthRouter = require('./routes/api/apiAuth');
 var apiUsersRouter = require('./routes/api/apiUsers');
 var apiProductsRouter = require('./routes/api/apiProducts');
@@ -58,6 +59,7 @@ app.use('/footer', footerRouter);
 app.use('/categories', categoriesRouter);
 
 //rutas para appi
+app.use('/api/carts', apiCartRouter);
 app.use('/api/main', apiMainRouter);
 app.use('/api/products', apiProductsRouter);
 app.use('/api/users', apiUsersRouter);
