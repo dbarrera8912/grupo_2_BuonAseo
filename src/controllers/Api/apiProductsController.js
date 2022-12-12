@@ -8,7 +8,7 @@ module.exports = {
         /* devuelve todos los productos */
         try {
             let {page = 1} = req.query;
-            let limit = 10;
+            let limit = 6;
             //opcion1 es la configuracion para el findAndCountAll que va a traer cantidad de productos por categoria.
             let opcion1 = {
                 group:"id_category",
