@@ -1,4 +1,4 @@
-const { getTotals } = require('../../controllers/Api/apiMainController');
+const { getTotals } = require('../../controllers/api/apiMainController');
 
 const router = require('express').Router();
 

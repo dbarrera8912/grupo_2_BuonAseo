@@ -3,7 +3,7 @@ const router = require('express').Router();
 
 const {uploadProducts} = require("../../middlewares/mw_products/uploadProducts");
 const validacionesProducts = require("../../validators/val_products/productsValidator");
-const checkAdminToken = require('../../middlewares/Api/checkAdminToken')
+const checkAdminToken = require('../../middlewares/api/checkAdminToken')
 
 /* /api/crud */
 

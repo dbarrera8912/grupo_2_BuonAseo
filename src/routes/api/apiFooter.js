@@ -1,5 +1,5 @@
 
-const {questionAll,questionOne,paymentAll,paymentOne} = require('../../controllers/Api/apiFooterController')
+const {questionAll,questionOne,paymentAll,paymentOne} = require('../../controllers/api/apiFooterController')
 const router = require('express').Router();
 
 /* /api/users */
