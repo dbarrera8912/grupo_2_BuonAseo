@@ -59,6 +59,7 @@ module.exports = {
     },
     
     carrito: async (req, res) => {
+        
         let ShippingPrice = await db.shipping_price.findAll();
         return res.render('./products/carrito',{ShippingPrice})
     },
@@ -123,6 +124,7 @@ module.exports = {
     },
 
     detalle: (req, res) => {
+        console.log(req.session);
         let product = db.Product.findOne({
 			include : ['category'],
             where:{id:req.params.id,status:1}

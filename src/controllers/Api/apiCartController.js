@@ -19,16 +19,20 @@ module.exports = {
     },
     addCart : async (req,res) => {
         try {
-            console.log(req.body);
             const {id} = req.body;
-            console.log(req.session);
-            //Buscar un producto en el carrito DB que coincida con el que quiere agregar.
-            let item = req.session.orderCart.items.find(item => item.product.id === +id);
 
+            //Buscar un producto en el carrito DB que coincida con el que quiere agregar.
+            let item = false;
+
+            
+            if(req.session.userLogged.cartOrder.items.length > 0){
+                item = req.session.userLogged.cartOrder.items.find(item => item.product.id === +id);
+                
+            }
             //Si ya existe el producto en el carrito
             if(item) {
                 //Lo modifica le suma +1 en cantidad
-                await db.Cart.update(
+                await db.Carts.update(
                     {
                         quantity : item.quantity + 1
                     },
@@ -40,7 +44,7 @@ module.exports = {
                 )
 
                 //Busca el producto en la session y le suma +1
-                const itemsModify = req.session.orderCart.items.map(element => {
+                const itemsModify = req.session.userLogged.cartOrder.items.map(element => {
                     if(element.id === item.id){
                         element.quantity = element.quantity + 1;
                         return element
@@ -50,8 +54,8 @@ module.exports = {
                 })
 
                 //Modifica la session para que tenga un producto +1 en cantidad
-                req.session.orderCart = {
-                    ...req.session.orderCart,
+                req.session.userLogged.cartOrder = {
+                    ...req.session.userLogged.cartOrder,
                     items : itemsModify
                 }
 
@@ -59,30 +63,36 @@ module.exports = {
             //Si no existe el producto en el carritoDB
             else {
                 //Lo crea 
-               const newCart = await db.Cart.create({
+               const newCart = await db.Carts.create({
                     quantity : 1,
                     productId : id,
-                    orderId : req.session.orderCart.id
+                    cartOrderId : req.session.userLogged.cartOrder.id
                });
                //Busca la nueva fila del carrito
-               const cartItem = await db.Cart.findByPk(newCart.id, {
+               let cartItem = await db.Carts.findByPk(newCart.id, {
                 attributes : ['id','quantity'],
                 include : [
                   {
                     association : 'product',
-                    attributes : ['id','name','price','discount'],
-                    include : ['image']
+                    attributes : ['id','name','price','discount',"image"],
                   }
                 ]
                });
-               //Agrega la nueva fila de carrito(nuevo producto) a la session
-               req.session.orderCart = {
-                ...req.session.orderCart,
-                items : [
-                    ...req.session.orderCart.items,
-                    cartItem
-                ]
+               cartItem = {
+                id:cartItem.dataValues.id,
+                quantity:cartItem.dataValues.quantity,
+                productId:cartItem.dataValues.product.dataValues.id,
                }
+               //Agrega la nueva fila de carrito(nuevo producto) a la session
+
+               let cartNew = req.session.userLogged;
+                
+               
+               cartNew.cartOrder.items.push(cartItem);
+               //req.session.userLogged.cartOrder = cartNew;
+               req.session.userLogged = cartNew;
+               console.log(req.session.userLogged.cartOrder)
+
 
             }
 

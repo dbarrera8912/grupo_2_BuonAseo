@@ -45,8 +45,9 @@ app.use (methodOverride ("_method"));
 
 app.use(session({
   secret : 'BuonAseo',
-  resave : false,
-  saveUninitialized : true
+  rolling: true,
+  resave : true,
+  saveUninitialized : false
 }));
 
 app.use(cors());
