@@ -3,16 +3,16 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 
-export const Product = ({ id, name, category, idCode, image, dimensions, price, volume, smell, quantity, stock, type, description, discount }) => {
+export const Product = ({ id, name, category, idCode, avatarURL, dimensions, price, volume, smell, quantity, stock, type, description, discount }) => {
     const [show, setShow] = useState(false);
     
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
-        
+
         <div className="card w-30 shadow-lg p-3 mb-5 bg-body rounded " style={{ width: "31%" }}>
-            {console.log(image)}
-            <img src={image ? image : "/images/imagenDefaultProducto.png"} className="card-img-top rounded mx-auto " style={{ width: "200px", height: "200px" }} alt="Producto" />
+
+            <img src={avatarURL ? avatarURL : "/images/imagenDefaultProducto.png"} className="card-img-top rounded mx-auto " style={{ width: "200px", height: "200px" }} alt="Producto" />
             <div className="card-body ">
                 <h5 className="card-title"><b>Producto N°{id}</b></h5>
                 <p className="card-text">{name}</p>
@@ -33,7 +33,7 @@ export const Product = ({ id, name, category, idCode, image, dimensions, price, 
                     </Modal.Header>
                     <Modal.Body className="w-100">
                         <div className="card  shadow-lg p-3 mb-5 bg-body rounded " style={{ width: "100%" }}>
-                            <img src={image ? image : "/images/imagenDefaultProducto.png"} className="card-img-top rounded mx-auto " style={{ width: "200px", height: "200px" }} alt="Producto" />
+                            <img src={avatarURL ? avatarURL : "/images/imagenDefaultProducto.png"} className="card-img-top rounded mx-auto " style={{ width: "200px", height: "200px" }} alt="Producto" />
                             <br/>
                             <ul className="list-group list-group-flush">
                             <li className="list-group-item border-info"><b>Nombre:</b> {name ? name : "-"}</li>
