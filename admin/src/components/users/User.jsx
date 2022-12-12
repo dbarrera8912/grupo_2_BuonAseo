@@ -18,13 +18,13 @@ export const User = ({ id, name, email, nationality, tipoUsuario, avatarURL, pho
                 <p className="card-text">{name}</p>
             </div>
             <ul className="list-group list-group-flush">
-                <li className="list-group-item border-info"><b>Email:</b> {email}</li>
-                <li className="list-group-item border-info"><b>Nacionalidad:</b> {nationality ? nationality : "-"}</li>
-                <li className="list-group-item border-info"><b>Tipo de cuenta:</b> {tipoUsuario}</li>
+                <li className="list-group-item azulClaroBorde"><b>Email:</b> {email}</li>
+                <li className="list-group-item azulClaroBorde"><b>Nacionalidad:</b> {nationality ? nationality : "-"}</li>
+                <li className="list-group-item azulClaroBorde"><b>Tipo de cuenta:</b> {tipoUsuario}</li>
             </ul>
             <br />
             <>
-                <Button variant="primary" onClick={handleShow}>
+                <Button variant="primary" className='azulFuerteFondo' onClick={handleShow}>
                     Ver detalle
                 </Button>
 

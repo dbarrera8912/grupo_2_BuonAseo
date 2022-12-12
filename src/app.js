@@ -21,12 +21,13 @@ var categoriesRouter = require('./routes/categories');
 
 //inicializando rutas de api
 var apiMainRouter = require('./routes/api/apiMain');
+var apiCartRouter = require('./routes/api/apiCart');
 var apiAuthRouter = require('./routes/api/apiAuth');
 var apiUsersRouter = require('./routes/api/apiUsers');
 var apiProductsRouter = require('./routes/api/apiProducts');
 var apiCategoriesRouter = require('./routes/api/apiCategories');
 var apiFooterRouter = require('./routes/api/apiFooter');
-var apiCrudRoutes = require('./routes/Api/apiCrud')
+var apiCrudRoutes = require('./routes/api/apiCrud')
 
 var app = express();
 
@@ -44,8 +45,9 @@ app.use (methodOverride ("_method"));
 
 app.use(session({
   secret : 'BuonAseo',
-  resave : false,
-  saveUninitialized : true
+  rolling: true,
+  resave : true,
+  saveUninitialized : false
 }));
 
 app.use(cors());
@@ -58,6 +60,7 @@ app.use('/footer', footerRouter);
 app.use('/categories', categoriesRouter);
 
 //rutas para appi
+app.use('/api/carts', apiCartRouter);
 app.use('/api/main', apiMainRouter);
 app.use('/api/products', apiProductsRouter);
 app.use('/api/users', apiUsersRouter);

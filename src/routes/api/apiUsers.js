@@ -1,4 +1,4 @@
-const { all, getOne, getAvatar } = require('../../controllers/Api/apiUsersController');
+const { all, getOne, getAvatar } = require('../../controllers/api/apiUsersController');
 
 const router = require('express').Router();
 

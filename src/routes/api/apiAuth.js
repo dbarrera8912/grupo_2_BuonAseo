@@ -3,9 +3,9 @@
 const { signIn, signUp, verifyEmail, verifyPassword, verifyName, verifyEmailAndPassword } = require('../../controllers/Api/apiAuthController');
 
 const router = require('express').Router();
-const authLogin = require('../../validators/Api/loginAuth')
-const authRegister = require('../../validators/Api/registerAuth')
-const checkAdminToken = require('../../middlewares/Api/checkAdminToken')
+const authLogin = require('../../validators/api/loginAuth')
+const authRegister = require('../../validators/api/registerAuth')
+const checkAdminToken = require('../../middlewares/api/checkAdminToken')
 
 /* /api/apiAuth */
 

@@ -9,44 +9,28 @@ addCartBtn.addEventListener("click",()=>{addToCart(this)})//3. capturar el event
 
 //El proceso de agregar al carrito
 async function addToCart(){
-    let product = addCartBtn.value;//captura el id del producto que quiere agregar
-    let addedProduct = [];
-    if(localStorage.getItem("cart")){//Si existe ya un carrito en el localstorage
-        addedProduct = JSON.parse(localStorage.getItem("cart"));//lo trae
-    }
+    try{
+        let product = addCartBtn.value;//captura el id del producto que quiere agregar
 
-    alreadyAdded = false;//Pregunta si el producto ya existe en el carrito
-    addedProduct.forEach((prod)=>{
-        if(prod.id == product){
-            alreadyAdded = true;
-        }
-    });
-    //Si ya no existe el carrito hacie lo de abajo
-    if (alreadyAdded == false) {
-        let productos;
-        //Traemos todo el detalle del producto por agregar
-        const productDb = await fetch('http://localhost:3030/api/products/detail/'+product)
-        .then(respo => respo.json())
-        .then(data => { 
-            productos = data;
-          })
-        console.log(productos);
-        let img = productos.meta.image_path;
-        let price = productos.data.product.price;
-        let name = productos.data.product.name;
-        //Creamos un objeto para el producto por agregar
-        let newProduct = {id:product,quantity:1,price,imgPath:img,name};
-        //Lo ponemos al final del array de la lista de productos proveniente del localstorage
-        addedProduct.push(newProduct);
-
-        //Lo agregamos al localstorage para que impacte el agregarAlCarrito
-        localStorage.setItem("cart",JSON.stringify(addedProduct));
-        //Si no lo sumamos al localstorage no lo podemos mostrar en el carrito.
-        Swal.fire(
-            'Se agrego al carrito!',
-            productos.data.product.name,
-            'success'
+        let response = await fetch('http://localhost:3030/api/carts/', {
+            method : 'POST',
+            body : JSON.stringify({
+                id:product
+            }),
+            headers : {
+                "Content-Type" : "application/json"
+            }
+        });
+        let result = await response.json();
+        if(result.ok){
+            Swal.fire(
+                'Se agrego al carrito!',
+                productos.data.product.name,
+                'success'
             );
+        }
+    }catch (error) {
+        console.error(error);
     }
 }
 
