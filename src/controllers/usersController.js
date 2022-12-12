@@ -65,7 +65,7 @@ module.exports = {
             attributes: optionData,
             include: optionUser
         });
-        const { id, name, avatar, interestsToLogin } = user;
+        const { id, name, avatar,  } = user;
         req.session.userLogged = { id, name, avatar, interestsToLogin };/* Guardamos el resto de datos del usuario en session */ 
 
        return res.redirect("/users/profile");
@@ -112,16 +112,62 @@ module.exports = {
                     include: optionUser
                 })
                 
+
                 if (Object.entries(errors).length === 0) {
                     interestsToLogin = interestsToDBFunction(user.dataValues.interest)
                     
-                    let { id, name, avatar } = user
-                    req.session.userLogged = { id, name, avatar, interestsToLogin };/* Guardamos el resto de datos del usuario en session */
+                    let { id, name, avatar } = user;
+                      
+                    /* carrito */
+                    const cart = await db.Cart_order.findOne({
+                        where : {
+                        userId : id,
+                        },
+                        include : [
+                        {
+                            association : 'carts',
+                            attributes : ['id','quantity'],
+                            include : [
+                            {
+                                association : 'product',
+                                attributes : ['id','name','price','discount','image'],
+
+                            }
+                            ]
+                        }
+                        ]
+                    });
+                    let cartOrder;
+                    if(cart) {
+                
+                        cartOrder = {
+                        id : cart.id,
+                        total : cart.total,
+                        items : cart.carts
+                        }
+                    }else {
+        
+                        db.Cart_order.create({
+                        date : new Date(),
+                        total : 0,
+                        userId : id,
+                        status : "inicial"
+                        }).then(order => {
+                        
+                        cartOrder = {
+                            id : order.id,
+                            total : order.total,
+                            items : []
+                        }
+                        })
+                    }
+
+                    req.session.userLogged = { id, name, avatar, interestsToLogin,cartOrder};/* Guardamos el resto de datos del usuario en session */
                     
                     if (req.body.perdio) {/* preguntamos si marco la opcion de recordar */
                         res.cookie("buonaseo", req.session.userLogged, { maxAge: (24000 * 60) * 60 })/* implementamos cookie para guardar la sesion del usuario */
                     }
-
+                    
                     return res.redirect("/users/profile")
                 } else {
                     return res.render('./users/login', {

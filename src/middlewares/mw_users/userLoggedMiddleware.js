@@ -7,7 +7,6 @@ async function userLoggedMiddleware(req, res, next) {
     try {
         res.locals.userLogin = false;
 
-
         if (req.cookies.buonaseo) {/* si hay usuario en cookie, entra */
             req.session.userLogged = req.cookies.buonaseo /* guardamos el usuario de la cookie en session */
         }
@@ -26,7 +25,7 @@ async function userLoggedMiddleware(req, res, next) {
                 res.locals.adminEntry = true;
             }
         }
-
+       
         next();
     } catch (error) {
         return console.log(error)

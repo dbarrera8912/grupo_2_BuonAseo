@@ -1,5 +1,6 @@
 /* **************** MIDDLEWARE A NIVEL RUTA **************** */
 function authMiddleware (req, res, next){
+    console.log(req.session);
     if(!req.session.userLogged){/* si no hay usuario en sesion, entra */
         return res.redirect("/users/login")/* lo manda al login. Sirve en casos que quiera acceder al carrito, o algun sitio solo para usuarios */
     }
