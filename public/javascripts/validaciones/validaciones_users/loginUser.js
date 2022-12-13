@@ -79,7 +79,7 @@ window.addEventListener("load", () => {
         email.style.border = "solid 1px red";
         password.style.border = "solid 1px red";
         break;
-      case await verifieldEmail(this.value):
+      case await verifieldEmail(this.value) == false:
         formularioError.innerText = "Credenciales Invalidas";
         email.style.border = "solid 1px red";
         password.style.border = "solid 1px red";
@@ -93,19 +93,12 @@ window.addEventListener("load", () => {
   });
 
   password.addEventListener("blur", async function () {
-    email = document.getElementById("registro-main-form-email").value
-    password = document.getElementById("registro-main-form-password").value
-    console.log(await verifieldPassword(email.nodeValue, password.nodeValue))
+    console.log(await verifieldPassword(await verifieldEmail(email), this.value));
     switch (true) {
       case !this.value:
         passwordErrores.innerText = "No puedes dejar el campo vacio";
         password.classList.add("registro__email__container-inValid");
-
         break;
-      case await verifieldPassword(email.nodeValue,password.nodeValue) : 
-        formularioError.innerText = "Credenciales Invalidas";
-        break;
-      default:
         password.classList.remove("registro__email__container-inValid");
         formularioError.innerText = "  ";
     }
