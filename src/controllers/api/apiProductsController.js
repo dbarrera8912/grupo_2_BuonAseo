@@ -24,9 +24,9 @@ module.exports = {
                 limit:limit,
                 offset: (page - 1)*limit,
                 include:[{association:"category"}],
-                attributes: {
+                attributes:{
                     include: [
-                        [literal(`CONCAT('/api/products/avatar/',Product.id)`), 'detail']
+                        [literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products',image)`), 'avatarURL'],
                     ]
                 },
                 };

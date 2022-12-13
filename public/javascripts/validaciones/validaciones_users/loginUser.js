@@ -21,51 +21,51 @@ window.addEventListener("load", () => {
   };
 
   console.log("JAVASCRIPT CONECTADOOOO");
+
   
+
   const verifieldEmail = async (email) => {
     try {
       let response = await fetch(
         "http://localhost:3030/api/auth/verify-email",
         {
           method: "POST",
-          body: JSON.stringify({ email: email}),
+          body: JSON.stringify({ email: email }),
           headers: {
             "Content-Type": "Application/json",
           },
         }
       );
       let result = await response.json();
-     
-      console.log(result.user.email);
-      return result.user.email;
+      console.log('>>>>>' + result.verified)
+      return result.verified;
     } catch (error) {
       console.error;
     }
   };
 
-  const verifieldPassword = async (password) => {
+  const verifieldPassword = async (email,password) => {
     try {
       let response = await fetch(
-        "http://localhost:3030/api/auth/verify-email",
+        "http://localhost:3030/api/auth/verify-password",
         {
           method: "POST",
-          body: JSON.stringify({password: password }),
+          body: JSON.stringify({email : await verifieldEmail(email), password: password}),
           headers: {
             "Content-Type": "Application/json",
           },
         }
       );
       let result = await response.json();
-      
-      console.log(result.user);
-      return result.user;
+      console.log('>>>>>' + result.verifica)
+      return result.verifica;
     } catch (error) {
       console.error;
     }
   };
 
   email.addEventListener("blur", async function () {
-    console.log(await verifieldEmail(email.value));
+    console.log(await verifieldEmail(this.value));
     switch (true) {
       case !this.value:
         emailErrores.innerText = "El campo email es obligatorio";
@@ -79,7 +79,7 @@ window.addEventListener("load", () => {
         email.style.border = "solid 1px red";
         password.style.border = "solid 1px red";
         break;
-      case (await verifieldEmail(this.value)) != this.value:
+      case await verifieldEmail(this.value):
         formularioError.innerText = "Credenciales Invalidas";
         email.style.border = "solid 1px red";
         password.style.border = "solid 1px red";
@@ -88,24 +88,26 @@ window.addEventListener("load", () => {
         email.classList.remove("registro__email__container-inValid");
         email.style.border = "solid 1px black";
         password.style.border = "solid 1px black";
-        formularioError.innerText = "";
+        formularioError.innerText = "  ";
     }
   });
 
   password.addEventListener("blur", async function () {
-    console.log(await verifieldPassword(password.value));
+    email = document.getElementById("registro-main-form-email").value
+    password = document.getElementById("registro-main-form-password").value
+    console.log(await verifieldPassword(email.nodeValue, password.nodeValue))
     switch (true) {
       case !this.value:
         passwordErrores.innerText = "No puedes dejar el campo vacio";
         password.classList.add("registro__email__container-inValid");
 
         break;
-      case (await verifieldPassword(this.value)) != this.value:
+      case await verifieldPassword(email.nodeValue,password.nodeValue) : 
         formularioError.innerText = "Credenciales Invalidas";
         break;
       default:
         password.classList.remove("registro__email__container-inValid");
-        formularioError.innerText = "";
+        formularioError.innerText = "  ";
     }
   });
 

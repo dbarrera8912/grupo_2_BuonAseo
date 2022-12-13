@@ -18,7 +18,6 @@ export const ComponentProduct = () => {
         });
       })
       .catch(() => console.error);
-       // eslint-disable-next-line
     }, []);
   return (
     
@@ -28,7 +27,7 @@ export const ComponentProduct = () => {
       ) : products.data.length > 0 ? (
         <div className='d-flex flex-wrap justify-content-between' style={{ gap: "10px" }}>
           {products.data.map((product, index) => (
-            <Product {...product} key={product.name + index} />
+            <Product {...product} key={product.id + index} />
             
           )
           )}
