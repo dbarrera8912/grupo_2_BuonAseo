@@ -1,3 +1,5 @@
+//const { stringify } = require("querystring");
+
 let form = document.querySelector("#formCrearEditarProducto") ?? null;
 let nombre = document.querySelector("#formProducto_name") ?? null;
 let image = document.querySelector("#formProducto_image") ?? null;
@@ -25,17 +27,17 @@ const validField = (element, target) => {
 nombre.addEventListener("blur", function ({ target }) {
     switch (true) {
       case !this.value.trim():
-        msgError("errorNombre", "El nombre es obligatorio", target);
+        msgError("errorName", "El nombre es obligatorio", target);
         break;
       case this.value.trim().length < 5 || this.value.trim().length > 100:
         msgError(
-          "errorNombre",
+          "errorName",
           "El nombre debe tener entre 5 y  100 caracteres",
           target
         );
         break;
       default:
-        validField("errorNombre", target);
+        validField("errorName", target);
         break;
     }
 });
@@ -234,15 +236,23 @@ form.addEventListener("submit", function (e) {
    success = true
     const elements = this.elements;
       for (let i = 0; i < elements.length - 1; i++) {
+
           if((!elements[i].value.trim() || elements[i].classList.contains('is-invalid')) && elements[i].getAttribute("type") != "reset"){
-                console.log(elements[i]);
-                document.querySelector("#errorForm").innerHTML = 'El formulario no se ha llenado correctamente!';
+            let name = elements[i].getAttribute("name");
+            name = name.charAt(0).toUpperCase()+ name.slice(1);
+            let label = elements[i].parentNode.querySelector("label");
+            console.log(label.textContent);
+            console.log(name);
+            console.log("--------");
+                msgError(`error${name}`, `El ${label.textContent} es obligatorio`, elements[i]);
                 success = false;
           }
       }
-      console.log(success)
+
       if(success == true){
-        form.submit();
+        //form.submit();
+      }else{
+        document.querySelector("#errorForm").innerHTML = 'El formulario no se ha llenado correctamente!';
       }
 
   });
