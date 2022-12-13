@@ -141,8 +141,7 @@ y pasamos por defecto null a las que se cambiaran en update*/
           email
         },
       });
-      
-      
+    
       return res.status(200).json({
         ok: true,
         verified: user ? true : false,
@@ -181,46 +180,29 @@ y pasamos por defecto null a las que se cambiaran en update*/
       });
     }
   },
-  verifyEmailAndPassword: async (req,res) => {
-   
+  verifyPassword: async (req,res) => {
     try {
-    const { email, password} = req.body;
-
-  
-/* si pasa la validacion buscamos el usuario por email */
+      const {email} = await req.body;
       
       let user = await db.User.findOne({
         where: {
-          email
+         email
         },
       });
 
-console.log(">>>>>>>>>>>>>>>>>>" + user)
+      let pass = compareSync(req.body.password, user.password)
       
-switch (user) {
-  case !compareSync(password, user.password):
-  user = false
-    break;
-case  !email || !password :
-  user = false
-break;
-  default:
-    user = true
-    break;
-}
+      
       return res.status(200).json({
         ok: true,
-        status: 200,
-        user,
+        verifica: pass ? true : false,
       });
-    } catch (error) { // atrapamos los errores que vengan de las validaciones y los retornamos
+    } catch (error) {
       let errors = sendSequelizeError(error);
       return res.status(error.status || 500).json({
         ok: false,
         errors,
       });
     }
-  }
 
-
-}
+}}
