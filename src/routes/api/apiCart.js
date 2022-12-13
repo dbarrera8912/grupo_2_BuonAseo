@@ -1,6 +1,6 @@
 
 
-const {addCart } = require('../../controllers/Api/apiCartController');
+const {addCart,list} = require('../../controllers/Api/apiCartController');
 
 const router = require('express').Router();
 
@@ -9,6 +9,7 @@ const router = require('express').Router();
 
 router
     .post('/',  addCart)
+    .get('/',  list)
 
 
 module.exports = router
