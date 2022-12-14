@@ -23,13 +23,10 @@ module.exports = {
             
             //Buscar un producto en el carrito DB que coincida con el que quiere agregar.
             let item = false;
-            console.log("-----------------")
-            console.log(req.session.userLogged.cartOrder.items);
-            console.log("-----------------")
 
             if(req.session.userLogged.cartOrder.items.length > 0){
                 console.log(id);
-                item = req.session.userLogged.cartOrder.items.find(item => item.product.id === +id);
+                item = req.session.userLogged.cartOrder.items.find(item => item.productId === +id);
             }
             //Si ya existe el producto en el carrito
             if(item) {
@@ -80,21 +77,13 @@ module.exports = {
                   }
                 ]
                });
-               cartItem = {
-                id:cartItem.dataValues.id,
-                quantity:cartItem.dataValues.quantity,
-                productId:cartItem.dataValues.product.dataValues.id,
+               req.session.userLogged.cartOrder = {
+                ...req.session.userLogged.cartOrder,
+                items : [
+                    ...req.session.userLogged.cartOrder.items,
+                    cartItem
+                ]
                }
-               //Agrega la nueva fila de carrito(nuevo producto) a la session
-
-               let cartNew = req.session.userLogged;
-                
-               
-               cartNew.cartOrder.items.push(cartItem);
-               //req.session.userLogged.cartOrder = cartNew;
-               req.session.userLogged = cartNew;
-               
-
             }
 
             req.session.save(()=>{
@@ -113,66 +102,44 @@ module.exports = {
             })
         }
     },
-    removeQuantity : async (req,res) => {
+    removeCart : async (req,res) => {
 
         try {
 
             const {id} = req.params;
 
-            let item = req.session.orderCart.items.find(item => item.product.id === +id);
+            let item = req.session.userLogged.cartOrder.items.find(item => item.id === +id);
 
-            if(item.quantity === 1){
-                await db.Cart.destroy({
+            if(item){
+                let borrar = await db.Carts.destroy({
                     where :{
                         id : item.id
                     }
                 });
+                const itemsModify = req.session.userLogged.cartOrder.items.filter(element => element.id !== +item.id)
 
-                const itemsModify = req.session.orderCart.items.filter(element => element.id !== +item.id)
-
-                req.session.orderCart = {
-                    ...req.session.orderCart,
-                    items : itemsModify
-                   }
-            }else{
-
-                await db.Cart.update(
-                    {
-                        quantity : item.quantity - 1
-                    },
-                    {
-                        where : {
-                            id : item.id
-                        }
-                    }
-                )
-
-                const itemsModify = req.session.orderCart.items.map(element => {
-                    if(element.id === item.id){
-                        element.quantity = element.quantity - 1;
-                        return element
-                    }
-
-                    return element
-                })
-
-                req.session.orderCart = {
-                    ...req.session.orderCart,
-                    items : itemsModify
-                   }
-
+            
+                req.session.userLogged.cartOrder = {
+                    ...req.session.userLogged.cartOrder,
+                    items : [
+                        itemsModify
+                    ]
+                }
             }
 
-            return res.status(201).json({
-                ok : true,
-                data : req.session.orderCart || null
+
+            req.session.save(()=>{
+                return res.status(201).json({
+                    ok : true,
+                })
             })
+            
             
         } catch (error) {
             console.log(error);
             return res.status(error.status || 500).json({
                 ok : false,
-                msg : error.message || ''
+                msg : error.message || 'Comunicate con buonaseo'
             })
         }
     },

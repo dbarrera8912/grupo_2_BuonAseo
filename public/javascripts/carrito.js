@@ -89,15 +89,23 @@ async function updateTotal(envio = 0){
     
 }
 
-function deleteCart(element){
+async function deleteCart(element){
     let id = element.parentNode.dataset.productId;
-    let cartProducts = JSON.parse(localStorage.getItem("cart"));
+    let response = await fetch('/api/carts');
+    let result = await response.json();
     let c = 0;
-    cartProducts.forEach((cart)=>{
+ 
+    result.data.items.forEach((cart)=>{
         if(cart.id == id){
-            cartProducts.splice(c,1);
-            localStorage.setItem("cart",JSON.stringify(cartProducts));
-            element.parentNode.remove();
+            fetch('/api/carts/' + id, {
+                method : 'DELETE'
+            })
+            .then((result)=>{return result.json()})
+            .then((data)=>{
+                if(data.ok == true){
+                    element.parentNode.remove();
+                }
+            })
         }
         c++;
     });
