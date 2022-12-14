@@ -6,7 +6,7 @@ module.exports = {
 
             return res.status(200).json({
                 ok: true,
-                data : req.session.orderCart || null
+                data : req.session.userLogged.cartOrder || null
             })
             
         } catch (error) {
@@ -20,14 +20,16 @@ module.exports = {
     addCart : async (req,res) => {
         try {
             const {id} = req.body;
-
+            
             //Buscar un producto en el carrito DB que coincida con el que quiere agregar.
             let item = false;
+            console.log("-----------------")
+            console.log(req.session.userLogged.cartOrder.items);
+            console.log("-----------------")
 
-            
             if(req.session.userLogged.cartOrder.items.length > 0){
+                console.log(id);
                 item = req.session.userLogged.cartOrder.items.find(item => item.product.id === +id);
-                
             }
             //Si ya existe el producto en el carrito
             if(item) {
@@ -91,14 +93,16 @@ module.exports = {
                cartNew.cartOrder.items.push(cartItem);
                //req.session.userLogged.cartOrder = cartNew;
                req.session.userLogged = cartNew;
-               console.log(req.session.userLogged.cartOrder)
-
+               
 
             }
 
-            return res.status(201).json({
-                ok : true,
+            req.session.save(()=>{
+                return res.status(201).json({
+                    ok : true,
+                })
             })
+            
 
             
         } catch (error) {

@@ -20,7 +20,7 @@
               <article class="productCrear__email__container">
                 <label>Nombre del producto</label>
                 <input class="productCrear__email__texto <%= locals.errors && errors.name ? "registro__email__container-inValid" : null %>" value="<%= locals.old ? old.name : null %>" type="text" id="formProducto_name" name="name" minlength="5" maxlength="100" placeholder="Nombre">
-                <small id="errorNombre" style="color: red;"><%= locals.errors && errors.name && errors.name.msg %> </small>
+                <small id="errorName" style="color: red;"><%= locals.errors && errors.name && errors.name.msg %> </small>
               </article>
               
               <article class="productCrear__email__container">
@@ -31,7 +31,8 @@
                     <option value="<%= category.dataValues.id %>" <%= locals.old && old.category && category.dataValues.name === old.category ? 'selected' : null %>><%= category.dataValues.name %></option>
                   <% }) %>         
                 </select>
-                <small></small>
+                <small id="errorCategory" style="color: red;"> </small>
+
               </article>
               <article class="productCrear__email__container">
                 <label>Codigo Id</label>

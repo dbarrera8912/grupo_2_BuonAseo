@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { fetchWithoutToken } from "../../hooks/useFetch";
 import {CategoryCard} from "./CategoryCard";
-import {CategoryPagination} from "./CategoryPagination";
+
 import { useLocation } from 'react-router-dom';
 import  "./Category.css";
 export default function ComponentCategory() {
@@ -20,9 +20,23 @@ const [category, setCategory] = useState({
   paginas:0,
   data: [],
 });
+const [page, setPage] = useState(1);
+const handleChangePageRest = (button) => {
+    setPage(page - 1)
+  }
 
+  const handleChangePageSum = () => {
+    setPage(page + 1)
+  }
+
+  const handleChangePage = (number) => {
+    console.log(number);
+    let page = number
+    setPage(page)
+}
   useEffect(() => {
-    fetchWithoutToken(`/categories/listCount?pagina=${location}`)
+    console.log(page);
+    fetchWithoutToken(`/categories/listCount?pagina=${page}`)
       .then(({ data ,meta }) => {
         console.log(data)
         paginas = Math.ceil(meta.count / 6); 
@@ -35,7 +49,7 @@ const [category, setCategory] = useState({
         });
       })
       .catch(() => console.error);
-  }, []);
+  }, [page]);
   
   return (
     <div className='col-md-10 col-12'>
@@ -46,14 +60,16 @@ const [category, setCategory] = useState({
           <nav aria-label="..." className='mx-auto'>
             <ul className="pagination">
               <li className="page-item">
-                <a href={`?page=${previousPage}`} className="page-link azulFuerte">Previous</a>
+                <a onClick={()=>handleChangePageRest((page - 1))} className="page-link azulFuerte">Previous</a>
               </li>
               {category.paginas.map((index) => (
-                <CategoryPagination index={index} active={location}/>
+                <li className={`page-item ${((index + 1) === page) && "active"}`}>
+                    <a key={(index+1)} className="page-link" onClick={()=>handleChangePage((index+1))}>{(index+1)}</a>
+                </li>
               ))}
               
               <li className="page-item ">
-                <a href={`?page=${nextPage}`} className="page-link azulFuerte">Next</a>
+                <a  onClick={()=>handleChangePageSum((page + 1))}  className="page-link azulFuerte">Next</a>
               </li>
             </ul>
           </nav>

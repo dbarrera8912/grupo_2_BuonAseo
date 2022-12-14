@@ -26,12 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     quantity : DataTypes.INTEGER,
     cartOrderId: DataTypes.INTEGER,
     productId: DataTypes.INTEGER,
-    createdAt: {
-      type:DataTypes.DATEONLY,
-      get() {
-        return moment(this.getDataValue('createdAt')).format('DD/MM/YYYY');
-      }
-    }
+    
   }, {
     sequelize,
     modelName: 'Carts',

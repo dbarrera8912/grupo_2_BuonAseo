@@ -13,10 +13,24 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       cartOrderId:{
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references : {
+          model : {
+            tableName : 'Cart_orders'
+          },
+          key : 'id'
+        },
+        onDelete : 'cascade'
       },
       productId:{
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references : {
+          model : {
+            tableName : 'Products'
+          },
+          key : 'id'
+        },
+        onDelete : 'cascade'
       },
       createdAt: {
         allowNull: false,

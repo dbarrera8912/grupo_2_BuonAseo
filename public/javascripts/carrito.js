@@ -25,7 +25,7 @@ async function addToCart(){
         if(result.ok){
             Swal.fire(
                 'Se agrego al carrito!',
-                productos.data.product.name,
+                result.data.product.name,
                 'success'
             );
         }
@@ -34,17 +34,19 @@ async function addToCart(){
     }
 }
 
-let carrito = document.querySelector("#carrito") ?? "";
+let carrito = document.querySelector("#carrito");
 //Si esta en el carrito hace lo siguiente
-if (carrito != "") {
+async function cargarCarrito(){
+    
     let sectionParaCopiar = carrito.querySelector(".carrito__primer__producto");
     //Traemos todos productos del localstorage
-    let cartProducts = JSON.parse(localStorage.getItem("cart")) ?? null;
+    let response = await fetch('/api/carts');
+    let result = await response.json();
     //Si localstorage vacio, muestra "no hay productos"
-    (cartProducts == null) ? productosView.innerHTML = "no hay productos en el carrito" :
-
+    (result == null) ? productosView.innerHTML = "no hay productos en el carrito" :
+    console.log(result);
     //Si hay producto/s
-    cartProducts.forEach((cart)=>{
+    result.data.items.forEach((cart)=>{
         //En el carrito hay una seccion que es solo para copiar y que esta display:none
         //La usamos para clonarla y tener el mismo HTML para cada producto.
         let sectionPrimer = sectionParaCopiar.cloneNode(true);
@@ -53,25 +55,32 @@ if (carrito != "") {
         //finalmente agregamos los datos provenientes del localstorage a la visual X cada producto.
         
         sectionPrimer.dataset.productId = cart.id;
-        sectionPrimer.querySelector(".carrito__producto__articulo").innerHTML = cart.name;
-        sectionPrimer.querySelector(".carrito__imagen__producto").src = cart.imgPath;
-        sectionPrimer.querySelector(".carrito__precio__numero").innerHTML = cart.price;
+        sectionPrimer.querySelector(".carrito__producto__articulo").innerHTML = cart.product.name;
+        sectionPrimer.querySelector(".carrito__imagen__producto").src = cart.product.image;
+        sectionPrimer.querySelector(".carrito__precio__numero").innerHTML = "$"+cart.product.price;
         sectionPrimer.querySelector(".carrito__cantidad__general input").value = cart.quantity;
         sectionPrimer.querySelector(".carrito__cantidad").innerHTML = cart.quantity;
-        sectionPrimer.querySelector(".carrito__subtotal__numero").innerHTML = (cart.quantity * cart.price);
+        sectionPrimer.querySelector(".carrito__subtotal__numero").innerHTML = (cart.quantity * cart.product.price);
         
         document.getElementById("carrito_localstorage").appendChild(sectionPrimer);
     });
     updateTotal();
 }
-function updateTotal(envio = 0){
+cargarCarrito();
+    
+
+
+    
+
+async function updateTotal(envio = 0){
     let subtotal = 0;
-    let cartProducts = JSON.parse(localStorage.getItem("cart")) ?? null;
+    let response = await fetch('/api/carts');
+    let result = await response.json();
     //Si localstorage vacio, muestra "no hay productos"
-    if(cartProducts != null){
+    if(result != null){
         //Si hay producto/s
-        cartProducts.forEach((cart)=>{
-            subtotal += (cart.quantity * cart.price);
+        result.data.items.forEach((cart)=>{
+            subtotal += (cart.quantity * cart.product.price);
         });
     }
     
