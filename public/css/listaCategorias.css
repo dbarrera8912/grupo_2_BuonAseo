@@ -19,3 +19,26 @@
     padding: 10px;
 
 }
+
+
+.categorias-boton-eliminar{
+    width: 115px;
+    height: 35px;
+    position: relative;
+    color:white;
+    font-size: 16px;
+    font-weight: 400;
+    background: linear-gradient(to right,rgb(5, 109, 179),rgb(6, 167, 241));
+    transition: all 0.3s;
+}
+
+
+
+.categorias-boton-eliminar:hover{
+    background: linear-gradient(to right,rgb(6, 167, 241 ), rgb(5, 109, 179));
+    transition: all 0.3s;
+}
+
+.categorias-boton-eliminar{
+    background: linear-gradient(to right,rgb(5, 84, 136),rgb(7, 139, 201)) !important;
+}

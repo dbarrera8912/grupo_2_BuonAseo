@@ -48,15 +48,15 @@
                     </td>
                     <td class="td_lista_texto">
                         <p class="carrito__subtotal">EDITAR:</p>
-                        <p class="carrito__producto__desktop"><a href="/categories/editarCategoria/<%=id %>"><button>EDITAR</button></a></p>
+                        <p class="carrito__producto__desktop"><a href="/categories/editarCategoria/<%=id %>"><button class="categorias-boton-eliminar">EDITAR</button></a></p>
 					</td>
 					<td>   
 						<% if (status === 1) { %>
 						<p class="carrito__subtotal">ELIMINAR:</p>
-                        <p class="carrito__producto__desktop"><button name="id" value="<%= id %>" type="submit" form="eliminarCategoria">ELIMINAR</button></p>
+                        <p class="carrito__producto__desktop"><button class="categorias-boton-eliminar" name="id" value="<%= id %>" type="submit" form="eliminarCategoria">ELIMINAR</button></p>
 						<% } else { %>
 						<p class="carrito__subtotal">HABILITAR:</p>
-                        <p class="carrito__producto__desktop"><button name="id" value="<%= id %>" type="submit" form="habilitarCategoria">HABILITAR</button></p>
+                        <p class="carrito__producto__desktop"><button class="categorias-boton-eliminar" name="id" value="<%= id %>" type="submit" form="habilitarCategoria">HABILITAR</button></p>
 						<% } %>
                     	
 					</td>
