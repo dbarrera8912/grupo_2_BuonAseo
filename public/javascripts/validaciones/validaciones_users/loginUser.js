@@ -14,7 +14,7 @@ window.addEventListener("load", () => {
   );
 
   const exRegex = {
-    exRegexAlfa: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/,
+    exRegexAlfa: /^[a-zA-Z]*$/,
     exRegexEmail: /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/,
     exRegexPass:
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,12}/,
