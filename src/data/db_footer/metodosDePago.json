@@ -49,33 +49,5 @@
          "Acreditación instantánea."
       ],
       "fecha": "16/8/2022 21:17:32"
-   },
-   {
-      "id": 4,
-      "icono": "fa-brands fa-amilia",
-      "titulo": "sdfsdf",
-      "letraAbajoTitulo": "dfgdffds",
-      "img": [
-         "metodo-1661632442293.png"
-      ],
-      "letraFullAbajo": "",
-      "letraAbajoDeImagen": [
-         ""
-      ],
-      "fecha": "27/8/2022 17:32:35"
-   },
-   {
-      "id": 5,
-      "icono": "rayado",
-      "titulo": "retropectiva",
-      "letraAbajoTitulo": "TAVENCIDO",
-      "img": [
-         "metodo-1670035335780.png"
-      ],
-      "letraFullAbajo": "",
-      "letraAbajoDeImagen": [
-         ""
-      ],
-      "fecha": "2/12/2022 23:17:16"
    }
 ]
