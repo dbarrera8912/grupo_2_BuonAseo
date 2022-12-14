@@ -36,15 +36,15 @@ module.exports = {
             // la cantidad de productos por categorias [    5,      2,      7,      3]
             // + el nombre de la categoria          ["lavandina","jabon","trapos","escobas"]
             //Vienen separados y los juntamos en el for creando un nuevo array. categorias
-            let categorias = [];
+                let categorias = [];
             for (let index = 0; index < count.length; index++) {
                 let objeto = {count:count[index].count,categoria:rows[index].category.dataValues.name}
                 categorias.push(objeto);//Empuja un elemento nuevo al array
             }
             let next = parseInt(page) + 1;
             let previous = parseInt(page) - 1;
-            previous_path = "http://localhost/api/products/?page="+ previous;
-            next_path = "http://localhost/api/products/?page="+ next;
+            previous_path = "http://localhost:3030/api/products/?page="+ previous;
+            next_path = "http://localhost:3030/api/products/?page="+ next;
             if(previous == 0){
                 previous_path = "404 not found";
             }

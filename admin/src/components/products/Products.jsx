@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 
-export const Product = ({ id, name, category, idCode, avatarURL, dimensions, price, volume, smell, quantity, stock, type, description, discount }) => {
+export const Product = ({ id, name, idCode, avatarURL, dimensions, price, volume, smell, quantity, stock, type, description, discount }) => {
     const [show, setShow] = useState(false);
     
     const handleClose = () => setShow(false);
@@ -43,7 +43,6 @@ export const Product = ({ id, name, category, idCode, avatarURL, dimensions, pri
                                 <li className="list-group-item border-info"><b>Descripcion:</b> {description ? description : "-"}</li>
                                 <li className="list-group-item border-info"><b>Tipo:</b> {type ? type : "-"}</li>
                                 <li className="list-group-item border-info"><b>Cantidad:</b> {quantity ? quantity : "-"}</li>
-                                <li className="list-group-item border-info"><b>Categoria:</b> {category ? category : "-"}</li>
                                 <li className="list-group-item border-info"><b>Volumen:</b> {volume ? volume : "-"}</li>
                                 <li className="list-group-item border-info"><b>Aroma:</b> {smell ? smell : "-"}</li>
                                 <li className="list-group-item border-info"><b>Stock:</b> {stock ? stock : "-"}</li>
