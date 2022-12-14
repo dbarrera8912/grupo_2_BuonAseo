@@ -1,6 +1,6 @@
 
 
-const { signIn, signUp, verifyEmail, verifyPassword, verifyName, verifyEmailAndPassword } = require('../../controllers/Api/apiAuthController');
+const { signIn, signUp, verifyEmail, verifyPassword, verifyName } = require('../../controllers/Api/apiAuthController');
 
 const router = require('express').Router();
 const authLogin = require('../../validators/api/loginAuth')
@@ -13,7 +13,7 @@ router
     .post('/signin', authLogin, signIn)
     .post('/signup',authRegister,signUp)
     .post('/verify-email', verifyEmail)
-    .post('/verify-passAndEmail', verifyEmailAndPassword)
+    .post('/verify-password', verifyPassword)
     .post('/verify-name', verifyName)
 
 module.exports = router
