@@ -25,13 +25,14 @@
               
               <article class="productCrear__email__container">
                 <label>Categoría</label>
-                <select class="productCrear__email__texto" value="" type="" id="category" name="category" placeholder="categoria">
+                <select class="productCrear__email__texto" value="" type="" id="formProducto_category" name="category" placeholder="categoria">
                   <option value="" selected hidden>Seleccione...</option>
                   <% categorias.forEach(categoria => { %>
                     <option value="<%= categoria.dataValues.id %>" <%= categoria.dataValues.id === productToEdit.id_category ? 'selected' : null %>><%= categoria.dataValues.name %></option>
                   <% }) %>           
                 </select>
-                <small></small>
+                <small id="errorCategory" style="color: red;"> </small>
+
               </article>
               <article class="productCrear__email__container">
                 <label>Codigo Id</label>
