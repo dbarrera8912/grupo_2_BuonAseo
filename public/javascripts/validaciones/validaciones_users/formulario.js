@@ -55,23 +55,6 @@ window.addEventListener("load", () => {
     }
   };
 
-  const verifieldName = async (name) => {
-    try {
-      console.log(name);
-      let response = await fetch("/api/auth/verify-name", {
-        method: "POST",
-        body: JSON.stringify({ name: name }),
-        headers: {
-          "Content-Type": "Application/json",
-        },
-      });
-      let result = await response.json();
-      return result.verified;
-    } catch (error) {
-      console.error;
-    }
-  };
-
   name.addEventListener("blur", async function () {
     switch (true) {
       case !this.value.trim():
@@ -86,11 +69,6 @@ window.addEventListener("load", () => {
         nameErrores.innerText = "Solo caracteres alfabeticos";
         name.classList.add("registro__email__container-inValid");
         break;
-      case await verifieldName(this.value):
-        nameErrores.innerText = "El nombre ya se encuentra registrado";
-        name.classList.add("registro__email__container-inValid");
-        break;
-
       default:
         nameErrores.innerText = " ";
         name.classList.remove("registro__email__container-inValid");

@@ -248,12 +248,12 @@ width: 100%;
 
 /* BOTON REGISTRARSE */
 .registro__email__botonRegistro{
-    width: 115px;
-    height: 35px;
+    width: 80px;
+    height: 30px;
     position: relative;
     margin-top: 10px;
     color:white;
-    font-size: 16px;
+    font-size: 10px;
     font-weight: 400;
     background: linear-gradient(to right,rgb(5, 109, 179),rgb(6, 167, 241));
     transition: all 0.3s;
@@ -309,10 +309,6 @@ width: 100%;
         flex-flow: wrap row;
         align-items: flex-start;
         margin-top: -182.5px;
-    }
-
-    .registro__email form{
-margin-top: 9px;
     }
 
     /* REGISTRO REDES */
@@ -400,6 +396,11 @@ margin-top: 9px;
         margin-left: 45px;
     }
     
+    
+.registro__cuenta__ingresar{
+    font-size: 0.8rem;
+    margin-bottom: -3px;
+}
 
     .login-detail__article__containerBotonIngreso{
         display: flex;
@@ -499,6 +500,12 @@ margin-top: 9px;
     .registro__email__container img{
         width: 28px;
     }
+
+    .registro__cuenta__ingresar{
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    
 
     /* BOTON REGISTRARSE */
     .registro__email__botonRegistro{

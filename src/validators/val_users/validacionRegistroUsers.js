@@ -10,17 +10,7 @@ module.exports = [
             min: 2
         }).withMessage('Mínimo 2 caracteres').bail()
         .isAlpha('es-ES').withMessage('Solo caracteres alfabéticos').bail()
-        .custom( async (value, { req }) => {
-            return db.User.findOne({
-                where : {
-                    name : value
-                }
-              }).then( user => {
-                    if(user) {
-                        return Promise.reject()
-                    }
-              }).catch( () => Promise.reject('El nombre ya existe. Por favor, selecciona otro.'))
-        }),
+        ,
     body('email')
         .notEmpty().withMessage('El email es obligatorio').bail()
         .isEmail().withMessage('Debe ser un email válido').bail()
