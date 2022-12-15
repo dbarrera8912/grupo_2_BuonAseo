@@ -104,11 +104,12 @@ password-visible
 .registro__redes__botonFB, .registro__redes__botonGoogle{
     border: 1px rgb(80, 151, 245) solid;
     border-radius: 10px;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     color: white;
     background-color: rgb(80, 151, 245);
     width: 100%;
     height: 28px;
+    text-indent: 8px;
 }
 .registro__redes__botonGoogle{
     border: 1px red solid;
