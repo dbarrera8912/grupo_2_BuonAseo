@@ -42,6 +42,8 @@ window.addEventListener("load", () => {
   };
 
   email.addEventListener("blur", async function () {
+    let emailValue = document.getElementById("registro-main-form-email").value
+    let passwordValue = document.getElementById("registro-main-form-password").value
     switch (true) {
       case !this.value:
         emailErrores.innerText = "El campo email es obligatorio";
@@ -49,6 +51,11 @@ window.addEventListener("load", () => {
         email.style.border = "solid 1px red";
         password.style.border = "solid 1px red";
         break;
+        case await verifieldPassword(emailValue, passwordValue) == false:
+          formularioError.innerText = "Credenciales Invalidas";
+          email.style.border = "solid 1px red";
+          password.style.border = "solid 1px red";
+          break;
       case !exRegex.exRegexEmail.test(this.value):
         emailErrores.innerText = "Debes completar el campo correctamente";
         email.classList.add("registro__email__container-inValid");
@@ -60,6 +67,7 @@ window.addEventListener("load", () => {
         email.style.border = "solid 1px black";
         password.style.border = "solid 1px black";
         emailErrores.innerText = "";
+        formularioError.innerText = "";
         break;
     }
   });
@@ -71,12 +79,18 @@ window.addEventListener("load", () => {
       case !this.value:
         passwordErrores.innerText = "No puedes dejar el campo vacio";
         password.classList.add("registro__email__container-inValid");
+        email.style.border = "solid 1px red";
+        password.style.border = "solid 1px red";
         break;
       case await verifieldPassword(emailValue, passwordValue) === false:
         formularioError.innerText = "Credenciales Invalidas";
+        email.style.border = "solid 1px red";
+        password.style.border = "solid 1px red";
         break;
       default:
         password.classList.remove("registro__email__container-inValid");
+        email.style.border = "solid 1px black";
+        password.style.border = "solid 1px black";
         formularioError.innerText = "";
         passwordErrores.innerText = "";
         break;
