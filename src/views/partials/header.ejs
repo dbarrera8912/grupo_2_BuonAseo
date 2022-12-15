@@ -3,9 +3,9 @@
       <article class="header_section_logo">
         <a href="/"><img src="/img/logoFinal.png" alt="logo" /></a>
       </article>
-      <form class="header_section_input" action="/search" method="get">
-        <input type="text" placeholder="Que producto busca?" name="keywords" />
-        <button class="header_section_input_span"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <form class="header_section_input" action="/search" method="get" id="header_formSearchProducts" onclick="formSearchProducts()">
+        <input onclick="formSearchProducts()" id="header_inputSearchProducts" type="text" placeholder="Que producto busca?" name="keywords" />
+        <button onclick="formSearchProducts()" class="header_section_input_span"><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
       <% if (locals.userLogged) { %>
         <ul class="header_section_user_car">
