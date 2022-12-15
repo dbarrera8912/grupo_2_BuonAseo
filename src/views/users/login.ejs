@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
   <%- include('../partials/head', {title: 'Login'}) %>
 
 <body class="registro">
@@ -20,11 +20,11 @@
        
           <article class="registro__redes__containerFB">
           <button class="registro__redes__botonFB">Continuar con <b>Facebook</b></button>
-          <img src="/img/login-register/imgFacebook.png" alt="facebook">
+          <small><i class="fa-brands fa-facebook"></i></small>
         </article>
         <article class="registro__redes__containerGoogle">
           <button class="registro__redes__botonGoogle" >Continuar con <b>Google</b></button>
-          <img src="/img/login-register/imgGoogle.png" alt="Google">
+          <small><i class="fa-brands fa-google"></i></small>
         </article>
 
       <form action="/users/facebookLogin" id="facebook-login" method="POST">
@@ -110,8 +110,8 @@
           <h6 class="registro__cuenta__texto-cuenta">¿Es nuevo en Buon Aseo?</h6>
       </div> 
           <div class="login-detail__cuenta-div2">
-            <button class="registro__cuenta__ingresar-boton"><a href="password-lost" class="registro__cuenta__ingresar">AYUDA</a></button> 
-          <button class="registro__cuenta__ingresar-boton"><a class="registro__cuenta__ingresar" href="formulario"> REGISTRARSE</a></button>
+            <a href="password-lost" class="registro__cuenta__ingresar">Ayuda</a> 
+          <a class="registro__cuenta__ingresar" href="formulario"> Registrarse</a>
         </div>
         
       </article>
