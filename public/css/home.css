@@ -403,3 +403,8 @@ text-align: center;
   }
 
 }
+@media (min-width: 1910px) {
+  #home_imagen_carusel{
+    height: 800px;
+  }
+}

@@ -2,6 +2,7 @@
 
 let form = document.querySelector("#formCrearEditarProducto") ?? null;
 let nombre = document.querySelector("#formProducto_name") ?? null;
+let category = document.querySelector("#formProducto_category") ?? null;
 let image = document.querySelector("#formProducto_image") ?? null;
 let idCode = document.querySelector("#formProducto_idCode") ?? null;
 let smell = document.querySelector("#formProducto_smell") ?? null;
@@ -15,6 +16,7 @@ let type = document.querySelector("#formProducto_type") ?? null;
 let description = document.querySelector("#formProducto_description") ?? null;
 let pattern = /([0-9])+/;
 const msgError = (element, msg, target) => {
+
     document.getElementById(element).innerHTML = msg;
     target.classList.add("is-invalid");
 };
@@ -40,6 +42,17 @@ nombre.addEventListener("blur", function ({ target }) {
         validField("errorName", target);
         break;
     }
+});
+category.addEventListener("blur", function ({ target }) {
+  opcion = target.options[target.selectedIndex].value;
+  switch (true) {
+    case opcion == "":
+      msgError("errorCategory", "Debe seleccionar una categoria", target);
+      break;
+    default:
+      validField("errorCategory", target);
+      break;
+  }
 });
 idCode.addEventListener("blur", function ({ target }) {
     switch (true) {
@@ -236,21 +249,26 @@ form.addEventListener("submit", function (e) {
    success = true
     const elements = this.elements;
       for (let i = 0; i < elements.length - 1; i++) {
-
-          if((!elements[i].value.trim() || elements[i].classList.contains('is-invalid')) && elements[i].getAttribute("type") != "reset"){
+          if(elements[i].getAttribute("name") == "category"){
+            //obtiene option seleccionada
+            let categoria = elements[i].options[elements[i].selectedIndex].value;
+            //Ninguna categoria seleccionada
+            if(categoria == ""){
+              msgError(`errorCategory`, `Debe seleccionar una categoria`, elements[i]);
+              success = false;
+            }
+          }
+          else if((!elements[i].value.trim() || elements[i].classList.contains('is-invalid')) && elements[i].getAttribute("type") != "reset"){
             let name = elements[i].getAttribute("name");
             name = name.charAt(0).toUpperCase()+ name.slice(1);
             let label = elements[i].parentNode.querySelector("label");
-            console.log(label.textContent);
-            console.log(name);
-            console.log("--------");
                 msgError(`error${name}`, `El ${label.textContent} es obligatorio`, elements[i]);
                 success = false;
           }
       }
 
       if(success == true){
-        //form.submit();
+        form.submit();
       }else{
         document.querySelector("#errorForm").innerHTML = 'El formulario no se ha llenado correctamente!';
       }
