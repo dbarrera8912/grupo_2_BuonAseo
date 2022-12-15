@@ -140,6 +140,11 @@ module.exports = {
                 [Op.substring]: keywords,
               },
             },
+            {
+              smell: {
+                [Op.substring]: keywords,
+              },
+            },
           ],
         },
         include: ["category"],
