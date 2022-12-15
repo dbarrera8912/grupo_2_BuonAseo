@@ -399,7 +399,7 @@ width: 100%;
     
 .registro__cuenta__ingresar{
     font-size: 0.8rem;
-    margin-bottom: -3px;
+    margin-bottom: -5px;
 }
 
     .login-detail__article__containerBotonIngreso{
@@ -571,7 +571,15 @@ width: 100%;
     
     }
 }
-   
+
+
+@media (min-width: 1024px){
+.registro__cuenta__ingresar{
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    margin-left: 6px;
+}
+}
 
 
 

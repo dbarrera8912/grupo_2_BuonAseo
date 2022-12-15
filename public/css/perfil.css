@@ -24,7 +24,7 @@
     font-size: 1.5rem;
     position: relative;
     top: -25px;
-    right: 30px;
+    right: -10px;
     margin-left: 12.3rem;
     color: var(--negro);
     font-weight: 600;
@@ -54,7 +54,7 @@
 .perfil-container{
     background-color: var(--blanco);
     border-radius: 10px;
-    width: 60%;
+    width: 90%;
 }
 
 .perfil-main-formulario {
@@ -256,7 +256,7 @@ margin-bottom: 15px;
 
         .perfil-main-salida{
             font-size: 2rem;
-            margin-left: 28rem;
+            margin-left: 36rem;
         }
         .perfil-main-formulario {
             
@@ -324,9 +324,8 @@ margin-bottom: 15px;
 
         .perfil-main-salida{
             font-size: 3rem;
-            position: absolute;
             top: -20px;
-            right: 20px;
+            right: -100px;
         }
 
         .perfil-main-input{
@@ -339,7 +338,7 @@ margin-bottom: 15px;
         }
 
         .perfil-main-input2{
-            height: 25px;
+            height: 40px;
             margin: auto;
             /* line-height: 30px; */
             width: 95%;
@@ -376,5 +375,17 @@ margin-bottom: 15px;
             width: 50px;
             height: 50px;
             object-fit: cover
+        }
+    }
+
+    @media (min-width: 1330px){
+        .perfil-main-salida{
+            right: -250px;
+        }
+    }
+
+    @media (min-width: 1900px){
+        .perfil-main-salida{
+            right: -250px;
         }
     }
