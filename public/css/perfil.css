@@ -73,6 +73,34 @@ width: 100%;
     width: 100%;
 }
 
+.password-visible1{
+    position: absolute;
+    right: 50px;
+    top: 339px;
+}
+.password-visible1 .fas.active{
+    display: block;
+}
+.password-visible1 .fas{
+    display: none;
+    color: var(--negro);
+    font-size: 15px;
+}
+
+.password-visible2{
+    position: absolute;
+    right: 50px;
+    top: 378px;
+}
+.password-visible2 .fas.active{
+    display: block;
+}
+.password-visible2 .fas{
+    display: none;
+    color: var(--negro);
+    font-size: 15px;
+}
+
 
 .perfil-main-caja--input-label{
     width: 100%;
@@ -311,6 +339,29 @@ margin-bottom: 15px;
             flex-direction: column;
             gap: 5px;
         }
+
+        .password-visible1{
+            position: absolute;
+            right: 418px;
+            top: 425px;
+            font-size: 18px;
+        }
+        
+        .password-visible1 .fas{
+            font-size: 18px;
+        }
+        
+        .password-visible2{
+            position: absolute;
+            right: 418px;
+            top: 475px;
+            font-size: 18px;
+        }
+        
+        .password-visible2 .fas{
+           
+            font-size: 18px;
+        }
     }
 
     @media (min-width: 1024px){
@@ -376,16 +427,83 @@ margin-bottom: 15px;
             height: 50px;
             object-fit: cover
         }
+        .password-visible1{
+            position: absolute;
+            right: 552px;
+            top: 448px;
+            font-size: 20px;
+        }
+        
+        .password-visible1 .fas{
+            font-size: 20px;
+        }
+        
+        .password-visible2{
+            position: absolute;
+            right: 552px;
+            top: 491px;
+            font-size: 20px;
+        }
+        
+        .password-visible2 .fas{
+           
+            font-size: 20px;
+        }
+
     }
 
     @media (min-width: 1330px){
         .perfil-main-salida{
             right: -250px;
         }
+        .password-visible1{
+            position: absolute;
+            right: 712px;
+            top: 447px;
+            font-size: 25px;
+        }
+        
+        .password-visible1 .fas{
+            font-size: 25px;
+        }
+        
+        .password-visible2{
+            position: absolute;
+            right: 712px;
+            top: 491px;
+            font-size: 25px;
+        }
+        
+        .password-visible2 .fas{
+           
+            font-size: 25px;
+        }
     }
 
     @media (min-width: 1900px){
         .perfil-main-salida{
-            right: -250px;
+            right: -490px;
+        }
+        .password-visible1{
+           
+            right: 1006px;
+          
+            font-size: 25px;
+        }
+        
+        .password-visible1 .fas{
+            font-size: 25px;
+        }
+        
+        .password-visible2{
+           
+            right: 1006px;
+           
+            font-size: 25px;
+        }
+        
+        .password-visible2 .fas{
+           
+            font-size: 25px;
         }
     }
