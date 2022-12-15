@@ -1,93 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <%- include('../partials/head', {title: 'Carrito'}) %>
+<%- include('../partials/head', {title: 'Carrito' }) %>
 
-<body>
-  <%- include('../partials/header') %>
-  <!-- CARRITO -->
-  <main class="carrito" id="carrito">
-    <div class="carrito__section">
-      <section class="carrito__caja__titulo">
-        <h1 class="carrito__titulo">Carro</h1>
-        <hr class="carrito__primer__linia__espacio">
-      </section>
-      <div class="carrito__section__paraescritorio">
-        <section class="carrito__titulo__paraescritorio"> 
-          <p class="carrito__producto__desktop">Producto</p>
-          <p class="carrito__precio__desktop">Precio</p>
-          <p class="carrito__cantidad__desktop">Cantidad</p>
-          <p class="carrito__subtotal__desktop">Subtotal</p>
-        </section>
-      <div id="carrito_localstorage">
+  <body>
+    <%- include('../partials/header') %>
+      <!-- CARRITO -->
+      <main class="carrito" id="carrito">
+        <div class="carrito__section">
+          <section class="carrito__caja__titulo">
+            <h1 class="carrito__titulo">Carro</h1>
+            <hr class="carrito__primer__linia__espacio">
+          </section>
+          <div class="carrito__section__paraescritorio">
+            <section class="carrito__titulo__paraescritorio">
+              <p class="carrito__producto__desktop">Producto</p>
+              <p class="carrito__precio__desktop">Precio</p>
+              <p class="carrito__cantidad__desktop">Cantidad</p>
+              <p class="carrito__subtotal__desktop">Subtotal</p>
+            </section>
+            <p id="carrito_mensajeAvisoNohayProducts"></p>
+            <div id="carrito_localstorage">
 
-      </div>
-  <!-- No borrar LO USA EL JS -->
-      <section class="carrito__primer__producto" style="display:none;" data-product-id="">
-        <figure class="carrito__boton__imagen" onclick="deleteCart(this)">x</figure>
-        <article class="carrito__primer__imagen">
-          <img class="carrito__imagen__producto" src="../../../img/fotos-productos/detergentes/detergente-imagen-2.png" alt="" />
-        </article>
-        <!-- CARRITO DESCRIPCION-->
-        <article class=" carrito__producto__general">
-          <p class="carrito__producto">Producto</p>
-          <p class="carrito__producto__articulo"></p>
-        </article>
-        <article class="carrito__precio__general">
-          <p class="carrito__precio">Precio</p>
-          <p class="carrito__precio__numero"></p>
-        </article>
-        <article class="carrito__cantidad__general">
-          <p class="carrito__cantidad">Cantidad</p>
-          <input class="carrito__cantidad__boton" onchange="quantityCart(this)" type="number" min="0" placeholder="">
-        </article>
-        <article class="carrito__subtotal__general">
-          <p class="carrito__subtotal">Subtotal</p>
-          <p class="carrito__subtotal__numero"></p>
-        </article>
-      </section>
-  <!-- FIN DE --No borrar LO USA EL JS -->
+            </div>
+            <!-- No borrar LO USA EL JS -->
+            <section class="carrito__primer__producto" style="display:none;" data-product-id="">
+              <figure class="carrito__boton__imagen" onclick="deleteCart(this)">x</figure>
+              <article class="carrito__primer__imagen">
+                <img class="carrito__imagen__producto"
+                  src="../../../img/fotos-productos/detergentes/detergente-imagen-2.png" alt="" />
+              </article>
+              <!-- CARRITO DESCRIPCION-->
+              <article class=" carrito__producto__general">
+                <p class="carrito__producto">Producto</p>
+                <p class="carrito__producto__articulo"></p>
+              </article>
+              <article class="carrito__precio__general">
+                <p class="carrito__precio">Precio</p>
+                <p class="carrito__precio__numero"></p>
+              </article>
+              <article class="carrito__cantidad__general">
+                <p class="carrito__cantidad">Cantidad</p>
+                <input class="carrito__cantidad__boton" onchange="quantityCart(this)" type="number" min="0"
+                  placeholder="">
+              </article>
+              <article class="carrito__subtotal__general">
+                <p class="carrito__subtotal">Subtotal</p>
+                <p class="carrito__subtotal__numero"></p>
+              </article>
+            </section>
+            <!-- FIN DE --No borrar LO USA EL JS -->
 
-      <!-- CARRITO SEGUNDA IMAGEN-->
+            <!-- CARRITO SEGUNDA IMAGEN-->
 
-      <section class="carrito__pie__pagina">
-        <article class="carrito__caja__escribe">
-          <input class="carrito__escribe__aqui" value="" type="texto" id="texto" name="texto"
-            placeholder="Escibe aqui">
-          <button class="carrito__boton__cupon">APLICAR CUPON</button>
-        </article>
-        <button class="carrito__boton__actualizar__carrito">ACTUALIZAR CARRITO</button>
-      </section> 
-    </div>
-      <section class="carrito__caja__total__productos">
-        <h2 class="carrito__total__carrito">Total del carrito</h2>
-        <article class="carrito__caja__subtotal">
-        <p class="carrito__subtotal__envio">subtotal</p>
-        <p class="carrito__corresponde__subtotal">0</p>
-      </article>
-      <article class="carrito__caja__envio">
-        <div>
-          <p class="carrito__envio">Envío</p>
-          
-          <select name="shippingPrice" id="shippingPrice" onchange="calcularEnvio(this)">
-            <option value="-1">Elija una opcion</option>
-            <% ShippingPrice.forEach(element => { %>
-             <option value="<%= element.price %>"><%= element.province %></option>
-            <% }) %>
-          </select>
+            <section class="carrito__pie__pagina">
+              <article class="carrito__caja__escribe">
+                <input class="carrito__escribe__aqui" value="" type="texto" id="texto" name="texto"
+                  placeholder="Escibe aqui">
+                <button class="carrito__boton__cupon">APLICAR CUPON</button>
+              </article>
+              <button class="carrito__boton__actualizar__carrito">ACTUALIZAR CARRITO</button>
+            </section>
+          </div>
+          <section class="carrito__caja__total__productos">
+            <h2 class="carrito__total__carrito">Total del carrito</h2>
+            <article class="carrito__caja__subtotal">
+              <p class="carrito__subtotal__envio">subtotal</p>
+              <p class="carrito__corresponde__subtotal">0</p>
+            </article>
+            <article class="carrito__caja__envio">
+              <div>
+                <p class="carrito__envio">Envío</p>
+
+                <select name="shippingPrice" id="shippingPrice" onchange="calcularEnvio(this)">
+                  <option value="-1">Elija una opcion</option>
+                  <% ShippingPrice.forEach(element=> { %>
+                    <option value="<%= element.price %>">
+                      <%= element.province %>
+                    </option>
+                    <% }) %>
+                </select>
+              </div>
+              <p id="carrito__precio__envio">$0</p>
+            </article>
+            <article class="carrito__caja__total">
+              <p class="carrito__total">Total</p>
+              <p class="carrito__numero__total">0</p>
+            </article>
+            <button class="carrito__finalizar">FINALIZAR COMPRA</button>
+          </section>
         </div>
-          <p id="carrito__precio__envio">$0</p>
-      </article>
-        <article class="carrito__caja__total">
-        <p class="carrito__total">Total</p>
-        <p class="carrito__numero__total">0</p>
-      </article>
-        <button class="carrito__finalizar">FINALIZAR COMPRA</button>
-      </section>
-    </div>
-  </main>
-  <!-- FOOTER-->
-  <%- include('../partials/footer') %>
-</body>
+      </main>
+      <!-- FOOTER-->
+      <%- include('../partials/footer') %>
+  </body>
 
 </html>
