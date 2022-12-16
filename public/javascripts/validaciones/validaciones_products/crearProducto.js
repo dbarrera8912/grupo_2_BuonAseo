@@ -269,8 +269,6 @@ form.addEventListener("submit", function (e) {
 
       if(success == true){
         form.submit();
-      }else{
-        document.querySelector("#errorForm").innerHTML = 'El formulario no se ha llenado correctamente!';
       }
 
   });
