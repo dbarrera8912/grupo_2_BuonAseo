@@ -52,10 +52,8 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
 }
 .registro__logo-y-titulo__logo2{
     margin-top: 20px;
-
     width: 70px;
     height: 70px;
-
     border: none;
     border-radius: 50%;
 }
@@ -76,10 +74,6 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
 
     padding-top: 10px;
 }
-
-password-visible
-                     
-
 
 /* REGISTRO REDES */
 .registro__redes{
@@ -214,11 +208,6 @@ password-visible
 
 /* BOTON LOGIN */
 
-.login-detail__cuenta{
-width: 100%;
-
-}
-
 .login-detail__article__containerBotonIngreso > .registro__email__botonRegistro{
     width: 70px;
     height: 30px;
@@ -227,23 +216,34 @@ width: 100%;
 }
 
 
+.login-detail__cuenta{
+width: 100%;
+display: flex;
+flex-direction: column;
+margin-top: 10px;
+gap: 10px;
+}
+
 .login-detail__cuenta-div1{
-    width: 100%;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    text-align: center;
-    justify-content: space-around;
+    gap: 21px;
 }
 
 .login-detail__cuenta-div2{
-    width: 100%;
     display: flex;
     flex-direction: row;
-   justify-content: space-around;
-    text-align: center;
+    gap: 10px;
 }
-
+.login-detail__cuenta-botonRegistro{
+    width: 63px;
+    height: 28px;
+    color:white;
+    font-size: 10px;
+    font-weight: 400;
+    background: linear-gradient(to right,rgb(5, 109, 179),rgb(6, 167, 241));
+    transition: all 0.3s;
+}
 
 
 
@@ -254,6 +254,7 @@ width: 100%;
     height: 30px;
     position: relative;
     margin-top: 10px;
+    margin-bottom: 10px;
     color:white;
     font-size: 10px;
     font-weight: 400;
@@ -261,7 +262,18 @@ width: 100%;
     transition: all 0.3s;
 }
 
-
+.registro__email__botonRegistro2{
+    width: 80px;
+    height: 30px;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color:white;
+    font-size: 10px;
+    font-weight: 400;
+    background: linear-gradient(to right,rgb(5, 109, 179),rgb(6, 167, 241));
+    transition: all 0.3s;
+}
 
 
 
@@ -388,6 +400,12 @@ width: 100%;
        justify-content: flex-start;
        align-items: center;
         width: 90%;
+        gap: 10px;
+    }
+
+    .registro__logo-y-titulo__logo2{
+        width: 100px;
+        height: 100px;
     }
 
     .registro__cuenta__ingresar-boton{
@@ -432,10 +450,40 @@ width: 100%;
     /* REGISTRARSE */
   
     .registro__cuenta__texto-cuenta{
-        font-size: 12px;
-        width: 59%;
+        font-size: 13px;
+        width: 66%;
     }
-    
+
+    .login-detail__cuenta{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        gap: 10px;
+        }
+        
+        .login-detail__cuenta-div1{
+            display: flex;
+            flex-direction: row;
+            gap: 21px;
+        }
+        
+        .login-detail__cuenta-div2{
+            display: flex;
+            flex-direction: row;
+            gap: 21px;
+        }
+        .login-detail__cuenta-botonRegistro{
+            width: 77px;
+            height: 30px;
+            color:white;
+            font-size: 10px;
+            font-weight: 400;
+            background: linear-gradient(to right,rgb(5, 109, 179),rgb(6, 167, 241));
+            transition: all 0.3s;
+        }
+        
+}
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* MEDIA | DESKTOP 1024px */
@@ -484,6 +532,11 @@ width: 100%;
         width: 1px;
     }
 
+    .registro__logo-y-titulo__logo2{
+        width: 120px;
+        height: 120px;
+    }
+
     /* REGISTRO EMAIL */
     .registro__email{
         width: 45%;
@@ -503,10 +556,7 @@ width: 100%;
         width: 28px;
     }
 
-    .registro__cuenta__ingresar{
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-    }
+   
     
 
     /* BOTON REGISTRARSE */
@@ -533,7 +583,7 @@ width: 100%;
         margin: 5px;
         margin-left: 45px;
     }
-    
+   
 
     .registro__cuenta__texto-cuenta{
         font-size: 13px;
@@ -565,23 +615,44 @@ width: 100%;
     }
     
     /* REGISTRARSE */
+  /* REGISTRARSE */
   
-    .registro__cuenta__texto-cuenta{
-        font-size: 17px;
-        width: 59%;
+  .registro__cuenta__texto-cuenta{
+    font-size: 16px;
+    width: 70%;
+}
+
+.login-detail__cuenta{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 10px;
+    }
+    
+    .login-detail__cuenta-div1{
+        display: flex;
+        flex-direction: row;
+        gap: 21px;
+    }
+    
+    .login-detail__cuenta-div2{
+        display: flex;
+        flex-direction: row;
+        gap: 21px;
+    }
+    .login-detail__cuenta-botonRegistro{
+        width: 100px;
+        height: 35px;
+        color:white;
+        font-size: 15px;
+        font-weight: 400;
+        background: linear-gradient(to right,rgb(5, 109, 179),rgb(6, 167, 241));
+        transition: all 0.3s;
     }
     
     }
-}
 
-
-@media (min-width: 1024px){
-.registro__cuenta__ingresar{
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    margin-left: 6px;
-}
-}
 
 
 

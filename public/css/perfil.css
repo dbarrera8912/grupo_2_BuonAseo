@@ -452,13 +452,43 @@ margin-bottom: 15px;
 
     }
 
-    @media (min-width: 1330px){
+    @media (min-width: 1336px){
         .perfil-main-salida{
-            right: -250px;
+            left: 450px;
+        }
+        .password-visible1{
+            left: 810px;
+            top: 422px;
+            font-size: 25px;
+            position: relative;
+        }
+        
+        .password-visible1 .fas{
+            font-size: 25px;
+            position: absolute;
+        }
+        
+        .password-visible2{
+            left: 810px;
+            top: 470px;
+            font-size: 25px;
+            position: relative;
+        }
+        
+        .password-visible2 .fas{
+            font-size: 25px;
+            position: absolute;
+            
+        }
+    }
+
+    @media (min-width: 1440px){
+        .perfil-main-salida{
+            right: -290px;
         }
         .password-visible1{
             position: absolute;
-            right: 730px;
+            right: 770px;
             top: 445px;
             font-size: 25px;
         }
@@ -469,7 +499,7 @@ margin-bottom: 15px;
         
         .password-visible2{
             position: absolute;
-            right: 730px;
+            right: 770px;
             top: 488px;
             font-size: 25px;
         }
@@ -479,6 +509,7 @@ margin-bottom: 15px;
             font-size: 25px;
         }
     }
+
 
     @media (min-width: 1900px){
         .perfil-main-salida{
