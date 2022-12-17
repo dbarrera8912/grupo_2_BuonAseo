@@ -31,7 +31,19 @@
     font-family: var(primer__producto);
 
 }
-
+.carrito_vacio{
+    margin-top: 25px;
+}
+#carrito_mensajeAvisoNohayProducts{
+    padding: 15px 45px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    background-color:#1A79ED;
+    border-radius: 10px;
+    color: aliceblue;
+    font-size: 18px;
+    text-align: center;
+}
 
 .carrito__primer__linia__espacio {
     background-color: black;
