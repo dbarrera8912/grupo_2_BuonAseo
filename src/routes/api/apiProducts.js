@@ -1,6 +1,6 @@
 
 
-const { all, getOne, getImagen } = require('../../controllers/api/apiProductsController');
+const { all, getOne, getImagen ,allByCategory} = require('../../controllers/api/apiProductsController');
 
 const router = require('express').Router();
 
@@ -8,6 +8,7 @@ const router = require('express').Router();
 
 router
     .get('/',all)
+    .get('/allByCategory',allByCategory)
     .get('/detail/:id',getOne)
     .get('/img/fotos-productos/:nameFolder/:image',getImagen)
 

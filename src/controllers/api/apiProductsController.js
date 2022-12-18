@@ -67,6 +67,54 @@ module.exports = {
             });
         }
     },
+    allByCategory : async (req,res) => {
+        /* devuelve todos los productos */
+        try {
+            let {category} = req.query;
+            let {page = 1} = req.query;
+            let limit = 6;
+            
+            //La otra opcion2, es exclusivo para traer todos los productos
+            
+            let opcion2 = {
+                where:{id_category:category},
+                limit:limit,
+                offset: (page - 1)*limit,
+                include:[{association:"category"}],
+                attributes:{
+                    include: [
+                        [literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products',image)`), 'avatarURL'],
+                    ]
+                },
+                };
+            const {count:countByProducts,rows:products} = await db.Product.findAndCountAll(opcion2);
+            
+            
+            let next = parseInt(page) + 1;
+            let previous = parseInt(page) - 1;
+            previous_path = "http://localhost:3030/api/products/allByCategory?category="+category+"&page="+ previous;
+            next_path = "http://localhost:3030/api/products/allByCategory?category="+category+"&?page="+ next;
+            if(previous == 0){
+                previous_path = "404 not found";
+            }
+            return res.status(200).json({
+				ok : true,
+				meta : {
+					count : countByProducts,
+                    next: next_path,
+                    previous:previous_path,
+				},
+				data : products
+			})
+        } catch (error) {
+            //let errors = sendSequelizeError(error);
+
+            return res.status(error.status || 500).json({
+                ok: false,
+                error,
+            });
+        }
+    },
     getOne : async (req,res) => {
         /* devuelve solo un producto */
         try {
