@@ -15,49 +15,47 @@
                     <article class="detalle_main_article_img_principal">
                         <img class="detalle_main_article_img_principal_grande" src="<%= product.image %>"
                             alt="imagen del producto">
-                        <div class="detalle_main_article_img_secundaria_mobile">
+                        <!--<div class="detalle_main_article_img_secundaria_mobile">
                             <img src="<%= product.image %>" alt="imagen del producto">
                             <img src="<%= product.image %>" alt="imagen del producto">
                             <img src="<%= product.image %>" alt="imagen del producto">
-                        </div>
+                        </div>-->
                     </article>
                     <article class="detalle_main_article_nombre">
                         <div>
                             <h1>
                                 <%= product.name %>
                             </h1>
-                            <p>$ <%= product.price %>
-                                    <p>
-                                    <p>Cantidad: <%= product.quantity %>
+                            <% if (product.discount > 0) { %>
+                                <p class="precio_sin_descuento">$<%= product.price %></p>
+                                <p class="precio">$<%= ((product.price)-(product.price * product.discount)/100) %></p>
+                            <% } else { %>
+                                <p>$<%= product.price %></p>
+                            <% } %>
+                             
+                            <p>Descuento: %<%= product.discount %></p>
+                                    <!--<p>Cantidad: <%= product.quantity %>
                                     </p>
                                     <div>
                                         <i class="fa-solid fa-truck"></i><span>Envio: $1.500</span>
-                                    </div>
-                                    <p>Descuento: %<%= product.discount %>
-                                    </p>
-                                    <p>TOTAL: $</p>
+                                    </div>-->
+                                    
+                                    <!--<p>TOTAL: $</p>-->
                         </div>
-                        <button class="detalle_main_article_boton_principal">
-                            <a href="">COMPRA AHORA</a>
-                        </button>
-                        <button class="detalle_main_article_boton_principal">
-                            <button  type="button" value="<%= product.id %>" class="addCartBtn">AGREGAR AL CARRITO</button>
-                        </button>
+                        
+                            <button class="detalle_main_article_boton_principal addCartBtn" type="button" value="<%= product.id %>">AGREGAR AL CARRITO</button>
                         <% if (locals.adminEntry) { %>
-                         <div class="detalle_main_article_boton_editar-eliminar">
-                            <a href="/products/editarProducto/<%= product.id %> "><button
-                                    class="detalle_mani_action-button-edit"> EDITAR PRODUCTO</button></a>
-                            <form action="/products/eliminarProducto/<%= product.id %>?_method=DELETE" method="POST"
-                                style="display: inline-flex">
-                                <button type="submit" class="detalle_mani_action-button-delete">ELIMINAR</button>
-                            </form>
-                        </div>
+                         
+                            <a href="/products/editarProducto/<%= product.id %> ">
+                                <button class="detalle_mani_action-button-edit"> EDITAR PRODUCTO</button></a>
+                            <button class="detalle_mani_action-button-delete" onClick="alert_eliminar(`<%= product.id %>`,'`<%= product.name %>`')">ELIMINAR</button>
+                        
                         <% } %>
                         
                     </article>
 
                 </section>
-                <section>
+                <!--<section>
                     <article class="detalle_main_article_img_secundaria_tablet">
                         <img src="<%= product.image %>" alt="imagen del producto">
                         <img src="<%= product.image %>" alt="imagen del producto">
@@ -67,7 +65,7 @@
                         <img src="<%= product.image %>" alt="imagen del producto">
                         <img src="<%= product.image %>" alt="imagen del producto">
                     </article>
-                </section>
+                </section>-->
                 <section class="detalle_main_section2">
                     <article class="detalle_main_article_caracteristica">
                         <div>
@@ -116,12 +114,14 @@
                     <article class="detalle_main_article_ofertas">
                         <h3>OFERTAS</h3>
                         <div class="grid">
-                            <div class="col"><img src="../../../img/fotos-productos/jabones/jabon-imagen-6.png"
-                                    alt="imagen del producto"></div>
-                            <div class="col"><img src="../../../img/fotos-productos/suavisantes/suavisante-imagen-6.png"
-                                    alt="imagen del producto"></div>
-                            <div class="col"><img src="../../../img/fotos-productos/detergentes/detergente-imagen-6.png"
-                                    alt="imagen del producto"></div>
+                            <% ofertasAleatorias.forEach(({id,name,price,image,discount}) => { %>
+                            <div class="col">
+                                <h4 ><%= name %></h4>
+                                <a href="/products/detail/<%= id %>">
+                                <img src="<%= image %>"
+                                    alt="imagen del producto"></a>
+                                </div>
+                            <% }) %>
                         </div>
                         <button>
                             <a href="ofertas">ver mas</a>
@@ -130,13 +130,14 @@
                     <article class="detalle_main_article_destacados">
                         <h3>DESTACADOS</h3>
                         <div class="grid">
-                            <div class="col"><img src="../../../img/fotos-productos/lavandinas/lavandina-imagen-6.png"
-                                    alt="imagen del producto"></div>
-                            <div class="col"><img
-                                    src="../../../img/fotos-productos/liquido-para-pisos/liquidoP-imagen-6.png"
-                                    alt="imagen del producto"></div>
-                            <div class="col"><img src="../../../img/fotos-productos/lavandinas/lavandina-imagen-5.png"
-                                    alt="imagen del producto"></div>
+                            <% destacadosAleatorios.forEach(({id,name,price,image,discount}) => { %>
+                                <div class="col">
+                                    <h4><%= name %></h4>
+                                    <a href="/products/detail/<%= id %>">
+                                    <img src="<%= image %>"
+                                        alt="imagen del producto"></a>
+                                    </div>
+                            <% }) %>
                         </div>
                         <button>
                             <a href="productosdestacados">ver mas</a>

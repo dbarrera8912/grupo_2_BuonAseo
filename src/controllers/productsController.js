@@ -1,8 +1,10 @@
 const { loadProducts, insertProduct, eliminarImg, loadCategorias} = require('../data/db_productos/dbModule');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const db = require("../database/models");
+const { Op, Sequelize} = require("sequelize");
 const { validationResult } = require("express-validator") /* Requerimos check de express-validador, body es lo mismo que check */
 const querystring = require('querystring');  
+const { ofertas } = require('./homeController');
 module.exports = { 
     products: (req, res) => {
 
@@ -123,18 +125,64 @@ module.exports = {
         }
     },
 
-    detalle: (req, res) => {
+    detalle: async (req, res) => {
         console.log(req.session);
         let product = db.Product.findOne({
 			include : ['category'],
             where:{id:req.params.id,status:1}
 		});
+        let productosEnOferta = await db.Product.findAll({
+            where: {
+              discount: {
+                [Op.gt]: 0,
+              },
+            },
+          });
+    
+        let productosDestacados = await db.Product.findAll({
+            order: [["createdAt", "ASC"]],
+          });
+        //randomizar un array de objetos
+        //cantidad tiene el indice maximo ej: 15
+        //el indice minimo es obviamente 0 
+        let maxOferta = productosEnOferta.length - 1;
+        let maxDestacados = productosDestacados.length - 1;
+        //va a guardar 3 numeros aleatorios , pero arranca vacio
+        let arrayOfertas = [];
+        let arrayDestacados = [];
+        
+        //While pasa tantas veces hasta que el arrayOfertas tenga 3 numeros        
+        while (arrayOfertas.length != 3) {
+            //Un numero aleatorio entre el minimo:0 y el maximo:15
+            let indiceAleatorio = Math.floor(Math.random() * (maxOferta - 0 + 1) + 0);
+            //                                  0.3423123  *    15
+            //Si no existe el numero aleatorio en el array, entonces lo agregamos
+            if(arrayOfertas.includes(indiceAleatorio) == false  && req.params.id != productosEnOferta[indiceAleatorio].dataValues.id){
+                arrayOfertas.push(indiceAleatorio);
+            }
+        }
+        while (arrayDestacados.length != 3) {
+            //Un numero aleatorio entre el minimo:0 y el maximo:15
+            let indiceAleatorio = Math.floor(Math.random() * (maxDestacados - 0 + 1) + 0);
+            //                                  0.3423123  *    15
+            //Si no existe el numero aleatorio en el array Y el productoAletorio es distinto al producto del detalle , entonces lo agregamos
+            if(arrayDestacados.includes(indiceAleatorio) == false && req.params.id != productosDestacados[indiceAleatorio].dataValues.id){
+                arrayDestacados.push(indiceAleatorio);
+            }
+        }
+        //termina el while, y tenemos 3 numeros aleatorios 
+
+        //Traeme los 3 indices aleatorios en forma de un nuevo array, usando filter
+        const ofertasAleatorias = productosEnOferta.filter((element,index) => arrayOfertas.includes(index)!= false);
+        const destacadosAleatorios = productosDestacados.filter((element,index) => arrayDestacados.includes(index) != false);
+
+
         let type = req.query.type ?? "";
         Promise.all([product])
         .then(
             function(product){
                 product = product[0];
-                res.render('./products/detalle', {product,toThousand,type})
+                res.render('./products/detalle', {product,toThousand,type,destacadosAleatorios,ofertasAleatorias})
             }
         )
         .catch(error => console.log(error))

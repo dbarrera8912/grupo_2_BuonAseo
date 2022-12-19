@@ -22,20 +22,24 @@ const [category, setCategory] = useState({
 });
 const [page, setPage] = useState(1);
 const handleChangePageRest = (button) => {
-    setPage(page - 1)
+    if(page > 1){
+      setPage(page - 1)
+    }
   }
 
   const handleChangePageSum = () => {
-    setPage(page + 1)
+
+    if(category.paginas[category.paginas.length -1] > (page - 1)){
+      setPage(page + 1)
+    }
   }
 
   const handleChangePage = (number) => {
-    console.log(number);
+
     let page = number
     setPage(page)
 }
   useEffect(() => {
-    console.log(page);
     fetchWithoutToken(`/categories/listCount?pagina=${page}`)
       .then(({ data ,meta }) => {
         console.log(data)
@@ -47,6 +51,8 @@ const handleChangePageRest = (button) => {
           loading: false,
           data: data,
         });
+        console.log(paginas);
+
       })
       .catch(() => console.error);
   }, [page]);

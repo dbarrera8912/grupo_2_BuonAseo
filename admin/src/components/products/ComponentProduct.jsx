@@ -1,14 +1,14 @@
 import React from 'react'
 import { useEffect } from "react";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import { fetchWithoutToken } from "../../hooks/useFetch";
 import { Product } from './Products';
 
 export const ComponentProduct = () => {
   const [page, setPage] = useState(1);
-
+  const { id } = useParams();
   const handleChangePageRest = (button) => {
-    console.log(button)
     products.previous && setPage(page - 1)
   }
 
@@ -31,7 +31,8 @@ export const ComponentProduct = () => {
   });
 
   useEffect(() => {
-    fetchWithoutToken(`/products?page=${page}&limit=6`)
+    let url = (id) ? `/products/allByCategory?category=${id}&page=${page}&limit=6` : `/products?page=${page}&limit=6`;
+    fetchWithoutToken(url)
       .then(({data, meta}) => {
         // eslint-disable-next-line
         paginas = Math.ceil(meta.count / 6);
