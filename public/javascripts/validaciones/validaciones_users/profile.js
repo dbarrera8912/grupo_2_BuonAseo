@@ -94,7 +94,7 @@ window.addEventListener("load", () => {
           "Contrasenia es invalida, debe contener una mayuscula, una minuscula, un numero, un simbolo y debe tener entre 6 y 8 caracteres";
         break;
       default:
-        passwordErrores.innerText = "  ";
+        passwordErrores.innerText = "";
         break;
     }
   });
@@ -106,7 +106,7 @@ window.addEventListener("load", () => {
         break;
       default:
         password.value;
-        password2Errores.innerText = "  ";
+        password2Errores.innerText = "";
         break;
     }
   });
@@ -150,7 +150,6 @@ window.addEventListener("load", () => {
     }
 
     if (
-      !elements[1].value.trim() ||
       elements[1].classList.contains("registro__email__container-inValid")
     ) {
       elements[1].classList.add("registro__email__container-inValid");
