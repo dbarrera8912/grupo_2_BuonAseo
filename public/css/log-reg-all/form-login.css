@@ -52,11 +52,19 @@ Un ordenador portátil o desktop de alta resolución: 1920 x 1080 */
 }
 .registro__logo-y-titulo__logo2{
     margin-top: 20px;
-    width: 70px;
+    width: 150px;
     height: 70px;
+    border: none;
+}
+
+.registro__logo-y-titulo__logo3{
+    margin-top: 20px;
+    width: 45px;
+    height: 45px;
     border: none;
     border-radius: 50%;
 }
+
 .registro__logo-y-titulo__salida{
     position: absolute;
     top: 12px;
@@ -404,8 +412,13 @@ gap: 10px;
     }
 
     .registro__logo-y-titulo__logo2{
-        width: 100px;
+        width: 200px;
         height: 100px;
+    }
+
+    .registro__logo-y-titulo__logo3{
+        width: 70px;
+        height: 70px;
     }
 
     .registro__cuenta__ingresar-boton{
@@ -533,9 +546,15 @@ gap: 10px;
     }
 
     .registro__logo-y-titulo__logo2{
-        width: 120px;
-        height: 120px;
+        width: 300px;
+        height: 150px;
     }
+
+    .registro__logo-y-titulo__logo3{
+        width: 100px;
+        height: 100px;
+    }
+
 
     /* REGISTRO EMAIL */
     .registro__email{
