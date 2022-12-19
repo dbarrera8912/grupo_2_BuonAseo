@@ -19,7 +19,7 @@
               <p class="carrito__cantidad__desktop">Cantidad</p>
               <p class="carrito__subtotal__desktop">Subtotal</p>
             </section>
-            <p id="carrito_mensajeAvisoNohayProducts"></p>
+       
             <div id="carrito_localstorage">
 
             </div>
@@ -53,14 +53,15 @@
 
             <!-- CARRITO SEGUNDA IMAGEN-->
 
-            <section class="carrito__pie__pagina">
+            <!--<section class="carrito__pie__pagina">
               <article class="carrito__caja__escribe">
                 <input class="carrito__escribe__aqui" value="" type="texto" id="texto" name="texto"
                   placeholder="Escibe aqui">
                 <button class="carrito__boton__cupon">APLICAR CUPON</button>
               </article>
               <button class="carrito__boton__actualizar__carrito">ACTUALIZAR CARRITO</button>
-            </section>
+            </section>-->
+            <button class="carrito__boton__actualizar__carrito">ACTUALIZAR CARRITO</button>
           </div>
           <section class="carrito__caja__total__productos">
             <h2 class="carrito__total__carrito">Total del carrito</h2>
@@ -87,7 +88,7 @@
               <p class="carrito__total">Total</p>
               <p class="carrito__numero__total">0</p>
             </article>
-            <button class="carrito__finalizar">FINALIZAR COMPRA</button>
+            <button class="carrito__finalizar" type="button" onclick="finalizar_compra()">FINALIZAR COMPRA</button>
           </section>
         </div>
       </main>

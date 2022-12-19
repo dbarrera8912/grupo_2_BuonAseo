@@ -1,5 +1,5 @@
 //1. addCartBtn es el boton de agregar al carrito
-let addCartBtn = document.querySelector(".addCartBtn") ?? null;
+let addCartBtn = document.querySelector(".detalle_main_article_boton_principal") ?? null;
 (addCartBtn != null) //2.si existe
     ?
     addCartBtn.addEventListener("click", () => { addToCart(this) })//3. capturar el evento y agregar al carrito
@@ -49,17 +49,21 @@ async function addToCart() {
 }
 
 let carrito = document.querySelector("#carrito") ?? "";
-let avisoNohayProducts = carrito.querySelector("#carrito_mensajeAvisoNohayProducts");
+let avisoNohayProducts = document.querySelector("#carrito_mensajeAvisoNohayProducts") ?? "";
 //Si esta en el carrito hace lo siguiente
 if (carrito != "") {
     let sectionParaCopiar = carrito.querySelector(".carrito__primer__producto");
     
     //Traemos todos productos del localstorage
     let cartProducts = JSON.parse(localStorage.getItem("cart")) ?? null;
-    
+    if(cartProducts == null || cartProducts.length == 0){
+        document.querySelector(".carrito__section").style.display = "none";
+        let vacio = '<h2 class="carrito_vacio">Carrito</h2><p id="carrito_mensajeAvisoNohayProducts">No hay productos.</p>';
+        document.querySelector("#carrito").innerHTML += vacio;
+    }
     //Si localstorage vacio, muestra "no hay productos"
     
-    (cartProducts.length == 0) ? avisoNohayProducts.innerHTML = '<p id="carrito_mensajeAvisoNohayProducts" style="padding: 20px; margin: 20px; background-color:#1A79ED; border-radius: 10px; color: aliceblue; font-size: 18px; text-align: center;">No hay productos en el carrito</p>'
+    (cartProducts.length == 0) ? ""
         :
         //Si hay producto/s
         cartProducts.forEach((cart) => {
@@ -111,7 +115,7 @@ function deleteCart(element) {
         c++;
     });
 
-    cartProducts.length === 0 && (avisoNohayProducts.innerHTML = '<p id="carrito_mensajeAvisoNohayProducts" style="padding: 20px; margin: 20px; background-color:#1A79ED; border-radius: 10px; color: aliceblue; font-size: 18px; text-align: center;">No hay productos en el carrito</p>')
+    cartProducts.length === 0
     updateTotal();
 }
 function quantityCart(element) {
@@ -135,4 +139,17 @@ function calcularEnvio(element) {
         document.querySelector("#carrito__precio__envio").textContent = "$" + precio;
         updateTotal(precio);
     }
+}
+function finalizar_compra(){
+    
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Compra finalizada con exito!",
+        showConfirmButton: false,
+        timer: 2400,
+      });
+      setTimeout(()=>{
+        window.location.href = "http://localhost:3030/"
+    },3000)
 }

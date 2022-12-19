@@ -210,39 +210,8 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* MEDIA || TABLET 768px */
 /*~~~~~~~~~~~~~~~~~~~~~~~~*/
-@media (min-width: 768px){   
-    /* productCrear EMAIL */
-    .productCrear__email__texto{
-        height: 32px;
-    }
 
-    .productCrear__logo-y-titulo__titulo{
-        font-size: 2rem;
-        margin-left: 20%;
-    }
-
-    .productCrear__logo-y-titulo__salida{
-        top: 12px;
-        right: 55px;
-        font-size: 2rem;
-     }
-
-     .productCrear__logo-y-titulo__logo2{
-        width: 100px;
-        height: 100px;
-      
-    }
-
-    .productCrear__email__botonregistro{
-        width: 130px;
-        height: 40px;
-    }
-}
-
-/*~~~~~~~~~~~~~~~~~~~~~~~~*/
-/* MEDIA | DESKTOP 1024px */
-/*~~~~~~~~~~~~~~~~~~~~~~~~*/
-@media (min-width: 1024px){
+@media (min-width: 768px){
   
     .productCrear__email form{
         width: 100%;
