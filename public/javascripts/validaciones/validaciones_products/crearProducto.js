@@ -258,12 +258,12 @@ form.addEventListener("submit", function (e) {
               success = false;
             }
           }
-          else if((!elements[i].value.trim() || elements[i].classList.contains('is-invalid')) && elements[i].getAttribute("type") != "reset"){
+          else if((!elements[i].value.trim() || elements[i].classList.contains('is-invalid')) && elements[i].getAttribute("type") != "reset" && !elements[i].classList.contains("editarImagen")){
             let name = elements[i].getAttribute("name");
             name = name.charAt(0).toUpperCase()+ name.slice(1);
             let label = elements[i].parentNode.querySelector("label");
-                msgError(`error${name}`, `El ${label.textContent} es obligatorio`, elements[i]);
-                success = false;
+            msgError(`error${name}`, `El ${label.textContent} es obligatorio`, elements[i]);
+            success = false;
           }
       }
 
