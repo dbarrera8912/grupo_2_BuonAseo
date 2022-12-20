@@ -8,7 +8,7 @@
     <!-- LOGO, TITULO Y SALIDA -->
     <section class="registro__logo-y-titulo">
       <nav class="registro__logo-y-titulo__logo">
-        <a href="/"><img class="registro__logo-y-titulo__logo2" src="/img/Logo.png" alt="logo pagina"></a>
+        <a href="/"><img class="registro__logo-y-titulo__logo3" src="/img/Logo.png" alt="logo pagina"></a>
       </nav>
       <a class="registro__logo-y-titulo__salida" href="/"><i class="fa-regular fa-circle-xmark"></i></a>
       <h2 class="registro__logo-y-titulo__titulo">Ingresar</h2>
@@ -18,34 +18,9 @@
       <h4 class="registro__redes__titulo">Con su red favorita</h4>
       <article class="registro__redes__containerFB">
        
-          <article class="registro__redes__containerFB">
-          <button class="registro__redes__botonFB">Continuar con <b>Facebook</b></button>
-          <small><i class="fa-brands fa-facebook"></i></small>
-        </article>
-        <article class="registro__redes__containerGoogle">
-          <button class="registro__redes__botonGoogle" >Continuar con <b>Google</b></button>
-          <small><i class="fa-brands fa-google"></i></small>
-        </article>
+       
+        
 
-      <form action="/users/facebookLogin" id="facebook-login" method="POST">
-        <input type="hidden" name="facebookEmail" value="">
-      </form>
-      <form action="/users/googleLogin" id="google-login" method="POST">
-        <input type="hidden" name="googleEmail" value="">
-      </form>
-
-
-      
-
-        <fb:login-button 
-        scope="public_profile,email"
-        data-size="large"
-        data-width="232"
-        data-layout="default"
-        onlogin="checkLoginState();">
-      </fb:login-button>
-
-      
       <article class="registro__redes__containerGoogle">
         <div id="g_id_onload"
           data-client_id="893438789002-ale6m7ln7e0ud8dm3tnt4gabs6hnsftv.apps.googleusercontent.com"
@@ -61,7 +36,21 @@
             data-shape="rectangular"
             data-logo_alignment="center">
         </div>
-      </article>
+
+            <!-- REGISTRARSE -->
+            
+              <article class="login-detail__cuenta">
+                <div class="login-detail__cuenta-div1">
+                  <h6 class="registro__cuenta__texto-cuenta">¿Perdió su contraseña?</h6>
+                <button class="login-detail__cuenta-botonRegistro"><a href="password-lost" class="registro__cuenta__ingresar">Ayuda</a></button> 
+                  
+              </div> 
+                  <div class="login-detail__cuenta-div2">
+                    <h6 class="registro__cuenta__texto-cuenta">¿Es nuevo en Buon Aseo?</h6>
+                  <button class="login-detail__cuenta-botonRegistro"><a class="registro__cuenta__ingresar" href="formulario"> Registrarse</a></button>
+                </div>
+              </article>
+           
     </section>
     <!-- LINEA -->
     <section class="registro__lineaVertical">
@@ -103,17 +92,6 @@
           <button class="registro__email__botonRegistro" id="registro-main-form-boton" type="submit">INGRESAR</button>
         </article>
       </form>
-      <!-- REGISTRARSE -->
-      <article class="login-detail__cuenta">
-        <div class="login-detail__cuenta-div1">
-          <h6 class="registro__cuenta__texto-cuenta">¿Perdió su contraseña?</h6>
-          <h6 class="registro__cuenta__texto-cuenta">¿Es nuevo en Buon Aseo?</h6>
-      </div> 
-          <div class="login-detail__cuenta-div2">
-            <a href="password-lost" class="registro__cuenta__ingresar">Ayuda</a> 
-          <a class="registro__cuenta__ingresar" href="formulario"> Registrarse</a>
-        </div>
-        
       </article>
     </section>
   </main>
