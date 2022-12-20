@@ -51,12 +51,12 @@
               </article>
               <article class="productCrear__email__container">
                 <label>Imagen</label>
-                <input class="productCrear__email__texto <%= locals.errors && errors.image ? "registro__email__container-inValid" : null %>" value="" type="file" id="formProducto_image" name="image"/>
+                <input class="editarImagen productCrear__email__texto <%= locals.errors && errors.image ? "registro__email__container-inValid" : null %>" value="" type="file" id="formProducto_image" name="image"/>
                 <small id="errorImage" style="color: red;"><%= locals.errors && errors.image && errors.image.msg %> </small>
               </article>
               <article class="productCrear__email__container">
                 <label for="">Previsualizacion de imagen</label>
-                <img src="/img/product-preview.png" class="imagePreview">
+                <img src="<%= productToEdit.image %>" class="imagePreview">
               </article>
             </section>
            <section class="productCrear__email_section2">
